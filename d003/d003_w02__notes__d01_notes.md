@@ -286,3 +286,33 @@ default:
     print("Enjoy your day!")
 }
 ```
+
+## :nine: [Range operators](https://www.hackingwithswift.com/sixty/3/9/range-operators)
+
+>Swift gives us two ways of making ranges: the `..<` and `...` operators. 
+>
+>The **half-open range operator**, `..<`, creates ranges up to but excluding the final value, and t~, `...`, creates ranges up to and including the final value.
+
+```swift
+let score = 85
+
+switch score {
+case 0..<50:
+    print("You failed badly.")
+case 50..<85:
+    print("You did OK.")
+default:
+    print("You did great!")
+}
+```
+
+## :arrow_right_hook: [Operators and conditions summary](https://www.hackingwithswift.com/sixty/3/10/operators-and-conditions-summary)
+
+>You’ve made it to the end of the third part of this series, so let’s summarize:
+>
+> 1) Swift has operators for doing arithmetic and for comparison; they mostly work like you already know.
+> 2) There are compound variants of arithmetic operators that modify their variables in place: +=, -=, and so on.
+> 3) You can use if, else, and else if to run code based on the result of a condition.
+> 4) Swift has a ternary operator that combines a check with true and false code blocks. Although you might see it in other code, I wouldn’t recommend using it yourself.
+> 5) If you have multiple conditions using the same value, it’s often clearer to use switch instead.
+> 6) You can make ranges using ..< and ... depending on whether the last number should be excluded or included.

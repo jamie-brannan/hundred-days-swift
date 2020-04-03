@@ -16,10 +16,11 @@ Days organized by folders containing
 
 ## :calendar: Schedule log
 
-| Challenge day | Calendar day |
-|---|---|
-| Day 01 | March 30 - 31 |
-| Day 02 | March 31 – April 1 |
+| Challenge day | Calendar day | Within goaltime?|
+|---|---|---|
+| Day 01 | March 30 - 31 | :x: |
+| Day 02 | March 31 – April 1 | :x: |
+| Day 03 | April 3 | :white_check_mark: |
 
 ## Acknowledgments
 * Hat tip to *France Télévisions* Mobile development guild
