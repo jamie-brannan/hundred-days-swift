@@ -21,6 +21,8 @@ Days organized by folders containing
 | Day 01 | March 30 - 31 | :x: |
 | Day 02 | March 31 – April 1 | :x: |
 | Day 03 | April 3 | :white_check_mark: |
+| Day 04 | April 6, 9 | :x: |
+| Day 05 | April 9 | :x: |
 
 ## Acknowledgments
 * Hat tip to *France Télévisions* Mobile development guild
