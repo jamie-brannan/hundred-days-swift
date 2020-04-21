@@ -23,6 +23,8 @@ Days organized by folders containing
 | Day 03 | April 3 | :white_check_mark: |
 | Day 04 | April 6, 9 | :x: |
 | Day 05 | April 9 | :white_check_mark: |
+| Day 06 | April 11 | :white_check_mark: |
+| Day 07 | April 14, 19, 21 | :x: |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and care out the time for boosting skills.
