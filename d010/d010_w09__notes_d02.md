@@ -220,3 +220,178 @@ print(david.sculptor)
 ```
 :white_check_mark: This creates two seperate instances. This creates two different statues, so it prints two different sculptors.
 
+
+## :six:  [Deinitializers](https://www.hackingwithswift.com/sixty/8/6/deinitializers) 
+
+>The fourth difference between classes and structs is that classes can have **deinitializers** – *code that gets run when an instance of a class is destroyed.*
+
+Or is it something that's to shut down something that's been initiated? Like an off switch, to destroy what was used and useful, but now goes in the "garbage" so to speak?
+
+:question: Is this what the famous "garbage collectors" that we talked about in Go?
+
+>To demonstrate this, here’s a `Person` class with a `name` property, a simple initializer, and a `printGreeting()` method that prints a message:
+
+```swift
+class Person {
+    var name = "John Doe"
+
+    init() {
+        print("\(name) is alive!")
+    }
+
+    func printGreeting() {
+        print("Hello, I'm \(name)")
+    }
+}
+```
+
+>We’re going to create a few instances of the `Person` class inside a loop, because each time the loop goes around a new person will be created then destroyed:
+
+```swift
+for _ in 1...3 {
+    let person = Person()
+    person.printGreeting()
+}
+```
+
+>And now for the deinitializer. This will be called when the `Person` instance is being destroyed:
+
+:warning: This must be placed within the class, just like the `init {}`
+
+```swift
+deinit {
+    print("\(name) is no more!")
+}
+```
+
+### :boom: Quiz insights
+
+```swift
+struct Olympics {
+	func deinit() {
+		print("And now for the closing ceremony.")
+	}
+}
+```
+
+:x: You don't use `func` or write parentheses after `deinit`.
+
+Also, `structs` may not have `deinit`
+
+## :seven:  [Mutability](https://www.hackingwithswift.com/sixty/8/7/mutability) 
+
+>The final **difference between** classes and structs is *the way they deal with constants.* 
+>
+>If you have a **constant struct with a variable property**, that property *can’t* be changed because *the `struct` itself is constant*.
+>
+>However, if you have **a constant class with a variable property**, that property *can* be changed. 
+>* Because of this, classes don’t need the `mutating` keyword with methods that change properties; that’s only needed with `structs`.
+>
+>This difference means you can change any variable property on a class *even when the class is created as a constant* – this is perfectly valid code:
+
+```swift
+class Singer {
+    var name = "Taylor Swift"
+}
+
+let taylor = Singer()
+taylor.name = "Ed Sheeran"
+print(taylor.name)
+```
+
+>*If you want to stop that* from happening you need to make the property constant:
+
+```swift
+class Singer {
+    let name = "Taylor Swift"
+}
+```
+
+### :boom: Quiz insights
+
+```swift
+class Pizza {
+	private var toppings = [String]()
+	func add(topping: String) {
+		toppings.append(topping)
+	}
+}
+var pizza = Pizza()
+pizza.add(topping: "Mushrooms")
+```
+
+:white_check_mark: Valid swift
+
+```swift
+class SewingMachine {
+	var itemsMade = 0
+	mutating func makeBag(count: Int) {
+		itemsMade += count
+	}
+}
+var machine = SewingMachine()
+machine.makeBag(count: 1)
+```
+:x: Cannot use `mutating` keyword with clases, only with `struct`
+
+```swift
+struct Piano {
+	var untunedKeys = 3
+    /// need to add the keyword `mutating` here
+	func tune() {
+		if untunedKeys > 0 {
+			untunedKeys -= 1
+		}
+	}
+}
+var piano = Piano()
+piano.tune()
+```
+:x: Oops – that's not correct. The tune() method attempts to modify the untunedKeys property, but it isn't marked as mutating.
+
+
+```swift
+struct Kindergarten {
+	var numberOfScreamingKids = 30
+	mutating func handOutIceCream() {
+		numberOfScreamingKids = 0
+	}
+}
+/// the instance is called as a constant, therefore cannot use `mutating func`
+let kindergarten = Kindergarten()
+kindergarten.handOutIceCream()
+```
+:x: Oops – that's not correct. This attempts to call a mutating method on a constant struct instance.
+
+```swift
+class Light {
+    /// this property would have to have been declared as a constant in order to be constant at all times in instances of all types
+	var onState = false
+	func toggle() {
+		if onState {
+			onState = false
+		} else {
+			onState = true
+		}
+		print("Click")
+	}
+}
+/// even if instance is a constant, classes can be modified
+let light = Light()
+light.toggle()
+```
+
+:white_check_mark: Correct! This code is valid Swift.
+
+
+## :arrow_right_hook: [Classes summary](https://www.hackingwithswift.com/sixty/8/8/classes-summary)
+
+>You’ve made it to the end of the eighth part of this series, so let’s summarize:
+>
+>1) Classes and structs are similar, in that they can both let you create your own types with properties and methods.
+>2) One class can inherit from another, and it gains all the properties and methods of the parent class. It’s common to talk about class hierarchies – one class based on another, which itself is based on another.
+>3) You can mark a class with the `final` keyword, which stops other classes from inheriting from it.
+>4) Method overriding lets a child class replace a method in its parent class with a new implementation.
+>5) When two variables point at the same class instance, they both point at the same piece of memory – changing one changes the other.
+>6) Classes can have a deinitializer, which is code that gets run when an instance of the class is destroyed.
+>7) Classes don’t enforce constants as strongly as structs – if a property is declared as a variable, it can be changed regardless of how the class instance was created.
