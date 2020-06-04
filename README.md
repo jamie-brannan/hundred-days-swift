@@ -30,7 +30,7 @@ Days organized by folders containing
 | Day 10 | April 30, May 14 | :x: |
 | Day 11 | May 14, 25 | :x: |
 | Day 12 | May 26, 27, 28 | :x: |
-| Day 13 | May 29 | ~ |
+| Day 13 | June 4 | :white_check_mark: |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to help us out.
