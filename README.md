@@ -32,7 +32,8 @@ Days organized by folders containing
 | Day 12 | May 26, 27, 28 | ~ |
 | Day 13 | June 4 | :white_check_mark: |
 | Day 14 | June 4, 5 | ~ |
-| Day 15 | June 5 | ~ |
+| Day 15 | June 5 | :white_check_mark: |
+| Day 16 | June 8 | :rocket: |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
