@@ -18,21 +18,21 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?|
 |---|---|---|
-| Day 01 | March 30 - 31 | :x: |
-| Day 02 | March 31 – April 1 | :x: |
+| Day 01 | March 30 - 31 | ~ |
+| Day 02 | March 31 – April 1 | ~ |
 | Day 03 | April 3 | :white_check_mark: |
-| Day 04 | April 6, 9 | :x: |
+| Day 04 | April 6, 9 | ~ |
 | Day 05 | April 9 | :white_check_mark: |
 | Day 06 | April 11 | :white_check_mark: |
-| Day 07 | April 14, 19, 21 | :x: |
-| Day 08 | April 21, 22, 23 | :x: |
-| Day 09 | April 23, 29, 30 | :x: |
-| Day 10 | April 30, May 14 | :x: |
-| Day 11 | May 14, 25 | :x: |
-| Day 12 | May 26, 27, 28 | :x: |
+| Day 07 | April 14, 19, 21 | ~ |
+| Day 08 | April 21, 22, 23 | ~ |
+| Day 09 | April 23, 29, 30 | ~ |
+| Day 10 | April 30, May 14 | ~ |
+| Day 11 | May 14, 25 | ~ |
+| Day 12 | May 26, 27, 28 | ~ |
 | Day 13 | June 4 | :white_check_mark: |
-| Day 14 | June 4, 5 | :x: |
-| Day 14 | June 5 | ~ |
+| Day 14 | June 4, 5 | ~ |
+| Day 15 | June 5 | ~ |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
