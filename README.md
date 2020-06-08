@@ -1,6 +1,7 @@
 # 100 Days of Swift Challenge :rocket:
 
 Here we go! This is the home of the efforts at taking on [Hacking Swift's 100 Days of Swift challenge](https://www.hackingwithswift.com/100)
+> Everything that is marked in comment (`.md` format `> text` or `/```swift/` blocks) is Paul Hudsons work I am taking notes on, and not my original thought unless otherwise indicated
 
 ## Study Structure
 
