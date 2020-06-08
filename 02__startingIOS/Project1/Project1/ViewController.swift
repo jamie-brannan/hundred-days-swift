@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
   var pictures = [String]()
 
@@ -31,5 +31,17 @@ class ViewController: UIViewController {
     print(pictures)
   }
 
+  /// the number of cells will be the number of items in `pictures`
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return pictures.count
+  }
+
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /// only cells on screen exist, so reuse what leave screen when scrolling
+    let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath)
+    /// if there's text, add it (but `optional` hence the `textLabel?` :)
+    cell.textLabel?.text = pictures[indexPath.row]
+    return cell
+  }
 }
 
