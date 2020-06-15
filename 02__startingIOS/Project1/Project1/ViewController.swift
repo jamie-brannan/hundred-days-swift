@@ -14,11 +14,18 @@ class ViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    /// A library var that we are renaming here
+    title = "Storm Viewer by Jamie"
+
+    /// Enable large titles across our app
+    navigationController?.navigationBar.prefersLargeTitles = true
+
     /// constant with datatype FileManager
     /// to examine the contents of a filesystem
     let fm = FileManager.default
+
     /// path of where our compiled program is
-    let path = Bundle.main.resourcePath!
+    let path =  Bundle.main.resourcePath!
     let items = try! fm.contentsOfDirectory(atPath: path)
 
     for item in items {
@@ -37,11 +44,21 @@ class ViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    /// only cells on screen exist, so reuse what leave screen when scrolling
+    /// only cells on screen are the only ones that  exist, so reuse what leave screen when scrolling
     let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath)
     /// if there's text, add it (but `optional` hence the `textLabel?` :)
     cell.textLabel?.text = pictures[indexPath.row]
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    /**
+     Type casting is done
+     */
+    if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
+      vc.selectedImage = pictures[indexPath.row]
+      navigationController?.pushViewController(vc, animated: true)
+    }
   }
 }
 
