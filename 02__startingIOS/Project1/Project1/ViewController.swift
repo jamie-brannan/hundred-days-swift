@@ -35,7 +35,9 @@ class ViewController: UITableViewController {
         }
     }
     /// print out array that's appended via the file managers path
-    print(pictures)
+    print("Unsorted pictures are: \(pictures)")
+    pictures.sort()
+    print("Sorted pictures are now:\(pictures)")
   }
 
   /// the number of cells will be the number of items in `pictures`

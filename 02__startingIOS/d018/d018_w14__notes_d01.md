@@ -80,12 +80,42 @@ But why do we say a *stack of view controllers* ? Is this something that makes u
 11/12 :star: – one wrong because I didn't get the meaning, I thought "in IB" was a trap rather than really refering to Interface builder.
 
 ### Challenge
-This has the beginnings of a useful app, but if you really want your new knowledge to sink in you need to start writing some new code yourself – without following a tutorial, or having an answer you can just look up online.
 
-So, each time you complete a project I’ll be setting you a challenge to modify it somehow. Yes, this will take some work, but there is no learning without struggle – all the challenges are completely within your grasp based on what you’ve learned so far.
+>This has the beginnings of a useful app, but if you really want your new knowledge to sink in you need to start writing some new code yourself – *without following a tutorial*, or having an answer you can just look up online.
 
-For this project, your challenges are:
+>**So, each time you complete a project I’ll be setting you a challenge to modify it somehow.** 
+>* Yes, this will take some work, but there is no learning without struggle – all the challenges are completely within your grasp based on what you’ve learned so far.
 
-1) Use Interface Builder to select the text label inside your table view cell and adjust its font size to something larger – experiment and see what looks good.
-2) In your main table view, show the image names in sorted order, so “nssl0033.jpg” comes before “nssl0034.jpg”.
-3) Rather than show image names in the detail title bar, show “Picture X of Y”, where Y is the total number of images and X is the selected picture’s position in the array. Make sure you count from 1 rather than 0.
+:tada: woot let's go
+
+>For this project, your challenges are:
+
+>1) Use Interface Builder to select the text label inside your table view cell and adjust its font size to something larger – experiment and see what looks good.
+
+So resize the font already in the table view cell text default
+>Select the text and just change system font size in the IB right sidebar ?
+
+>2) In your main table view, show the image names in sorted order, so “nssl0033.jpg” comes before “nssl0034.jpg”.
+
+`sort()` images (alphabetically?) before they're loaded into the table view?
+
+:pushpin: [**Hacking Swift**](https://www.hackingwithswift.com/example-code/arrays/how-to-sort-an-array-using-sort) : *How to sort an array using sort*
+
+For some reason I kept on wanting to do `sort(pictures)` but I don't don't declare it that way. It's actaully :
+
+```swift
+pictures.sort()
+```
+
+Which means I go from :
+
+```sh
+Unsorted pictures are: ["nssl0049.jpg", "nssl0046.jpg", "nssl0091.jpg", "nssl0045.jpg", "nssl0051.jpg", "nssl0041.jpg", "nssl0042.jpg", "nssl0043.jpg", "nssl0033.jpg", "nssl0034.jpg"]
+Sorted pictures are now:["nssl0033.jpg", "nssl0034.jpg", "nssl0041.jpg", "nssl0042.jpg", "nssl0043.jpg", "nssl0045.jpg", "nssl0046.jpg", "nssl0049.jpg", "nssl0051.jpg", "nssl0091.jpg"]
+```
+
+:white_check_mark:  Yay :) – **`Pictures` are in order!**
+
+
+>3) Rather than show image names in the detail title bar, show “Picture X of Y”, where Y is the total number of images and X is the selected picture’s position in the array. Make sure you count from 1 rather than 0.
+
