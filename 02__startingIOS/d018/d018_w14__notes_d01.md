@@ -93,7 +93,9 @@ But why do we say a *stack of view controllers* ? Is this something that makes u
 >1) Use Interface Builder to select the text label inside your table view cell and adjust its font size to something larger – experiment and see what looks good.
 
 So resize the font already in the table view cell text default
->Select the text and just change system font size in the IB right sidebar ?
+>*Select the text and just change system font size in the IB right sidebar ?*
+
+:white_check_mark: **Attributes inspector via "Title"** of content cell in table view
 
 >2) In your main table view, show the image names in sorted order, so “nssl0033.jpg” comes before “nssl0034.jpg”.
 
