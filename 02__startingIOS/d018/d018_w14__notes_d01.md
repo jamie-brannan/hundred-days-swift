@@ -90,12 +90,16 @@ But why do we say a *stack of view controllers* ? Is this something that makes u
 
 >For this project, your challenges are:
 
+#### :one: 
+
 >1) Use Interface Builder to select the text label inside your table view cell and adjust its font size to something larger – experiment and see what looks good.
 
 So resize the font already in the table view cell text default
 >*Select the text and just change system font size in the IB right sidebar ?*
 
 :white_check_mark: **Attributes inspector via "Title"** of content cell in table view
+
+#### :two: 
 
 >2) In your main table view, show the image names in sorted order, so “nssl0033.jpg” comes before “nssl0034.jpg”.
 
@@ -118,6 +122,20 @@ Sorted pictures are now:["nssl0033.jpg", "nssl0034.jpg", "nssl0041.jpg", "nssl00
 
 :white_check_mark:  Yay :) – **`Pictures` are in order!**
 
+#### :three: 
 
->3) Rather than show image names in the detail title bar, show “Picture X of Y”, where Y is the total number of images and X is the selected picture’s position in the array. Make sure you count from 1 rather than 0.
+>3) _Rather than_ show image names in the detail title bar, show “Picture X of Y”, where Y is the total number of images and X is the selected picture’s position in the array. Make sure you count from 1 rather than 0.
 
+##### initial thoughts
+
+Replace `title` in the `DetailedViewController` with something like:
+
+```swift
+"Picture \(indexOf) of \(count)"
+```
+
+##### work
+
+failed attempt with `if let`
+* got "Optional(0) of Optional(10)" :cry:
+* :warning: *Expression of type 'Int' is unused*
