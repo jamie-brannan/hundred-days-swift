@@ -59,6 +59,9 @@ class ViewController: UITableViewController {
      */
     if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
       vc.selectedImage = pictures[indexPath.row]
+      /// additional dated needed in the `DetailViewController.swift`
+      vc.pictureCount = pictures.count
+      vc.selectedImageListOrderRank = indexPath.row
       navigationController?.pushViewController(vc, animated: true)
     }
   }
