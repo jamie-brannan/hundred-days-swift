@@ -36,6 +36,7 @@ Days organized by folders containing
 | Day 15 | June 5 | :white_check_mark: |
 | Day 16 | June 8 | :white_check_mark: |
 | Day 17 | June 11, 12, 15 | ~ |
+| Day 18 | June 17 | :white_check_mark: |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
