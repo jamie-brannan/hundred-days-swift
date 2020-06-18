@@ -14,29 +14,31 @@ Days organized by folders containing
 * Markdown and custom snippets
 * Swift
 * Xcode (playgrounds)
+* Asses from [Hacking Swift Github project repo](https://github.com/twostraws/HackingWithSwift/)
 
 ## :calendar: Schedule log
 
-| Challenge day | Calendar day | Within goaltime?|
-|---|---|---|
-| Day 01 | March 30 - 31 | ~ |
-| Day 02 | March 31 – April 1 | ~ |
-| Day 03 | April 3 | :white_check_mark: |
+| Challenge day | Calendar day | Within goaltime?| What did I learn?
+|---|---|---|---|
+| Day 01 | March 30 - 31 | ~ | to be reviewed... |
+| Day 02 | March 31 – April 1 | ~ | to be reviewed... |
+| Day 03 | April 3 | :white_check_mark: | to be reviewed... |
 | Day 04 | April 6, 9 | ~ |
-| Day 05 | April 9 | :white_check_mark: |
-| Day 06 | April 11 | :white_check_mark: |
-| Day 07 | April 14, 19, 21 | ~ |
-| Day 08 | April 21, 22, 23 | ~ |
-| Day 09 | April 23, 29, 30 | ~ |
-| Day 10 | April 30, May 14 | ~ |
-| Day 11 | May 14, 25 | ~ |
-| Day 12 | May 26, 27, 28 | ~ |
-| Day 13 | June 4 | :white_check_mark: |
-| Day 14 | June 4, 5 | ~ |
-| Day 15 | June 5 | :white_check_mark: |
-| Day 16 | June 8 | :white_check_mark: |
-| Day 17 | June 11, 12, 15 | ~ |
-| Day 18 | June 17 | :white_check_mark: |
+| Day 05 | April 9 | :white_check_mark: | to be reviewed... |
+| Day 06 | April 11 | :white_check_mark: | to be reviewed... |
+| Day 07 | April 14, 19, 21 | ~ | to be reviewed... |
+| Day 08 | April 21, 22, 23 | ~ | to be reviewed... |
+| Day 09 | April 23, 29, 30 | ~ | to be reviewed... |
+| Day 10 | April 30, May 14 | ~ | to be reviewed... |
+| Day 11 | May 14, 25 | ~ | to be reviewed... |
+| Day 12 | May 26, 27, 28 | ~ | to be reviewed... |
+| Day 13 | June 4 | :white_check_mark: | to be reviewed... |
+| Day 14 | June 4, 5 | ~ | to be reviewed... |
+| Day 15 | June 5 | :white_check_mark: | to be reviewed... |
+| Day 16 | June 8 | :white_check_mark: | to be reviewed... |
+| Day 17 | June 11, 12, 15 | ~ | to be reviewed... |
+| Day 18 | June 17 | :white_check_mark: | Unwrapped with `guard if` faster than I expected! yay! |
+| Day 19 | June 18 | :white_check_mark: | Shortcuts to _Auto Layout_ constraints `cgColor` |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
