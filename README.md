@@ -18,17 +18,17 @@ Days organized by folders containing
 
 ## :calendar: Schedule log
 
-| Challenge day | Calendar day | Within goaltime?| What did I learn?
+| Challenge day | Calendar day | Within goaltime?| What was new to me in this section |
 |---|---|---|---|
-| Day 01 | March 30 - 31 | ~ | to be reviewed... |
-| Day 02 | March 31 – April 1 | ~ | to be reviewed... |
-| Day 03 | April 3 | :white_check_mark: | to be reviewed... |
-| Day 04 | April 6, 9 | ~ |
-| Day 05 | April 9 | :white_check_mark: | to be reviewed... |
-| Day 06 | April 11 | :white_check_mark: | to be reviewed... |
-| Day 07 | April 14, 19, 21 | ~ | to be reviewed... |
-| Day 08 | April 21, 22, 23 | ~ | to be reviewed... |
-| Day 09 | April 23, 29, 30 | ~ | to be reviewed... |
+| Day 01 | March 30 - 31 | ~ | Review of pre-challenge practice |
+| Day 02 | March 31 – April 1 | ~ | Recall tuples and dictionaries, how to create empty collections |
+| Day 03 | April 3 | :white_check_mark: | Allowed to write with `_` as a seperator |
+| Day 04 | April 6, 9 | ~ | Looping ranges |
+| Day 05 | April 9 | :white_check_mark: | Parameter labels, default params, throwing functions, `inout` params |
+| Day 06 | April 11 | :white_check_mark: | Closures :bomb: |
+| Day 07 | April 14, 19, 21 | ~ | Shorthand params, closures as params when they return values, returning closures |
+| Day 08 | April 21, 22, 23 | ~ | Property observers |
+| Day 09 | April 23, 29, 30 | ~ | `lazy` properties, `static` properties |
 | Day 10 | April 30, May 14 | ~ | to be reviewed... |
 | Day 11 | May 14, 25 | ~ | to be reviewed... |
 | Day 12 | May 26, 27, 28 | ~ | to be reviewed... |

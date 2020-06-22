@@ -212,6 +212,8 @@ var numbers = Set<Int>()
 
 ```
 
+:rocket: This will end up being useful for keeping things type-safe and working with data bases right?
+
 ## :eight: [Enumerations](https://www.hackingwithswift.com/sixty/2/8/enumerations)
 
 >Enumerations – usually called just *enums* – are a way of defining groups of related values in a way that makes them easier to use.
