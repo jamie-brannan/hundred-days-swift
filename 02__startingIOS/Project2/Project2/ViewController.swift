@@ -33,12 +33,14 @@ class ViewController: UIViewController {
     askQuestion()
   }
   
-  /// Callup flags based on their names `UIImage(named:)`
-  func askQuestion() {
+  /// Callup flags based on their names `UIImage(named: <array item>)`
+  /// closure as a parameter `nil` that way we don't need to call it
+  func askQuestion(action: UIAlertAction! = nil) {
     countries.shuffle()
 
     /**
      Correct answer must be randomly one of the three chosen to display
+     Set it here, then have the title be the name of it uppercased.
      */
     correctAnswer = Int.random(in: 0...2)
 
@@ -47,6 +49,29 @@ class ViewController: UIViewController {
     button3.setImage(UIImage(named: countries[2]), for: .normal)
 
     title = countries[correctAnswer].uppercased()
+  }
+  
+  @IBAction func buttonTapped(_ sender: UIButton) {
+    /// title of the alert card
+    var title: String
+    
+    /// Score keeper
+    if sender.tag == correctAnswer {
+      title = "Correct"
+      score += 1
+    } else {
+      title = "Wrong"
+      score -= 1
+    }
+
+    /// create an alert controler
+    let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+
+    /// action bottoms on the bottom of the alert controller
+    ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+
+    /// present the controller we just created with animations
+    present(ac, animated: true)
   }
 }
 
