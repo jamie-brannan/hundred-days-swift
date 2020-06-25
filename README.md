@@ -18,7 +18,7 @@ Days organized by folders containing
 
 ## :calendar: Schedule log
 
-| Challenge day | Calendar day | Within goaltime?| What was new to me in this section |
+| Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 01 | March 30 - 31 | ~ | Review of pre-challenge practice |
 | Day 02 | March 31 – April 1 | ~ | Recall tuples and dictionaries, how to create empty collections |
