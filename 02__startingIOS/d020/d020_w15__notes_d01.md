@@ -274,3 +274,42 @@ Go for the shortest to type out
 >Now, go ahead and run your program in the simulator, because it's done!
 
 (:camera: screen shot on website)
+
+## :arrow_right_hook: [Wrap up](https://www.hackingwithswift.com/read/2/6/wrap-up) 
+
+### :boom: Quiz insights
+
+* @2x and @3x images make sure our images look great on all screen resolutions.
+>iOS will automatically load whichever image matches the current device.
+* You can use values higher than 1.0 for red, green, and blue in UIColor.
+>This uses an iOS feature called wide color, which enables extremely deep colors on modern devices.
+* Multiple buttons can call the same method when tapped.
+>You can connect as many actions as you like to a single method.
+* You can add many items to an array by using +=
+>The += operator adds one array to another, so you can use it to add items quickly.
+* Auto Layout constraints can position one view relative to another.
+>This is one of the main advantages of Auto Layout: you can make one view's size and/or position adjust automatically based on another's.
+* All Swift's numeric types have a random(in:) method.
+>This is the fastest and easiest way to make random numbers of that type.
+* CALayer is part of Core Animation.
+>Core Animation sits behind everything UIKit does.
+* Tags let us identify views uniquely.
+>Tags are integers attached to each view, and can be used for identification.
+* You can add borders to buttons and other views.
+>borderWidth and borderColor are properties on the layer behind all views.
+* Asset catalogs store many images at different sizes.
+>Asset catalogs store those images an optimized format that makes them faster to load.
+* The size inspector lets you type in specific sizes and positions for views.
+>Using the size inspector is the best way to get specific values.
+* "Alpha" represents how transparent a view is.
+>The alpha value ranges from 0 (invisible) to 1 (fully visible).
+
+>App thinning removes unnecessary assets from your project, not unnecessary code.
+
+### Challenge
+
+>One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on:
+>
+>1) Try showing the player’s score in the navigation bar, alongside the flag to guess.
+>2) Keep track of how many questions have been asked, and show one final alert controller after they have answered 10. This should show their final score.
+>3) When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
