@@ -17,6 +17,7 @@ class ViewController: UIViewController {
   var countries = [String]()
   var score = 0
   var correctAnswer = 0
+  var round = 0
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
 
     button1.layer.borderColor = UIColor.lightGray.cgColor
     button2.layer.borderColor = UIColor.lightGray.cgColor
-    button3.layer.borderColor = UIColor(red: 1.0, green: 0.6, blue: 0.2, alpha: 1.0).cgColor
+    button3.layer.borderColor = UIColor.lightGray.cgColor
     
     askQuestion()
   }
@@ -49,6 +50,8 @@ class ViewController: UIViewController {
     button3.setImage(UIImage(named: countries[2]), for: .normal)
 
     title = countries[correctAnswer].uppercased() + ". \(score) pts."
+
+    round += 1
   }
   
   @IBAction func buttonTapped(_ sender: UIButton) {
@@ -64,14 +67,31 @@ class ViewController: UIViewController {
       score -= 1
     }
 
+    if round == 10 {
+      finalScoreAlert()
+    } else {
+      roundAlert()
+    }
+  }
+
+  func roundAlert() {
     /// create an alert controler
-    let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+    let ac = UIAlertController(title: title, message: "Your round \(round) score is \(score)", preferredStyle: .alert)
 
     /// action bottoms on the bottom of the alert controller
     ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
 
-    /// present the controller we just created with animations
+    /// present the alert controller we just created with animations
     present(ac, animated: true)
   }
+
+  func finalScoreAlert() {
+    let finalScoreAlert = UIAlertController(title: "Congrats", message: "You've reached round \(round) of 10. Your final score is \(score)", preferredStyle: .alert)
+    finalScoreAlert.addAction(UIAlertAction(title: "New game", style: .default, handler: askQuestion))
+    present(finalScoreAlert, animated: true)
+    round = 0
+    score = 0
+  }
 }
+
 
