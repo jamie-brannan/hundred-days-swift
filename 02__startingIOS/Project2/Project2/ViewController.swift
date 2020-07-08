@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     button2.setImage(UIImage(named: countries[1]), for: .normal)
     button3.setImage(UIImage(named: countries[2]), for: .normal)
 
-    title = countries[correctAnswer].uppercased()
+    title = countries[correctAnswer].uppercased() + ". \(score) pts."
   }
   
   @IBAction func buttonTapped(_ sender: UIButton) {
