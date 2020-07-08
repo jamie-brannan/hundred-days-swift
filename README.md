@@ -39,7 +39,8 @@ Days organized by folders containing
 | Day 17 | June 11, 12, 15 | ~ | to be reviewed... |
 | Day 18 | June 17 | :white_check_mark: | Unwrapped with `guard if` faster than I expected! yay! |
 | Day 19 | June 18 | :white_check_mark: | Shortcuts to _Auto Layout_ constraints `cgColor` |
-| Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score |
+| Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score, quiz insights |
+| Day 21 | July 8| :white_check_mark: | Project 2 challenges complete |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
