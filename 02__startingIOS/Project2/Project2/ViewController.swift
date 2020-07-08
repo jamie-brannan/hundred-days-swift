@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
+
 class ViewController: UIViewController {
   
   @IBOutlet var button1: UIButton!
@@ -56,27 +66,31 @@ class ViewController: UIViewController {
   
   @IBAction func buttonTapped(_ sender: UIButton) {
     /// title of the alert card
-    var title: String
+    var resultTitle: String
     
     /// Score keeper
     if sender.tag == correctAnswer {
-      title = "Correct"
+      resultTitle = "Correct"
       score += 1
+      roundAlert(title: resultTitle, countrySelected: sender.tag)
     } else {
-      title = "Wrong"
+      resultTitle = "Wrong"
       score -= 1
+      roundAlert(title: resultTitle, countrySelected: sender.tag)
     }
 
     if round == 10 {
       finalScoreAlert()
     } else {
-      roundAlert()
+      return
     }
   }
 
-  func roundAlert() {
+  func roundAlert(title: String, countrySelected: Int) {
+    let countrySelectedName = countries[countrySelected]
+
     /// create an alert controler
-    let ac = UIAlertController(title: title, message: "Your round \(round) score is \(score)", preferredStyle: .alert)
+    let ac = UIAlertController(title: title, message: "That was the flag of \(countrySelectedName.capitalizingFirstLetter()). Your round \(round) score is \(score)", preferredStyle: .alert)
 
     /// action bottoms on the bottom of the alert controller
     ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
