@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
   var pictureCount: Int?
   var selectedImageListOrderRank: Int?
 
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -49,12 +50,12 @@ class DetailViewController: UIViewController {
   }
 
   @objc func shareTapped() {
-      guard let image = imageView.image?.jpegData(compressionQuality: 0.8) else {
+      guard let image = imageView.image?.jpegData(compressionQuality: 0.8), let imageName = selectedImage else {
           print("No image found")
           return
       }
 
-      let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+      let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
       vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
       present(vc, animated: true)
   }
