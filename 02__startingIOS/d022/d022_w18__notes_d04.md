@@ -16,3 +16,13 @@ navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plai
 
 - [ ] UIAlert that will display current score with close button
 
+:pushpin: [**HackingSwift**](https://www.hackingwithswift.com/example-code/uikit/how-to-add-a-bar-button-to-a-navigation-bar) : *How to add a bar button to a navigation bar*
+
+```swift
+@objc func checkScore() {
+    print("score check")
+    let scoreCheckAlert = UIAlertController(title: "Current Score Tally", message: "You currently have \(score) points.", preferredStyle: .alert)
+    scoreCheckAlert.addAction(UIAlertAction(title: "Return", style: .default, handler: .none))
+    present(scoreCheckAlert, animated: true)
+  }
+```
