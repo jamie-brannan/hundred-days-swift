@@ -13,6 +13,8 @@ class DetailViewController: UIViewController {
   var selectedImage: String?
   var pictureCount: Int?
   var selectedImageListOrderRank: Int?
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -26,10 +28,10 @@ class DetailViewController: UIViewController {
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
     /// no need to unwrap because both are optionals, `title` is nil by default
 
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+
     /// Config for this one screen in app
     navigationItem.largeTitleDisplayMode = .never
-
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 
     if let imageToLoad = selectedImage {
       imageView.image  = UIImage(named: imageToLoad)
@@ -48,13 +50,13 @@ class DetailViewController: UIViewController {
   }
 
   @objc func shareTapped() {
-    let imaginaryAppLink = NSURL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8")!
-    guard let image = imageView.image?.jpegData(compressionQuality: 0.8), let imageName = selectedImage else {
-        print("No image found")
-        return
-    }
-    let vc = UIActivityViewController(activityItems: [image, imageName, imaginaryAppLink], applicationActivities: nil)
-    vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-    present(vc, animated: true)
+      guard let image = imageView.image?.jpegData(compressionQuality: 0.8), let imageName = selectedImage else {
+          print("No image found")
+          return
+      }
+
+      let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
+      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+      present(vc, animated: true)
   }
 }

@@ -1,3 +1,28 @@
+# Day 21, Week 16
+:calendar: – Wednesday July 08, 2020
+
+## Challenge
+
+>1) Try showing the player’s score in the navigation bar, alongside the flag to guess.
+
+```swift
+title = countries[correctAnswer].uppercased() + ". \(score) pts."
+```
+
+>2) Keep track of how many questions have been asked, and show one final alert controller after they have answered 10. This should show their final score.
+
+* added an `Int` type `round` counter
+* added and if statement when it's 10
+    * Maybe could've been a `when` statement but..?
+* made `roundAlert()` and `finalScoreAlert()`
+
+>3) When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
+
+* added aprams to `roundAlert()`
+
+### Resulting `ViewController.swift`
+
+```swift
 //
 //  ViewController.swift
 //  Project2
@@ -31,8 +56,6 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(checkScore))
     countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
 
     button1.layer.borderWidth = 1
@@ -108,13 +131,5 @@ class ViewController: UIViewController {
     round = 0
     score = 0
   }
-
-  @objc func checkScore() {
-    print("score check")
-    let scoreCheckAlert = UIAlertController(title: "Current Score Tally", message: "You currently have \(score) points.", preferredStyle: .alert)
-    scoreCheckAlert.addAction(UIAlertAction(title: "Return", style: .default, handler: .none))
-    present(scoreCheckAlert, animated: true)
-  }
 }
-
-
+```
