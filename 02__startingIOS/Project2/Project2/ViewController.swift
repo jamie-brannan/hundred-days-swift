@@ -31,6 +31,8 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plain, target: self, action: #selector(checkScore))
     countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
 
     button1.layer.borderWidth = 1
@@ -105,6 +107,13 @@ class ViewController: UIViewController {
     present(finalScoreAlert, animated: true)
     round = 0
     score = 0
+  }
+
+  @objc func checkScore() {
+    print("score check")
+    let scoreCheckAlert = UIAlertController(title: "Current Score Tally", message: "You currently have \(score) points.", preferredStyle: .alert)
+    scoreCheckAlert.addAction(UIAlertAction(title: "Return", style: .default, handler: .none))
+    present(scoreCheckAlert, animated: true)
   }
 }
 
