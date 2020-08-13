@@ -41,7 +41,9 @@ Days organized by folders containing
 | Day 19 | June 18 | :white_check_mark: | Shortcuts to _Auto Layout_ constraints `cgColor` |
 | Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score, quiz insights |
 | Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete |
-| Day 22 | July 8, 17 | ~ | Project 3 |
+| Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
+| Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
+| Day 23 | August 13 | ~ | Consolidation II : Starting iOS Milestones |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
