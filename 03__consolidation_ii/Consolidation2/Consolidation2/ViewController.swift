@@ -12,9 +12,13 @@ class ViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    setupTitle()
   }
 
+  private func setupTitle() {
+    navigationController?.navigationBar.prefersLargeTitles = true
+    title = "Consolidation II"
+  }
 
 }
 
