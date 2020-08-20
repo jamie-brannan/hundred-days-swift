@@ -8,9 +8,68 @@
 >To solve this challenge you’ll need to draw on skills you learned in tutorials 1, 2, and 3:
 >
 >1) Start with a Single View App template, then change its main `ViewController` class so that builds on `UITableViewController` instead.
+
+
 >
 >2) Load the list of available flags from the app bundle. You can type them directly into the code if you want, but it’s preferable not to.
->
+
+Need to have tiles findable.
+
+```sh
+./03__consolidation_ii/Consolidation2/Consolidation2/Contents/
+├── estonia@2x.png
+├── estonia@3x.png
+├── france@2x.png
+├── france@3x.png
+├── germany@2x.png
+├── germany@3x.png
+├── ireland@2x.png
+├── ireland@3x.png
+├── italy@2x.png
+├── italy@3x.png
+├── monaco@2x.png
+├── monaco@3x.png
+├── nigeria@2x.png
+├── nigeria@3x.png
+├── poland@2x.png
+├── poland@3x.png
+├── russia@2x.png
+├── russia@3x.png
+├── spain@2x.png
+├── spain@3x.png
+├── uk@2x.png
+├── uk@3x.png
+├── us@2x.png
+└── us@3x.png
+```
+
+We only one one of each so go for `hasSuffix("2x.png")` to get a total of 12 items
+
+```swift
+    /// constant with datatype FileManager
+    /// to examine the contents of a filesystem
+    let fm = FileManager.default
+
+    /// path of where our compiled program is
+    let path =  Bundle.main.resourcePath!
+    let items = try! fm.contentsOfDirectory(atPath: path)
+
+    for item in items {
+      if item.hasPrefix("flag") {
+        flags.append(item)
+      }
+    }
+
+    print("Flags are : \(flags)")
+```
+
+:red_circle: Readded the `Contents` folder with renamed flag files.
+```sh
+Thread 1: Exception: "UITableView dataSource returned a nil cell for row at index path: <NSIndexPath: 0xc275d30214a2cdd0> {length = 2, path = 0 - 0}. Table view: <UITableView: 0x7f8fc7835400; frame = (0 0; 414 896); autoresize = W+H; gestureRecognizers = <NSArray: 0x600000b770c0>; layer = <CALayer: 0x60000051e060>; contentOffset: {0, -140}; contentSize: {414, 1056}; adjustedContentInset: {140, 0, 34, 0}; dataSource: <_UIFilteredDataSource: 0x600000b74900>>, dataSource: <_UIFilteredDataSource: 0x600000b74900>"
+```
+
+Because the cells are nill?
+
 >3) Create a new Cocoa Touch Class responsible for the detail view controller, and give it properties for its image view and the image to load.
 >4) You’ll also need to adjust your storyboard to include the detail view controller, including using Auto Layout to pin its image view correctly.
 >5) You will need to use `UIActivityViewController` to share your flag.
