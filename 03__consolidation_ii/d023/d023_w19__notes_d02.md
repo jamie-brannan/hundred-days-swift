@@ -7,13 +7,13 @@
 
 >To solve this challenge you’ll need to draw on skills you learned in tutorials 1, 2, and 3:
 >
->1) Start with a Single View App template, then change its main `ViewController` class so that builds on `UITableViewController` instead.
+> ### :one:  Start with a Single View App template, then change its main `ViewController` class so that builds on `UITableViewController` instead.
 
 
 >
->2) Load the list of available flags from the app bundle. You can type them directly into the code if you want, but it’s preferable not to.
+> ### :two:  Load the list of available flags from the app bundle. You can type them directly into the code if you want, but it’s preferable not to.
 
-Need to have tiles findable.
+#### Need to have tiles findable.
 
 ```sh
 ./03__consolidation_ii/Consolidation2/Consolidation2/Contents/
@@ -68,7 +68,44 @@ We only one one of each so go for `hasSuffix("2x.png")` to get a total of 12 ite
 Thread 1: Exception: "UITableView dataSource returned a nil cell for row at index path: <NSIndexPath: 0xc275d30214a2cdd0> {length = 2, path = 0 - 0}. Table view: <UITableView: 0x7f8fc7835400; frame = (0 0; 414 896); autoresize = W+H; gestureRecognizers = <NSArray: 0x600000b770c0>; layer = <CALayer: 0x60000051e060>; contentOffset: {0, -140}; contentSize: {414, 1056}; adjustedContentInset: {140, 0, 34, 0}; dataSource: <_UIFilteredDataSource: 0x600000b74900>>, dataSource: <_UIFilteredDataSource: 0x600000b74900>"
 ```
 
-Because the cells are nill?
+#### Because the cells are nill?
+
+```swift
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "flagCell", for: indexPath)
+    cell.textLabel?.text = flags[indexPath.row]
+//    cell.imageView?.image = flags[indexPath]
+    return cell
+  }
+```
+
+:red_circle: `Thread 1: Exception: "unable to dequeue a cell with identifier flagCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard"`
+
+* :bulb: Oops! Thought I had added a cell to the table view in the storyboard but between trying things here and there, I'd forgotten
+
+#### We need to remove the file name at the end.
+
+* :pushpin: [**StackOverflow**](https://stackoverflow.com/questions/24122288/remove-last-character-from-string-swift-language#24122445) : *Remove last character form string swift language*
+
+```swift
+var str = "Hello, World"                           // "Hello, World"
+str.dropLast()                                     // "Hello, Worl" (non-modifying)
+str                                                // "Hello, World"
+String(str.dropLast())                             // "Hello, Worl"
+
+str.remove(at: str.index(before: str.endIndex))    // "d"
+str                                                // "Hello, Worl" (modifying)
+```
+
+:x: Not the right way to go
+
+#### Tried using a `regex`
+
+Help with the community regexes in [IBM generator](https://regexr.com/)
+
+```swift
+let regex = NSRegularExpression("(@2x\.\w+$)")
+```
 
 >3) Create a new Cocoa Touch Class responsible for the detail view controller, and give it properties for its image view and the image to load.
 >4) You’ll also need to adjust your storyboard to include the detail view controller, including using Auto Layout to pin its image view correctly.
