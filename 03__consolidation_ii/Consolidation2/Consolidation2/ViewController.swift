@@ -61,10 +61,17 @@ class ViewController: UITableViewController {
     }
     return cell
   }
+    
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
+      vc.selectedImage = flags[indexPath.row]
+      navigationController?.pushViewController(vc, animated: true)
+    }
+  }
 }
 
 extension String {
-  // look into objective C for something to capitalize the first two letters / acronymn of country name
+  /// look into objective C for something to capitalize the first two letters / acronymn of country name
     func capitalizingFirstLetter() -> String {
       return prefix(1).uppercased() + self.lowercased().dropFirst()
     }

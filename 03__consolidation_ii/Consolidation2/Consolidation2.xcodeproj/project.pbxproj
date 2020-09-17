@@ -37,6 +37,7 @@
 		113D540624EEC03C00ABD52C /* ireland@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113D53EE24EEC03B00ABD52C /* ireland@2x.png */; };
 		113D540724EEC03C00ABD52C /* spain@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113D53EF24EEC03B00ABD52C /* spain@3x.png */; };
 		113D540824EEC03C00ABD52C /* germany@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 113D53F024EEC03B00ABD52C /* germany@3x.png */; };
+		118B604325139E8700E6D7B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118B604225139E8700E6D7B7 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		113D53EE24EEC03B00ABD52C /* ireland@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ireland@2x.png"; sourceTree = "<group>"; };
 		113D53EF24EEC03B00ABD52C /* spain@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spain@3x.png"; sourceTree = "<group>"; };
 		113D53F024EEC03B00ABD52C /* germany@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "germany@3x.png"; sourceTree = "<group>"; };
+		118B604225139E8700E6D7B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				113D533024EEA04400ABD52C /* AppDelegate.swift */,
 				113D533224EEA04400ABD52C /* SceneDelegate.swift */,
 				113D533424EEA04400ABD52C /* ViewController.swift */,
+				118B604225139E8700E6D7B7 /* DetailViewController.swift */,
 				113D533624EEA04400ABD52C /* Main.storyboard */,
 				113D533924EEA04B00ABD52C /* Assets.xcassets */,
 				113D53D824EEC02600ABD52C /* Contents */,
@@ -245,6 +248,7 @@
 				113D533524EEA04400ABD52C /* ViewController.swift in Sources */,
 				113D533124EEA04400ABD52C /* AppDelegate.swift in Sources */,
 				113D533324EEA04400ABD52C /* SceneDelegate.swift in Sources */,
+				118B604325139E8700E6D7B7 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
