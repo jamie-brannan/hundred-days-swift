@@ -16,8 +16,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
+<<<<<<< HEAD
             landmarkName = "unknown"
             landmarkType = "0">
+=======
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+>>>>>>> consolidation/02__chapter2MilestoneProjects
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
