@@ -11,11 +11,14 @@ import UIKit
 class DetailViewController: UIViewController {
 
   @IBOutlet weak var flagImage: UIImageView!
-  var selectedImage : String? = nil
+  var selectedImage : String?
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    flagImage.image = UIImage(named: selectedImage ?? "")
+//    flagImage.image = UIImage(named: selectedImage ?? "")
+    if let loadImage = selectedImage {
+      flagImage.image = UIImage(named: loadImage)
+    }
   }
 
 

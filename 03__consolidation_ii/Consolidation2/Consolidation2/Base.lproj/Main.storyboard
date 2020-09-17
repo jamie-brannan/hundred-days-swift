@@ -54,16 +54,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D4v-ZB-UY0">
-                                <rect key="frame" x="20" y="44" width="374" height="200"/>
+                                <rect key="frame" x="20" y="348" width="374" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="7ES-YS-xKv"/>
+                                    <constraint firstAttribute="height" constant="200" id="W3s-ym-PR9"/>
+                                    <constraint firstAttribute="width" secondItem="D4v-ZB-UY0" secondAttribute="height" multiplier="187:100" id="xaD-GQ-vKQ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Klc-g6-r2E" firstAttribute="bottom" secondItem="D4v-ZB-UY0" secondAttribute="bottom" constant="618" id="cdF-Ej-asD"/>
-                            <constraint firstItem="Klc-g6-r2E" firstAttribute="trailing" secondItem="D4v-ZB-UY0" secondAttribute="trailing" constant="20" id="fP2-yh-Tcs"/>
-                            <constraint firstItem="D4v-ZB-UY0" firstAttribute="leading" secondItem="Klc-g6-r2E" secondAttribute="leading" constant="20" id="num-3j-ruF"/>
-                            <constraint firstItem="D4v-ZB-UY0" firstAttribute="centerX" secondItem="v2r-7p-Na8" secondAttribute="centerX" id="rcO-tN-QEs"/>
-                            <constraint firstItem="D4v-ZB-UY0" firstAttribute="top" secondItem="Klc-g6-r2E" secondAttribute="top" id="ziW-ZP-f5d"/>
+                            <constraint firstItem="D4v-ZB-UY0" firstAttribute="leading" secondItem="v2r-7p-Na8" secondAttribute="leadingMargin" id="DBT-E3-C0V"/>
+                            <constraint firstItem="D4v-ZB-UY0" firstAttribute="centerY" secondItem="v2r-7p-Na8" secondAttribute="centerY" id="hOw-4m-nHG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Klc-g6-r2E"/>
                     </view>
