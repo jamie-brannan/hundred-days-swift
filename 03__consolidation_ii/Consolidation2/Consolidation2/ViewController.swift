@@ -32,7 +32,8 @@ class ViewController: UITableViewController {
     /// path of where our compiled program is
     let path =  Bundle.main.resourcePath!
     let items = try! fm.contentsOfDirectory(atPath: path)
-
+    
+    /// add an item is the suffix matches an end
     for item in items {
       if item.hasSuffix("2x.png") {
         flags.append(item)
@@ -45,11 +46,19 @@ class ViewController: UITableViewController {
     return flags.count
   }
 
+    /// view the table at cell row
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "flagCell", for: indexPath)
+    /// get file name
     let flagFileName = flags[indexPath.row]
+    /// title the cell with the file name minus the end of the name
     let cellTitle = flagFileName.replacingOccurrences(of: "@2x.png", with: "")
-    cell.textLabel?.text = cellTitle.capitalizingFirstLetter()
+    /// if the cell title has two letters, it's an acronym that needs to be capitalized
+    if cellTitle.count == 2 {
+        cell.textLabel?.text = cellTitle.uppercased()
+    } else {
+        cell.textLabel?.text = cellTitle.capitalizingFirstLetter()
+    }
     return cell
   }
 }
