@@ -37,8 +37,9 @@ class ViewController: UITableViewController {
       if item.hasSuffix("2x.png") {
         flags.append(item)
       }
-    }-
+    }
   }
+
   // MARK: - Table settings
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return flags.count
