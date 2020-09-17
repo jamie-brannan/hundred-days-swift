@@ -15,9 +15,11 @@ class DetailViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-//    flagImage.image = UIImage(named: selectedImage ?? "")
+
     if let loadImage = selectedImage {
       flagImage.image = UIImage(named: loadImage)
+      flagImage.layer.borderWidth = 2
+      flagImage.layer.borderColor = UIColor.lightGray.cgColor
     }
   }
 
