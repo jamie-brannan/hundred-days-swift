@@ -85,25 +85,16 @@ actually I think this was getting over written with a `nil` when it arrived on t
 
 :bulb: **USE THE :eye: DEBUGGER TOOL TO CHECK IF ITS CONSTRAINTS FOR THE SEND**
 
->4) You’ll also need to adjust your storyboard to include the detail view controller, including using Auto Layout to pin its image view correctly.
+>4) You’ll also need to adjust your storyboard to include the detail view controller, including using Auto Layout to pin its image view correctly
+
+:white_check_mark: 
+
+## Adding a share photo feature
+
 >5) You will need to use `UIActivityViewController` to share your flag.
->
->As always, I’m going to provide some hints below, but I suggest you try to complete as much of the challenge as you can before reading them.
->
->Hints:
->
->To load the images from disk you need to use three lines of code: `let fm = FileManager.default`, then `let path = Bundle.main.resourcePath!`, then finally `let items = try! fm.contentsOfDirectory(atPath: path)`.
->
->Those lines end up giving you an array of all items in your app’s bundle, but you only want the pictures, so you’ll need to use something like the `hasSuffix()` method.
->
->Once you have made `ViewController` build on `UITableViewController`, you’ll need to `override` its `numberOfRowsInSection` and `cellForRowAt` methods.
->
->You’ll need to assign a cell prototype identifier in Interface Builder, such as “Country”. You can then dequeue cells of that type using `tableView.dequeueReusableCell(withIdentifier: "Country", for: indexPath)`.
->
->The `didSelectItemAt` method is responsible for taking some action when the user taps a row.
 
-:bulb: This is a callback actually !
+Will need to...
+- [ ] add a button to the navigation menu
 
->Make sure your detail view controller has a property for the image name to load, as well as the UIImageView to load it into. The former should be modified from ViewController inside didSelectItemAt; the latter should be modified in the viewDidLoad() method of your detail view controller.
->
->**Bonus tip**: try setting the imageView property of the table view cell. Yes, they have one. And yes, it automatically places an image right there in the table view cell – it makes a great preview for every country.
+Want to have :
+- [ ] a large title of the country on the details page below the actual flag.
