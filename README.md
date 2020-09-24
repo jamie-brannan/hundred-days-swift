@@ -43,7 +43,7 @@ Days organized by folders containing
 | Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete |
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones |
-| Day 24 | September 24 | ~ | Web views, user input, and Auto Layout, Project 4, part i |
+| Day 24 | September 24 | :white_check_mark: | Web views, user input, and Auto Layout, Project 4, part i |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
