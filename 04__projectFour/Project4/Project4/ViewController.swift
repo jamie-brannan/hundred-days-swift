@@ -54,6 +54,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
   }
 
   // MARK: - WebView Navigation
+
+  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+      let url = navigationAction.request.url
+
+      if let host = url?.host {
+          for website in approvedWebsites {
+              if host.contains(website) {
+                  decisionHandler(.allow)
+                  return
+              }
+          }
+      }
+
+      decisionHandler(.cancel)
+  }
+
   @objc func openTapped() {
       let ac = UIAlertController(title: "Open page…", message: nil, preferredStyle: .actionSheet)
 

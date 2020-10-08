@@ -59,6 +59,8 @@ override func observeValue(forKeyPath keyPath: String?, of object: Any?, change:
 
 ## :two: [Refactoring for the win](https://www.hackingwithswift.com/read/4/5/refactoring-for-the-win)
 
+### Dynamic list
+
 >Our app has a fatal flaw, and there are two ways to fix it: double up on code, or refactor. Cunningly, the first option is nearly always the easiest, and yet counter-intuitively also the hardest.
 >
 >The flaw is this: we let users select from a list of websites, but once they are on that website they can get pretty much anywhere else they want just by following links. Wouldn't it be nice if we could check every link that was followed so that we can make sure it's on our safe list?
@@ -96,3 +98,106 @@ for website in websites {
     ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
 }
 ```
+
+### Decide policy
+
+>That will add one `UIAlertAction` object for each item in our array. Again, not too complicated.
+>
+>The final change is something new, and it belongs to the `WKNavigationDelegate` protocol. If you find space for a new method and start typing "web" you'll see the list of `WKWebView`-related code completion options. Look for the one called `decidePolicyFor` and let Xcode fill in the method for you.
+>
+>**This delegate callback allows us to decide whether we want to allow navigation to happen or not every time something happens.** 
+> * We can check which part of the page started the navigation, we can see whether it was triggered by a link being clicked or a form being submitted, or, in our case, we can check the URL to see whether we like it.
+>
+>Now that we've implemented this method, it expects a response: **_should we load the page or should we not?_**
+
+It'll deny it before any request is sent?
+
+>When this method is called, you get passed in a parameter called `decisionHandler`. This actually holds a function, ::arrow_right: which means if you "call" the parameter, you're actually calling the function.
+
+:question: *When you get a function as a parameter what is it called in CS?*
+* JS "double arrow"?
+* "a magic function?
+
+>In project 2 I talked about **closures**: chunks of code that _you can pass into a function like a variable and have executed at a later date._
+
+**closures** : *(swift)* chunks of code you can pass into a function like a variable and have executed at a later date.
+
+>
+>This `decisionHandler` is also a closure, except it's the other way around – rather than giving someone else a chunk of code to execute, you're being given it and are required to execute it.
+>
+>And make no mistake: you are required to do something with that `decisionHandler` closure. That might make sound an extremely complicated way of returning a value from a method, and that's true – but it's also underestimating the power a little! 
+>* Having this `decisionHandler` variable/function means you can show some user interface to the user "Do you really want to load this page?" and call the closure when you have an answer.
+>
+>You might think that already sounds complicated, but I’m afraid there’s one more thing that might hurt your head. Because you might call the `decisionHandler` closure _straight away, or you might call it later on_ (perhaps after asking the user what they want to do), Swift considers it to be an escaping closure. 
+>* That is, the closure has the potential to escape the current method, and be used at a later date. We won’t be using it that way, but it has the potential and that’s what matters.
+>
+>Because of this, Swift wants us to add the special keyword `@escaping` when specifying this method, so we’re acknowledging that the closure might be used later. You don’t need to do anything else – just add that one keyword, as you’ll see in the code below.
+>
+>So, we need to evaluate the `URL` to see whether it's in our safe list, then call the `decisionHandler` with a negative or positive answer. Here's the code for the method:
+
+```swift
+func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    let url = navigationAction.request.url
+
+    if let host = url?.host {
+        for website in websites {
+            if host.contains(website) {
+                decisionHandler(.allow)
+                return
+            }
+        }
+    }
+
+    decisionHandler(.cancel)
+}
+```
+
+>There are some easy bits, but they are outweighed by the hard bits so let's go through every line in detail to make sure:
+>
+>* **First**, we set the constant `url` to be equal to the `URL` of the navigation. This is just to make the code clearer.
+>* **Second**, we use `if let` syntax to unwrap the value of the optional `url.host`. Remember I said that `URL` does a lot of work for you in parsing URLs properly? Well, here's a good example: this line says, "if there is a host for this URL, pull it out" – and by "host" it means "website domain" like apple.com. Note: we need to unwrap this carefully because not all URLs have hosts.
+>* **Third**, we loop through all sites in our safe list, placing the name of the site in the `website` variable.
+>* **Fourth**, we use the `contains() `String method to see whether each safe website exists somewhere in the host name.
+>* **Fifth**, if the website was found then we call the decision handler with a positive response - we want to allow loading.
+>* **Sixth**, if the website was found, after calling the `decisionHandler` we use the `return` statement. This means "exit the method now."
+>* **Last**, if there is no host set, or if we've gone through all the loop and found nothing, we call the decision handler with a negative response: cancel loading.
+>
+>You give the `contains() `method a string to check, and it will return true if it is found inside whichever string you used with `contains()`. You've already met the `hasPrefix()` method in project 1, but `hasPrefix() `isn't suitable here because our safe site name could appear anywhere in the URL. For example, slashdot.org redirects to m.slashdot.org for mobile devices, and `hasPrefix()` would fail that test.
+>
+>The `return` statement is new, but it's one you'll be using a lot from now on. It exits the method immediately, executing no further code. If you said your method `returns` a value, you'll use the return statement to return that value.
+>
+>Your project is complete: press Cmd+R to run the finished app, and enjoy!
+
+## :three: [Wrap up](https://www.hackingwithswift.com/read/4/6/wrap-up)
+
+### Review of what you learned
+
+#### :boom: Quiz insights
+
+* `loadView()` is called first, and it's where you create your view; `viewDidLoad()` is called second, and it's where you configure the view that was loaded.
+* Calling `sizeToFit()` on a view makes it take up the correct amount of space for its content.
+  * UIKit will measure the contents of the view, then adjust its size so that all the content is visible.
+* We can use #selector to point to a specific method in a different object.
+  * You can use #selector to point to a method in any object, as long as that method is marked @objc.
+* Delegation allows one object to respond on behalf of another.
+  * Delegation is what allows us to customize the behavior of built-in types without having to sub-class them.
+* If you want to, you can provide a context value for your key-value observers.
+  * This context is just a value that's sent back to you when your observer code is triggered.
+* Conforming to a protocol means adding the properties and methods required by that protocol.
+  * Protocol conformance allows Swift to check at compile time that you have implemented the properties and methods you said you would.
+* A web view's navigation delegate can control which pages should be loaded.
+  * Navigation delegates can decide whether to allow or deny individual requests.
+* You can conform to as many protocols as you want.
+  * Although it's not a good idea, you can make one type conform to 10, 50, or even more protocols if you wanted.
+* Flexible spaces automatically take up all available remaining space.
+  * Flexible spaces allow us to space buttons out neatly, either by pushing them to one side or by adding margin between them.
+* All view controllers have a toolbarItems property.
+  * This property is used to show buttons in a toolbar when the view controller is inside a navigation controller.
+* Progress views show a colored bar indicating how much of a task is complete.
+  * Progress views help us show users approximately how far through a task is.
+* ~~URLs always have a host.~~
+  * URLs can also point to local files, which don't have a host.
+
+9/12 score :woman_shrugging:
+
+### Challenge
