@@ -28,8 +28,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
     createToolbar()
   }
   
+  // MARK: -Toolbar configuration
   private func setupWebView() {
-    let url = URL(string: "https://www." + approvedWebsites[0])!
+    let url = URL(string: "https://" + approvedWebsites[0])!
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
   }
@@ -54,7 +55,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
   }
   
   // MARK: - WebView Navigation
-  
   func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
     let url = navigationAction.request.url
     
@@ -65,11 +65,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
           return
         }
       }
+      siteDeniedAlert(for: host)
     }
     
     decisionHandler(.cancel)
   }
-  
+
+  func siteDeniedAlert(for host: String) {
+    let ac = UIAlertController(title: "Sorry", message: "\(host) site is not currently approved", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    present(ac, animated: true)
+  }
+
   @objc func openTapped() {
     let ac = UIAlertController(title: "Open page…", message: nil, preferredStyle: .actionSheet)
     

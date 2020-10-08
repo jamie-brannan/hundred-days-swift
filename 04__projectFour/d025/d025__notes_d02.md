@@ -201,3 +201,40 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
 9/12 score :woman_shrugging:
 
 ### Challenge
+
+>One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on:
+>
+  - [x]  If users try to visit a URL that isn’t allowed, show an alert saying it’s blocked.
+
+:pushpin: [**Dillon MCE**](https://dillon-mce.com/100-Days-026/) : *100 Days of Swift, 25*
+
+```swift
+  func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    let url = navigationAction.request.url
+    
+    if let host = url?.host {
+      for website in approvedWebsites {
+        if host.contains(website) {
+          decisionHandler(.allow)
+          return
+        }
+      }
+      siteDeniedAlert(for: host)
+    }
+    
+    decisionHandler(.cancel)
+  }
+
+  func siteDeniedAlert(for host: String) {
+    let ac = UIAlertController(title: "Sorry", message: "\(host) site is not currently approved", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    present(ac, animated: true)
+  }
+```
+
+
+>   - [ ]  Try making two new toolbar items with the titles Back and Forward. You should make them use `webView.goBack` and `webView.goForward`.
+>
+>   - [ ]  For more of a challenge, try changing the initial view controller to a table view like in project 1, where users can choose their website from a list rather than just having the first in the array loaded up front.
+>
+>Tip: Once you have completed project 5, you might like to return here to add in the option to load the list of websites from a file, rather than having them hard-coded in an array.
