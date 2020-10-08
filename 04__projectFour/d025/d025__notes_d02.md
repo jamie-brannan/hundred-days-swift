@@ -58,3 +58,41 @@ override func observeValue(forKeyPath keyPath: String?, of object: Any?, change:
 > If you run your project now, you'll see the progress view fills up with blue as the page loads.
 
 ## :two: [Refactoring for the win](https://www.hackingwithswift.com/read/4/5/refactoring-for-the-win)
+
+>Our app has a fatal flaw, and there are two ways to fix it: double up on code, or refactor. Cunningly, the first option is nearly always the easiest, and yet counter-intuitively also the hardest.
+>
+>The flaw is this: we let users select from a list of websites, but once they are on that website they can get pretty much anywhere else they want just by following links. Wouldn't it be nice if we could check every link that was followed so that we can make sure it's on our safe list?
+>
+>One solution – doubling up on code – would have us writing the list of accessible websites twice: once in the `UIAlertController` and once when we're checking the link. This is extremely easy to write, but it can be a trap: you now have two lists of websites, and it's down to you to keep them both up to date. And if you find a bug in your duplicated code, will you remember to fix it in the other place too?
+>
+>The second solution is called refactoring, and it's effectively a rewrite of the code. The end result should do the same thing, though. The purpose of the rewrite is to make it more efficient, make it easier to read, reduce its complexity, and to make it more flexible. This last use is what we'll be shooting for: we want to refactor our code so there's a shared array of allowed websites.
+>
+>Up where we declared our two properties `webView` and `progressView`, add this:
+
+```swift
+var websites = ["apple.com", "hackingwithswift.com"]
+```
+
+>That's an array containing the websites we want the user to be able to visit.
+>
+>With that array, we can modify the web view's initial web page so that it's not hard-coded. In `viewDidLoad()`, change the initial web page to this:
+
+```swift
+let url = URL(string: "https://" + websites[0])!
+webView.load(URLRequest(url: url))
+```
+
+>So far, so easy. The next change is to make our `UIAlertController` use the websites for its list of `UIAlertActions`. Go down to the `openTapped() `method and replace these two lines:
+
+```swift
+ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
+ac.addAction(UIAlertAction(title: "hackingwithswift.com", style: .default, handler: openPage))
+```
+
+>…with this loop:
+
+```swift
+for website in websites {
+    ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
+}
+```
