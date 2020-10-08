@@ -44,7 +44,7 @@ Days organized by folders containing
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones |
 | Day 24 | September 24 | :white_check_mark: | Web Views, User Input, and Auto Layout, Project 4, part i |
-| Day 25 | October 1 | ~ | Web Views, User Input, and Auto Layout, Project 4, part ii |
+| Day 25 | October 1,8 | ~ | Web Views, User Input, and Auto Layout, Project 4, part ii |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
