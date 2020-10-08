@@ -38,13 +38,16 @@ class ViewController: UIViewController, WKNavigationDelegate {
   private func createToolbar() {
     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+    let back = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(webView.goBack))
+    let forward = UIBarButtonItem(title: "Forward", style: .plain, target: self, action: #selector(webView.goForward))
+
     progressView = UIProgressView(progressViewStyle: .default)
     progressView.sizeToFit()
     let progressButton = UIBarButtonItem(customView: progressView)
     
     webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     
-    toolbarItems = [progressButton, spacer, refresh]
+    toolbarItems = [back, forward, spacer, progressButton, spacer, refresh]
     navigationController?.isToolbarHidden = false
   }
   

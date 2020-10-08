@@ -232,9 +232,15 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
   }
 ```
 
+- [x]  Try making two new toolbar items with the titles **Back** and **Forward**. You should make them use `webView.goBack` and `webView.goForward`.
 
->   - [ ]  Try making two new toolbar items with the titles Back and Forward. You should make them use `webView.goBack` and `webView.goForward`.
->
+```swift
+    let back = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(webView.goBack))
+    let forward = UIBarButtonItem(title: "Forward", style: .plain, target: self, action: #selector(webView.goForward))
+
+    toolbarItems = [back, forward, spacer, progressButton, spacer, refresh]
+```
+
 >   - [ ]  For more of a challenge, try changing the initial view controller to a table view like in project 1, where users can choose their website from a list rather than just having the first in the array loaded up front.
 >
 >Tip: Once you have completed project 5, you might like to return here to add in the option to load the list of websites from a file, rather than having them hard-coded in an array.
