@@ -241,6 +241,11 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
     toolbarItems = [back, forward, spacer, progressButton, spacer, refresh]
 ```
 
->   - [ ]  For more of a challenge, try changing the initial view controller to a table view like in project 1, where users can choose their website from a list rather than just having the first in the array loaded up front.
->
+- [ ]  For more of a challenge, try changing the initial view controller to a table view like in project 1, where users can choose their website from a list rather than just having the first in the array loaded up front.
+
+* new table view controller
+* cells are the array
+* make it the entry point
+* on select of a cell, push to the navigator
+
 >Tip: Once you have completed project 5, you might like to return here to add in the option to load the list of websites from a file, rather than having them hard-coded in an array.

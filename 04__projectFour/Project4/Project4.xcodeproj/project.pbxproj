@@ -15,6 +15,7 @@
 		11B70FBE251CD8F400C3C378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B70FBC251CD8F400C3C378 /* LaunchScreen.storyboard */; };
 		11B70FC9251CD8F500C3C378 /* Project4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70FC8251CD8F500C3C378 /* Project4Tests.swift */; };
 		11B70FD4251CD8F500C3C378 /* Project4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B70FD3251CD8F500C3C378 /* Project4UITests.swift */; };
+		11ECC59D252F713600228E5E /* MainMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECC59C252F713600228E5E /* MainMenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		11B70FCF251CD8F500C3C378 /* Project4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B70FD3251CD8F500C3C378 /* Project4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project4UITests.swift; sourceTree = "<group>"; };
 		11B70FD5251CD8F500C3C378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11ECC59C252F713600228E5E /* MainMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				11B70FB1251CD8F200C3C378 /* AppDelegate.swift */,
 				11B70FB3251CD8F200C3C378 /* SceneDelegate.swift */,
 				11B70FB5251CD8F200C3C378 /* ViewController.swift */,
+				11ECC59C252F713600228E5E /* MainMenuTableViewController.swift */,
 				11B70FB7251CD8F200C3C378 /* Main.storyboard */,
 				11B70FBA251CD8F400C3C378 /* Assets.xcassets */,
 				11B70FBC251CD8F400C3C378 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 				11B70FB6251CD8F200C3C378 /* ViewController.swift in Sources */,
 				11B70FB2251CD8F200C3C378 /* AppDelegate.swift in Sources */,
 				11B70FB4251CD8F200C3C378 /* SceneDelegate.swift in Sources */,
+				11ECC59D252F713600228E5E /* MainMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
