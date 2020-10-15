@@ -91,3 +91,39 @@ func sing() -> () -> Void {
 >2) As a result of 1, weakly captured values are always _optional_ in Swift. This stops you assuming they are present when in fact they might not be.
 >
 >We can modify our example to use weak capturing and you’ll see an immediate difference:
+
+```swift
+func sing() -> () -> Void {
+    let taylor = Singer()
+
+// telling it immediately to use a weak version of taylor
+    let singing = { [weak taylor] in
+        taylor?.playSong()
+        return
+    }
+
+    return singing
+}
+```
+
+>That `[weak taylor]` part is our capture list, which is a specific part of closures where we give specific instructions as to how values should be captured. Here we’re saying that `taylor` should be captured weakly, which is why we need to use `taylor?.playSong()` – it’s an optional now, because it could be set to nil at any time.
+>
+>:warning: If you run the code now you’ll see that calling `singFunction()` doesn’t print anything any more. The reason is that `taylor` exists only inside `sing()`, because the closure it returns doesn’t keep a strong hold of it.
+>
+>To see this behavior in action, try changing `sing()` to this:
+
+```swift
+func sing() -> () -> Void {
+    let taylor = Singer()
+
+    let singing = { [weak taylor] in
+        taylor!.playSong()
+        return
+    }
+
+    return singing
+}
+```
+
+> :red_circle: That force unwraps taylor inside the closure, which will cause your code to crash because taylor becomes `nil`.
+

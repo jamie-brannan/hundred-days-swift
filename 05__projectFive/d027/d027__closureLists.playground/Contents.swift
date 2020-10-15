@@ -12,8 +12,8 @@ class Singer {
 func sing() -> () -> Void {
     let taylor = Singer()
 
-    let singing = {
-        taylor.playSong()
+    let singing = { [weak taylor] in
+        taylor!.playSong()
         return
     }
 
