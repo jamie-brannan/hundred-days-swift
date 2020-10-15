@@ -44,13 +44,20 @@ Days organized by folders containing
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones |
 | Day 24 | September 24 | :white_check_mark: | Web Views, User Input, and Auto Layout, Project 4, part i |
-| Day 25 | October 1,8 | ~ | Web Views, User Input, and Auto Layout, Project 4, part ii |
+| Day 25 | October 1, 8, 14 | ~ | Web Views, User Input, and Auto Layout, Project 4, part ii |
+| Day 26 | October 15 | ~ | Web Views, User Input, and Auto Layout, Project 4, part iii |
 
 ### :small_orange_diamond: Commits guide (starting in October)
+
+This repo simultaneously tracks my progression in mastering git version control, and experiments with different branch management and commit stylings – as well as attempts to patch mistakes I make along the way.
+
+#### bracket tag legend
 
 `[p*]` – project number
 
 `[d*]` - project day number
+
+`[challenge*]` - wrap up challenge prompt of the day
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
