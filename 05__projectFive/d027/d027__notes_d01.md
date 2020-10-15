@@ -342,7 +342,7 @@ class Singer {
 
 #### Copies of closures
 
->The last thing that trips people up is the way closures themselves are copied, because their captured data becomes shared amongst copies.
+>The last thing that trips people up is the way closures themselves are copied, because __their captured data becomes shared amongst copies__.
 >
 >For example, here’s a simple closure that captures the `numberOfLinesLogged` integer created outside so that it can increment and print its value whenever its called:
 
@@ -370,15 +370,20 @@ logger2()
 
 >That will now print that 1, 2, 3, and 4 lines have been logged, because both `logger1` and `logger2` are pointing at the same captured `numberOfLinesLogged` value.
 
+:white_check_mark: This is how things are "normally"
+
 ### When to use strong, when to use weak, when to use unowned
 
 >Now that you understand how everything works, let’s try to summarize whether to use strong, weak, or unowned references:
 >
->1) If you know for sure your captured value will never go away while the closure has any chance of being called, you can use `unowned`. This is really only for the handful of times when `weak` would cause annoyances to use, but even when you could use `guard let` inside the closure with a weakly captured variable.
+> :one:  _If you know for sure your captured value will never go away while the closure has any chance of being called, you can use `unowned`.  _ 
+>* This is really only for the handful of times when `weak` would cause annoyances to use, but even when you could use `guard let` inside the closure with a weakly captured variable.
 >
->2) If you have a strong reference cycle situation – where thing A owns thing B and thing B owns thing A – then one of the two should use weak capturing. This should usually be whichever of the two will be destroyed first, so if view controller A presents view controller B, view controller B might hold a weak reference back to A.
+> :two: If you have a strong reference cycle situation – where thing A owns thing B and thing B owns thing A – then one of the two _should use weak capturing._ 
+> * This should usually be whichever of the two will be destroyed first, so if view controller A presents view controller B, view controller B might hold a weak reference back to A.
 >
->3) If there’s no chance of a strong reference cycle you can use strong capturing. For example, performing animation won’t cause `self` to be retained inside the animation closure, so you can use strong capturing.
+> :three: _If there’s no chance of a strong reference cycle you can use strong capturing_. 
+> * For example, performing animation won’t cause `self` to be retained inside the animation closure, so you can use strong capturing.
 >
 >If you’re not sure which to use, start out with `weak` and change only if you need to.
 
