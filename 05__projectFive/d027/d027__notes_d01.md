@@ -338,6 +338,8 @@ class Singer {
 
 >Swift won’t let you use implicit `self` inside closures, which helps reduce a common type of retain cycle.
 
+:woman_shrugging: I really don't understand this.There seems to be no real way to run this. I just see how to add more than one parameter in a closure with its capture type.
+
 #### Copies of closures
 
 >The last thing that trips people up is the way closures themselves are copied, because their captured data becomes shared amongst copies.
