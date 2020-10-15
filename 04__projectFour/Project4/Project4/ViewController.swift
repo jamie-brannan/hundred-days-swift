@@ -14,6 +14,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
   var webView: WKWebView!
   var progressView: UIProgressView!
   var approvedWebsites = ["apple.com", "hackingwithswift.com", "francetvinfo.fr"]
+  var selectedWebsite: String?
   
   override func loadView() {
     webView = WKWebView()
@@ -23,14 +24,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupWebView()
+    setupWebView(with: selectedWebsite ?? "francetvinfo.fr")
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
     createToolbar()
   }
   
   // MARK: -Toolbar configuration
-  private func setupWebView() {
-    let url = URL(string: "https://" + approvedWebsites[0])!
+  private func setupWebView(with selected: String) {
+    let url = URL(string: "https://" + selected)!
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
   }
