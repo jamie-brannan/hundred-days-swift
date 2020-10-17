@@ -41,5 +41,18 @@ class ViewController: UITableViewController {
       usedWords.removeAll(keepingCapacity: true)
       tableView.reloadData()
   }
+  
+  // MARK: - Used word management
+  /// as many rows as the number of words used
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return usedWords.count
+  }
+
+  /// label a cell per used word
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+      cell.textLabel?.text = usedWords[indexPath.row]
+      return cell
+  }
 }
 
