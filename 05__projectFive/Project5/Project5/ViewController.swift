@@ -91,15 +91,35 @@ class ViewController: UITableViewController {
   
   // MARK: - Checks
   func isPossible(word: String) -> Bool {
+    /// unwrap the titulary word and lower case it, or else just exit if it's not there
+    guard var tempWord = title?.lowercased() else { return false }
+    
+    /// for each letter in the guessed word, loop it's first letter  compared to the titulary word and remove it if there's a match
+    for letter in word {
+      
+      if let position = tempWord.firstIndex(of: letter) {
+        tempWord.remove(at: position)
+      } else {
+        /// if you're not able to match any of the letters that it contains, then end it
+        return false
+      }
+    }
+    
     return true
   }
   
+  /// This checks if the word is not already in our table
   func isOriginal(word: String) -> Bool {
-    return true
+    return !usedWords.contains(word)
   }
   
   func isReal(word: String) -> Bool {
-    return true
+    /// create a spell checker instance
+    let checker = UITextChecker()
+    let range = NSRange(location: 0, length: word.utf16.count)
+    let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+    
+    return misspelledRange.location == NSNotFound
   }
 }
 

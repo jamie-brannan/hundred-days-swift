@@ -127,3 +127,168 @@ func submit(_ answer: String) {
 Sweeeeeet, works great! Even one after another it seems to know to just push the previous through to the next index.
 
 >Our three checking methods always return true regardless of what word is entered, but apart from that the game is starting to come together. Press Cmd+R to play back what you have: you should be able to tap the + button and enter words into the alert.
+
+## :two: [Checking for valid answers](https://www.hackingwithswift.com/read/5/5/checking-for-valid-answers)
+
+>As you’ve seen, the `return` keyword exits a method at any time it's used. If you use `return` by itself, _it exits the method and does nothing else_. 
+>
+>But if you use `return` with a value, it sends that value back to whatever called the method. 
+>
+>We’ve used it previously to send back the number of rows in a table, for example.
+
+Yup and I've used it countless times at work before.
+
+### `isOriginal` check
+
+>Before you can send a value back, you need to tell Swift that you expect to return a value. Swift will automatically check that a value is returned and it's of the right data type, so this is important. We just put in stubs (empty methods that do nothing) for three new methods, each of which returns a value. Let's take a look at one in more detail:
+
+```swift
+func isOriginal(word: String) -> Bool {
+    return true
+}
+```
+
+>The method is called `isOriginal()`, and it takes one parameter that's a string. But before the opening brace there's something important: `-> Bool`. This tells Swift that the method will return a boolean value, which is the name for a value that can be either true or false.
+>
+>The body of the method has just one line of code: `return true`. This is how the return statement is used to send a value back to its caller: we're returning true from this method, _so the caller can use this method inside an if statement to check for true or false._
+>
+>This method can have as much code as it needs in order to evaluate fully whether the word has been used or not, including calling any other methods it needs. We're going to change it so that it calls another method, which will check whether our `usedWords` array already contains the word that was provided. 
+>
+>Replace its current return true code with this:
+
+```swift
+return !usedWords.contains(word)
+```
+
+>There are two new things here. First, `contains()` is a method that checks whether the array it’s called on (`usedWords`) contains the value specified in parameter 2 (`word`). If it does contain the value, `contains() `returns true; if not, it returns false. Second, the `!` symbol. You've seen this before as the way to _force unwrap optional variables_, but here it's something different: **it means not**.
+
+Yup, it's a ____ operator – I can't remember the word though!
+
+>The difference is small but important: 
+>* when used **before** a variable or constant, `!` means _"not" or "opposite"_. So if `contains()` returns true, `!` flips it around to make it false, and vice versa. 
+>* When used **after** a variable or constant, `!` means "force unwrap this optional variable."
+>
+>This is used because our method is called `isOriginal()`, and should return true if the word has never been used before. If we had used `return usedWords.contains(word)`, then it would do the opposite: it would return true if the word had been used and false otherwise. So, by using `!` we're flipping it around so that the method returns true if the word is new.
+
+:white_check_mark: Yup yup
+
+### `isPossible` check
+
+>That's one method down. Next is the `isPossible()`, which also takes a string as its only parameter and returns a `Bool` – true or false. This one is more complicated, but I've tried to make the algorithm as simple as possible.
+>
+>How can we be sure that "cease" can be made from "agencies", using each letter only once? **The solution I've adopted is** to loop through every letter in the player's answer, seeing whether it exists in the _eight-letter start word_ we are playing with. 
+>* If it does exist, we remove the letter from the start word, then continue the loop. 
+>* So, if we try to use a letter twice, it will exist the first time, but then get removed so it doesn't exist the next time, and the check will fail.
+>
+>In **project 4** we used the `contains()` method to see if one string exists inside another. Here we need something more precise: _if it exists, where?_ 
+>
+>_That extra information allows us to remove the character from our word so that it won’t be used twice._ Swift has a separate method for this called `firstIndex(of:)`, which will return _the first position_ of the **substring** if it exists or nil otherwise.
+>
+>To put that into practice, here’s the `isPossible()` method:
+
+```swift
+func isPossible(word: String) -> Bool {
+    guard var tempWord = title?.lowercased() else { return false }
+
+    for letter in word {
+        if let position = tempWord.firstIndex(of: letter) {
+            tempWord.remove(at: position)
+        } else {
+            return false
+        }
+    }
+
+    return true
+}
+```
+
+>If the letter was found in the string, we use `remove(at:)` to remove the used letter from the `tempWord` variable. This is why we need the `tempWord` variable at all: because we'll be removing letters from it so we can check again the next time the loop goes around.
+>
+>The method ends with `return true`, b**ecause this line is reached only if every letter in the user's word was found in the start word no more than once**. 
+>* If any letter isn't found, or is used more than possible, one of the `return false` lines would have been hit, so by this point we're sure the word is good.
+>
+>**Important**: we have told Swift that we are returning a boolean value from this method, and it will check every possible outcome of the code to _make sure a boolean value is returned no matter what_.
+>
+>Time for the final method. Replace the current i`sReal()` method with this:
+
+### `isReal` checker
+
+```swift
+func isReal(word: String) -> Bool {
+    let checker = UITextChecker()
+    let range = NSRange(location: 0, length: word.utf16.count)
+    let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+
+    return misspelledRange.location == NSNotFound
+}
+```
+
+>There's a new class here, called `UITextChecker`. This is an iOS class that is designed to **spot spelling errors**, which makes it perfect for knowing if a given word is real or not. We're creating a new instance of the class and putting it into the checker constant for later.
+
+Wwwwhaaaat! iOS Spell check built in? Hell yeahhhh
+* does this work for other languages / based on provisioning profiles I guess?
+
+>There's a new type here too, called `NSRange`. This is used to store **a string range**, which is a value that holds a start position and a length. We want to examine the whole string, so we use `0` for the start position and _the string's length for the_ `length`.
+
+Is this the way of making letters indexed like in PHP it would?
+
+>Next, we call the `rangeOfMisspelledWord(in:)` method of our `UITextChecker` instance. This wants five parameters, but we only care about _the first two and the last one_: 
+>1) the first parameter is our string, `word`, 
+>2) the second is our range to **scan (the whole string)**, 
+>3) and the last is the **language we should be checking with**, where `en` selects English.
+>
+>_Parameters three and four aren't useful here_, but for the sake of completeness: 
+>* parameter three selects a point in the range where the text checker should start scanning, 
+>* and parameter four lets us set whether the `UITextChecker` should start at the beginning of the range if no misspelled words were found starting from parameter three. 
+>
+>Neat, but not helpful here.
+
+Great to know! Something new :sparkles:
+
+>Calling `rangeOfMisspelledWord(in:)` returns another `NSRange` structure, which **tells us where the misspelling was found**. 
+>
+> :arrow_right:  But what we care about was **whether any misspelling was found**, and **if nothing was found** our `NSRange` will have the special location `NSNotFound`. 
+> 
+> Usually location would tell you where the misspelling started, but `NSNotFound` is telling us the word is spelled correctly – i.e., it's a valid word.
+>
+> :pencil: Note: In case you were curious, `NSRange` pre-dates Swift, and therefore doesn’t have access to optionals – `NSNotFound` is effectively a magic number that means “not found”, assigned to a constant to make it easier to use.
+>
+>Here the return statement is used in a new way: as part of an operation involving `==`. 
+>
+>This is a very common way to code, and what happens is that **`==` returns true or false depending on** _whether `misspelledRange.location` is equal to `NSNotFound`._ That true or false is then given to return as the return value for the method.
+>
+>We could have written that same line across multiple lines, but it's not common:
+
+```swift
+if misspelledRange.location == NSNotFound {
+    return true
+} else {
+    return false
+}
+```
+
+But what does a "misspelled range" even mean?
+
+>That completes the third of our missing methods, so the project is almost complete. Run it now and give it a thorough test!
+
+:tada:
+
+## `utf16`
+
+>Before we continue, there’s one small thing I want to touch on briefly. In the `isPossible()` method we looped over each letter by treating the word as an array, but in this new code we use `word.utf16` instead. Why?
+>
+>The answer is an annoying _backwards compatibility quirk_: Swift’s strings natively **store international characters as individual characters**, e.g. the letter “é” is stored as precisely that. However, `UIKit` was written in Objective-C before Swift’s strings came along, and it uses a different character system called UTF-16 – short for _16-bit Unicode Transformation Format_ – **where the accent and the letter are stored separately**.
+
+Know this well because it's just what the American Apple keyboard does when handling accents
+
+>It’s a subtle difference, and often it isn’t a difference at all, but it’s _becoming increasingly problematic_ because of the rise of **emoji** – those little images that are frequently used in messages. 
+>
+>Emoji are actually just _special character combinations behind the scenes_, and they are measured differently with Swift strings and UTF-16 strings: 
+>* Swift strings count them as 1-letter strings, 
+>* :arrow_right: but UTF-16 considers them to be 2-letter strings. This means if you use `count` with `UIKit` methods, you run the risk of miscounting the string length.
+>
+>I realize this seems like pointless additional complexity, so let me try to give you a simple rule: when you’re working with `UIKit`, `SpriteKit`, or any other Apple framework, use `utf16.count` for the character count. 
+
+:star: `utf16.count` is the rule of thumb, got it :+1:
+
+>If it’s just your own code - i.e. looping over characters and processing each one individually – then use count instead.
