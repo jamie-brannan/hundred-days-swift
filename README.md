@@ -43,9 +43,10 @@ Days organized by folders containing
 | Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete |
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones |
-| Day 24 | September 24 | :white_check_mark: | Web Views, User Input, and Auto Layout, Project 4, part i |
-| Day 25 | October 1, 8, 14 | ~ | Web Views, User Input, and Auto Layout, Project 4, part ii |
-| Day 26 | October 15 | ~ | Web Views, User Input, and Auto Layout, Project 4, part iii |
+| Day 24 | September 24 | :white_check_mark: | Web Views, Project 4, part i |
+| Day 25 | October 1, 8, 14 | ~ | Web Views, Project 4, part ii |
+| Day 26 | October 15 | :white_check_mark: | Web Views, Project 4, part iii |
+| Day 27 | October 15, 17 | ~ | Web Views, User Input, and Auto Layout, Project 5, part i |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
