@@ -40,14 +40,15 @@ Days organized by folders containing
 | Day 18 | June 17 | :white_check_mark: | Unwrapped with `guard if` faster than I expected! yay! |
 | Day 19 | June 18 | :white_check_mark: | Shortcuts to _Auto Layout_ constraints `cgColor` |
 | Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score, quiz insights |
-| Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete |
-| Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges|
-| Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones |
-| Day 24 | September 24 | :white_check_mark: | Web Views, Project 4, part i |
-| Day 25 | October 1, 8, 14 | ~ | Web Views, Project 4, part ii |
-| Day 26 | October 15 | :white_check_mark: | Web Views, Project 4, part iii |
-| Day 27 | October 15, 17 | ~ | User Input, Project 5, part i |
-| Day 28 | October 20 | :white_check_mark: | User Input, Project 5, part ii |
+| Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete; Connecting all the right information at the right moment in the control of flow based on previous challenges.  |
+| Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges; `UIActivityControllers` from start to finish |
+| Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones; :boom: tricky figuring out how to programatically fill in the table view with file manager in a clean way |
+| Day 24 | September 24 | :white_check_mark: | Web Views, Project 4, part i; Very familiar because of FTV work |
+| Day 25 | October 1, 8, 14 | ~ | Web Views, Project 4, part ii; :globe_with_meridians: `WKNavigationActionPolicy` and handling networking traffic in the view |
+| Day 26 | October 15 | :white_check_mark: | Web Views, Project 4, part iii; Wrap up quiz |
+| Day 27 | October 15, 17 | ~ | User Input, Project 5, part i; Much needed closure review |
+| Day 28 | October 20 | :white_check_mark: | User Input, Project 5, part ii; `UITextChcker` &  `rangeOfMisspelledWord(in:)` :sparkles: is a whole toolbox |
+| Day 29 | October 22 | :white_check_mark: | User Input, Project 5, part iii; attention to case sensitivity |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 

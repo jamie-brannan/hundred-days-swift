@@ -19,6 +19,8 @@ class ViewController: UITableViewController {
     loadAllWordArray()
     startGame()
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+    /// challenge 3
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startGame))
   }
   
   // MARK: - Setting up the game
@@ -37,7 +39,7 @@ class ViewController: UITableViewController {
     }
   }
   
-  func startGame() {
+  @objc func startGame() {
     title = allWords.randomElement()
     usedWords.removeAll(keepingCapacity: true)
     tableView.reloadData()
@@ -72,37 +74,35 @@ class ViewController: UITableViewController {
   }
   
   func submit(answer: String) {
-      let lowerAnswer = answer.lowercased()
-
-      let errorTitle: String
-      let errorMessage: String
-
-      if isPossible(word: lowerAnswer) {
-          if isOriginal(word: lowerAnswer) {
-              if isReal(word: lowerAnswer) {
-                  usedWords.insert(answer, at: 0)
-
-                  let indexPath = IndexPath(row: 0, section: 0)
-                  tableView.insertRows(at: [indexPath], with: .automatic)
-
-                  return
-              } else {
-                  errorTitle = "Word not recognised"
-                  errorMessage = "You can't just make them up, you know!"
-              }
+    let lowerAnswer = answer.lowercased()
+    
+    if isPossible(word: lowerAnswer) {
+      if isOriginal(word: lowerAnswer) {
+        if isReal(word: lowerAnswer) {
+          if isLessThanThreeLetters(lowerAnswer) {
+            if isStartWord(lowerAnswer) {
+              usedWords.insert(lowerAnswer, at: 0)
+              
+              let indexPath = IndexPath(row: 0, section: 0)
+              tableView.insertRows(at: [indexPath], with: .automatic)
+              
+              return
+            } else {
+              showErrorMessage(title: "Identical word", message: "Can't use the same word")
+            }
           } else {
-              errorTitle = "Word used already"
-              errorMessage = "Be more original!"
+            showErrorMessage(title: "Less than three letters", message: "Need more than three letters")
           }
+        } else {
+          showErrorMessage(title: "Word not recognised", message: "You can't just make them up, you know!")
+        }
       } else {
-          guard let title = title?.lowercased() else { return }
-          errorTitle = "Word not possible"
-          errorMessage = "You can't spell that word from \(title)"
+        showErrorMessage(title: "Word used already", message: "Be more original!")
       }
-
-      let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
-      ac.addAction(UIAlertAction(title: "OK", style: .default))
-      present(ac, animated: true)
+    } else {
+      guard let title = title?.lowercased() else { return }
+      showErrorMessage(title: "Word not possible", message: "You can't spell that word from \(title)")
+    }
   }
   
   // MARK: - Checks
@@ -126,7 +126,7 @@ class ViewController: UITableViewController {
   
   /// This checks if the word is not already in our table
   func isOriginal(word: String) -> Bool {
-    return !usedWords.contains(word)
+    return !usedWords.contains(word) && !usedWords.contains(word.capitalized)
   }
   
   func isReal(word: String) -> Bool {
@@ -136,6 +136,22 @@ class ViewController: UITableViewController {
     let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
     
     return misspelledRange.location == NSNotFound
+  }
+  
+  /// challenge 2
+  func showErrorMessage(title: String, message: String) {
+    let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    present(ac, animated: true)
+  }
+  
+  /// challenge 1
+  private func isLessThanThreeLetters(_ word: String) -> Bool {
+    return word.count > 3
+  }
+  
+  private func isStartWord(_ word: String) -> Bool {
+    return word != title
   }
 }
 

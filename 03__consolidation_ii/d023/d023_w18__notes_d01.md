@@ -37,7 +37,7 @@ These were the detail image views
 
 >* Buttons using `UIButton`. These don’t have any special design in iOS by default – they just look like labels, really. But they do respond when tapped, so you can take some action.
 
-Both apps (post challenge), in navigation bar. One was system, one was a text button and both actions were attached with `#selector(@objc)
+Both apps (post challenge), in navigation bar. One was system, one was a text button and both actions were attached with `#selector(@objc)`
 
 >* View controllers using `UIViewController`. These give you all the fundamental display technology required to show one screen, including things like rotation and multi-tasking on iPad.
 
