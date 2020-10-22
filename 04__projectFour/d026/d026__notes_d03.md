@@ -8,7 +8,7 @@ Wait – this is already complete! :tada:
 
 ## :one: [Wrap up](https://www.hackingwithswift.com/read/4/6/wrap-up) 
 
-:sunglasses: Alraedy done in the previous day.
+:sunglasses: Already done in the previous day.
 
 ## :two:  [Project 4 review](https://www.hackingwithswift.com/review/hws/project-4-easy-browser) 
 
