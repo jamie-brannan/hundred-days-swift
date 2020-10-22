@@ -59,7 +59,9 @@ Definitelys still didn't get everything yet.
 >
 > 2) **Refactor all the `else` statements** we just added so that they call a new method called `showErrorMessage()`. 
 > >This should accept an error message and a title, and do all the `UIAlertController` work from there.
->
+
+Easy peasy, just moved some stuff around and removed extraneous code.
+
 > 3) **Add a left bar button item** that calls `startGame()`, so users can restart with a new word whenever they want to.
 >
 >**Bonus**: Once you’ve done those three, there’s a really subtle bug in our game and I’d like you to try finding and fixing it.
