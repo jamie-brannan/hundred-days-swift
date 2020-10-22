@@ -296,7 +296,9 @@ Know this well because it's just what the American Apple keyboard does when hand
 ## :three:  [Or else what?](https://www.hackingwithswift.com/read/5/6/or-else-what) 
 
 >There remains one problem to fix with our code, and it's quite a tedious problem. If the word is possible and original and real, we add it to the list of found words then insert it into the table view. **But what if the word isn't possible?** **Or if it's possible but not original?** In this case, we reject the word and don't say why, so the _user gets no feedback_.
->
+
+So user messages just with the else of the ifs
+
 >So, the final part of our project is to give users feedback when they make an invalid move. This is tedious because it's just adding `else` statements to all the `if` statements in `submit()`, each time configuring a message to show to users.
 
 Or you could probably create cases right?
@@ -346,3 +348,5 @@ func submit(answer: String) {
 >This demonstrates one important tip about Swift constants: both `errorTitle` and `errorMessage` were declared as constants, which means their value cannot be changed once set. I didn't give either of them an initial value, and that's OK – Swift lets you do this as long as you do provide a value before the constants are read, and also as long as you don't try to change the value again later on.
 >
 >Other than that, your project is done. Go and play!
+
+:tada:
