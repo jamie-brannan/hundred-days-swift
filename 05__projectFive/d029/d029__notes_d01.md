@@ -63,7 +63,9 @@ Definitelys still didn't get everything yet.
 Easy peasy, just moved some stuff around and removed extraneous code.
 
 > 3) **Add a left bar button item** that calls `startGame()`, so users can restart with a new word whenever they want to.
->
+
+`navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startGame))`
+
 >**Bonus**: Once you’ve done those three, there’s a really subtle bug in our game and I’d like you to try finding and fixing it.
 >
 >4) To trigger the bug, look for a **three-letter word in your starting word, and enter it with an uppercase letter**. Once it appears in the table, _try entering it again all lowercase_ – you’ll see it gets entered. Can you figure out what causes this and how to fix it?

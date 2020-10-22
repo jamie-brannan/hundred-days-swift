@@ -19,6 +19,8 @@ class ViewController: UITableViewController {
     loadAllWordArray()
     startGame()
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+    /// challenge 3
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startGame))
   }
   
   // MARK: - Setting up the game
@@ -37,7 +39,7 @@ class ViewController: UITableViewController {
     }
   }
   
-  func startGame() {
+  @objc func startGame() {
     title = allWords.randomElement()
     usedWords.removeAll(keepingCapacity: true)
     tableView.reloadData()
@@ -128,6 +130,7 @@ class ViewController: UITableViewController {
     return misspelledRange.location == NSNotFound
   }
   
+  /// challenge 2
   func showErrorMessage(title: String, message: String) {
     let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default))
