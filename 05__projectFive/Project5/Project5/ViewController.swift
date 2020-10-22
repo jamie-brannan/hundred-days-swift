@@ -36,43 +36,106 @@ class ViewController: UITableViewController {
       allWords = ["silkworm"]
     }
   }
-
+  
   func startGame() {
-      title = allWords.randomElement()
-      usedWords.removeAll(keepingCapacity: true)
-      tableView.reloadData()
+    title = allWords.randomElement()
+    usedWords.removeAll(keepingCapacity: true)
+    tableView.reloadData()
   }
   
   // MARK: - Used word management
   /// as many rows as the number of words used
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return usedWords.count
+    return usedWords.count
   }
-
+  
   /// label a cell per used word
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
-      cell.textLabel?.text = usedWords[indexPath.row]
-      return cell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+    cell.textLabel?.text = usedWords[indexPath.row]
+    return cell
   }
   
   // MARK: - Prompt
   @objc func promptForAnswer() {
-      let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
-      ac.addTextField()
+    let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+    ac.addTextField()
+    
+    let submitAction = UIAlertAction(title: "Submit", style: .default) {
+      [weak self, weak ac] _ in
+      guard let answer = ac?.textFields?[0].text else { return }
+      self?.submit(answer: answer)
+    }
+    
+    ac.addAction(submitAction)
+    present(ac, animated: true)
+  }
+  
+  func submit(answer: String) {
+      let lowerAnswer = answer.lowercased()
 
-      let submitAction = UIAlertAction(title: "Submit", style: .default) {
-        [weak self, weak ac] _ in
-          guard let answer = ac?.textFields?[0].text else { return }
-          self?.submit(answer)
+      let errorTitle: String
+      let errorMessage: String
+
+      if isPossible(word: lowerAnswer) {
+          if isOriginal(word: lowerAnswer) {
+              if isReal(word: lowerAnswer) {
+                  usedWords.insert(answer, at: 0)
+
+                  let indexPath = IndexPath(row: 0, section: 0)
+                  tableView.insertRows(at: [indexPath], with: .automatic)
+
+                  return
+              } else {
+                  errorTitle = "Word not recognised"
+                  errorMessage = "You can't just make them up, you know!"
+              }
+          } else {
+              errorTitle = "Word used already"
+              errorMessage = "Be more original!"
+          }
+      } else {
+          guard let title = title?.lowercased() else { return }
+          errorTitle = "Word not possible"
+          errorMessage = "You can't spell that word from \(title)"
       }
 
-      ac.addAction(submitAction)
+      let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
+      ac.addAction(UIAlertAction(title: "OK", style: .default))
       present(ac, animated: true)
   }
   
-  func submit(_ answer: String) {
+  // MARK: - Checks
+  func isPossible(word: String) -> Bool {
+    /// unwrap the titulary word and lower case it, or else just exit if it's not there
+    guard var tempWord = title?.lowercased() else { return false }
     
+    /// for each letter in the guessed word, loop it's first letter  compared to the titulary word and remove it if there's a match
+    for letter in word {
+      
+      if let position = tempWord.firstIndex(of: letter) {
+        tempWord.remove(at: position)
+      } else {
+        /// if you're not able to match any of the letters that it contains, then end it
+        return false
+      }
+    }
+    
+    return true
+  }
+  
+  /// This checks if the word is not already in our table
+  func isOriginal(word: String) -> Bool {
+    return !usedWords.contains(word)
+  }
+  
+  func isReal(word: String) -> Bool {
+    /// create a spell checker instance
+    let checker = UITextChecker()
+    let range = NSRange(location: 0, length: word.utf16.count)
+    let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+    
+    return misspelledRange.location == NSNotFound
   }
 }
 
