@@ -79,12 +79,20 @@ class ViewController: UITableViewController {
     if isPossible(word: lowerAnswer) {
       if isOriginal(word: lowerAnswer) {
         if isReal(word: lowerAnswer) {
-          usedWords.insert(answer, at: 0)
-          
-          let indexPath = IndexPath(row: 0, section: 0)
-          tableView.insertRows(at: [indexPath], with: .automatic)
-          
-          return
+          if isLessThanThreeLetters(lowerAnswer) {
+            if isStartWord(lowerAnswer) {
+              usedWords.insert(answer, at: 0)
+              
+              let indexPath = IndexPath(row: 0, section: 0)
+              tableView.insertRows(at: [indexPath], with: .automatic)
+              
+              return
+            } else {
+              showErrorMessage(title: "Identical word", message: "Can't use the same word")
+            }
+          } else {
+            showErrorMessage(title: "Less than three letters", message: "Need more than three letters")
+          }
         } else {
           showErrorMessage(title: "Word not recognised", message: "You can't just make them up, you know!")
         }
@@ -135,6 +143,15 @@ class ViewController: UITableViewController {
     let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default))
     present(ac, animated: true)
+  }
+  
+  /// challenge 1
+  private func isLessThanThreeLetters(_ word: String) -> Bool {
+    return word.count > 3
+  }
+  
+  private func isStartWord(_ word: String) -> Bool {
+    return word != title
   }
 }
 

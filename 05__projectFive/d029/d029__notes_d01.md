@@ -55,8 +55,165 @@ Definitelys still didn't get everything yet.
 >
 >
 > 1) _Disallow answers that are shorter than three letters_ **or** _are just our start_ word. 
->> For the three-letter check, the easiest thing to do is put a check into `isReal()` that returns false if the word length is under three letters. For the second part, just compare the start word against their input word and return false if they are the same.
->
+>> For the three-letter check, the easiest thing to do is put a check into `isReal()` that _returns false if the word length is under three letters_. For the second part, just _compare the start word against their input word_ and return false if they are the same.
+
+There's a lot of ways to do this but there's some that are better than others.
+
+:pushpin: [**Dillon MCE**](https://dillon-mce.com/100-Days-029/) : *100 Days of Swift, Day 29*
+
+Wrote a super clean seperate View Controller for handling mechanics.
+
+```swift
+//
+//  GameController.swift
+//  Project5
+//
+//  Created by Dillon McElhinney on 6/11/19.
+//  Copyright © 2019 Dillon McElhinney. All rights reserved.
+//
+import UIKit
+
+class GameController {
+    
+    private var allWords: [String] = []
+    private var usedWords: [String] = []
+    var startWord: String = ""
+    
+    init() {
+        // Pull the list of words out of the file
+        if let startWordsURL = Bundle.main.url(forResource: "start",
+                                               withExtension: "txt"),
+            let startWords = try? String(contentsOf: startWordsURL) {
+            allWords = startWords.components(separatedBy: "\n")
+        }
+        
+        // Provide a default in case something goes wrong.
+        if allWords.isEmpty {
+            allWords = ["silkworm"]
+        }
+    }
+    
+    // MARK: - Tableview Data Source Helpers
+    func numberOfRows(in section: Int = 0) -> Int {
+        return usedWords.count
+    }
+    
+    func word(for indexPath: IndexPath) -> String {
+        return usedWords[indexPath.row]
+    }
+    
+    // MARK: - Public API
+    func startGame() {
+        startWord = allWords.randomElement() ?? "silkworm"
+        usedWords.removeAll()
+    }
+    
+    @discardableResult func checkAnswer(_ answer: String) -> AnswerError? {
+        let lowerAnswer = answer.lowercased()
+        
+        guard isPossible(lowerAnswer) else {
+            return .impossible(comparedTo: startWord)
+        }
+        
+        guard isOriginal(lowerAnswer) else {
+            return .unoriginal
+        }
+        
+        guard isReal(lowerAnswer) else {
+            return .unreal
+        }
+        
+        guard isLongEnough(lowerAnswer) else {
+            return .tooShort
+        }
+
+        guard isNotTheSame(lowerAnswer) else {
+            return .sameAsOriginal
+        }
+        
+        usedWords.insert(lowerAnswer, at: 0)
+        
+        return nil
+    }
+    
+    private func isPossible(_ word: String) -> Bool {
+        var tempWord = startWord.lowercased()
+        
+        for letter in word {
+            if let position = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: position)
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+
+    private func isOriginal(_ word: String) -> Bool {
+        return !usedWords.contains(word)
+    }
+
+    private func isReal(_ word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0,
+                            length: word.utf16.count)
+        let misspelledRange =
+            checker.rangeOfMisspelledWord(in: word,
+                                          range: range,
+                                          startingAt: 0,
+                                          wrap: false,
+                                          language: "en")
+        return misspelledRange.location == NSNotFound
+    }
+    
+    private func isLongEnough(_ word: String) -> Bool {
+        return word.count > 3
+    }
+
+    private func isNotTheSame(_ word: String) -> Bool {
+        return word != startWord
+    }
+}
+
+enum AnswerError: Equatable {
+    case unoriginal
+    case impossible (comparedTo: String)
+    case unreal
+    case tooShort
+    case sameAsOriginal
+    
+    func title() -> String {
+        switch (self) {
+        case .impossible:
+            return "Word not possible"
+        case .unoriginal:
+            return "Word used already"
+        case .unreal:
+            return "Word not recognized"
+        case .tooShort:
+            return "Word too short"
+        case .sameAsOriginal:
+            return "Word isn't different"
+        }
+    }
+    
+    func message() -> String {
+        switch (self) {
+        case .impossible(let word):
+            return "You can't spell that word from '\(word)'"
+        case .unoriginal:
+            return "Be more original!"
+        case .unreal:
+            return "You can't just make them up, you know!"
+        case .tooShort:
+            return "Words need to be at least four letters long!"
+        case .sameAsOriginal:
+            return "It doesn't count if it is the same word!"
+        }
+    }
+}
+```
+
 > 2) **Refactor all the `else` statements** we just added so that they call a new method called `showErrorMessage()`. 
 > >This should accept an error message and a title, and do all the `UIAlertController` work from there.
 
