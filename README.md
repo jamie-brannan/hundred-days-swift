@@ -48,6 +48,7 @@ Days organized by folders containing
 | Day 26 | October 15 | :white_check_mark: | Web Views, Project 4, part iii |
 | Day 27 | October 15, 17 | ~ | User Input, Project 5, part i |
 | Day 28 | October 20 | :white_check_mark: | User Input, Project 5, part ii |
+| Day 29 | October 22 | ~ | User Input, Project 5, part iii |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
