@@ -228,6 +228,22 @@ Easy peasy, just moved some stuff around and removed extraneous code.
 >4) To trigger the bug, look for a **three-letter word in your starting word, and enter it with an uppercase letter**. Once it appears in the table, _try entering it again all lowercase_ – you’ll see it gets entered. Can you figure out what causes this and how to fix it?
 
 So case sensitivity?
+* this only happens when the guess is entered in ALL CAPS first
+* Does not happen when lowercase is entered first
+
+Therefore an originality case error is not covered.
+
+```swift
+  func isOriginal(word: String) -> Bool {
+    return !usedWords.contains(word) && !usedWords.contains(word.capitalized)
+  }
+```
+
+however, all caps are still registered different...?
+
+**The check is only done over letters that are lowercased.**, so you can have more than three letters to pass, but when you compare for originality it'll only look over the letters that are lowercased.
+
+It's gotta be about `contains()`
 
 ### Hints
 

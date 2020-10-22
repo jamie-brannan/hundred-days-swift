@@ -81,7 +81,7 @@ class ViewController: UITableViewController {
         if isReal(word: lowerAnswer) {
           if isLessThanThreeLetters(lowerAnswer) {
             if isStartWord(lowerAnswer) {
-              usedWords.insert(answer, at: 0)
+              usedWords.insert(lowerAnswer, at: 0)
               
               let indexPath = IndexPath(row: 0, section: 0)
               tableView.insertRows(at: [indexPath], with: .automatic)
@@ -126,7 +126,7 @@ class ViewController: UITableViewController {
   
   /// This checks if the word is not already in our table
   func isOriginal(word: String) -> Bool {
-    return !usedWords.contains(word)
+    return !usedWords.contains(word) && !usedWords.contains(word.capitalized)
   }
   
   func isReal(word: String) -> Bool {
