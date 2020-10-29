@@ -49,6 +49,8 @@ Days organized by folders containing
 | Day 27 | October 15, 17 | ~ | User Input, Project 5, part i; Much needed closure review |
 | Day 28 | October 20 | :white_check_mark: | User Input, Project 5, part ii; `UITextChcker` &  `rangeOfMisspelledWord(in:)` :sparkles: is a whole toolbox |
 | Day 29 | October 22 | :white_check_mark: | User Input, Project 5, part iii; attention to case sensitivity |
+| Day 30 | October 29 | :white_check_mark: | Auto Layout, Project 6, part i; Drag and drop on Interface Builder, _Auto Layout Visual Format Language (VFL)_ |
+| Day 31 | October 29 | ~ | Auto Layout, Project 6, part iI |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
