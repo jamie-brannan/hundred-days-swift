@@ -161,7 +161,11 @@ Yayyy this is nicer because it was bothering my to see the notch not be acknowle
 
 >3) Try making the height of your labels equal to 1/5th of the main view, minus 10 for the spacing. This is a hard one, but I’ve included hints below!
 
+```swift
+      label.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2, constant: -10).isActive = true
+```
 
+:white_check_mark: There we go :tada:
 
 >### Hints
 >
@@ -175,6 +179,10 @@ Yayyy this is nicer because it was bothering my to see the notch not be acknowle
 >
 >If you ignore me and read these hints without having spent at least 30 minutes trying the challenges above, the only person you’re cheating is yourself.
 >
->Still here? OK. If you’re stuck on the last challenge, try looking at Xcode’s code completion options for the constraint() method. We’re using the equalToConstant option right now, but there are others – the equalTo option lets you specify another height anchor as its first parameter, along with a multiplier and a constant.
+>Still here? OK. If you’re stuck on the last challenge, try looking at Xcode’s code completion options for the `constraint()` method. We’re using the ` ` option right now, but there are others – the equalTo option lets you specify another height anchor as its first parameter, along with a multiplier and a constant.
 >
 >When you use both a multiplier and a constant, the multiplier gets factored in first then the constant. So, if you wanted to make one view half the width of the main view plus 50, you might write something like this:
+
+```swift
+yourView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: 50).isActive = true
+```
