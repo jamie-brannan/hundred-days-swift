@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+  var previous: UILabel?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,11 +48,19 @@ class ViewController: UIViewController {
     view.addSubview(label4)
     view.addSubview(label5)
 
-    let viewsDictionary = ["label1": label1, "label2": label2, "label3": label3, "label4": label4, "label5": label5]
-    for label in viewsDictionary.keys {
-        view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil, views: viewsDictionary))
+    for label in [label1, label2, label3, label4, label5] {
+      label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+      label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+      label.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2, constant: -10).isActive = true
+      
+      if let previous = previous {
+        // we have a previous label – create a height constraint
+        label.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: 10).isActive = true
+      } else {
+        // this is the first label
+        label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+      }
     }
-    view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "V:|[label1]-[label2]-[label3]-[label4]-[label5]", options: [], metrics: nil, views: viewsDictionary))
   }
 }
 
