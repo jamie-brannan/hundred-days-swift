@@ -18,6 +18,8 @@ Days organized by folders containing
 
 ## :calendar: Schedule log
 
+### :one: **Introduction to Swift**
+
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 01 | March 30 - 31 | ~ | Review of pre-challenge practice |
@@ -32,9 +34,19 @@ Days organized by folders containing
 | Day 10 | April 30, May 14 | ~ | to be reviewed... |
 | Day 11 | May 14, 25 | ~ | to be reviewed... |
 | Day 12 | May 26, 27, 28 | ~ | to be reviewed... |
+
+### :two:** Consolidation I**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 13 | June 4 | :white_check_mark: | to be reviewed... |
 | Day 14 | June 4, 5 | ~ | to be reviewed... |
 | Day 15 | June 5 | :white_check_mark: | to be reviewed... |
+
+### :three: **Starting iOS**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 16 | June 8 | :white_check_mark: | to be reviewed... |
 | Day 17 | June 11, 12, 15 | ~ | to be reviewed... |
 | Day 18 | June 17 | :white_check_mark: | Unwrapped with `guard if` faster than I expected! yay! |
@@ -42,7 +54,17 @@ Days organized by folders containing
 | Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score, quiz insights |
 | Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete; Connecting all the right information at the right moment in the control of flow based on previous challenges.  |
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges; `UIActivityControllers` from start to finish |
+
+### :four: **Consolidation II**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones; :boom: tricky figuring out how to programatically fill in the table view with file manager in a clean way |
+
+### :five: **Web views, user input, and Auto Layout**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 24 | September 24 | :white_check_mark: | Web Views, Project 4, part i; Very familiar because of FTV work |
 | Day 25 | October 1, 8, 14 | ~ | Web Views, Project 4, part ii; :globe_with_meridians: `WKNavigationActionPolicy` and handling networking traffic in the view |
 | Day 26 | October 15 | :white_check_mark: | Web Views, Project 4, part iii; Wrap up quiz |
@@ -51,6 +73,12 @@ Days organized by folders containing
 | Day 29 | October 22 | :white_check_mark: | User Input, Project 5, part iii; attention to case sensitivity |
 | Day 30 | October 29 | :white_check_mark: | Auto Layout, Project 6, part i; Drag and drop on Interface Builder, _Auto Layout Visual Format Language (VFL)_ |
 | Day 31 | October 29, November 5 | ~ | Auto Layout, Project 6, part ii; VFL pushed further |
+
+### :six: **Consolidation III**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 32 | November 5, 12 | ~ | Review fundamentals and ShoppingList app challenge |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
