@@ -78,7 +78,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 32 | November 5 | ~ | Review fundamentals |
+| Day 32 | November 5, 12 | ~ | Review fundamentals and ShoppingList app challenge |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
