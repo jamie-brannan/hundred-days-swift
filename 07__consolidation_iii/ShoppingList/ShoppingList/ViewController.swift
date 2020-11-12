@@ -15,12 +15,20 @@ class ViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     reloadList()
-    navigationController?.navigationBar.prefersLargeTitles = true
-    title = "Shopping List"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForItem))
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearList))
+    setupToolbar()
   }
 
+  private func setupToolbar() {
+    navigationController?.navigationBar.prefersLargeTitles = true
+    title = "Shopping List"
+
+    let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForItem))
+    let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearList))
+    let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+    toolbarItems = [clearButton, spacer, shareButton, addButton]
+    navigationController?.isToolbarHidden = false
+  }
   private func reloadList() {
     tableView.reloadData()
   }
@@ -46,6 +54,20 @@ class ViewController: UITableViewController {
     items.insert(answer, at: 0)
     let indexPath = IndexPath(row: 0, section: 0)
     tableView.insertRows(at: [indexPath], with: .automatic)
+  }
+
+  @objc func shareTapped() {
+    let list = items.joined(separator: "\n")
+    let vc = UIActivityViewController(activityItems: [list], applicationActivities: [])
+    present(vc, animated: true)
+//      guard let image = flagImage.image?.jpegData(compressionQuality: 0.8), let imageName = selectedImage else {
+//          print("No image found")
+//          return
+//      }
+//
+//      let vc = UIActivityViewController(activityItems: [image, imageName], applicationActivities: [])
+//      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+//      present(vc, animated: true)
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

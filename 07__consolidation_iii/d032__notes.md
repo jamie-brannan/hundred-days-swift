@@ -119,16 +119,16 @@ Nice easy concept!
 
 >The best way to tackle this app is to think about how you build project 5: it was **a table view** that showed items from an array, and we used a `UIAlertController` with a text field to let users enter free text that got appended to the array. 
 
-  - [ ]  make a table view
-  - [ ]  alert controller with text field
-  - [ ]  append submit tot he table view
+  - [x]  make a table view
+  - [x]  alert controller with text field
+  - [x]  append submit to the table view
 
 >That forms the foundation of this app, except this _time you don’t need to validate items that get added_ – if users enter some text, assume it’s a real product and add it to their list.
 >
 >For **bonus points**, **add a left bar button item that clears the shopping list** 
 >* – _what method should be used afterwards to make the table view reload all its data?_
 
-  - [ ]  add a clear bar button item
+  - [x]  add a clear bar button item
 
 >Here are some hints in case you hit problems:
 >
@@ -140,13 +140,17 @@ Nice easy concept!
 >* Create your `UIAlertController` with the style `.alert`, then call `addTextField()` to let the user enter text.
 >
 >* When you have a new shopping list item, make sure you `insert()` it into your `shoppingList` array before you call the `insertRows(at:) `method of your table view – your app will crash if you do this the wrong way around.
+
+>You might be tempted to try to use `UIActivityViewController` to **share the finished shopping list by email,** but if you do that you’ll hit a problem: you have an array of strings, not a single string.
 >
->You might be tempted to try to use `UIActivityViewController` to share the finished shopping list by email, but if you do that you’ll hit a problem: you have an array of strings, not a single string.
->
->There’s a special method that can create one string from an array, by stitching each part together using a separator you provide. I’ll be going into it in project 8, but if you’re keen to try it now here’s some code to get you started:
+>There’s _a special method that can create one string from an array, by stitching each part together using a separator you provide_. I’ll be going into it in project 8, but if you’re keen to try it now here’s some code to get you started:
 
 ```swift
 let list = shoppingList.joined(separator: "\n")
 ```
 
 >That will create a new list constant that is a regular string, with each shopping list item separated by “`\n`” – that’s Swift’s way of representing a new line.
+
+  - [x]  make a share list by email bottom button action
+
+Did it! :tada:
