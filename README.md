@@ -19,6 +19,7 @@ Days organized by folders containing
 ## :calendar: Schedule log
 
 ### :one: **Introduction to Swift**
+>The first 12 days provide a gentle warm up for your Swift learning. You’ll watch about a selection of one-minute videos every day, and complete short quizzes about each of those videos.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
@@ -35,7 +36,8 @@ Days organized by folders containing
 | Day 11 | May 14, 25 | ~ | to be reviewed... |
 | Day 12 | May 26, 27, 28 | ~ | to be reviewed... |
 
-### :two:** Consolidation I**
+### :two: **Consolidation I**
+>You just learned a lot about Swift in only 12 days, so before we continue it's important you reflect on what you've learned: look for weak spots, re-watch videos, re-take tests, and so on, until you feel comfortable that you have mastered all the Swift language fundamentals covered in days 1-12.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
@@ -44,6 +46,7 @@ Days organized by folders containing
 | Day 15 | June 5 | :white_check_mark: | to be reviewed... |
 
 ### :three: **Starting iOS**
+>Now that you’ve mastered the basics of Swift, in these days you’ll start building real iOS apps using what you learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
@@ -56,12 +59,14 @@ Days organized by folders containing
 | Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges; `UIActivityControllers` from start to finish |
 
 ### :four: **Consolidation II**
+>In the last few days we covered some of the fundamentals of iOS development, and before we move on to the next set of projects it’s important to take a step back and review what you’ve learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 23 | August 13, 20, September 17 | ~ | Consolidation II : Starting iOS Milestones; :boom: tricky figuring out how to programatically fill in the table view with file manager in a clean way |
 
 ### :five: **Web views, user input, and Auto Layout**
+>The next three projects we’re looking at will push your iOS skills further as you create some user interface in code, manage table views more carefully, and get some experience with closures.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
@@ -75,10 +80,18 @@ Days organized by folders containing
 | Day 31 | October 29, November 5 | ~ | Auto Layout, Project 6, part ii; VFL pushed further |
 
 ### :six: **Consolidation III**
+>You’ve learned about WebKit, UIAlertController, Auto Layout, and more – some more fundamentals of iOS development. Before we continue on to more projects, let’s take a moment to review what you’ve learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 32 | November 5, 12 | ~ | Review fundamentals and ShoppingList app challenge |
+
+### :seven: **Codable, buttons and GCD**
+>The next three projects we’ll be building projects where you meet some of the most important topics in iOS development: working with data from the internet, and taking advantage of the raw power of iOS devices. Of course, you’ll also be making useful products along the way!
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 33 | November 12 | ~ | ~ |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
