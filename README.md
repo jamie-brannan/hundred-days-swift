@@ -91,7 +91,14 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 33 | November 19 | :white_check_mark: | Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
+| Day 33 | November 19 | :white_check_mark: | Project 7, part i. Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
+| Day 34 | November ... | ~ | Project 7, part ii |
+| Day 35 | November ... | ~ | Project 7, part iii |
+| Day 36 | November ... | ~ | Project 8, part i |
+| Day 37 | November ... | ~ | Project 8, part ii |
+| Day 38 | November ... | ~ | Project 8, part iii |
+| Day 39 | November ... | ~ | Project 9, part i |
+| Day 40 | November ... | ~ | Project 9, part ii |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
