@@ -91,7 +91,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 33 | November 19 | ~ | ~ |
+| Day 33 | November 19 | :white_check_mark: | Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
