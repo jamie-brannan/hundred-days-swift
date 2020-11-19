@@ -91,7 +91,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 33 | November 12 | ~ | ~ |
+| Day 33 | November 19 | ~ | ~ |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
