@@ -69,11 +69,22 @@ class ViewController: UITableViewController {
 
 :white_check_mark: Done, done, and done.
 
->Select its prototype cell and use the attributes inspector to give it the identifier “Cell”. Set its accessory to “Disclosure Indicator” while you’re there; it’s a great UI hint, and it’s perfect in this project. In this project, we’re also going to change the style of the cell – that’s the first item in the attributes inspector. It’s “Custom” by default, but I’d like you to change it to “Subtitle”, so that each row has a main title label and a subtitle label.
+>Select its prototype cell and use the attributes inspector to give it the identifier “Cell”. 
+
+:white_check_mark: 
+
+>Set its accessory to **“Disclosure Indicator”** while you’re there; it’s a great UI hint, and it’s perfect in this project. 
+
+:question: _Huh? What will this do?_
+
+>In this project, we’re also going to change the style of the cell – that’s the first item in the attributes inspector. It’s “Custom” by default, but I’d like you to change it to **“Subtitle”**, so that each row has a main title label and a subtitle label.
+
+:white_check_mark: Nice
 
 (:camera: screen shot on website)
 
->Now for the interesting part: we need to wrap this view controller inside two other things. Go to Editor > Embed In > Navigation Controller, and then straight away go to Editor > Embed In > Tab Bar Controller. The navigation controller adds a gray bar at the top called a navigation bar, and the tab bar controller adds a gray bar at the bottom called a tab bar. Hit Cmd+R now to see them both in action.
+>Now for the interesting part: we need to wrap this view controller inside two other things. Go to _Editor_ > _Embed In_ > _Navigation Controller_, and then straight away go to _Editor_ > _Embed In_ > _Tab Bar Controller_. 
+>* The navigation controller adds a gray bar at the top called a navigation bar, and the tab bar controller adds a gray bar at the bottom called a tab bar. Hit Cmd+R now to see them both in action.
 
 (:camera: screen shot on website)
 
