@@ -54,9 +54,15 @@ class DetailViewController: UIViewController {
 >This is almost identical to the code from project 4, but you'll notice I've added a `detailItem` property that will contain our `Petition` instance.
 >
 :white_check_mark: added
->That was the easy bit. The hard bit is that we can't just drop the petition text into the web view, because it will probably look tiny. Instead, we need to wrap it in some HTML, which is a whole other language with its own rules and its own complexities.
+
+>That was the easy bit. The hard bit is that **we can't just drop the petition text into the web view**, because it will probably look tiny. 
+>* Instead, we need to wrap it in some HTML, which is a whole other language with its own rules and its own complexities.
 >
->Now, this series isn't called "Hacking with HTML," so I don't intend to go into much detail here. However, I will say that the HTML we're going to use tells iOS that the page fits mobile devices, and that we want the font size to be 150% of the standard font size. All that HTML will be combined with the `body` value from our petition, then sent to the web view.
+>Now, this series isn't called "Hacking with HTML," so I don't intend to go into much detail here. However, I will say that the HTML we're going to use tells iOS that
+>* the page fits mobile devices, 
+>* and that we want the font size to be 150% of the standard font size. 
+> 
+>All that HTML will be combined with the `body` value from our petition, then sent to the web view.
 >
 >Place this in `viewDidLoad()`, directly beneath the call to `super.viewDidLoad()`:
 
@@ -80,13 +86,16 @@ webView.loadHTMLString(html, baseURL: nil)
 
 >That guard at the beginning unwraps `detailItem` into itself if it has a value, which makes sure we exit the method if for some reason we didn’t get any data passed into the detail view controller.
 >
->Note: It’s very common to unwrap variables using the same name, rather than create slight variations. In this case we could have used `guard let unwrappedItem = detailItem`, but that isn’t any better.
->
->I've tried to make the HTML as clear as possible, but if you don't care for HTML don't worry about it. What matters is that there's a Swift string called `    ` that contains everything needed to show the page, and that's passed in to the web view's `loadHTMLString()` method so that it gets loaded. This is different to the way we were loading HTML before, because we aren't using a website here, just some custom HTML.
+>Note: **It’s very common to unwrap variables using the same name**, rather than create slight variations. In this case we could have used `guard let unwrappedItem = detailItem`, but that isn’t any better.
+
+yup this is what we do often in our code but not always
+
+>I've tried to make the HTML as clear as possible, but if you don't care for HTML don't worry about it. What matters is that there's a Swift string called `html` that contains everything needed to show the page, and that's passed in to the web view's `loadHTMLString()` method so that it gets loaded. This is different to the way we were loading HTML before, because we aren't using a website here, just some custom HTML.
 >
 >That's it for the detail view controller, it really is that simple. However, we still need to connect it to the table view controller by implementing the `didSelectRowAt` method.
 >
->Previously we used the `instantiateViewController()` method to load a view controller from `Main.storyboard`, but in this project `DetailViewController` isn’t in the storyboard – it’s just a free-floating class. This makes `didSelectRowAt` easier, because it can load the class directly rather than loading the user interface from a storyboard.
+>Previously we used the `instantiateViewController()` method to load a view controller from `Main.storyboard`, **but in this project `DetailViewController` isn’t in the storyboard** – it’s just a free-floating class. 
+>* This makes `didSelectRowAt` easier, because _it can load the class directly rather than loading the user interface from a storyboard._
 >
 >So, add this new method to your `ViewController` class now:
 
@@ -99,6 +108,6 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 ```
 >Go ahead and run the project now by pressing Cmd+R or clicking play, then tap on a row to see more detail about each petition. Some petitions don’t have detail text, but most do – try a few and see what you can find.
 
-
+Omg some of these are so wacky. Great API choice! :rocket:
 
 ## :two: [Finishing touches didFinishLaunchingWithOptions](https://www.hackingwithswift.com/read/7/5/finishing-touches-didfinishlaunchingwithoptions) 
