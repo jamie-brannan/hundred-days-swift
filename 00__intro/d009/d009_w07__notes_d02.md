@@ -6,6 +6,13 @@
 
 Continuting to learn **Structs**
 
+- [Day 9 (2), Week 7](#day-9-2-week-7)
+  - [:three: Lazy properties](#three-lazy-properties)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+  - [:four: Static properties and methods](#four-static-properties-and-methods)
+    - [Starting point](#starting-point)
+    - [Modified](#modified)
+
 ## :three: [Lazy properties](https://www.hackingwithswift.com/sixty/7/10/lazy-properties)
 
 >As a performance optimization, Swift lets you create some properties only when they are needed. 

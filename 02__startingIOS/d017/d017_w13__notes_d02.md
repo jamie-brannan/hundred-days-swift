@@ -3,6 +3,13 @@
 
 *At home* :house:
 
+- [Day 17 (2), Week 13](#day-17-2-week-13)
+  - [:three:  Final tweaks hidesBarOnTap](#three--final-tweaks-hidesbarontap)
+    - [Aspect fit](#aspect-fit)
+    - [Navbar-less viewing](#navbar-less-viewing)
+    - [Disclosure indicators](#disclosure-indicators)
+    - [Page titles](#page-titles)
+    - [Large titles](#large-titles)
 ## :three:  [Final tweaks hidesBarOnTap](https://www.hackingwithswift.com/read/1/6/final-tweaks-hidesbarsontap-safe-area-margins) 
 
 >First, you might have noticed that all the images are being stretched to fit the screen. This isn't an accident – it's the *default setting* of UIImageView.

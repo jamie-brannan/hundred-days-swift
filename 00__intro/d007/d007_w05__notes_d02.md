@@ -3,6 +3,11 @@
 :calendar: – Sunday April 19, 2020
 
 *At home* :house:
+- [Day 7, Week 5](#day-7-week-5)
+	- [:two: Using closures as parameters when they return values](#two-using-closures-as-parameters-when-they-return-values)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+		- [:three: Shorthand parameter names](#three-shorthand-parameter-names)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
 
 ## :two: [Using closures as parameters when they return values](https://www.hackingwithswift.com/sixty/6/7/using-closures-as-parameters-when-they-return-values)
 

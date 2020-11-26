@@ -5,6 +5,26 @@
 
 Continued **Optionals**
 
+- [Day 12(3), Week 11](#day-123-week-11)
+	- [:three:  Unwrapping with guard](#three--unwrapping-with-guard)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:four: Force unwrapping](#four-force-unwrapping)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+	- [:five:  Implicity unwrapped optionals](#five--implicity-unwrapped-optionals)
+		- [:boom: Quiz insights](#boom-quiz-insights-2)
+	- [:six:  Nil coalescing](#six--nil-coalescing)
+	- [:seven:  Optional chaining](#seven--optional-chaining)
+		- [:boom: Quiz insights](#boom-quiz-insights-3)
+	- [:eight:  Optional try](#eight--optional-try)
+		- [normal optional](#normal-optional)
+		- [forced unwrapping optional](#forced-unwrapping-optional)
+		- [:boom: Quiz insights](#boom-quiz-insights-4)
+	- [:nine: Failable initializers](#nine-failable-initializers)
+		- [:boom: Quiz insights](#boom-quiz-insights-5)
+	- [:one::zero:  Typecasting](#onezero--typecasting)
+		- [:boom: Quiz insights](#boom-quiz-insights-6)
+	- [:arrow_right_hook: Optionals summary](#arrow_right_hook-optionals-summary)
+
 ## :three:  [Unwrapping with guard](https://www.hackingwithswift.com/sixty/10/3/unwrapping-with-guard) 
 
 ### :boom: Quiz insights

@@ -5,6 +5,19 @@
 
 Contiuing the topic of **Classes**
 
+- [Day 10 (2), Week 9](#day-10-2-week-9)
+  - [:three:  Overriding methods (Con't)](#three--overriding-methods-cont)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+  - [:four:  Final classes](#four--final-classes)
+    - [:boom: Quiz insights](#boom-quiz-insights-1)
+  - [:five:  Copying Objects](#five--copying-objects)
+    - [:boom: Quiz insights](#boom-quiz-insights-2)
+  - [:six:  Deinitializers](#six--deinitializers)
+    - [:boom: Quiz insights](#boom-quiz-insights-3)
+  - [:seven:  Mutability](#seven--mutability)
+    - [:boom: Quiz insights](#boom-quiz-insights-4)
+  - [:arrow_right_hook: Classes summary](#arrow_right_hook-classes-summary)
+
 ## :three:  [Overriding methods (Con't)](https://www.hackingwithswift.com/sixty/8/3/overriding-methods) 
 
 >Child classes can replace parent methods with their own implementations – a process known as overriding. Here’s a trivial `Dog` class with a `makeNoise()` method:

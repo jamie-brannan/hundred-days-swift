@@ -1,5 +1,12 @@
 # Day 24 (1) • Thursday September 24, 2020
 
+- [Day 24 (1) • Thursday September 24, 2020](#day-24-1--thursday-september-24-2020)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Creating a simple browers with WKWebView](#two--creating-a-simple-browers-with-wkwebview)
+  - [:three:  Choosing a website under UIAlertControler action sheets](#three--choosing-a-website-under-uialertcontroler-action-sheets)
+    - [Custom buttons and navigation](#custom-buttons-and-navigation)
+    - [Title](#title)
+
 >Alexis Ohanian, the founder of Reddit, once said “to join in the industrial revolution, you needed to open a factory; in the Internet revolution, you need to open a laptop.” Well, thanks to iOS we have something even easier: you just need to tap a button on your iPhone.
 >
 >Apple gives us the ability to render any kind of web content just like Safari does, all powered through its open source WebKit framework. This is cross-platform, meaning that we can use it on macOS and iOS just the same, and it’s also blazingly fast as you’ll see in a moment.

@@ -3,6 +3,13 @@
 
 Today's topic **Classes**
 
+- [Day 10, Week 7](#day-10-week-7)
+	- [:one: Creating your own classes](#one-creating-your-own-classes)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:two:  Class inheritance](#two--class-inheritance)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+	- [:three:  Overriding methods](#three--overriding-methods)
+
 >At first, classes seem very similar to `structs` because we use them to create new data types with **properties** and **methods**. However, they introduce a new, important, and *complex* feature called **inheritance** – the ability to make one `class` build on the foundations of another.
 >
 >This is a powerful feature, there’s no doubt about it, and there is no way to avoid using classes when you start building real iOS apps. 

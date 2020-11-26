@@ -6,6 +6,11 @@
 
 Today's theme continues to be **Closures** (part 2).
 
+- [Day 7, Week 4](#day-7-week-4)
+	- [:one: Using closures as parameters when they accept parameters](#one-using-closures-as-parameters-when-they-accept-parameters)
+		- [:boom: Question insights](#boom-question-insights)
+	- [Wrap up](#wrap-up)
+
 >Today you have seven one-minute videos to watch, and you’ll learn about how closures accept parameters and return values.
 
 ## :one: [Using closures as parameters when they accept parameters](https://www.hackingwithswift.com/sixty/6/6/using-closures-as-parameters-when-they-accept-parameters)

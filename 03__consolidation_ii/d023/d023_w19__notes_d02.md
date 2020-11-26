@@ -1,6 +1,12 @@
 # Day 23 (2), Week 19
 :calendar: – Thursday August 20, 2020
 
+- [Day 23 (2), Week 19](#day-23-2-week-19)
+  - [:three:  Challenge](#three--challenge)
+      - [Need to have tiles findable.](#need-to-have-tiles-findable)
+      - [Because the cells are nill?](#because-the-cells-are-nill)
+      - [We need to remove the file name at the end.](#we-need-to-remove-the-file-name-at-the-end)
+      - [Tried using a `regex`](#tried-using-a-regex)
 ## :three:  [Challenge](https://www.hackingwithswift.com/guide/2/3/challenge) 
 
 >You have a rudimentary understanding of table views, image views, and navigation controllers, so let’s put them together: your challenge is to create an app that lists various world flags in a table view. When one of them is tapped, slide in a detail view controller that contains an image view, showing the same flag full size. On the detail view controller, add an action button that lets the user share the flag picture and country name using `UIActivityViewController`.

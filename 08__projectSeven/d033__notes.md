@@ -1,5 +1,10 @@
 # *Day 33 • Thursday November 12, 2020*
 
+- [*Day 33 • Thursday November 12, 2020*](#day-33--thursday-november-12-2020)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Creating the basic UI : `UITabBarController`](#two--creating-the-basic-ui--uitabbarcontroller)
+  - [:three:  Parsing JSON using the codable protocol](#three--parsing-json-using-the-codable-protocol)
+
 >One of the joys of working on Apple platforms is that it can feel like there’s no end to exciting technologies to try – whether that’s ARKit, Core ML, SpriteKit, or any of the dozens of other things, I don’t think there’s ever been a better time to get into software development.
 >
 >But – and this is a big but! – as wonderful as those things are, a large part of our work as iOS developers is always going to **involve the fundamentals of app development**: 

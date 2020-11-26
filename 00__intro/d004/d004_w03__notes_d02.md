@@ -4,6 +4,15 @@
 
 *At home* :house:
 
+- [Day 4, Week 3](#day-4-week-3)
+  - [:two: While loops](#two-while-loops)
+  - [:three: Repeat loops](#three-repeat-loops)
+  - [:four: Exiting loops](#four-exiting-loops)
+    - [:boom: Quiz correct answers](#boom-quiz-correct-answers)
+  - [:five: Exiting multiple loops](#five-exiting-multiple-loops)
+  - [:six: Skipping items](#six-skipping-items)
+  - [:seven: Infinite loops](#seven-infinite-loops)
+  - [:eight: Looping summary](#eight-looping-summary)
 ## :two: [While loops](https://www.hackingwithswift.com/sixty/4/2/while-loops)
 
 >A second way of writing loops is using while: give it a condition to check, and its loop code will go around and around until the condition fails.

@@ -6,6 +6,16 @@
 
 **Closures, part one** subject
 
+- [Day 6, Week 3](#day-6-week-3)
+	- [:one: Creating basic closures](#one-creating-basic-closures)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:two: Accepting paraemters in a closure](#two-accepting-paraemters-in-a-closure)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+	- [:three: Returning values from a closure](#three-returning-values-from-a-closure)
+		- [:boom: Quiz insights](#boom-quiz-insights-2)
+	- [:four: Closures as parameters](#four-closures-as-parameters)
+		- [:boom: Quiz insights](#boom-quiz-insights-3)
+	- [:five: Trailing closure syntax](#five-trailing-closure-syntax)
 > Please keep in mind Flip Wilson's law: “you can't expect to hit the jackpot if you don't put a few nickels in the machine.”
 >
 >Initially you’ll think that closures are simply anonymous functions – functions we can create and assign directly to a variable, then pass that variable around as if it were a string or an integer.

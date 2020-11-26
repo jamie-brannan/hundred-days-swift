@@ -4,6 +4,23 @@
  
  Today's theme is *Operations and conditions*.
 
+- [Day 3, Week 2](#day-3-week-2)
+  - [:one: Arithmetic operators](#one-arithmetic-operators)
+    - [Recap](#recap)
+    - [:boom: Questions results](#boom-questions-results)
+      - [Which of these make result an integer equal to 5?](#which-of-these-make-result-an-integer-equal-to-5)
+  - [:two: Operator Overloading](#two-operator-overloading)
+    - [:boom: Questions results](#boom-questions-results-1)
+      - [This code is valid Swift – true or false?](#this-code-is-valid-swift--true-or-false)
+  - [:three: Compound assignment operators](#three-compound-assignment-operators)
+  - [:four: Comparison operators](#four-comparison-operators)
+  - [:five: Conditions](#five-conditions)
+    - [:boom: Questions results](#boom-questions-results-2)
+  - [:six: Combining conditions](#six-combining-conditions)
+  - [:seven: The Ternary Operator](#seven-the-ternary-operator)
+  - [:eight: Switch statements](#eight-switch-statements)
+  - [:nine: Range operators](#nine-range-operators)
+  - [:arrow_right_hook: Operators and conditions summary](#arrow_right_hook-operators-and-conditions-summary)
  ## :one: [Arithmetic operators](https://www.hackingwithswift.com/sixty/3/1/arithmetic-operators)
 
  The standard arithmatic operators work

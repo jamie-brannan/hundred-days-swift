@@ -1,6 +1,9 @@
 # Day 21, Week 16
 :calendar: – Wednesday July 08, 2020
 
+- [Day 21, Week 16](#day-21-week-16)
+  - [Challenge](#challenge)
+    - [Resulting `ViewController.swift`](#resulting-viewcontrollerswift)
 ## Challenge
 
 >1) Try showing the player’s score in the navigation bar, alongside the flag to guess.

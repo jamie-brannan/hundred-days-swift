@@ -3,6 +3,18 @@
 
 *At home* :house:
 
+- [Day 11(3), Week 11](#day-113-week-11)
+  - [:two:  Protocol Inheritance](#two--protocol-inheritance)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+  - [:three:  Extensions](#three--extensions)
+    - [Coded all togetehr](#coded-all-togetehr)
+    - [:boom: Quiz insights](#boom-quiz-insights-1)
+  - [:four:  Protocol extensions](#four--protocol-extensions)
+    - [:boom: Quiz insights](#boom-quiz-insights-2)
+  - [:five:  Protocol-oriented Programming](#five--protocol-oriented-programming)
+    - [Coded all together](#coded-all-together)
+    - [:boom: Quiz insights](#boom-quiz-insights-3)
+  - [:arrow_right_hook: Protocols and extensions summary](#arrow_right_hook-protocols-and-extensions-summary)
 ## :two:  [Protocol Inheritance](https://www.hackingwithswift.com/sixty/9/2/protocol-inheritance) 
 
 >One protocol can inherit from another in a process known as **protocol inheritance**. 

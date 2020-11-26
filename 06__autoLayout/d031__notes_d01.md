@@ -1,5 +1,8 @@
 # *Day 31 • Thursday October 29, 2020*
 
+- [*Day 31 • Thursday October 29, 2020*](#day-31--thursday-october-29-2020)
+  - [:one: Auto Layout metrics and priorities: constraints(withVisualFormat:)](#one-auto-layout-metrics-and-priorities-constraintswithvisualformat)
+
 >One of the three laws laid down by British science fiction writer Arthur C. Clarke is particularly well known: “any sufficiently advanced technology is indistinguishable from magic.”
 >
 >It’s possible that you’re thinking Auto Layout is a bit of a black box, where magic happens to make sure all your rules are followed. But it isn’t: Auto Layout is actually straightforward most of the time, and as long as you make sure your constraints are a) complete, and b) non-contradictory, you shouldn’t have too many problems.

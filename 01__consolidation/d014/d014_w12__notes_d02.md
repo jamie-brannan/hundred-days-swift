@@ -3,6 +3,17 @@
 
 *At home* :house:
 
+- [Day 14(2), Week 12](#day-142-week-12)
+  - [:four:  Enumerations](#four--enumerations)
+      - [Enums with additional values](#enums-with-additional-values)
+  - [:five:  Structs](#five--structs)
+      - [Functions inside structs](#functions-inside-structs)
+  - [:six:  Classes](#six--classes)
+    - [Initializing an object](#initializing-an-object)
+    - [Class Inhereitance](#class-inhereitance)
+    - [Working with Objective-C code](#working-with-objective-c-code)
+    - [Values and references](#values-and-references)
+
 **Consolidation : Day 2, part 2 ;)**
 
 ## :four:  [Enumerations](https://www.hackingwithswift.com/read/0/14/enumerations) 

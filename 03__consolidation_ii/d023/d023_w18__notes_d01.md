@@ -1,6 +1,10 @@
 # Day 23, Week 18
 :calendar: – Thursday August 13, 2020
 
+- [Day 23, Week 18](#day-23-week-18)
+  - [:one: What you learned](#one-what-you-learned)
+  - [:two:  Key points](#two--key-points)
+
 >It’s time for another consolidation day, because we’ve covered a lot of ground in the first three topics and it’s important you review them if you want them to stick in your head.
 >
 >However, this will also be the first day you’re asked to create a complete app from scratch. Don’t worry: I outline all the components required to make it work, and also provide hints to give you a head start.

@@ -1,6 +1,11 @@
 # Day 22 (3), Week 17 
 :calendar: – Thursday August 06, 2020
 
+- [Day 22 (3), Week 17](#day-22-3-week-17)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+  - [:gift: Wrap-up Challenge](#gift-wrap-up-challenge)
+    - [:one: Adding the _image name_ to the list of items that are shared](#one-adding-the-image-name-to-the-list-of-items-that-are-shared)
+    - [:two: **Project 1** and add a bar button item to the main view controller](#two-project-1-and-add-a-bar-button-item-to-the-main-view-controller)
 ### :boom: Quiz insights
 
 :question: *Which of these statements are true?*

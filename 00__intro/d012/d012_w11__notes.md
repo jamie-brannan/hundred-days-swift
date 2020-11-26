@@ -3,6 +3,14 @@
 
 *At home* :house:
 
+- [Day 12, Week 11](#day-12-week-11)
+  - [:one:  Handling missing data](#one--handling-missing-data)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+  - [:two:  Unwrapping optionals](#two--unwrapping-optionals)
+    - [Coded all together](#coded-all-together)
+    - [:boom: Quiz insights](#boom-quiz-insights-1)
+  - [:three:  Unwrapping with guard](#three--unwrapping-with-guard)
+
 Today's subject is **Optionals** ! :)
 
 >Null references – literally when a variable has no value – were invented by [Tony Hoare](https://en.wikipedia.org/wiki/Tony_Hoare) way back in 1965. When asked about it in retrospect, he said “I call it my billion-dollar mistake” because they lead to so many problems.

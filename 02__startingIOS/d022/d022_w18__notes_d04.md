@@ -1,6 +1,9 @@
 # Day 22(3), Week 18
 :calendar: – Thursday August 13, 2020
 
+- [Day 22(3), Week 18](#day-223-week-18)
+  - [**Challenge 2**, sharing the app link](#challenge-2-sharing-the-app-link)
+  - [**Challenge 3**, Go back to project 2 and add a bar button item that shows their score when tapped.](#challenge-3-go-back-to-project-2-and-add-a-bar-button-item-that-shows-their-score-when-tapped)
 ## **Challenge 2**, sharing the app link
 
 :white_check_mark: Code is good!

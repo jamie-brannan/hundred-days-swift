@@ -4,7 +4,12 @@
 
 *At home* :house:
 
-
+- [Day 8 (3), Week 6](#day-8-3-week-6)
+	- [:five: Mutating methods](#five-mutating-methods)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:six: Properties and methods of string](#six-properties-and-methods-of-string)
+	- [:seven: Properties and methods of arrays](#seven-properties-and-methods-of-arrays)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
 ## :five: [Mutating methods](hackingwithswift.com/sixty/7/5/mutating-methods)
 
 >If a `struct` has a variable property but the *instance of the struct was created as a* **constant**, that property can’t be changed – the struct is constant, so all its properties are also constant regardless of how they were created.

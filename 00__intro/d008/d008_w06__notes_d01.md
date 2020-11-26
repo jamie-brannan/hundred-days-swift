@@ -6,6 +6,12 @@
 
 **Structs, part one** 
 
+- [Day 8, Week 6](#day-8-week-6)
+	- [:one: Creating your own structs](#one-creating-your-own-structs)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:two: Computed properties](#two-computed-properties)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+
 > Structs let us create our own data types out of several small types.
 >
 > For example, you might put three strings and a boolean together and say that represents a user in your app.

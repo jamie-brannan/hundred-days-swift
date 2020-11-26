@@ -3,6 +3,17 @@
 
 *At home* :house:
 
+- [Day 19, Week 14](#day-19-week-14)
+  - [:one: Setting up](#one-setting-up)
+  - [:two: Designing your layout](#two-designing-your-layout)
+    - [Buttons](#buttons)
+    - [Auto layout buttons](#auto-layout-buttons)
+    - [Adding Assets](#adding-assets)
+    - [Adding asset images to buttons](#adding-asset-images-to-buttons)
+    - [Auto layout contraints for middle and bottom buttons](#auto-layout-contraints-for-middle-and-bottom-buttons)
+  - [:three: Making the basic game work UIbutton and `CALayer`](#three-making-the-basic-game-work-uibutton-and-calayer)
+    - [Flag borders](#flag-borders)
+
 **Project 2 : day 1**
 
 Today you have three topics to work through, and you’ll meet asset catalogs, buttons, colors, and more.

@@ -1,5 +1,11 @@
 # *Day 29 • Thursday October 22, 2020*
 
+- [*Day 29 • Thursday October 22, 2020*](#day-29--thursday-october-22-2020)
+  - [:one:  Wrap up](#one--wrap-up)
+    - [Project 5, Word Scramble review](#project-5-word-scramble-review)
+    - [Challenge](#challenge)
+    - [Hints](#hints)
+
 >I hope that today you inched a little closer to understanding closures, and that you’re starting to see that they are really just a very special kind of function. Sure they have weird syntax, and yes the capturing thing makes them behave in all sorts of interesting ways, but ultimately they are just anonymous functions that you pass around as if they were data.
 >
 >If you’re still not sure about closures, it’s OK: we’ll be using them again and again, and sooner or later they’ll click. You’d do well to remember the words of Patrick McKenzie: “every great developer you know got there by solving problems they were unqualified to solve until they actually did it.”

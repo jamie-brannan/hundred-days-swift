@@ -5,6 +5,10 @@
 
 Continuing **Optionals**
 
+- [Day 12(2), Week 11](#day-122-week-11)
+  - [:three:  Unwrapping with guard](#three--unwrapping-with-guard)
+    - [Code all together](#code-all-together)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 ## :three:  [Unwrapping with guard](https://www.hackingwithswift.com/sixty/10/3/unwrapping-with-guard) 
 
 >An *alternative* to `if let `is `guard let`, which also unwraps optionals. 
