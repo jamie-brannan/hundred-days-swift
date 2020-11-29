@@ -3,6 +3,7 @@
 - [*Day 34 • Thursday November 26, 2020*](#day-34--thursday-november-26-2020)
   - [:one: Rendering a petition loadHTMLString](#one-rendering-a-petition-loadhtmlstring)
   - [:two: Finishing touches didFinishLaunchingWithOptions](#two-finishing-touches-didfinishlaunchingwithoptions)
+  - [:three:  Wrap up](#three--wrap-up)
 
 >Although I love writing Swift, you’ll never hear me say stuff like “it’s the One True Language.” Programming is a massive landscape of ideas, and there’s lots to learn and enjoy outside of Swift.
 
@@ -111,3 +112,146 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 Omg some of these are so wacky. Great API choice! :rocket:
 
 ## :two: [Finishing touches didFinishLaunchingWithOptions](https://www.hackingwithswift.com/read/7/5/finishing-touches-didfinishlaunchingwithoptions) 
+
+>Before this project is finished, we're going to make two changes. First, we're going to add another tab to the `UITabBarController` that will show popular petitions, and second we're going to make our loading code a little more resilient by _adding error messages_.
+>
+>As I said previously, **we can't really put the second tab into our storyboard** because both tabs will host a `ViewController` and doing so would require us to duplicate the view controllers in the storyboard. You can do that if you really want, but please don't – it's a maintenance nightmare!
+>
+>Instead, we're going to leave our current storyboard configuration alone, then create the second view controller using code. This isn't something you've done before, but it's not hard and we already took the first step, as you'll see.
+>
+>Open the file AppDelegate.swift. This has been in all our projects so far, but it's not one we've had to work with until now. Look for the `didFinishLaunchingWithOptions` method, which should be at the top of the file. This gets called by iOS when the app has finished loading and is ready to be used, and we're going to hijack it to insert a second `ViewController` into our tab bar.
+
+:white_check_mark: Found
+
+>It should already have some default Apple code in there, but we're going to add some more just before the `return true` line:
+
+```swift
+if let tabBarController = window?.rootViewController as? UITabBarController {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let vc = storyboard.instantiateViewController(withIdentifier: "NavController")
+    vc.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+    tabBarController.viewControllers?.append(vc)
+}
+```
+
+>Every line of that is new, so let's dig in deeper:
+>
+>* Our storyboard automatically creates a window in which all our view controllers are shown. **This window needs to know what its initial view controller is, and that gets set to its `rootViewController` property.** This is all handled by our storyboard.
+
+uhhhh but :red_circle: `Cannot find 'window' in scope`?
+
+>* In the Single View App template, the root view controller is the `ViewController`, but we embedded ours inside a navigation controller, then embedded that inside a tab bar controller. So, for us the root view controller is a `UITabBarController`.
+>
+>* We need to c**reate a new `ViewController` by hand**, which first means **getting a reference** to our `Main.storyboard` file. This is done using the `UIStoryboard` class, as shown. You don't need to provide a bundle, because **`nil` means "use my current app bundle."**
+
+I guess there's "pointers" back to this making it possible?
+
+>* We create our view controller using the `instantiateViewController()` method, passing in the storyboard ID of the view controller we want. Earlier we set our navigation controller to have the storyboard ID of "NavController", so we pass that in.
+
+Ouups I didn't seem to have done this before.
+
+>* We create a `UITabBarItem` object for the new view controller, giving it the "Top Rated" icon and the tag 1. That tag will be important in a moment.
+>
+>* We add the new view controller to our tab bar controller's `viewControllers` array, which will cause it to appear in the tab bar.
+>
+>So, the code creates a duplicate `ViewController` wrapped inside a navigation controller, gives it a new tab bar item to distinguish it from the existing tab, then adds it to the list of visible tabs. This lets us use the same class for both tabs without having to duplicate things in the storyboard.
+>
+>The reason we gave a tag of 1 to the new `UITabBarItem` is because it's an easy way to identify it. Remember, both tabs contain a `ViewController`, which means the same code is executed. Right now that means both will download the same JSON feed, which makes having two tabs pointless. But if you modify `urlString` in ViewController.swift’s `viewDidLoad()` method to this, it will work much better:
+
+```swift
+let urlString: String
+
+if navigationController?.tabBarItem.tag == 0 {
+    // urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+    urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
+} else {
+    // urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+    urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
+}
+```
+>That adjusts the code so that the first instance of `ViewController` loads the original JSON, and the second loads only petitions that have at least 10,000 signatures. Once again I’ve provided cached copies of the Whitehouse API data in case it changes or goes away in the future – use whichever one you prefer.
+>
+>The project is almost done, but we're going to make one last change. Our current loading code isn't very resilient: we have a couple of `if` statements checking that things are working correctly, but no `else` statements showing an error message if there's a problem.
+>
+>This is easily fixed by adding a new `showError()` method that creates a `UIAlertController` showing a general failure message:
+
+```swift
+func showError() {
+    let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    present(ac, animated: true)
+}
+```
+
+>You can now adjust the JSON downloading and parsing code to call this error method everywhere a condition fails, like this:
+
+```swift
+if let url = URL(string: urlString) {
+    if let data = try? Data(contentsOf: url) {
+        parse(json: data)
+    } else {
+        showError()
+    }
+} else {
+    showError()
+}
+```
+
+>Alternatively we could rewrite this to be a little cleaner by inserting `return` after the call to `parse()`. This means that the method would exit if parsing was reached, so we get to the end of the method it means parsing wasn’t reached and we can show the error. Try this instead:
+
+```swift
+if let url = URL(string: urlString) {
+    if let data = try? Data(contentsOf: url) {
+        parse(json: data)
+        return
+    }
+}
+
+showError()
+```
+
+>Both approaches are perfectly valid – do whichever you prefer.
+>
+>Regardless of which you opt for, now that error messages are shown when the app hits problems we’re done – good job!
+
+It runs but there is not a second tab? :thinking:
+
+## :three:  [Wrap up](https://www.hackingwithswift.com/read/7/6/wrap-up) 
+
+>As your Swift skill increases, I hope you're starting to feel the balance of these projects move away from explaining the basics and toward presenting and dissecting code.
+>
+>In this project you learned how to download JSON using Swift’s Data type, then use the Codable protocol to convert that data into Swift objects we defined. Working with JSON is something you're going to be doing time and time again in your Swift career, and you've cracked it in about an hour of work – while also learning about `UITabBarController`, `UIStoryboard`, and more.
+>
+>Good job!
+>
+>### Review what you learned
+>
+>Anyone can sit through a tutorial, but it takes actual work to remember what was taught. It’s my job to make sure you take as much from these tutorials as possible, so I’ve prepared a short review to help you check your learning.
+>### Challenge
+>One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on:
+>
+>1. Add a Credits button to the top-right corner using `UIBarButtonItem`. When this is tapped, show an alert telling users the data comes from the We The People API of the Whitehouse.
+>
+>2. Let users filter the petitions they see. This involves creating a second array of filtered items that contains only petitions matching a string the user entered. Use a `UIAlertController` with a text field to let them enter that string. This is a tough one, so I’ve included some hints below if you get stuck.
+>
+>3. Experiment with the HTML – this isn’t a HTML or CSS tutorial, but you can find lots of resources online to give you enough knowledge to tinker with the layout a little.
+>### Hints
+>It is vital to your learning that you try the challenges above yourself, and not just for a handful of minutes before you give up.
+>
+>Every time you try something wrong, you learn that it’s wrong and you’ll remember that it’s wrong. By the time you find the correct solution, you’ll remember it much more thoroughly, while also remembering a lot of the wrong turns you took.
+>
+>This is what I mean by “there is no learning without struggle”: if something comes easily to you, it can go just as easily. But when you have to really mentally fight for something, it will stick much longer.
+>
+>But if you’ve already worked hard at the challenges above and are still struggling to implement them, I’m going to write some hints below that should guide you to the correct answer.
+>
+>**If you ignore me and read these hints without having spent at least 30 minutes trying the challenges above, the only person you’re cheating is yourself.**
+>
+>Still here? OK. The second challenge here is to let users filter the petitions they see. To solve this you need to do a number of things:
+>
+>1. Have one property to store all petitions, and one to store filtered petitions. This means the user can filter the petitions several times and you don’t have to keep redownloading your JSON.
+> 1. At first your filtered petitions array will be the same as the main petitions array, so just assign one to the other when your data is ready.
+> 1. Your table view should load all its data from the filtered petitions array.
+> 1. You’ll need a bar button item to show an alert controller that the user can type into.
+> 1. Once that’s done, go through all the items in your petitions array, adding any you want to the filtered petition.
+>
+>The important part here is the last one: how do you decide whether a petition matches the user’s search? One option is to use `contains()` to check whether the petition title or body text contains the user’s search string – try it and see how you get on!
