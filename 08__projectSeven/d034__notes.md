@@ -3,6 +3,7 @@
 - [*Day 34 • Thursday November 26, 2020*](#day-34--thursday-november-26-2020)
   - [:one: Rendering a petition loadHTMLString](#one-rendering-a-petition-loadhtmlstring)
   - [:two: Finishing touches didFinishLaunchingWithOptions](#two-finishing-touches-didfinishlaunchingwithoptions)
+  - [:arrow_right_hook: :gift: Wrap up the day](#arrow_right_hook-gift-wrap-up-the-day)
 
 >Although I love writing Swift, you’ll never hear me say stuff like “it’s the One True Language.” Programming is a massive landscape of ideas, and there’s lots to learn and enjoy outside of Swift.
 
@@ -215,3 +216,11 @@ showError()
 >Regardless of which you opt for, now that error messages are shown when the app hits problems we’re done – good job!
 
 It runs but there is not a second tab? :thinking:
+
+## :arrow_right_hook: :gift: Wrap up the day
+
+Huge issue on going because there's Scene Deleguate now : :pushpin: [**StackOverFlow**](https://stackoverflow.com/questions/58084127/ios-13-swift-set-application-root-view-controller-programmatically-does-not) : *iOS 13 Swift set application root view controller programmatically does not work*
+
+* delete `SceneDelegate.swift`
+* delete blocks concerning it within `AppDelegate`
+* remove `ApplicationSceneManifest` node within `Info.plist` 
