@@ -1,6 +1,13 @@
 # Day 22, Week 16
 :calendar: – Wednesday July 08, 2020
 
+- [Day 22, Week 16](#day-22-week-16)
+  - [:one:  About technique projects](#one--about-technique-projects)
+  - [:two:  `UIActivityViewController` explained](#two--uiactivityviewcontroller-explained)
+    - [Add `UIBarButtonItem` and a system action](#add-uibarbuttonitem-and-a-system-action)
+    - [explaination](#explaination)
+    - [Fixing a small bug](#fixing-a-small-bug)
+
 >For app developers, social media is also a chance for our users to talk about our app: to share things they’ve found, or perhaps just to tell the world how much they love it. It helps break the feeling that our app is contained to their device – if we can help them communicate with friends online, they’ll thank us for it.
 >
 >So, today you’re going to meet **your first technique project**: _a project specifically dedicated to teaching one specific iOS or Swift skill_. This will sometimes involve new projects, and other times involve changing existing projects, but you’ll always learn something new.

@@ -3,6 +3,10 @@
 
 *At home* :house:
 
+- [Day 17, Week 13](#day-17-week-13)
+  - [:one:  Building a detail screen](#one--building-a-detail-screen)
+  - [:two:  Loading images with `UIImage`](#two--loading-images-with-uiimage)
+
 **Starting iOS, part 2**
 
 >Yesterday you completed the basics our app, but of course it’s missing one important component: *it isn’t drawing any pictures!* ...

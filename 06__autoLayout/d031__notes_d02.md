@@ -1,5 +1,9 @@
 # *Day 31 (2) • Thursday November 05, 2020*
 
+- [*Day 31 (2) • Thursday November 05, 2020*](#day-31-2--thursday-november-05-2020)
+  - [:two:  Auto Layout : Anchors](#two--auto-layout--anchors)
+  - [:three:  Wrap up](#three--wrap-up)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 ## :two:  [Auto Layout : Anchors](https://www.hackingwithswift.com/read/6/5/auto-layout-anchors) 
 
 >You’ve seen how to create Auto Layout constraints both in **Interface Builder** and using **Visual Format Language**, but there’s one more option open to you and it’s often the best choice.

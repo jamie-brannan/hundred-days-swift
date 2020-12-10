@@ -4,6 +4,11 @@
 
 *At home* :house:
 
+- [Day 3, Week 6](#day-3-week-6)
+	- [:five: Returnign closures from functions](#five-returnign-closures-from-functions)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:six: Capturing values](#six-capturing-values)
+	- [:arrow_right_hook:](#arrow_right_hook)
 ## :five: [Returnign closures from functions](https://www.hackingwithswift.com/sixty/6/10/returning-closures-from-functions)
 
 ### :boom: Quiz insights

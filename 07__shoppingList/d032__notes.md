@@ -1,5 +1,10 @@
 # *Day 32 • Thursday November 05, 2020*
 
+- [*Day 32 • Thursday November 05, 2020*](#day-32--thursday-november-05-2020)
+  - [:one:  What you learned](#one--what-you-learned)
+  - [:two:  Key Points](#two--key-points)
+  - [:three:  Challenge](#three--challenge)
+
 >It’s time for another consolidation day, because we’ve covered a lot of ground in the first three topics and it’s important you review them if you want them to stick in your head.
 >
 >I know I’ve said it before, but I just want to re-iterate the importance of going over what you learned. Chris Bosh, an NBA All-Star basketball player, said _“every athlete knows that you get good by practicing, by repeating the same moves until you achieve your goal”_– apparently when he was in high school he wouldn’t leave practice until he scored ten free throws in a row.

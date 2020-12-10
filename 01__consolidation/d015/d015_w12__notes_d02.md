@@ -3,6 +3,12 @@
 
 *At home* :house:
 
+- [Day 15(2), Week 12](#day-152-week-12)
+    - [recap](#recap)
+    - [Converting types with typecasting](#converting-types-with-typecasting)
+    - [Converting common types with initializers](#converting-common-types-with-initializers)
+  - [:five: Closures](#five-closures)
+    - [Trailing closures](#trailing-closures)
 ### recap
 * polymorphism is when you're an instance of multiple classes, and therefore insances of each at the same time.
 

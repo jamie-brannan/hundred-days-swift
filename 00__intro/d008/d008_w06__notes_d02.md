@@ -6,6 +6,12 @@
 
 Continuing Day 08 of challenge
 
+- [Day 8 (02), Week 6](#day-8-02-week-6)
+	- [:three: Proeprty observers](#three-proeprty-observers)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:four: Methods](#four-methods)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+
 ## :three: [Proeprty observers](https://www.hackingwithswift.com/sixty/7/3/property-observers)
 
 **property observers** : *(swift)* let you run code before or after any property changes.

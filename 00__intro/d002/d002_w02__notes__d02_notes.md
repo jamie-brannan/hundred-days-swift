@@ -3,6 +3,22 @@
 
 Today's theme is **Complex data types**.
 
+- [Day 2, Week 2](#day-2-week-2)
+  - [:one: Arrays](#one-arrays)
+    - [:boom: Quiz corrected answers](#boom-quiz-corrected-answers)
+  - [:two: Sets](#two-sets)
+    - [:boom: Quiz corrected answers](#boom-quiz-corrected-answers-1)
+  - [:three: Tuples](#three-tuples)
+  - [:four: Arrays vs sets vs tuples](#four-arrays-vs-sets-vs-tuples)
+  - [:five: Dictonaries](#five-dictonaries)
+    - [:boom: Quiz corrected answers](#boom-quiz-corrected-answers-2)
+  - [:six: Dictionary default values](#six-dictionary-default-values)
+    - [:boom: Quiz corrected answers](#boom-quiz-corrected-answers-3)
+  - [:seven: Creating empty collections](#seven-creating-empty-collections)
+  - [:eight: Enumerations](#eight-enumerations)
+  - [:nine: Enum associated values](#nine-enum-associated-values)
+  - [:one::zero: Enum raw values](#onezero-enum-raw-values)
+  - [:arrow_right_hook: Complex types summary](#arrow_right_hook-complex-types-summary)
 ## :one: [Arrays](https://www.hackingwithswift.com/sixty/2/1/arrays)
 
 >**Arrays** are collections of values that are stored as a single value.

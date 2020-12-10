@@ -1,5 +1,10 @@
 # Day 26 • Thursday October 15, 2020
 
+- [Day 26 • Thursday October 15, 2020](#day-26--thursday-october-15-2020)
+  - [:one: Wrap up](#one-wrap-up)
+  - [:two:  Project 4 review](#two--project-4-review)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+
 >And he’s right: I want you to succeed, but I also want to set you free a little to so you can try (and fail a little!) on your own. Sometimes figuring out all the wrong paths is as important as figuring out the right paths.
 >
 >Today you should work through the wrap up chapter for project 4, complete its review, then work through all three of its challenges.

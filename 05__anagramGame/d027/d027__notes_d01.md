@@ -1,5 +1,18 @@
 # Day 27 • Thursday October 15, 2020
 
+- [Day 27 • Thursday October 15, 2020](#day-27--thursday-october-15-2020)
+  - [:one: **Capture lists in Swift** : What's the difference between weak, strong and unowned references?](#one-capture-lists-in-swift--whats-the-difference-between-weak-strong-and-unowned-references)
+    - [Strong Capturing (_default_)](#strong-capturing-default)
+    - [Weak Capturing](#weak-capturing)
+    - [Unowned capture](#unowned-capture)
+      - [Common problems](#common-problems)
+        - [Capturing lists alongside parameters](#capturing-lists-alongside-parameters)
+        - [Strong reference cycles](#strong-reference-cycles)
+      - [Accidental strong references](#accidental-strong-references)
+      - [Copies of closures](#copies-of-closures)
+    - [When to use strong, when to use weak, when to use unowned](#when-to-use-strong-when-to-use-weak-when-to-use-unowned)
+    - [Where now?](#where-now)
+
 >You probably remember learning about **closures** a couple of weeks ago, mostly because it was a particularly tough part of the course. Since then I’ve tried to work them back in slowly so you can master them little by little, and today it’s time to dive into them with our own closure.
 
 Yikes :sweat_smile:

@@ -3,6 +3,16 @@
 
 **Consolidation : Day 2**
 
+- [Day 14, Week 12](#day-14-week-12)
+  - [:one:  Functions](#one--functions)
+    - [External and intenral parameter names](#external-and-intenral-parameter-names)
+    - [Return values](#return-values)
+  - [:two:  Optionals](#two--optionals)
+    - [Force unwrapping optionals](#force-unwrapping-optionals)
+    - [Implicitly unwrapped optionals](#implicitly-unwrapped-optionals)
+  - [:three:  Optional chaining](#three--optional-chaining)
+    - [The nil coalescing operator](#the-nil-coalescing-operator)
+  - [:four:  Enumerations](#four--enumerations)
 ## :one:  [Functions](https://www.hackingwithswift.com/read/0/11/functions) 
 
 >Functions let you define re-usable pieces of code that perform specific pieces of functionality. Usually functions are able to receive some values to modify the way they work, but it's not required.

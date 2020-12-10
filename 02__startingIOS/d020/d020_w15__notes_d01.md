@@ -3,6 +3,19 @@
 
 *At home* :house:
 
+- [Day 20, Week 15](#day-20-week-15)
+  - [:one: Guess which flag: random numbers](#one-guess-which-flag-random-numbers)
+  - [:two:  From outlets to actions creating an `IBAction`](#two--from-outlets-to-actions-creating-an-ibaction)
+    - [Making `IBAction` outlet](#making-ibaction-outlet)
+      - [...to multiple buttons](#to-multiple-buttons)
+      - [...distinguish between buttons](#distinguish-between-buttons)
+    - [Defining the `buttonTapped()`](#defining-the-buttontapped)
+      - [Check if answer was correct and adjust score](#check-if-answer-was-correct-and-adjust-score)
+      - [Alert message](#alert-message)
+  - [:arrow_right_hook: Wrap up](#arrow_right_hook-wrap-up)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+    - [Challenge](#challenge)
+
 >You’re already 1/5th of the way through the 100 Days of Swift, and you’re still coming back – that’s amazing, and I hope you feel proud that your consistency and persistency are paying off.
 
 :tada:

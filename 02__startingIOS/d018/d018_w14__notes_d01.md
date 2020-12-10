@@ -3,6 +3,17 @@
 
 *At home* :house:
 
+- [Day 18, Week 14](#day-18-week-14)
+  - [:arrow_right_hook: Project 1, Storm Viewer: Wrap up](#arrow_right_hook-project-1-storm-viewer-wrap-up)
+    - [Review what you learned](#review-what-you-learned)
+    - [:boom: Quiz insights](#boom-quiz-insights)
+    - [Challenge](#challenge)
+      - [:one:](#one)
+      - [:two:](#two)
+      - [:three:](#three)
+        - [initial thoughts](#initial-thoughts)
+        - [work](#work)
+
 >Now that our app is complete, it’s time for a quick recap what you learned, a short test to make sure you’ve understood what was taught, then your first challenges – exercises designed to get you writing your own code as quickly as possible.
 
 >I do not provide the answers to these challenges. This is intentional: *I want you to figure it out by yourself rather than just looking at someone else’s work*. Trying things out for yourself, making mistakes, and finding solutions is key to learning – as Maya Angelou once said, “nothing will work unless you do.”

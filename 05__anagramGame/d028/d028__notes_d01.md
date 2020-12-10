@@ -1,5 +1,14 @@
 # _Day 28(1) • Tuesday October 20, 2020_
 
+- [_Day 28(1) • Tuesday October 20, 2020_](#day-281--tuesday-october-20-2020)
+  - [:one: Prepare for submission : `lowercased()` and `indexPath`](#one-prepare-for-submission--lowercased-and-indexpath)
+  - [:two: Checking for valid answers](#two-checking-for-valid-answers)
+    - [`isOriginal` check](#isoriginal-check)
+    - [`isPossible` check](#ispossible-check)
+    - [`isReal` checker](#isreal-checker)
+  - [`utf16`](#utf16)
+  - [:three:  Or else what?](#three--or-else-what)
+
 >Language is complicated.
 >
 >One of my favorite TV comedies is called Blackadder, and featured a conversation between Dr Samuel Johnson (who had recently finished his dictionary of the English language), and Blackadder (butler to Prince George):

@@ -2,6 +2,16 @@
 
 :calendar: – Thursday March 26, 2020
 
+- [Hacking Swift : Day 1, Week 1](#hacking-swift--day-1-week-1)
+  - [:one: Variables](#one-variables)
+  - [:two: Strings and integers](#two-strings-and-integers)
+  - [:three: Multi-line strings](#three-multi-line-strings)
+  - [:four: Doubles and booleans](#four-doubles-and-booleans)
+  - [:five: String interpolation](#five-string-interpolation)
+  - [:six: Constants](#six-constants)
+  - [:seven: Type annotations](#seven-type-annotations)
+  - [:arrow_right_hook: In Summary](#arrow_right_hook-in-summary)
+
 >SwiftUI is a powerful framework for building user-interactive apps for iOS, macOS, tvOS, and even watchOS. But you can’t build software without having a programming language, so behind SwiftUI lies Swift itself: a powerful, flexible, and modern programming language that you’ll use for all your SwiftUI apps.
 >
 >As Mark Twain once said, “the secret to getting ahead is getting started.” Well, you’re starting now, so we’re going to dive in and >learn about variables, constants, and simple data types in Swift.

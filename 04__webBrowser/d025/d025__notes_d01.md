@@ -1,5 +1,12 @@
 # *Day 25(1) • Thursday October 01, 2020*
 
+- [*Day 25(1) • Thursday October 01, 2020*](#day-251--thursday-october-01-2020)
+  - [:one: Monitoring page loads `UIToolbar` and ``UIProgressView``](#one-monitoring-page-loads-uitoolbar-and-uiprogressview)
+    - [Flexible Space](#flexible-space)
+    - [Progress bar](#progress-bar)
+  - [Adding an Observer](#adding-an-observer)
+  - [:two: Refactoring for the win](#two-refactoring-for-the-win)
+
 >If there’s one Martin Fowler quote that I love, it’s this: “I'm not a great programmer; I'm just a good programmer with great habits.” Today we need to add some more functionality to our project, but we’re faced with a choice: do we take the easy route or take the harder route?
 
 Habits habits habits.

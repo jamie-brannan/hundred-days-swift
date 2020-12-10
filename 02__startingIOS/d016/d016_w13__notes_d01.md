@@ -3,6 +3,19 @@
 
 *At home* :house:
 
+- [Day 15, Week](#day-15-week)
+  - [:one:  Setting up](#one--setting-up)
+    - [Launch Xcode](#launch-xcode)
+    - [Simulators](#simulators)
+    - [Extra file sources](#extra-file-sources)
+  - [:two:  Listing images with file manager](#two--listing-images-with-file-manager)
+    - [Step 1](#step-1)
+  - [:three: Designing our interface](#three-designing-our-interface)
+    - [Finishing touches for the user interface](#finishing-touches-for-the-user-interface)
+    - [Showing lots of rows](#showing-lots-of-rows)
+    - [Dequeuing cells](#dequeuing-cells)
+    - [What did I skip over?](#what-did-i-skip-over)
+
 >...it’s time to put everything you’ve learned into practice by building real iOS projects in Swift.
 >
 >...Today you have three topics to work through, and you’ll meet view controllers, storyboards, and the FileManager class. As you progress through the projects in this series the pace will quicken, but for now we’re taking things slow so you have time to get comfortable.

@@ -3,6 +3,12 @@
 
 :desert_island: been on vacation, and picking back up the challenge
 
+- [Day 23 (3)](#day-23-3)
+  - [Picking back up](#picking-back-up)
+    - [Remaining part of the challenge going on](#remaining-part-of-the-challenge-going-on)
+    - [No picture?](#no-picture)
+  - [Adding a share photo feature](#adding-a-share-photo-feature)
+
 ## Picking back up
 
 Added a condition so that whatever is an acronym is capitalized accordingly.

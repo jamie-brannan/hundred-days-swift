@@ -6,6 +6,12 @@
 
 **Structs, part two** starts now! :rocket:
 
+- [Day 9, Week 6](#day-9-week-6)
+	- [:one: Initializers](#one-initializers)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:two: Referring to the current instance](#two-referring-to-the-current-instance)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
+
 >As you’ve seen, structs let us combine individual pieces of data to make something new, then attach methods so we can manipulate that data.
 >
 >Today you’re going to learn about some of the more advanced features of structs that make them more powerful,

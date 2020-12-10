@@ -2,6 +2,10 @@
 
 *Continued*
 
+- [*Day 27 (2) • Saturday October 17, 2020*](#day-27-2--saturday-october-17-2020)
+  - [:two:  Setting up](#two--setting-up)
+  - [:three:  Reading from disk contents of file](#three--reading-from-disk-contents-of-file)
+  - [:four: Pick a word, any word uiAlert](#four-pick-a-word-any-word-uialert)
 ## :two:  [Setting up](https://www.hackingwithswift.com/read/5/1/setting-up) 
 
 >Projects 1 to 4 were all fairly easy, because my goal was to teach you the basics of iOS development while also trying to make something useful. But now that you're hopefully starting to become familiar with the core tools we have, it's time to change up a gear and tackle something a bit harder.

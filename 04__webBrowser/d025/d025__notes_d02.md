@@ -2,6 +2,18 @@
 
 _Continued_
 
+- [*Day 25(2) • Thursday October 01, 2020*](#day-252--thursday-october-01-2020)
+  - [Adding an Observer](#adding-an-observer)
+    - [Part I](#part-i)
+    - [Part II](#part-ii)
+    - [Optimisation](#optimisation)
+  - [:two: Refactoring for the win](#two-refactoring-for-the-win)
+    - [Dynamic list](#dynamic-list)
+    - [Decide policy](#decide-policy)
+  - [:three: Wrap up](#three-wrap-up)
+    - [Review of what you learned](#review-of-what-you-learned)
+      - [:boom: Quiz insights](#boom-quiz-insights)
+    - [Challenge](#challenge)
 ## Adding an Observer
 
 ### Part I

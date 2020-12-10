@@ -6,6 +6,23 @@
 
 This chapter is all about [Functions, paremeters and errors](https://www.hackingwithswift.com/100/5)!
 
+- [Day 5, Week 3](#day-5-week-3)
+	- [:one: Writing functions](#one-writing-functions)
+	- [:two: Accepting parameters](#two-accepting-parameters)
+	- [:three: Returning values](#three-returning-values)
+	- [:four: Parameter labels](#four-parameter-labels)
+		- [:boom: Quiz responses](#boom-quiz-responses)
+	- [:five: Omitting parameter labels](#five-omitting-parameter-labels)
+		- [:boom: Quiz response insights](#boom-quiz-response-insights)
+	- [:six: Default parameters](#six-default-parameters)
+	- [:seven: Variadic functions](#seven-variadic-functions)
+	- [:eight: Writing throwing functions](#eight-writing-throwing-functions)
+	- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:nine: Running throwing functions](#nine-running-throwing-functions)
+		- [:boom: Questions insight](#boom-questions-insight)
+	- [:one::zero: `inout` parameters](#onezero-inout-parameters)
+	- [:arrow_right_hook: Functions Summary](#arrow_right_hook-functions-summary)
+
 >Functions let us wrap up pieces of code so they can be used in lots of places. We can send data into functions to customize how they work, and get back data that tells us the result that was calculated.
 
 ## :one: [Writing functions](https://www.hackingwithswift.com/sixty/5/1/writing-functions)

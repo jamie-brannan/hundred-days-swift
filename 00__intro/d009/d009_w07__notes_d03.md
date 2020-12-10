@@ -5,6 +5,14 @@
 
 Continuting to learn **Structs**
 
+- [Day 9(3), Week 7](#day-93-week-7)
+		- [:three: :boom: Quiz insights](#three-boom-quiz-insights)
+	- [:five: Access control](#five-access-control)
+		- [Starting point](#starting-point)
+		- [Modified](#modified)
+		- [:boom: Quiz insights](#boom-quiz-insights)
+	- [:arrow_right_hook: Structs Summary](#arrow_right_hook-structs-summary)
+		- [:boom: Quiz insights](#boom-quiz-insights-1)
 ### :three: :boom: Quiz insights
 
 ```swift

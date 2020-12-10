@@ -6,6 +6,8 @@
 
 [Loops, Loops, and more Loops](https://www.hackingwithswift.com/100/4)
 
+- [Day 3, Week 3](#day-3-week-3)
+  - [:one: For loops](#one-for-loops)
 ## :one: [For loops](https://www.hackingwithswift.com/sixty/4/1/for-loops)
 
 >Swift has a few ways of writing loops, but their underlying mechanism is the same: run some code repeatedly until a condition evaluates as false.

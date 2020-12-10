@@ -1,5 +1,10 @@
 # *Day 30 • Thursday October 29, 2020*
 
+- [*Day 30 • Thursday October 29, 2020*](#day-30--thursday-october-29-2020)
+  - [:one: Setting up](#one-setting-up)
+  - [:two:  Advanced auto=layout](#two--advanced-autolayout)
+  - [:three:  Auto layout in code add constraints with visual format language](#three--auto-layout-in-code-add-constraints-with-visual-format-language)
+
 >Famed French fashion designer Coco Chanel once said that “fashion is architecture: it is a matter of proportions.” The same is true of **user interface design**: our goal is to make all our important functionality available to the user without making it feel squashed or squeezed in.
 >
 >Today we’re starting a new technique project where we’ll look at how _Auto Layout_ lets us set some fairly complicated rules to make our UI look great. There are several different ways of doing this, and I’ll be showing you them all in this project – I’d rather you tried them yourself and decided which worked best for you, rather than me trying to pick and choose based on my own preferences.

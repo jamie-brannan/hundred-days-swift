@@ -3,6 +3,15 @@
 
 *At home* :house:
 
+- [Day 15, Week 12](#day-15-week-12)
+  - [:one:  Properties](#one--properties)
+    - [Property observers](#property-observers)
+    - [Computed properties](#computed-properties)
+  - [:two: Static properties and methods](#two-static-properties-and-methods)
+  - [:three:  Access control](#three--access-control)
+  - [:four:  Polymorphism and typecasting](#four--polymorphism-and-typecasting)
+    - [Converting types with typecasting](#converting-types-with-typecasting)
+
 **Condolidations: Day 3**
 
 ## :one:  [Properties](https://www.hackingwithswift.com/read/0/17/properties) 
