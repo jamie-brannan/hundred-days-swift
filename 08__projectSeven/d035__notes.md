@@ -63,14 +63,7 @@
 * Creating a `URL` from a string might fail.
   * The `URL(string:)` initializer is a failable one because _you might type an invalid URL_ by accident.
 * We can create a `Data` instance directly from a `URL`.
-  * `Data` has a `contentsOf` initializer for just this purpose.
-
-
-
-
-
-
-
+  * `Data` has a `contentsOf` initializer for just this purpose. 
 
 >Anyone can sit through a tutorial, but it takes actual work to remember what was taught. It’s my job to make sure you take as much from these tutorials as possible, so I’ve prepared a short review to help you check your learning.
 >
