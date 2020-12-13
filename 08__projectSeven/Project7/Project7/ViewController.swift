@@ -10,14 +10,13 @@ import UIKit
 class TableViewController: UITableViewController {
   
   var petitions = [Petition]()
+  var filteredPetitions = [Petition]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
     let urlString: String
     setupNavigation()
     if navigationController?.tabBarItem.tag == 0 {
-        // urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
         urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
     } else {
   
@@ -33,10 +32,13 @@ class TableViewController: UITableViewController {
   }
   
   func setupNavigation() {
+    let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: nil)
+    let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(getFilterQuery))
     let creditButton = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
-    navigationItem.leftBarButtonItem = clearButton
+    toolbarItems = [clearButton, spacer, filterButton]
     navigationItem.rightBarButtonItem = creditButton
+    navigationController?.isToolbarHidden = false
   }
   
   func parse(json: Data) {
@@ -58,6 +60,22 @@ class TableViewController: UITableViewController {
     let ac = UIAlertController(title: "Credits", message: "The following data is provided by the We The People API of the Whitehouse", preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default))
     present(ac, animated: true)
+  }
+  
+  @objc func getFilterQuery() {
+    let ac = UIAlertController(title: "Filter", message: "What are you looking for?", preferredStyle: .alert)
+    ac.addTextField()
+    let submitAction = UIAlertAction(title: "Add", style: .default) {
+          [weak self, weak ac] _ in
+          guard let answer = ac?.textFields?[0].text else { return }
+          self?.submitFilterQuery(answer)
+        }
+    ac.addAction(submitAction)
+    present(ac, animated: true)
+  }
+  
+  private func submitFilterQuery(_ answer: String){
+    
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
