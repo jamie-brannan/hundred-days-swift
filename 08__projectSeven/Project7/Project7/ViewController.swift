@@ -77,7 +77,6 @@ class TableViewController: UITableViewController {
   
   private func submitFilterQuery(_ answer: String) {
     filteredPetitions = petitions.filter {
-      // pluck out any of the the items that contains
       $0.body.contains(answer) || $0.title.contains(answer)
     }
     tableView.reloadData()

@@ -17,7 +17,6 @@
 
 - [:two:  Wrap up](#two--wrap-up)
   - [:boom: Quiz insights](#boom-quiz-insights)
-- [:two:  Review for Project 7: Whitehouse Petitions](#two--review-for-project-7-whitehouse-petitions)
 
 >Once you’re done, tell other people: you’ve built another great app for iOS, and you’ve learned more about parsing JSON, tab bar controllers, and more.
 >
@@ -83,13 +82,41 @@
   - [x]  alert to enter the string
   - [x]  filter triggered backed on the string
   - [x]  reload data based on filter
-  - [ ]  add a reset button?
+  - [x]  add a reset button?
+
+```swift
+  @objc func getFilterQuery() {
+    let ac = UIAlertController(title: "Filter", message: "What are you looking for?", preferredStyle: .alert)
+    ac.addTextField()
+    let submitAction = UIAlertAction(title: "Add", style: .default) {
+          [weak self, weak ac] _ in
+          guard let answer = ac?.textFields?[0].text else { return }
+          self?.submitFilterQuery(answer)
+        }
+    ac.addAction(submitAction)
+    present(ac, animated: true)
+  }
+  
+  private func submitFilterQuery(_ answer: String) {
+    filteredPetitions = petitions.filter {
+      $0.body.contains(answer) || $0.title.contains(answer)
+    }
+    tableView.reloadData()
+  }
+
+   @objc func clearFilteredTable() {
+    filteredPetitions.removeAll(keepingCapacity: true)
+    filteredPetitions = petitions
+    tableView.reloadData()
+  } 
+```
+
 
 :pushpin: [**learnappmaking**](https://learnappmaking.com/map-reduce-filter-swift-programming/) : *Map reduce filter swift programming*
 
 > :three: Experiment with the HTML – this isn’t a HTML or CSS tutorial, but you can find lots of resources online to give you enough knowledge to tinker with the layout a little.
 
-  - [ ]  Html customized
+  - [x]  Html customized
 
 >### Hints
 >It is vital to your learning that you try the challenges above yourself, and not just for a handful of minutes before you give up.
@@ -111,7 +138,5 @@
 > 1. Once that’s done, go through all the items in your petitions array, adding any you want to the filtered petition.
 >
 >The important part here is the last one: how do you decide whether a petition matches the user’s search? One option is to use `contains()` to check whether the petition title or body text contains the user’s search string – try it and see how you get on!
-
-## :two:  [Review for Project 7: Whitehouse Petitions](https://www.hackingwithswift.com/review/hws/project-7-whitehouse-petitions)
 
 
