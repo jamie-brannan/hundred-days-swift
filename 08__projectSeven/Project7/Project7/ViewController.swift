@@ -46,6 +46,7 @@ class TableViewController: UITableViewController {
     
     if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
       petitions = jsonPetitions.results
+      filteredPetitions = jsonPetitions.results
       tableView.reloadData()
     }
   }
@@ -74,17 +75,21 @@ class TableViewController: UITableViewController {
     present(ac, animated: true)
   }
   
-  private func submitFilterQuery(_ answer: String){
-    
+  private func submitFilterQuery(_ answer: String) {
+    filteredPetitions = petitions.filter {
+      // pluck out any of the the items that contains
+      $0.body.contains(answer) || $0.title.contains(answer)
+    }
+    tableView.reloadData()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return petitions.count
+    return filteredPetitions.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "thingy", for: indexPath)
-    let petition = petitions[indexPath.row]
+    let petition = filteredPetitions[indexPath.row]
     cell.textLabel?.text = petition.title
     cell.detailTextLabel?.text = petition.body
     return cell
@@ -92,7 +97,7 @@ class TableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let vc = DetailViewController()
-    vc.detailItem = petitions[indexPath.row]
+    vc.detailItem = filteredPetitions[indexPath.row]
     navigationController?.pushViewController(vc, animated: true)
   }
 }

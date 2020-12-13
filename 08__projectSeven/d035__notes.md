@@ -79,11 +79,13 @@
 
 > :two: Let users filter the petitions they see. This involves creating a **second array of filtered items** that contains only **petitions matching a string the user entered**. Use a `UIAlertController` with a text field to let them enter that string. This is a tough one, so I’ve included some hints below if you get stuck.
 
-  - [ ]  filtered items array init
-  - [ ]  alert to enter the string
-  - [ ]  filter triggered backed on the string
-  - [ ]  reload data based on filter
+  - [x]  filtered items array init
+  - [x]  alert to enter the string
+  - [x]  filter triggered backed on the string
+  - [x]  reload data based on filter
   - [ ]  add a reset button?
+
+:pushpin: [**learnappmaking**](https://learnappmaking.com/map-reduce-filter-swift-programming/) : *Map reduce filter swift programming*
 
 > :three: Experiment with the HTML – this isn’t a HTML or CSS tutorial, but you can find lots of resources online to give you enough knowledge to tinker with the layout a little.
 
