@@ -23,7 +23,7 @@ class TableViewController: UITableViewController {
   
         urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
     }
-    
+    setupNavigation()
     if let url = URL(string: urlString) {
         if let data = try? Data(contentsOf: url) {
             parse(json: data)
@@ -32,6 +32,13 @@ class TableViewController: UITableViewController {
     }
 
     showError()
+  }
+  
+  func setupNavigation() {
+    let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: nil)
+    let creditButton = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: nil)
+    navigationItem.leftBarButtonItem = clearButton
+    navigationItem.rightBarButtonItem = creditButton
   }
   
   func parse(json: Data) {

@@ -68,16 +68,25 @@
 >Anyone can sit through a tutorial, but it takes actual work to remember what was taught. It’s my job to make sure you take as much from these tutorials as possible, so I’ve prepared a short review to help you check your learning.
 >
 >### Challenge
+>
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on:
 >
->1. Add a Credits button to the top-right corner using `UIBarButtonItem`. When this is tapped, show an alert telling users the data comes from the We The People API of the Whitehouse.
->
->2. Let users filter the petitions they see. This involves creating a **second array of filtered items** that contains only **petitions matching a string the user entered**. Use a `UIAlertController` with a text field to let them enter that string. This is a tough one, so I’ve included some hints below if you get stuck.
->
->3. Experiment with the HTML – this isn’t a HTML or CSS tutorial, but you can find lots of resources online to give you enough knowledge to tinker with the layout a little.
+> :one:  Add a Credits button to the top-right corner using `UIBarButtonItem`. When this is tapped, show **an alert** telling users the data comes from the We The People API of the Whitehouse.
 
-  - [ ]  Credit button
-  - [ ]  Filter
+  - [ ]  add upper right nav button
+  - [ ]  selector to present an alert
+  - [ ]  enter proper text
+
+> :two: Let users filter the petitions they see. This involves creating a **second array of filtered items** that contains only **petitions matching a string the user entered**. Use a `UIAlertController` with a text field to let them enter that string. This is a tough one, so I’ve included some hints below if you get stuck.
+
+  - [ ]  filtered items array init
+  - [ ]  alert to enter the string
+  - [ ]  filter triggered backed on the string
+  - [ ]  reload data based on filter
+  - [ ]  add a reset button?
+
+> :three: Experiment with the HTML – this isn’t a HTML or CSS tutorial, but you can find lots of resources online to give you enough knowledge to tinker with the layout a little.
+
   - [ ]  Html customized
 
 >### Hints
