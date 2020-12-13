@@ -33,7 +33,7 @@ class TableViewController: UITableViewController {
   
   func setupNavigation() {
     let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: nil)
+    let clearButton = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearFilteredTable))
     let filterButton = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(getFilterQuery))
     let creditButton = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
     toolbarItems = [clearButton, spacer, filterButton]
@@ -80,6 +80,12 @@ class TableViewController: UITableViewController {
       // pluck out any of the the items that contains
       $0.body.contains(answer) || $0.title.contains(answer)
     }
+    tableView.reloadData()
+  }
+  
+  @objc func clearFilteredTable() {
+    filteredPetitions.removeAll(keepingCapacity: true)
+    filteredPetitions = petitions
     tableView.reloadData()
   }
   
