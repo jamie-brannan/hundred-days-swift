@@ -94,7 +94,7 @@ Days organized by folders containing
 | Day 33 | November 19 | :white_check_mark: | Project 7, part i. Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
 | Day 34 | November 25, 29, December 10 | :raised_hand: | Project 7, part ii had major issue :bomb:  with `SceneDelegate` since examples were in Swift 4.2 rather than 5 – got help from FTV Guild |
 | Day 35 | December 10, 12, 13 | :+1: | Project 7, part iii, challenges were easy to go over. |
-| Day 36 | January ... | ~ | Project 8, part i |
+| Day 36 | January 1 | ~ | Project 8, part i, first playable project without storyboard. |
 | Day 37 | January ... | ~ | Project 8, part ii |
 | Day 38 | January ... | ~ | Project 8, part iii |
 | Day 39 | January ... | ~ | Project 9, part i |
