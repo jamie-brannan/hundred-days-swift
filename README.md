@@ -93,12 +93,12 @@ Days organized by folders containing
 |---|---|---|---|
 | Day 33 | November 19 | :white_check_mark: | Project 7, part i. Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
 | Day 34 | November 25, 29, December 10 | :raised_hand: | Project 7, part ii had major issue :bomb:  with `SceneDelegate` since examples were in Swift 4.2 rather than 5 – got help from FTV Guild |
-| Day 35 | November ... | ~ | Project 7, part iii |
-| Day 36 | November ... | ~ | Project 8, part i |
-| Day 37 | November ... | ~ | Project 8, part ii |
-| Day 38 | November ... | ~ | Project 8, part iii |
-| Day 39 | November ... | ~ | Project 9, part i |
-| Day 40 | November ... | ~ | Project 9, part ii |
+| Day 35 | December 10, 13 | ~ | Project 7, part iii |
+| Day 36 | December ... | ~ | Project 8, part i |
+| Day 37 | December ... | ~ | Project 8, part ii |
+| Day 38 | December ... | ~ | Project 8, part iii |
+| Day 39 | December ... | ~ | Project 9, part i |
+| Day 40 | December ... | ~ | Project 9, part ii |
 
 ### :small_orange_diamond: Commits guide (starting in October)
 
