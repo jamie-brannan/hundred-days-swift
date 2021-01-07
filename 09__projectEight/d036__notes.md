@@ -132,10 +132,13 @@ NSLayoutConstraint.activate([
     // more constraints to be added here!
 ])
 ```
+
+:white_check_mark: Now I can see the label!
+
 >
->Notice the way I’m pinning the label to view.layoutMarginsGuide – that will make the score label have a little distance from the right edge of the screen.
+>Notice the way I’m pinning the label to `view.layoutMarginsGuide` – that will make the score label have a little distance from the right edge of the screen.
 >
->Tip: Remember that you’re setting anchors as an array, so make sure you include a comma after each one.
+>**Tip**: Remember that you’re setting anchors as an array, so make sure you include a comma after each one.
 >
 >To avoid confusion, here’s what you should have so far:
 
@@ -157,11 +160,15 @@ override func loadView() {
 }
 ```
 >
->We’ll be adding lots more view code before the call to NSLayoutConstraint.activate(), and lots more constraints code inside that array being passed to NSLayoutConstraint.activate().
+>We’ll be adding lots more view code before the call to `NSLayoutConstraint.activate()`, and lots more constraints code inside that array being passed to `NSLayoutConstraint.activate()`.
 >
 >If you run the app now you should see “Score: 0” nestled in the top-right corner. If you don’t see that, please check your code otherwise the rest of this project will be very confusing indeed!
->
->Next we’re going to add the clues and answers labels. This will involve similar code to the score label, except we’re going to set two extra properties: font and numberOfLines. The font property describes what kind of text font is used to render the label, and is provided as a dedicated type that describes a font face and size: UIFont. numberOfLines is an integer that sets how many lines the text can wrap over, but we’re going to set it to 0 – a magic value that means “as many lines as it takes.”
+
+:white_check_mark: 
+
+>Next we’re going to add the clues and answers labels. This will involve similar code to the score label, except we’re going to set two extra properties: `font` and `numberOfLines`. 
+>* The `font` property describes what kind of text font is used to render the label, and is provided as a dedicated type that describes a font face and size: UIFont. 
+>* `numberOfLines` is an integer that sets how many lines the text can wrap over, but we’re going to set it to 0 – a magic value that means “as many lines as it takes.”
 >
 >Add this code below the code to create the label, but before the Auto Layout code:
 
