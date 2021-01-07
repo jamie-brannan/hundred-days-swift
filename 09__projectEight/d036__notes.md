@@ -189,10 +189,10 @@ answersLabel.textAlignment = .right
 view.addSubview(answersLabel)
 ```
 >
->Using `UIFont.systemFont(ofSize: 24)` will give us a 24-point font in whatever font is currently being used by iOS. This was Helvetica in the early days of iOS, then moved to Helvetica Neue and finally San Francisco. Asking for the system font means we’ll get whatever is the standard today, but our UI will update automatically if Apple makes more changes in the future.
+>Using `UIFont.systemFont(ofSize: 24)` will give us a 24-point font in whatever font is currently being used by iOS. This was Helvetica in the early days of iOS, then moved to Helvetica Neue and finally San Francisco. 
+>* Asking for the system font means we’ll get whatever is the standard today, but our UI will update automatically if Apple makes more changes in the future.
 >
 >To position those in such a way that they look great on a variety of iPad sizes – from iPad Mini up to the 12.9-inch iPad Pro – we’re going to set some anchors:
-
 >
 >* The tops of the clues and answers labels will be pinned to the bottom of the score label.
 >
