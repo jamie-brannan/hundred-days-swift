@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     view.addSubview(scoreLabel)
     view.addSubview(cluesLabel)
     view.addSubview(answersLabel)
+    view.addSubview(currentAnswer)
     NSLayoutConstraint.activate([
       scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
       scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
@@ -49,7 +50,13 @@ class ViewController: UIViewController {
       
       // make the answers label match the height of the clues label
       answersLabel.heightAnchor.constraint(equalTo: cluesLabel.heightAnchor),
+      
+      currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      currentAnswer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+      currentAnswer.topAnchor.constraint(equalTo: cluesLabel.bottomAnchor, constant: 20),
     ])
+    cluesLabel.backgroundColor = .red
+    answersLabel.backgroundColor = .blue
   }
   
   override func viewDidLoad() {
@@ -62,6 +69,7 @@ class ViewController: UIViewController {
     setupScoreLabel()
     setupCluesLabel()
     setupAnswersLabel()
+    setupCurrentAnswer()
   }
   
   func setupScoreLabel() {
@@ -86,6 +94,15 @@ class ViewController: UIViewController {
     answersLabel.text = "ANSWERS"
     answersLabel.numberOfLines = 0
     answersLabel.textAlignment = .right
+  }
+  
+  func setupCurrentAnswer() {
+    currentAnswer = UITextField()
+    currentAnswer.translatesAutoresizingMaskIntoConstraints = false
+    currentAnswer.placeholder = "Tap letters to guess"
+    currentAnswer.textAlignment = .center
+    currentAnswer.font = UIFont.systemFont(ofSize: 44)
+    currentAnswer.isUserInteractionEnabled = false
   }
 }
 

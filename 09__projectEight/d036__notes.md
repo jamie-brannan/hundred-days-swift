@@ -232,9 +232,19 @@ answersLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor
 // make the answers label match the height of the clues label
 answersLabel.heightAnchor.constraint(equalTo: cluesLabel.heightAnchor),
 ```
->
+
+So anchor constraints
+* leading anchor
+* trailing anchor
+* top anchor
+* bottom anchor
+* width anchor
+* height anchor
+
 >If you run the code now you’ll see “CLUES” and “ANSWERS” near the top of the screen.
->
+
+:white_check_mark: 
+
 >Temporarily – just so you can follow along and see how everything works! – try adding this code after the call to `activateConstraints()`:
 
 ```swift
@@ -243,6 +253,9 @@ answersLabel.backgroundColor = .blue
 ```
 >
 >That will make our two big labels stand out more clearly, which will be helpful while we’re building our UI.
+
+Labels are covered but they're not equally split.
+
 >
 ### Entering answers
 >
