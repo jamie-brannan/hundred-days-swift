@@ -21,6 +21,7 @@
   - [Entering answers](#entering-answers)
   - [Adding a UIButton](#adding-a-uibutton)
   - [Buttons… buttons everywhere!](#buttons-buttons-everywhere)
+  - [Adding letter buttons](#adding-letter-buttons)
 
 ## :one: [Setting up](https://www.hackingwithswift.com/read/8/1/setting-up)
 
@@ -354,7 +355,7 @@ clear.heightAnchor.constraint(equalToConstant: 44),
 >
 >Fortunately we’re near the end now, and all that remains is to add letter buttons at the bottom of the user interface. We need a lot of these – 20, to be precise – and we need to make sure they are positioned neatly on the screen.
 >
->With complicated layouts like this one the smart thing to do is wrap things in a container view. In our case this means we’re going to create one container view that will house all the buttons, then give that view constraints so that it’s positioned correctly on the screen.
+>With complicated layouts like this one the smart thing to do is wrap things in a container view. **In our case this means we’re going to create one container view that will house all the buttons,** then give that view constraints so that it’s positioned correctly on the screen.
 >
 >This is just going to be a plain `UIView` – it does nothing special other than host our buttons. So, add this code below our previous view creation code:
 
@@ -389,13 +390,13 @@ buttonsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAncho
 
 ```swift
 buttonsView.backgroundColor = .green
-
 ```
 >
 >We haven’t added the buttons inside that view just yet, but please run the app now – I think you’ll find the result interesting.
->
->What you’ll see is that our layout has changed quite dramatically: everything that used to be pinned to the top has now been pulled downwards. This isn’t a mistake, or an Auto Layout bug, but is the natural result of all the rules we’ve laid down:
 
+:white_check_mark: Let's of changes.
+
+>What you’ll see is that our layout has changed quite dramatically: everything that used to be pinned to the top has now been pulled downwards. This isn’t a mistake, or an Auto Layout bug, but is the natural result of all the rules we’ve laid down:
 >
 >* Our buttons view should be pinned to the bottom and be exactly 320 points high.
 >
@@ -411,7 +412,9 @@ buttonsView.backgroundColor = .green
 >
 >In short, we have the buttons view pinned to the bottom and the score label pinned to the top, with all our other views in between.
 >
->Before we added the final buttons view, Auto Layout had no special idea of how big any of the views should be, so it used something called the intrinsic content size – how big each view needs to be to show its content. This resulted in our views being neatly arranged at the top. But now we have a complete vertical stack, pinned at the top and bottom, so UIKit needs to fill the space in between by stretching one or more of the views.
+>Before we added the final buttons view, A*uto Layout had no special idea of how big any of the views should be*, so it used something called the **intrinsic content size** – how big each view needs to be to show its content. T
+
+>his resulted in our views being neatly arranged at the top. But now we have a complete vertical stack, pinned at the top and bottom, so UIKit needs to fill the space in between by stretching one or more of the views.
 >
 >Every view in all our UIKit layouts has two important properties that tell UIKit how it can squash or stretch them in order to satisfy constraints:
 >
@@ -432,36 +435,42 @@ answersLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
 ```
 >
 >Run the app now and you’ll see a big difference: the two labels now take up much more space, and the rest of our user interface looks more normal.
->
+
+:white_check_mark: yup
+
+### Adding letter buttons
+
 >Now that our user interface looks as it should, let’s create the final piece of our layout: the letter buttons that sit inside buttonsView.
 >
 >We have 20 buttons to create across four rows and five columns, which is the perfect time to use some nested loops: create and configure each button, then position it inside the buttons view.
 >
->However, we’re going to rely on a lovely feature of Auto Layout to make this whole process much easier: we’re not going to set translatesAutoresizingMaskIntoConstraints to false for these buttons, which means we can give them a specific position and size and have UIKit figure out the constraints for us.
+>However, we’re going to rely on a lovely feature of Auto Layout to make this whole process much easier: we’re not going to set `translatesAutoresizingMaskIntoConstraints` to `false` for these buttons, which means we can give them a specific position and size and have UIKit figure out the constraints for us.
 >
->So, this actual button creation isn’t as hard as you might think:
+>So, this **actual button creation **isn’t as hard as you might think:
 >
->1. Set constants to represent the width and height of our buttons for easier reference.
+>1. Set **constants to represent the width and height of our buttons **for easier reference.
 >
 >2. Loop through rows 0, 1, 2, and 3.
 >
 >3. Loop through columns 0, 1, 2, 3, and 4.
 >
->4. Create a new button with a nice and large font – we can adjust the font of a button’s label using its titleLabel property.
+>4. Create a new button with a **nice and large font** – we can adjust the font of a button’s label using its `titleLabel` property.
 >
->5. Calculate the X position of the button as being our column number multiplied by the button width.
+>5. **Calculate the X position of the button** as being our column number multiplied by the button width.
 >
->6. Calculate the Y position of the button as being our row number multiplied by the button height.
+>6. **Calculate the Y position of the button** as being our row number multiplied by the button height.
 >
->7. Add the button to our buttonsView rather than the main view.
+>7. Add the button to our `buttonsView` rather than the main view.
+
+I've renammed `buttonsView` to `buttonsContainer`
+
+>As a bonus, we’re going to add each button to our `letterButtons` array as we create them, so that we can control them later in the game.
 >
->As a bonus, we’re going to add each button to our letterButtons array as we create them, so that we can control them later in the game.
->
->Calculating positions of views by hand isn’t something we’ve done before, because we’ve been relying on Auto Layout for everything. However, it’s no harder than sketching something out on graph paper: we create a rectangular frame that has X and Y coordinates plus width and height, then assign that to the frame property of our view. These rectangles have a special type called CGRect, because they come from Core Graphics.
+>Calculating positions of views by hand isn’t something we’ve done before, because we’ve been relying on Auto Layout for everything. However, it’s no harder than sketching something out on graph paper: we create a rectangular frame that has X and Y coordinates plus width and height, then assign that to the frame property of our view. These rectangles have a special type called `CGRect`, because they come from Core Graphics.
 >
 >As an example, we’ll be calculating the X position for a button by multiplying our fixed button width (150) by its column position. So, for column 0 that will give an X coordinate of 150x0, which is 0, and for column 1 that will give an X coordinate of 150x1, which is 150 – they will line up neatly.
 >
->Add this code after the call to NSLayoutConstraint.activate():
+>Add this code after the call to `NSLayoutConstraint.activate()`:
 
 ```swift
 // set some values for the width and height of each button
@@ -491,7 +500,7 @@ for row in 0..<4 {
 }
 ```
 
->That’s the last of our code complete, so please remove the temporary background colors we gave to cluesLabel, answersLabel, and buttonsView, then run your code to see how it all looks.
+>That’s the last of our code complete, so please remove the temporary background colors we gave to `cluesLabel`, `answersLabel`, and `buttonsView`, then run your code to see how it all looks.
 >
 >### Was it worth it?
 >
