@@ -13,6 +13,15 @@
 >Once you’re done, there’s something I’d like you to keep in mind: *whether you prefer making user interfaces in storyboards or programmatically, it’s important you know how to do both*. It’s one thing having your preference, but when you join a company you need to be able to solve problems as a team.
 
 
+- [:one: Setting up](#one-setting-up)
+- [:two:  Building a UIkit user interface programmatically](#two--building-a-uikit-user-interface-programmatically)
+  - [Description of omponents of the project](#description-of-omponents-of-the-project)
+  - [Properties](#properties)
+  - [Placing three labels at the top](#placing-three-labels-at-the-top)
+  - [Entering answers](#entering-answers)
+  - [Adding a UIButton](#adding-a-uibutton)
+  - [Buttons… buttons everywhere!](#buttons-buttons-everywhere)
+
 ## :one: [Setting up](https://www.hackingwithswift.com/read/8/1/setting-up)
 
 > This is one of the last games you'll be making with UIKit; almost every game after this one will use **Apple's SpriteKit** framework for high-performance 2D drawing.
@@ -164,7 +173,7 @@ override func loadView() {
 >
 >If you run the app now you should see “Score: 0” nestled in the top-right corner. If you don’t see that, please check your code otherwise the rest of this project will be very confusing indeed!
 
-:white_check_mark: 
+###
 
 >Next we’re going to add the clues and answers labels. This will involve similar code to the score label, except we’re going to set two extra properties: `font` and `numberOfLines`. 
 >* The `font` property describes what kind of text font is used to render the label, and is provided as a dedicated type that describes a font face and size: UIFont. 
@@ -288,14 +297,18 @@ currentAnswer.topAnchor.constraint(equalTo: cluesLabel.bottomAnchor, constant: 2
 ```
 >
 >Run the app again, and you’ll see “Tap letters to guess” in gray underneath the red and blue labels – this is coming together slowly!
+
+### Adding a UIButton
+
+>Below the text field we’re going to **add two buttons**: 
+>* one for the **user to submit their answer** (when they’ve entered all the letters they want), 
+>* and one to **clear their answer so they can try something else**.
 >
->Below the text field we’re going to add two buttons: one for the user to submit their answer (when they’ve entered all the letters they want), and one to clear their answer so they can try something else.
+>To create a `UIButton` in code you need to know two things:
 >
->To create a UIButton in code you need to know two things:
->
->1. Buttons have various built-in styles, but the ones you’ll most commonly use are .custom and .system. We want the default button style here, so we’ll use .system.
+>1. Buttons have **various built-in styles**, but the ones you’ll most commonly use are `.custom` and `.system`. We want the default button style here, so we’ll use `.system`.
 >   
->2. We need to use setTitle() to adjust the title on the button, just like we did with setImage() in project 2.
+>2. We need to use `setTitle()` to **adjust the title on the button,** just like we did with `setImage()` in project 2.
 >
 >Add this to our view creation code:
 
@@ -310,16 +323,18 @@ clear.translatesAutoresizingMaskIntoConstraints = false
 clear.setTitle("CLEAR", for: .normal)
 view.addSubview(clear)
 ```
->
+
+Added but moved `let` into properties section because they're going to be there no matter what.
+
 >Note: We don’t need to store those as properties on the view controller, because we don’t need to adjust them later.
 >
 >In terms of the constraints to add for those buttons, they need three each:
 >
->1. One to set their vertical position. For the submit button we’ll be using the bottom of the current answer text field, but for the clear button we’ll be setting its Y anchor so that its stays aligned with the Y position of the submit button. This means both buttons will remain aligned even if we move one.
+>1. **One to set their vertical position**. For the submit button we’ll be using the bottom of the current answer text field, but for the clear button we’ll be setting its Y anchor so that its stays aligned with the Y position of the submit button. This means both buttons will remain aligned even if we move one.
 >
->2. We’re going to center them both horizontally in our main view. To stop them overlapping, we’ll subtract 100 from the submit button’s X position, and add 100 to the clear button’s X position. “100” isn’t any sort of special number – you can experiment with different values and see what looks good to you.
+>2. W**e’re going to center them both horizontally in our main view**. To stop them overlapping, we’ll subtract 100 from the submit button’s X position, and add 100 to the clear button’s X position. “100” isn’t any sort of special number – you can experiment with different values and see what looks good to you.
 >
->3. We’re going to force both buttons to have a height of 44 points. iOS likes to make its buttons really small by default, but at the same time Apple’s human interface guidelines recommends buttons be at least 44x44 so they can be tapped easily.
+>3. **We’re going to force both buttons to have a height of 44 points**. iOS likes to make its buttons really small by default, but at the same time Apple’s human interface guidelines recommends buttons be at least 44x44 so they can be tapped easily.
 >
 >Here are the constraints required to bring those rules to life – please add this to your constraints list:
 

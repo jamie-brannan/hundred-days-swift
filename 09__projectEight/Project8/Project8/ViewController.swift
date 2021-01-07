@@ -16,16 +16,22 @@ class ViewController: UIViewController {
   var currentAnswer: UITextField!
   var scoreLabel: UILabel!
   var letterButtons = [UIButton]()
+  let submit = UIButton(type: .system)
+  let clear = UIButton(type: .system)
+
   
   // MARK: - Lifestyle
   override func loadView() {
     view = UIView()
     view.backgroundColor = .white
-    setupLabels()
+    setUpLabels()
+    setUpButtons()
     view.addSubview(scoreLabel)
     view.addSubview(cluesLabel)
     view.addSubview(answersLabel)
     view.addSubview(currentAnswer)
+    view.addSubview(clear)
+    view.addSubview(submit)
     NSLayoutConstraint.activate([
       scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
       scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
@@ -54,6 +60,14 @@ class ViewController: UIViewController {
       currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       currentAnswer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
       currentAnswer.topAnchor.constraint(equalTo: cluesLabel.bottomAnchor, constant: 20),
+      
+      submit.topAnchor.constraint(equalTo: currentAnswer.bottomAnchor),
+      submit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -100),
+      submit.heightAnchor.constraint(equalToConstant: 44),
+      
+      clear.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 100),
+      clear.centerYAnchor.constraint(equalTo: submit.centerYAnchor),
+      clear.heightAnchor.constraint(equalToConstant: 44),
     ])
     cluesLabel.backgroundColor = .red
     answersLabel.backgroundColor = .blue
@@ -65,13 +79,16 @@ class ViewController: UIViewController {
   }
   
   // MARK: - Setup
-  func setupLabels() {
+  
+  // Labels
+
+  func setUpLabels() {
     setupScoreLabel()
     setupCluesLabel()
     setupAnswersLabel()
     setupCurrentAnswer()
   }
-  
+
   func setupScoreLabel() {
     scoreLabel = UILabel()
     scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +120,22 @@ class ViewController: UIViewController {
     currentAnswer.textAlignment = .center
     currentAnswer.font = UIFont.systemFont(ofSize: 44)
     currentAnswer.isUserInteractionEnabled = false
+  }
+  
+  // Button
+  func setUpButtons() {
+    setUpClearButton()
+    setUpSubmitButton()
+  }
+  
+  func setUpSubmitButton() {
+    submit.translatesAutoresizingMaskIntoConstraints = false
+    submit.setTitle("SUBMIT", for: .normal)
+  }
+  
+  func setUpClearButton() {
+    clear.translatesAutoresizingMaskIntoConstraints = false
+    clear.setTitle("CLEAR", for: .normal)
   }
 }
 
