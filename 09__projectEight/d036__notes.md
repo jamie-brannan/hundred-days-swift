@@ -110,8 +110,10 @@ scoreLabel.textAlignment = .right
 scoreLabel.text = "Score: 0"
 view.addSubview(scoreLabel)
 ```
->
->We need to add some Auto Layout constraints to make that label be positioned neatly on the screen, and we’re going to be using anchors just like we did in project 6. These let us very clearly and descriptively place views relative to each other, however this time I want to show you one important difference: because we’ll be creating lots of constraints at the same time, we’ll be activating them all at once rather than setting `isActive = true` multiple times.
+
+Added but separated the `scoreLabel` set up in a separate function. Keep things as broken down as possible.
+
+>We need to **add some Auto Layout constraints** to make that label be positioned neatly on the screen, and we’re going to be using anchors just like we did in project 6. These let us very clearly and descriptively place views relative to each other, however this time I want to show you one important difference: because we’ll be creating lots of constraints at the same time, we’ll be activating them all at once rather than setting `isActive = true` multiple times.
 >
 >This is done using the NSLayoutConstraint.activate() method, which accepts an array of constraints. It will put them all together at once, so we’ll be adding more constraints to this call over time.
 >
