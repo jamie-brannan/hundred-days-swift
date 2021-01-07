@@ -20,8 +20,7 @@
 Oh yay nice! :star: Looking forward to that!
 
 > We’re going to be making a word game based on the popular indie game **7 Little Words**. Users are going to see **a list of hints** and **an array of buttons with different letters on**, and need to use those buttons to enter words matching the hints.
-
-
+>
 > Of course I’ll also be using this project to teach lots of important concepts, in particular how to use **Auto Layout** to create user interfaces entirely in code – no storyboard needed. 
 > * Being able to use storyboards is a great skill, and being able to create user interfaces in code is also a great skill. Best of all, though, is knowing how to do both, so you can pick whichever works best on a case-by-case basis.
 > 
@@ -44,21 +43,31 @@ These are checkboxes now, and there's not as many different choices for differen
 ## :two:  [Building a UIkit user interface programmatically](https://www.hackingwithswift.com/read/8/2/building-a-uikit-user-interface-programmatically) 
 >
 >Our user interface for this game is going to be fairly complicated, but we can assemble it piece by piece and have Auto Layout do most of the work for us.
+
+### Description of omponents of the project 
+>The main part of the UI will be **two large labels**: 
+>* one containing the clues *the user needs to figure out*, 
+>* and one showing *how many letters are in the word* for each clue. 
 >
->The main part of the UI will be two large labels: one containing the clues the user needs to figure out, and one showing how many letters are in the word for each clue. So, it might say “A cow in a tornado” in one label and “9 Letters” in the other – with the answer being “milkshake”. As the player solves each clue, the letter count will be replaced with that answer, so they can see at a glance which ones they have solved.
+>So, it might say “A cow in a tornado” in one label and “9 Letters” in the other – with the answer being “milkshake”. As the player solves each clue, the letter count will be replaced with that answer, so they can see at a glance which ones they have solved.
 >
 >Just above and to the right of those two labels will be one extra label, nice and small, which will show the user’s score.
 >
->In the middle of the screen will be a UITextField where we’ll store the user’s current answer, plus buttons below to submit the answer or clear it.
+>In the middle of the screen will be a `UITextField` where we’ll store the user’s current answer, plus buttons below to submit the answer or clear it.
 >
->Finally, at the bottom we’re going to make 20 (yes, twenty!) buttons, each containing different parts of the clues. So, there will be one with MIL, one with KSH, and one with AKE – the user needs to tap all three to spell MILKSHAKE. To make our layout a little easier, we’re going to place those buttons inside another UIView that we can position centered on the screen.
+>Finally, **at the bottom we’re going to make 20 (yes, twenty!) buttons**, each containing *different parts of the clues*. 
+>* So, there will be one with MIL, one with KSH, and one with AKE – the user needs to tap all three to spell MILKSHAKE. 
+>
+>To make our layout a little easier, we’re going to place those buttons inside another `UIView` that we can position centered on the screen.
 >
 >The picture below shows how your finished layout should look if you've followed all the instructions. If you're seeing something slightly different, that's OK. If you're seeing something very different, you should probably try again!
 >
 >(:camera: screen shot on website)
 >
 >Our game is designed for iPads because we’ve got a lot of information we want to cram in. Later on, you’re welcome to try creating a second layout specifically for iPhone, and it is possible – it just takes a lot more thinking!
->
+
+### Properties
+
 >The first thing we’re going to do is create five properties to store the important parts of our user interface: the clues label, the answers label, the player’s current answer (the word they are spelling), their score, and all the buttons showing word pieces.
 >
 >So, open ViewController.swift and add these five properties to the `ViewController` class:
@@ -71,7 +80,9 @@ var scoreLabel: UILabel!
 var letterButtons = [UIButton]()
 ```
 
->Just like in projects 4 and 7, we’re going to write a custom loadView() method that creates our user interface in code. This will involve much more work than just creating a WKWebView, though – we have lots of UI to create! So, we’ll tackle it piece by piece so you can see it coming together as we go.
+:white_check_mark: added
+
+>Just like in projects 4 and 7, we’re going to **write a custom** `loadView()` method that creates our user interface in code. This will *involve much more work* than just creating a `WKWebView`, though – we have lots of UI to create! So, we’ll tackle it piece by piece so you can see it coming together as we go.
 >
 >Let’s start nice and easy: we’re going to create the main view itself as a big and white empty space. This is just a matter of creating a new instance of `UIView`, giving it a white background color, and assigning that to our view controller’s view property:
 
@@ -84,7 +95,7 @@ override func loadView() {
 }
 ```
 
->`UIView` is the parent class of all of UIKit’s view types: labels, buttons, progress views, and more. Previously we assigned a `WKWebView` instance directly as our view, meaning that it automatically took up all the space. Here, though, we’re going to be adding lots of child views and positioning them by hand, so we need a big, empty canvas to work with.
+>`UIView` is the parent class of all of UIKit’s view types: labels, buttons, progress views, and more. Previously we assigned a `WKWebView` instance directly as our view, meaning that it automatically took up all the space. **Here, though, we’re going to be adding lots of child views and positioning them by hand, so we need a big, empty canvas to work with.**
 
 ### Placing three labels at the top
 
