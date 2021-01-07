@@ -113,13 +113,14 @@ view.addSubview(scoreLabel)
 
 Added but separated the `scoreLabel` set up in a separate function. Keep things as broken down as possible.
 
->We need to **add some Auto Layout constraints** to make that label be positioned neatly on the screen, and we’re going to be using anchors just like we did in project 6. These let us very clearly and descriptively place views relative to each other, however this time I want to show you one important difference: because we’ll be creating lots of constraints at the same time, we’ll be activating them all at once rather than setting `isActive = true` multiple times.
+>We need to **add some Auto Layout constraints** to make that label be positioned neatly on the screen, and we’re going to be using anchors just like we did in project 6. 
+>* These let us very clearly and descriptively place views relative to each other, however this time I want to show you one important difference: because we’ll be creating lots of constraints at the same time, we’ll be activating them all at once rather than setting `isActive = true` multiple times.
 >
->This is done using the NSLayoutConstraint.activate() method, which accepts an array of constraints. It will put them all together at once, so we’ll be adding more constraints to this call over time.
+>This is done using the `NSLayoutConstraint.activate()` method, which accepts an **array of constraints**. It will put them all together at once, so we’ll be adding more constraints to this call over time.
 >
->UIKit gives us several guides that we can anchor our views to. One of the most common is the safeAreaLayoutGuide of our main view, which is the space available once you subtract any rounded corners or notches. Inside that is the layoutMarginsGuide, which adds some extra margin so that views don’t run to the left and right edges of the screen.
+>`UIKit` gives us several guides that we can anchor our views to. One of the most common is the `safeAreaLayoutGuide` of our main view, which is the space available once you subtract any rounded corners or notches. Inside that is the `layoutMarginsGuide`, which adds some extra margin so that views don’t run to the left and right edges of the screen.
 >
->In this app we’re going to be using the layoutMarginsGuide so that our views are indented a little on each edge, but we’ll also be adding some extra indenting to make the whole thing look better on-screen.
+>In this app we’re going to be using the `layoutMarginsGuide` so that our views are indented a little on each edge, but we’ll also be adding some extra indenting to make the whole thing look better on-screen.
 >
 >So, add this below the previous code:
 

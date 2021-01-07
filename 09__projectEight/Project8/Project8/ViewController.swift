@@ -23,6 +23,12 @@ class ViewController: UIViewController {
     view.backgroundColor = .white
     setupScoreLabel()
     view.addSubview(scoreLabel)
+    NSLayoutConstraint.activate([
+        scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+        scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
+        // more constraints to be added here!
+    ])
   }
   
   override func viewDidLoad() {
