@@ -242,7 +242,10 @@ if letterBits.count == letterButtons.count {
 > 3. Appends the button to the `activatedButtons` array
 > 4. Hides the button that was tapped.
 >
->The `activatedButtons` array is being used to hold all buttons that the player has tapped before submitting their answer. This is important because we're hiding each button as it is tapped, so if the user taps "Clear" we need to know which buttons are currently in use so we can re-show them. You already created an empty method for clear being tapped, so fill it in like this:
+>The `activatedButtons` array is being _used to hold all buttons that the player has tapped before submitting their answer_. 
+>* This is important because we're hiding each button as it is tapped, so if the user taps "Clear" we need to know which buttons are currently in use so we can re-show them. 
+>
+>You already created an empty method for clear being tapped, so fill it in like this:
 
 ```swift
 @objc func clearTapped(_ sender: UIButton) {
@@ -256,23 +259,23 @@ if letterBits.count == letterButtons.count {
 }
 ```
 
->As you can see, this method removes the text from the current answer text field, unhides all the activated buttons, then removes all the items from the activatedButtons array.
+>As you can see, this method removes the text from the current answer text field, unhides all the activated buttons, then removes all the items from the `activatedButtons` array.
 >
->That just leaves one very important method to fill in, and you already created its stub: the submitTapped() method for when the player taps the submit button.
+>That just leaves one very important method to fill in, and you already created its stub: the `submitTapped()` method for when the player taps the submit button.
 >
->This method will use firstIndex(of:) to search through the solutions array for an item and, if it finds it, tells us its position. Remember, the return value of firstIndex(of:) is optional so that in situations where nothing is found you won't get a value back – we need to unwrap its return value carefully.
+>This method will use `firstIndex(of:) `to search through the solutions array for an item and, if it finds it, tells us its position. Remember, the return value of `firstIndex(of:)` is optional so that in situations where nothing is found you won't get a value back – we need to unwrap its return value carefully.
 >
 >If the user gets an answer correct, we're going to change the answers label so that rather than saying "7 LETTERS" it says "HAUNTED", so they know which ones they have solved already.
 >
->The way we're going to do this is hopefully easy enough to understand: firstIndex(of:) will tell us which solution matched their word, then we can use that position to find the matching clue text. All we need to do is split the answer label text up by \n, replace the line at the solution position with the solution itself, then re-join the answers label back together.
+>The way we're going to do this is hopefully easy enough to understand: `firstIndex(of:)` will tell us which solution matched their word, then we can use that position to find the matching clue text. All we need to do is split the answer label text up by `\n`, replace the line at the solution position with the solution itself, then re-join the answers label back together.
 >
->You've already learned how to use components(separatedBy:) to split text into an array, and now it's time to meet its counterpart: joined(separator:). This makes an array into a single string, with each array element separated by the string specified in its parameter.
+>You've already learned how to use `components(separatedBy:)` to split text into an array, and now it's time to meet its counterpart: `joined(separator:)`. This makes an array into a single string, with each array element separated by the string specified in its parameter.
 >
->Once that's done, we clear the current answer text field and add one to the score. If the score is evenly divisible by 7, we know they have found all seven words so we're going to show a UIAlertController that will prompt the user to go to the next level.
+>Once that's done, we clear the current answer text field and add one to the score. If the score is evenly divisible by 7, we know they have found all seven words so we're going to show a `UIAlertController` that will prompt the user to go to the next level.
 >
 >If you remember, Swift has a division remainder operator, %, that tells us what number remains when you divide one number evenly by another – that’s perfect here.
 >
->That's all the parts explained, so here's the complete submitTapped() method:
+>That's all the parts explained, so here's the complete `submitTapped()` method:
 
 ```swift
 @objc func submitTapped(_ sender: UIButton) {
@@ -321,7 +324,7 @@ func levelUp(action: UIAlertAction) {
 
 >As you can see, that code clears out the existing `solutions` array before refilling it inside `loadLevel()`. Then of course you'd need to create level2.txt, level3.txt and so on.
 >
->To get you started, I've made an example level2.txt for you inside my example files for this project – try adding that to the project and see what you think. Any further levels are for you to do – just make sure there's a total of 20 letter groups each time!
+>To get you started, I've made an example level2.txt for you inside my example files for this project – try adding that to the project and see what you think. _Any further levels are for you to do – just make sure there's a total of 20 letter groups each time!_
 
 
 ## :three:  [Property Observers `didset`](https://www.hackingwithswift.com/read/8/5/property-observers-didset) 
