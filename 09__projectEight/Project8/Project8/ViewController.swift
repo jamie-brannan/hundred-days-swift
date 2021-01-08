@@ -84,9 +84,9 @@ class ViewController: UIViewController {
       buttonsContainer.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
     ])
     
-    cluesLabel.backgroundColor = .red
-    answersLabel.backgroundColor = .blue
-    buttonsContainer.backgroundColor = .green
+//    cluesLabel.backgroundColor = .red
+//    answersLabel.backgroundColor = .blue
+//    buttonsContainer.backgroundColor = .green
     
     // set some values for the width and height of each button
     let width = 150
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    loadLevel()
   }
   
   @objc func letterTapped(_ sender: UIButton) {
@@ -136,35 +136,45 @@ class ViewController: UIViewController {
   // MARK: - Data handling
 
   func loadLevel() {
-      var clueString = ""
-      var solutionString = ""
-      var letterBits = [String]()
-
-      if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
-          if let levelContents = try? String(contentsOf: levelFileURL) {
-              /// find lines of the file seperated by carriage returns
-              var lines = levelContents.components(separatedBy: "\n")
-              lines.shuffle()
-
-              for (index, line) in lines.enumerated() {
-                  /// split parts into a fake dictionary?
-                  let parts = line.components(separatedBy: ": ")
-                  let answer = parts[0]
-                  let clue = parts[1]
-
-                  clueString += "\(index + 1). \(clue)\n"
-                  /// solution for round will be clean
-                  let solutionWord = answer.replacingOccurrences(of: "|", with: "")
-                  solutionString += "\(solutionWord.count) letters\n"
-                  solutions.append(solutionWord)
-
-                  let bits = answer.components(separatedBy: "|")
-                  letterBits += bits
-              }
-          }
+    var clueString = ""
+    var solutionString = ""
+    var letterBits = [String]()
+    
+    /// find and load ressource in the bundle
+    if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
+      if let levelContents = try? String(contentsOf: levelFileURL) {
+        /// find lines of the file seperated by carriage returns
+        var lines = levelContents.components(separatedBy: "\n")
+        lines.shuffle()
+        
+        for (index, line) in lines.enumerated() {
+          /// split parts into a fake dictionary?
+          let parts = line.components(separatedBy: ": ")
+          let answer = parts[0]
+          let clue = parts[1]
+          
+          clueString += "\(index + 1). \(clue)\n"
+          /// solution for round will be clean
+          let solutionWord = answer.replacingOccurrences(of: "|", with: "")
+          solutionString += "\(solutionWord.count) letters\n"
+          solutions.append(solutionWord)
+          
+          let bits = answer.components(separatedBy: "|")
+          letterBits += bits
+        }
       }
-
-      // Now configure the buttons and labels
+    }
+    
+    cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+    answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
+    
+    letterBits.shuffle()
+    
+    if letterBits.count == letterButtons.count {
+      for i in 0 ..< letterButtons.count {
+        letterButtons[i].setTitle(letterBits[i], for: .normal)
+      }
+    }
   }
 
   // MARK: - Setup UI
