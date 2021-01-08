@@ -18,11 +18,16 @@ class ViewController: UIViewController {
   var letterButtons = [UIButton]()
   let submit = UIButton(type: .system)
   let clear = UIButton(type: .system)
-
+  
   // MARK: Views
   let buttonsContainer = UIView()
 
-  
+  var activatedButtons = [UIButton]()
+  var solutions = [String]()
+
+  var score = 0
+  var level = 1
+
   // MARK: - Lifestyle
   override func loadView() {
     view = UIView()
@@ -106,8 +111,12 @@ class ViewController: UIViewController {
 
             // and also to our letterButtons array
             letterButtons.append(letterButton)
+            letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
         }
     }
+    
+    submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
+    clear.addTarget(self, action: #selector(clearTapped), for: .touchUpInside)
   }
   
   override func viewDidLoad() {
@@ -115,6 +124,49 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
   
+  @objc func letterTapped(_ sender: UIButton) {
+  }
+
+  @objc func submitTapped(_ sender: UIButton) {
+  }
+
+  @objc func clearTapped(_ sender: UIButton) {
+  }
+
+  // MARK: - Data handling
+
+  func loadLevel() {
+      var clueString = ""
+      var solutionString = ""
+      var letterBits = [String]()
+
+      if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
+          if let levelContents = try? String(contentsOf: levelFileURL) {
+              /// find lines of the file seperated by carriage returns
+              var lines = levelContents.components(separatedBy: "\n")
+              lines.shuffle()
+
+              for (index, line) in lines.enumerated() {
+                  /// split parts into a fake dictionary?
+                  let parts = line.components(separatedBy: ": ")
+                  let answer = parts[0]
+                  let clue = parts[1]
+
+                  clueString += "\(index + 1). \(clue)\n"
+                  /// solution for round will be clean
+                  let solutionWord = answer.replacingOccurrences(of: "|", with: "")
+                  solutionString += "\(solutionWord.count) letters\n"
+                  solutions.append(solutionWord)
+
+                  let bits = answer.components(separatedBy: "|")
+                  letterBits += bits
+              }
+          }
+      }
+
+      // Now configure the buttons and labels
+  }
+
   // MARK: - Setup UI
   
   // MARK: Labels

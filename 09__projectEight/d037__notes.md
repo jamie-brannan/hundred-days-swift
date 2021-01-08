@@ -14,6 +14,13 @@
 >
 >**Today you have three topics to work through, and you’ll learn about adding targets to a button, separating and joining strings, hiding views, and more.**
 
+- [*Day 37 • Thursday January 07, 2021*](#day-37--thursday-january-07-2021)
+  - [:one:  Loading a level and adding button targets](#one--loading-a-level-and-adding-button-targets)
+    - [Adding targets](#adding-targets)
+    - [Loading Level data](#loading-level-data)
+  - [:two:  It's play time `firstIndex(Of:)` and `jointed()`](#two--its-play-time-firstindexof-and-jointed)
+  - [:three:  Property Observers `didset`](#three--property-observers-didset)
+
 ## :one:  [Loading a level and adding button targets](https://www.hackingwithswift.com/read/8/3/loading-a-level-and-adding-button-targets) 
 
 >After our mammoth effort of building the user interface in code, it’s time to continue with something much easier: **loading a level** and **showing letter parts on our buttons**.
@@ -39,8 +46,13 @@ POR|TL|AND: Hipster heartland
 >
 >You should copy `level1.txt` into your Xcode project as you have done before.
 
+:white_check_mark: Added
 
->Our first task will be to load the level and configure all the buttons to show a letter group. We're going to need two new arrays to handle this: one to store the buttons that are currently being used to spell an answer, and one for all the possible solutions. We also need two integers: one to hold the player's score, which will start at 0 but obviously change during play, and one to hold the current level.
+### Adding targets
+
+>Our first task will be to **load the level and configure all the buttons to show a letter group**. 
+>
+>We're going to need **two new arrays** to handle this: one to store the buttons that are currently being used to spell an answer, and one for all the possible solutions. We also need two integers: one to hold the player's score, which will start at 0 but obviously change during play, and one to hold the current level.
 >
 >So, declare these properties just below the views we defined previously:
 
@@ -51,6 +63,8 @@ var solutions = [String]()
 var score = 0
 var level = 1
 ```
+
+:white_check_mark: Declared.
 
 >We also need to create three methods that will be called from our buttons: one when submit is tapped, one when clear is tapped, and one when any of the letter buttons are tapped. These don’t need any code for now, but we do need to make sure they are called when our buttons are tapped.
 >
@@ -69,7 +83,7 @@ var level = 1
 
 >All three of those have the `@objc` attribute because they are going to be called by the buttons – by Objective-C code – when they are tapped.
 >
->When we used `UIBarButtonItem` previously, we were able to specify the target and selector of that button right in the initializer. This is done a little differently with buttons: they have a dedicated `addTarget()` method that connects the buttons to some code.
+>When we used `UIBarButtonItem` previously, we were able to specify the _target and selector_ of that button right in the initializer. This is done a little differently with buttons: they have a dedicated `addTarget()` method that connects the buttons to some code.
 >
 >So, in `loadView()` add this where we create the submit button:
 
@@ -77,7 +91,8 @@ var level = 1
 submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
 ```
 
->The target, action, and selector parts you know already, but the `.touchUpInside` part is new – that’s UIKit’s way of saying that the user pressed down on the button and lifted their touch while it was still inside. So, altogether that line means “when the user presses the submit button, call `submitTapped()` on the current view controller.”
+>The target, action, and selector parts you know already, but the `.touchUpInside` part is new – that’s UIKit’s way of saying that the user pressed down on the button and lifted their touch while it was still inside. 
+>* So, altogether that line means _“when the user presses the submit button, call `submitTapped()` on the current view controller.”_
 >
 >Now add this where the clear button is created:
 
@@ -96,19 +111,25 @@ letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInsid
 ```
 
 >Of course, adding all those targets won’t actually do anything, because the three methods they are calling are all empty.
->
->We’ll fill them in later, but first let’s focus on loading level data into the game. We're going to isolate level loading into a single method, called loadLevel(). This needs to do two things:
+
+:white_check_mark: Targets added
+
+### Loading Level data
+
+>We’ll fill them in later, but first let’s focus on loading level data into the game. We're going to isolate level loading into a single method, called `loadLevel()`. This needs to do two things:
 >
 >1. Load and parse our level text file in the format I showed you earlier.
 >2. Randomly assign letter groups to buttons.
 >
->In project 5 you already learned how to create a `String` using `contentsOf` to load files from disk, and we'll be using that to load our level. In that same project you learned how to use `components(separatedBy:)` to split up a string into an array, and we'll use that too.
+>>In **project 5** you already learned how to create a `String` using `contentsOf` to load files from disk, and we'll be using that to load our level. In that same project you learned how to use `components(separatedBy:)` to split up a string into an array, and we'll use that too.
 >
->We'll also need to use Swift’s array shuffling code that we've used before. But there are some new things to learn, honest!
+>We'll also need to use Swift’s **array shuffling code** that we've used before. But there are some new things to learn, honest!
 >
 >First, we'll be using the `enumerated()` method to loop over an array. We haven't used this before, but it's helpful because it passes you each object from an array as part of your loop, as well as that object's position in the array.
 >
->There's also a new string method to learn, called `replacingOccurrences()`. This lets you specify two parameters, and replaces all instances of the first parameter with the second parameter. We'll be using this to convert "HA|UNT|ED" into HAUNTED so we have a list of all our solutions.
+>There's also a new string method to learn, called `replacingOccurrences()`. 
+>* This lets you specify two parameters, and replaces all instances of the first parameter with the second parameter. 
+>* We'll be using this to convert "HA|UNT|ED" into HAUNTED so we have a list of all our solutions.
 >
 >Before I show you the code, watch out for how I use the method's three variables: `clueString` will store all the level's clues, `solutionString` will store how many letters each answer is (in the same position as the clues), and `letterBits` is an array to store all letter groups: HA, UNT, ED, and so on.
 >
