@@ -329,11 +329,15 @@ func levelUp(action: UIAlertAction) {
 
 ## :three:  [Property Observers `didset`](https://www.hackingwithswift.com/read/8/5/property-observers-didset) 
 
->There's one last thing to cover before this project is done, and it's both small and easy: property observers. You learned about these when we looked at the fundamentals of Swift, but now it’s time to put them into action.
+>There's one last thing to cover before this project is done, and it's both small and easy: **property observers**. You learned about these when we looked at the fundamentals of Swift, but now it’s time to put them into action.
 >
->Right now we have a property called `score` that is set to 0 when the game is created and increments by one whenever an answer is found. But we don't do anything with that score, so our score label is never updated.
+>Right now we have a property called `score` that is set to 0 when the game is created and increments by one whenever an answer is found. _But we don't do anything with that score, so our score label is never updated_.
+
+How sad :( 
+
+>One solution to this problem is to use something like `scoreLabel.text = "Score: \(score)"` whenever the score value is changed, and that's perfectly fine to begin with. 
 >
->One solution to this problem is to use something like `scoreLabel.text = "Score: \(score)"` whenever the score value is changed, and that's perfectly fine to begin with. But what happens if you're changing the score from several places? You need to keep all the code synchronized, which is unpleasant.
+>**But what happens if you're changing the score from several places?** You need to keep all the code synchronized, which is unpleasant.
 >
 >Swift’s solution is property observers, which let you execute code whenever a property has changed. To make them work, we use either `didSet` to execute code when a property has just been set, or `willSet` to execute code before a property has been set.
 >
