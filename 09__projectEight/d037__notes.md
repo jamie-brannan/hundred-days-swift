@@ -16,9 +16,13 @@
 
 ## :one:  [Loading a level and adding button targets](https://www.hackingwithswift.com/read/8/3/loading-a-level-and-adding-button-targets) 
 
->After our mammoth effort of building the user interface in code, it’s time to continue with something much easier: loading a level and showing letter parts on our buttons.
+>After our mammoth effort of building the user interface in code, it’s time to continue with something much easier: **loading a level** and **showing letter parts on our buttons**.
+
+Data handling
+
+>This game asks players to **spell seven words** out of various letter groups, and each word comes with a clue for them to guess. 
 >
->This game asks players to spell seven words out of various letter groups, and each word comes with a clue for them to guess. It's important that the total number of letter groups adds up to 20, as that's how many buttons you have. I created the first level for you, and it looks like this:
+>**It's important that the total number of letter groups adds up to 20**, as that's how many buttons you have. I created the first level for you, and it looks like this:
 
 ```swift
 HA|UNT|ED: Ghosts in residence
@@ -30,8 +34,12 @@ SA|FA|RI: The zoological web
 POR|TL|AND: Hipster heartland
 ```
 
->As you can see, I've used the pipe symbol to split up my letter groups, meaning that one button will have "HA", another "UNT", and another "ED". There's then a colon and a space, followed by a simple clue. This level is in the files for this project you should download from GitHub at https://github.com/twostraws/HackingWithSwift. You should copy level1.txt into your Xcode project as you have done before.
+>As you can see, I've used the pipe symbol to split up my letter groups, meaning that one button will have "HA", another "UNT", and another "ED". There's then a colon and a space, followed by a simple clue. 
+>* This level is in the files for this project you should download from GitHub at https://github.com/twostraws/HackingWithSwift. 
 >
+>You should copy `level1.txt` into your Xcode project as you have done before.
+
+
 >Our first task will be to load the level and configure all the buttons to show a letter group. We're going to need two new arrays to handle this: one to store the buttons that are currently being used to spell an answer, and one for all the possible solutions. We also need two integers: one to hold the player's score, which will start at 0 but obviously change during play, and one to hold the current level.
 >
 >So, declare these properties just below the views we defined previously:
