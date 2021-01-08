@@ -217,7 +217,12 @@ if letterBits.count == letterButtons.count {
 
 ## :two:  [It's play time `firstIndex(Of:)` and `jointed()`](https://www.hackingwithswift.com/read/8/4/its-play-time-firstindexof-and-joined) 
 
->We need to add three more methods to our view controller in order to bring this game to life: one to handle letter buttons being tapped, another to handle the current word being cleared, and a third to handle the current word being submitted. The first two are easiest, so let's get those done so we can get onto the serious stuff.
+>We need to add three more methods to our view controller in order to bring this game to life: 
+>* one to handle letter buttons being tapped, 
+>* another to handle the current word being cleared, 
+>* and a third to handle the current word being submitted. 
+>
+>The first two are easiest, so let's get those done so we can get onto the serious stuff.
 >
 >First, we already used the `addTarget()` method in `viewDidLoad()` to make all our letter buttons call the method `letterTapped()`, but right now it’s empty. Please fill it in like this:
 
@@ -234,7 +239,7 @@ if letterBits.count == letterButtons.count {
 >
 > 1. It adds a safety check to read the title from the tapped button, or exit if it didn’t have one for some reason.
 > 2. Appends that button title to the player’s current answer.
-> 3. Appends the button to the activatedButtons array
+> 3. Appends the button to the `activatedButtons` array
 > 4. Hides the button that was tapped.
 >
 >The `activatedButtons` array is being used to hold all buttons that the player has tapped before submitting their answer. This is important because we're hiding each button as it is tapped, so if the user taps "Clear" we need to know which buttons are currently in use so we can re-show them. You already created an empty method for clear being tapped, so fill it in like this:
