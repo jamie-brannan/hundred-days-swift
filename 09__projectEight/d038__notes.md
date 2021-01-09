@@ -28,16 +28,24 @@
 ### Review what you learned
 
 >Anyone can sit through a tutorial, but it takes actual work to remember what was taught. It’s my job to make sure you take as much from these tutorials as possible, so I’ve prepared a short review to help you check your learning.
->
->Click here to review what you learned in project 8.
->
 
 ### Challenge
->One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try extending this app to make sure you fully understand what’s going on:
+>One of the best ways to learn is to write your own code as often as possible, so here are three ways you should **try extending this app** to make sure you fully understand what’s going on:
 >
->Use the techniques you learned in project 2 to draw a thin gray line around the buttons view, to make it stand out from the rest of the UI.
->If the user enters an incorrect guess, show an alert telling them they are wrong. You’ll need to extend the submitTapped() method so that if `firstIndex(of:)` failed to find the guess you show the alert.
->Try making the game also deduct points if the player makes an incorrect guess. Think about how you can move to the next level – we can’t use a simple division remainder on the player’s score any more, because they might have lost some points.
+>Use the techniques you learned in project 2 to _draw a thin gray line around_ **the buttons view**, to make it stand out from the rest of the UI.
+
+Add an outline to the UIButton
+
+>If the user enters an incorrect guess, show an alert telling them they are wrong. You’ll need to _extend the_ `submitTapped()` method so that **if** `firstIndex(of:)` **failed** to find the guess you show the alert.
+
+New alert to show when a condition fails
+
+>Try making the game also **deduct points** *if the player makes an incorrect guess*. T
+>* Think about how you can move to the next level – we can’t use a simple division remainder on the player’s score any more, because they might have lost some points.
+
+This would be could to have deduction happen with the new alert.
+
+Understand the level progression before manipulating
 
 ## :two:  [Project 8 : 7 Swifty Words](https://www.hackingwithswift.com/review/hws/project-8-7-swifty-words) 
 
