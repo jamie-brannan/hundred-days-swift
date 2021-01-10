@@ -79,7 +79,7 @@ Could probably just have a generic one with the title and message.
 ```
 
 
->Try making the game also **deduct points** *if the player makes an incorrect guess*. T
+>Try making the game also **deduct points** *if the player makes an incorrect guess*.
 >* Think about how you can move to the next level – we can’t use a simple division remainder on the player’s score any more, because they might have lost some points.
 
 This would be could to have deduction happen with the new alert.
@@ -91,6 +91,10 @@ score -= 1
 ```
 
 In an else of the `if let`
+
+So now to deal with leveling up, a new rule could be based off of things unreleated to the `score` 
+* ~~that the clues label does not contain "letters" string.~~
+* added a correct answer counter aside from score.
 
 ## :two:  [Project 8 : 7 Swifty Words](https://www.hackingwithswift.com/review/hws/project-8-7-swifty-words) 
 

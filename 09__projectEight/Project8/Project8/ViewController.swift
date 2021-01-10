@@ -26,6 +26,7 @@ class ViewController: UIViewController {
   var solutions = [String]()
   
   var level = 1
+  var correctAnswer = 0
   var score = 0 {
     didSet {
       scoreLabel.text = "Score: \(score)"
@@ -146,10 +147,11 @@ class ViewController: UIViewController {
       answersLabel.text = splitAnswers?.joined(separator: "\n")
       
       currentAnswer.text = ""
+      correctAnswer += 1
       score += 1
       
       // TODO: - Take into account if points lost
-      if score % 7 == 0 {
+      if correctAnswer % 7 == 0 {
         displayWinMessage()
       }
     } else {
