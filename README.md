@@ -97,7 +97,7 @@ Days organized by folders containing
 | Day 36 | January 1, 7 | ~ | Project 8, part i, first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
 | Day 37 | January 8 | :+1: | Project 8, part ii, added button targets and game mechanics |
 | Day 38 | January 9, 10 | ~ | Project 8, part iii, challenge to add outline to view, negative score and errors messaging |
-| Day 39 | January ... | ~ | Project 9, part i |
+| Day 39 | January 10 | :white_check_mark: | Project 9, part i, learned about the different types of threads and `performSelector` as alternative to DispatchQues |
 | Day 40 | January ... | ~ | Project 9, part ii |
 
 ## Acknowledgments
