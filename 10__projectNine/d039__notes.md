@@ -181,7 +181,7 @@ DispatchQueue.main.async {
     self.tableView.reloadData()
 }
 ```
-Was missiong this
+Was missing this
 
 >To stop `showError()` being called regardless of the result of our fetch call, we need to move it inside the call to `DispatchQueue.global()` in `viewDidLoad()`, like this:
 
@@ -267,6 +267,10 @@ func parse(json: Data) {
     present(ac, animated: true)
 }
 ```
+
+This pulls errors because `navigationController` is only allowed on main thread, so using a selcond for `inBackground` with this no longer works.
+
+
 >As you can see, it makes your code easier because you don’t need to worry about closure capturing, so we’ll come back to this again in the future. Note: because `performSelector() `uses `#selector`, we need to mark both `fetchJSON()` and `showError()` with the `@objc` attribute.
 >
 >Because the code is now much simpler, we can add an else block to our JSON decoding, like this:
@@ -281,3 +285,5 @@ if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
 ```
 
 >This refactored code also makes the return call inside `fetchJSON()` work as intended: the `showError()` method is never called when things go well, because the whole method is exited. What you choose depends on your project’s needs, but I think it’s much easier to understand the program flow using this final approach.
+
+Interesting to know but this is tricky and doesn't seem that useful. We always use DispatchQues in our project anyways. Maybe with buttonsor things that really feel like selectors this could be useful.
