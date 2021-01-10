@@ -36,9 +36,48 @@
 
 Add an outline to the UIButton
 
+```swift
+    buttonsContainer.layer.borderWidth = 1
+    buttonsContainer.layer.borderColor = UIColor.lightGray.cgColor
+    buttonsContainer.layer.cornerRadius = 25
+```
+
+It was really tricky to get the syntax right. `CGColor` versus `UIColor` is really frustrating, and I can never really remember why these are separate?
+
+:question: *Why are UIColor and CGColor different?*
+* Why do I need to access my UI via layer?
+
+
 >If the user enters an incorrect guess, show an alert telling them they are wrong. You’ll need to _extend the_ `submitTapped()` method so that **if** `firstIndex(of:)` **failed** to find the guess you show the alert.
 
-New alert to show when a condition fails
+New alert to show when a condition fails.
+
+Externalized display messages
+
+```swift
+  func displayWinMessage() {
+    let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+    present(ac, animated: true)
+  }
+  
+  func displayFailMessage() {
+    let ac = UIAlertController(title: "Ouch!", message: "Not quite. Want to try again?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "I'll try!", style: .default, handler: levelUp))
+    present(ac, animated: true)
+  }
+```
+
+Could probably just have a generic one with the title and message.
+
+```swift
+  displayScoreUpdate(withTitle title: String, withMessage message: String, withActionTitle actionTitle: String) {
+    let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: actionTitle, style: .default, handler: levelUp))
+    present(ac, animated: true)
+  }
+```
+
 
 >Try making the game also **deduct points** *if the player makes an incorrect guess*. T
 >* Think about how you can move to the next level – we can’t use a simple division remainder on the player’s score any more, because they might have lost some points.
@@ -46,6 +85,12 @@ New alert to show when a condition fails
 This would be could to have deduction happen with the new alert.
 
 Understand the level progression before manipulating
+
+```swift
+score -= 1
+```
+
+In an else of the `if let`
 
 ## :two:  [Project 8 : 7 Swifty Words](https://www.hackingwithswift.com/review/hws/project-8-7-swifty-words) 
 

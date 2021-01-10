@@ -148,11 +148,13 @@ class ViewController: UIViewController {
       currentAnswer.text = ""
       score += 1
       
+      // TODO: - Take into account if points lost
       if score % 7 == 0 {
-        let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
-        present(ac, animated: true)
+        displayWinMessage()
       }
+    } else {
+      score -= 1
+      displayFailMessage()
     }
   }
   
@@ -256,7 +258,7 @@ class ViewController: UIViewController {
     currentAnswer.isUserInteractionEnabled = false
   }
   
-  // MARK: Button
+  // MARK: Button central
   
   func setUpButtonsContainer () {
     buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -290,6 +292,20 @@ class ViewController: UIViewController {
     for btn in letterButtons {
       btn.isHidden = false
     }
+  }
+  
+  // MARK: Alerts
+  
+  func displayWinMessage() {
+    let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+    present(ac, animated: true)
+  }
+  
+  func displayFailMessage() {
+    let ac = UIAlertController(title: "Ouch!", message: "Not quite. Want to try again?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "I'll try!", style: .default, handler: levelUp))
+    present(ac, animated: true)
   }
 }
 
