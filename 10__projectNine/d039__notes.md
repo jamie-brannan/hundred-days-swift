@@ -14,6 +14,7 @@
 - [:two:  Why is locking the UI bad?](#two--why-is-locking-the-ui-bad)
 - [:three:  GCD 101 Async](#three--gcd-101-async)
 - [:four:  Back to the main thread DispatchQue.main](#four--back-to-the-main-thread-dispatchquemain)
+  - [User interface background work](#user-interface-background-work)
 - [:five:  Easy GCD using performSelector(inBackground:)](#five--easy-gcd-using-performselectorinbackground)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/9/1/setting-up) 
@@ -150,15 +151,18 @@ It build but there's a loading error?
 
 ## :four:  [Back to the main thread DispatchQue.main](https://www.hackingwithswift.com/read/9/4/back-to-the-main-thread-dispatchqueuemain) 
 
->With this change, our code is both better and worse. It's better because it no longer blocks the main thread while the JSON downloads from Whitehouse.gov. It's worse because we're pushing work to the background thread, and any further code called in that work will also be on the background thread.
+>With this change, our code is both better and wor_se. It's better because _it no longer blocks the main thread while the JSON downloads from Whitehouse.gov. 
+>* It's worse because _we're pushing work to the background_ thread, and any further code called in that work will also be on the background thread.
 >
->This change also introduced some confusion: the showError() call will get called regardless of what the loading does. Yes, there’s still a call to return in the code, but it now effectively does nothing – it’s returning from the closure that was being executed asynchronously, not from the whole method.
+>This change also introduced some confusion: the `showError()` call will get called regardless of what the loading does. Yes, there’s still a call to return in the code, but **it now effectively does nothing** – it’s returning from the _closure that was being executed asynchronously_, not from the whole method.
 >
->The combination of these problems means that regardless of whether the download succeeds or fails, `showError()` will be called. And if the download succeeds, the JSON will be parsed on the background thread and the table view's reloadData() will be called on the background thread – and the error will be shown regardless.
+>The combination of these problems means **that regardless of whether the download succeeds or fails**, `showError()` **will be called**. And if the download succeeds, the JSON will be parsed on the background thread and the table view's `reloadData()` will be called on the background thread – and the error will be shown regardless.
+
+### User interface background work
+
+>Let’s fix those problems, starting with the user interface background work. It's OK to parse the JSON on a background thread, but _it's never OK to do user interface work there_.
 >
->Let’s fix those problems, starting with the user interface background work. It's OK to parse the JSON on a background thread, but it's never OK to do user interface work there.
->
->That's so important it bears repeating twice: it's never OK to do user interface work on the background thread.
+>That's so important it bears repeating twice: **it's never OK to do user interface work on the background thread**.
 >
 >If you're on a background thread and want to execute code on the main thread, you need to call `async()` again. This time, however, you do it on DispatchQueue.main, which is the main thread, rather than one of the global quality of service queues.
 >
@@ -171,8 +175,15 @@ tableView.reloadData()
 ```
 
 >…and replace it with this new code, bearing in mind again the need for self. to make our capturing clear:
->
->To stop s`howError()` being called regardless of the result of our fetch call, we need to move it inside the call to `DispatchQueue.global()` in `viewDidLoad()`, like this:
+
+```swift
+DispatchQueue.main.async {
+    self.tableView.reloadData()
+}
+```
+Was missiong this
+
+>To stop `showError()` being called regardless of the result of our fetch call, we need to move it inside the call to `DispatchQueue.global()` in `viewDidLoad()`, like this:
 
 ```swift
 DispatchQueue.global(qos: .userInitiated).async {
@@ -205,7 +216,7 @@ func showError() {
 
 >At this point, this code is in a better place: we do all the slow work off the main thread, then push work back to the main thread when we want to do user interface work. This background/foreground bounce is common, and you'll see it again in later projects.
 
-
+:white_check_mark: Sent things to respective ques
 
 ## :five:  [Easy GCD using performSelector(inBackground:)](https://www.hackingwithswift.com/read/9/5/easy-gcd-using-performselectorinbackground) 
 

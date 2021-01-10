@@ -28,8 +28,8 @@ class TableViewController: UITableViewController {
               return
           }
       }
+      self.showError()
     }
-    showError()
   }
   
   func setupNavigation() {
@@ -48,14 +48,18 @@ class TableViewController: UITableViewController {
     if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
       petitions = jsonPetitions.results
       filteredPetitions = jsonPetitions.results
-      tableView.reloadData()
+      DispatchQueue.main.async {
+          self.tableView.reloadData()
+      }
     }
   }
   
   func showError() {
+    DispatchQueue.main.async {
       let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
       ac.addAction(UIAlertAction(title: "OK", style: .default))
-      present(ac, animated: true)
+      self.present(ac, animated: true)
+    }
   }
   
   @objc func showCredits() {
