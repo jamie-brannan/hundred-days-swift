@@ -21,26 +21,27 @@ class ViewController: UIViewController {
   
   // MARK: Views
   let buttonsContainer = UIView()
-
+  
   var activatedButtons = [UIButton]()
   var solutions = [String]()
-
+  
   var level = 1
+  var correctAnswer = 0
   var score = 0 {
-      didSet {
-          scoreLabel.text = "Score: \(score)"
-      }
+    didSet {
+      scoreLabel.text = "Score: \(score)"
+    }
   }
-
+  
   // MARK: - Lifestyle
   override func loadView() {
     view = UIView()
     view.backgroundColor = .white
-  
+    
     setUpLabels()
     setUpButtons()
     setUpButtonsContainer()
-  
+    
     view.addSubview(scoreLabel)
     view.addSubview(cluesLabel)
     view.addSubview(answersLabel)
@@ -88,35 +89,35 @@ class ViewController: UIViewController {
       buttonsContainer.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
     ])
     
-//    cluesLabel.backgroundColor = .red
-//    answersLabel.backgroundColor = .blue
-//    buttonsContainer.backgroundColor = .green
+    //    cluesLabel.backgroundColor = .red
+    //    answersLabel.backgroundColor = .blue
+    //    buttonsContainer.backgroundColor = .green
     
     // set some values for the width and height of each button
     let width = 150
     let height = 80
-
+    
     // create 20 buttons as a 4x5 grid
     for row in 0..<4 {
-        for col in 0..<5 {
-            // create a new button and give it a big font size
-            let letterButton = UIButton(type: .system)
-            letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-
-            // give the button some temporary text so we can see it on-screen
-            letterButton.setTitle("WWW", for: .normal)
-
-            // calculate the frame of this button using its column and row
-            let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
-            letterButton.frame = frame
-
-            // add it to the buttons view
-            buttonsContainer.addSubview(letterButton)
-
-            // and also to our letterButtons array
-            letterButtons.append(letterButton)
-            letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
-        }
+      for col in 0..<5 {
+        // create a new button and give it a big font size
+        let letterButton = UIButton(type: .system)
+        letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+        
+        // give the button some temporary text so we can see it on-screen
+        letterButton.setTitle("WWW", for: .normal)
+        
+        // calculate the frame of this button using its column and row
+        let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
+        letterButton.frame = frame
+        
+        // add it to the buttons view
+        buttonsContainer.addSubview(letterButton)
+        
+        // and also to our letterButtons array
+        letterButtons.append(letterButton)
+        letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+      }
     }
     
     submit.addTarget(self, action: #selector(submitTapped), for: .touchUpInside)
@@ -134,7 +135,7 @@ class ViewController: UIViewController {
     activatedButtons.append(sender)
     sender.isHidden = true
   }
-
+  
   @objc func submitTapped(_ sender: UIButton) {
     guard let answerText = currentAnswer.text else { return }
     
@@ -146,28 +147,31 @@ class ViewController: UIViewController {
       answersLabel.text = splitAnswers?.joined(separator: "\n")
       
       currentAnswer.text = ""
+      correctAnswer += 1
       score += 1
       
-      if score % 7 == 0 {
-        let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
-        present(ac, animated: true)
+      // TODO: - Take into account if points lost
+      if correctAnswer % 7 == 0 {
+        displayWinMessage()
       }
+    } else {
+      score -= 1
+      displayFailMessage()
     }
   }
-
+  
   @objc func clearTapped(_ sender: UIButton) {
     currentAnswer.text = ""
-
+    
     for btn in activatedButtons {
-        btn.isHidden = false
+      btn.isHidden = false
     }
-
+    
     activatedButtons.removeAll()
   }
-
+  
   // MARK: - Data handling
-
+  
   func loadLevel() {
     var clueString = ""
     var solutionString = ""
@@ -209,18 +213,18 @@ class ViewController: UIViewController {
       }
     }
   }
-
+  
   // MARK: - Setup UI
   
   // MARK: Labels
-
+  
   func setUpLabels() {
     setupScoreLabel()
     setupCluesLabel()
     setupAnswersLabel()
     setupCurrentAnswer()
   }
-
+  
   func setupScoreLabel() {
     scoreLabel = UILabel()
     scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -256,12 +260,15 @@ class ViewController: UIViewController {
     currentAnswer.isUserInteractionEnabled = false
   }
   
-  // MARK: Button
+  // MARK: Button central
   
   func setUpButtonsContainer () {
     buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
+    buttonsContainer.layer.borderWidth = 1
+    buttonsContainer.layer.borderColor = UIColor.lightGray.cgColor
+    buttonsContainer.layer.cornerRadius = 25
   }
-
+  
   func setUpButtons() {
     setUpClearButton()
     setUpSubmitButton()
@@ -279,14 +286,28 @@ class ViewController: UIViewController {
   
   // MARK: - Game action
   func levelUp(action: UIAlertAction) {
-      level += 1
-      solutions.removeAll(keepingCapacity: true)
-
-      loadLevel()
-
-      for btn in letterButtons {
-          btn.isHidden = false
-      }
+    level += 1
+    solutions.removeAll(keepingCapacity: true)
+    
+    loadLevel()
+    
+    for btn in letterButtons {
+      btn.isHidden = false
+    }
+  }
+  
+  // MARK: Alerts
+  
+  func displayWinMessage() {
+    let ac = UIAlertController(title: "Well done!", message: "Are you ready for the next level?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
+    present(ac, animated: true)
+  }
+  
+  func displayFailMessage() {
+    let ac = UIAlertController(title: "Ouch!", message: "Not quite. Want to try again?", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "I'll try!", style: .default, handler: levelUp))
+    present(ac, animated: true)
   }
 }
 

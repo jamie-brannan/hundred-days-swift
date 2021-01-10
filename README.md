@@ -96,7 +96,7 @@ Days organized by folders containing
 | Day 35 | December 10, 12, 13 | :+1: | Project 7, part iii, challenges were easy to go over. |
 | Day 36 | January 1, 7 | ~ | Project 8, part i, first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
 | Day 37 | January 8 | :+1: | Project 8, part ii, added button targets and game mechanics |
-| Day 38 | January ... | ~ | Project 8, part iii |
+| Day 38 | January 9, 10 | ~ | Project 8, part iii, challenge to add outline to view, negative score and errors messaging |
 | Day 39 | January ... | ~ | Project 9, part i |
 | Day 40 | January ... | ~ | Project 9, part ii |
 
