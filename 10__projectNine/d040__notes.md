@@ -48,8 +48,14 @@ loading of NSSL images
     }
 ```
 
+:question: *Where would I have a table reload in this project?*
+* https://github.com/twostraws/100
+* ... don't really see stuff
 
 > 2. Modify project 8 so that loading and parsing a level takes place in the background. Once you’re done, make sure you update the UI on the main thread!
+
+if loading and parsing is in the background, it must go on... `userInterface`
+
 > 3. Modify project 7 so that your filtering code takes place in the background. This filtering code was added in one of the challenges for the project, so hopefully you didn’t skip it!
 
 ## :two:  [Project 9: Grand central dispatch](https://www.hackingwithswift.com/review/hws/project-9-grand-central-dispatch) 

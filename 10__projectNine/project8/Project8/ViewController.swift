@@ -35,7 +35,9 @@ class ViewController: UIViewController {
 			btn.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
 		}
 
-		loadLevel()
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.loadLevel()
+    }
 	}
 
 	@objc func letterTapped(btn: UIButton) {
@@ -116,7 +118,9 @@ class ViewController: UIViewController {
 		level += 1
 		solutions.removeAll(keepingCapacity: true)
 
-		loadLevel()
+    DispatchQueue.global(qos: .userInteractive).async {
+      self.loadLevel()
+    }
 
 		for btn in letterButtons {
 			btn.isHidden = false
