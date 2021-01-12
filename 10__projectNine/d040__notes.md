@@ -31,6 +31,24 @@
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
 > 1. Modify project 1 so that loading the list of NSSL images from our bundle happens in the background. Make sure you call `reloadData()` on the table view once loading has finished!
+
+loading of NSSL images
+
+```swift
+    DispatchQueue.global(qos: .userInitiated).async {
+      let fm = FileManager.default
+      let path = Bundle.main.resourcePath!
+      let items = try! fm.contentsOfDirectory(atPath: path)
+
+      for item in items {
+        if item.hasPrefix("nssl") {
+          self.pictures.append(item)
+        }
+      }
+    }
+```
+
+
 > 2. Modify project 8 so that loading and parsing a level takes place in the background. Once you’re done, make sure you update the UI on the main thread!
 > 3. Modify project 7 so that your filtering code takes place in the background. This filtering code was added in one of the challenges for the project, so hopefully you didn’t skip it!
 
