@@ -56,7 +56,11 @@ loading of NSSL images
 
 if loading and parsing is in the background, it must go on... `userInterface`
 
-> 3. Modify project 7 so that your filtering code takes place in the background. This filtering code was added in one of the challenges for the project, so hopefully you didn’t skip it!
+> 3. Modify project 7 so that your *filtering code* takes place in the background. This filtering code was added in one of the challenges for the project, so hopefully you didn’t skip it!
+
+Swapped out the project 7 copied, because it needs to be the one I've done from the challenges.
+
+
 
 ## :two:  [Project 9: Grand central dispatch](https://www.hackingwithswift.com/review/hws/project-9-grand-central-dispatch) 
 

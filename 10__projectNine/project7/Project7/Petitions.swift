@@ -2,12 +2,12 @@
 //  Petitions.swift
 //  Project7
 //
-//  Created by Paul Hudson on 23/10/2018.
-//  Copyright © 2018 Paul Hudson. All rights reserved.
+//  Created by Jamie Brannan on 19/11/2020.
 //
 
 import Foundation
 
+// MARK: - Array of petitons
 struct Petitions: Codable {
     var results: [Petition]
 }

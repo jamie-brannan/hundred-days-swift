@@ -2,8 +2,7 @@
 //  DetailViewController.swift
 //  Project7
 //
-//  Created by TwoStraws on 15/08/2016.
-//  Copyright © 2016 Paul Hudson. All rights reserved.
+//  Created by Jamie Brannan on 26/11/2020.
 //
 
 import UIKit
@@ -20,21 +19,20 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      guard let detailItem = detailItem else { return }
 
-        guard let detailItem = detailItem else { return }
+      let html = """
+      <html>
+      <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style> body { font-size: 150%; font-family: "Arial";} </style>
+      </head>
+      <body>
+      \(detailItem.body)
+      </body>
+      </html>
+      """
 
-        let html = """
-        <html>
-        <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style> body { font-size: 150%; } </style>
-        </head>
-        <body>
-        \(detailItem.body)
-        </body>
-        </html>
-        """
-
-        webView.loadHTMLString(html, baseURL: nil)
+      webView.loadHTMLString(html, baseURL: nil)
     }
 }
