@@ -98,7 +98,7 @@ Days organized by folders containing
 | Day 37 | January 8 | :+1: | Project 8, part ii, added button targets and game mechanics |
 | Day 38 | January 9, 10 | ~ | Project 8, part iii, challenge to add outline to view, negative score and errors messaging |
 | Day 39 | January 10 | :white_check_mark: | Project 9, part i, learned about the different types of threads and `performSelector` as alternative to DispatchQues |
-| Day 40 | January ... | ~ | Project 9, part ii |
+| Day 40 | January 12 | :+1: | Project 9, part ii, review what's dispatchable in previous projects (1, 7, 8) |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
