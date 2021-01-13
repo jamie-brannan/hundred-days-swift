@@ -106,7 +106,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 41 | January ... | ~ | Milestone, project 7-9, ~ |
+| Day 41 | January 13 | ~ | Milestone, project 7-9, Hangman review game challenge |
 
 ### :nine: **A whole new world**
 
