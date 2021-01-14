@@ -18,6 +18,7 @@ class ViewController: UIViewController {
   
   // MARK: Data Storage
   var words = [String]()
+  var targetWord = ""
   var usedLetters: [String] = []
   var availableGuessLetters: [String] = []
   
@@ -65,7 +66,7 @@ class ViewController: UIViewController {
         
         /// and also to our letterButtons array
         letterButtons.append(letterButton)
-        //        letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+        letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
       }
     }
   }
@@ -120,7 +121,6 @@ class ViewController: UIViewController {
   // MARK: - GAME MECHANICS
   
   func loadGameWords() {
-    var targetWord = ""
     if let wordsFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
       /// get words that are separated by a carriage return
       if let gameContents = try? String(contentsOf: wordsFileURL){
@@ -140,6 +140,13 @@ class ViewController: UIViewController {
 
   @objc func letterTapped(_ sender: UIButton) {
     // compare the title text of button pressed with the answer
+    guard let letter = sender.titleLabel?.text else { return }
+    
+    if targetWord.contains(letter) {
+      recordCorrectGuess()
+    } else {
+      recordIncorrectGuess()
+    }
   }
   
   func recordCorrectGuess() {
@@ -147,12 +154,14 @@ class ViewController: UIViewController {
     /// find and replace letters for label
     /// if the word is complete, then trigger a congrats
     /// update the label
+    print("CORRECT")
   }
   
   func recordIncorrectGuess() {
     /// count the number of errors
     /// change image
     /// if more than seven errors, then alert the loss
+    print("INCORRECT")
   }
   
   // restart the game
