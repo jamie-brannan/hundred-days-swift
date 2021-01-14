@@ -14,6 +14,7 @@
 		11E1C3E525B082F2009418B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E1C3E425B082F2009418B4 /* Assets.xcassets */; };
 		11E1C3E825B082F2009418B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E1C3E625B082F2009418B4 /* LaunchScreen.storyboard */; };
 		11E1C3F125B09FAD009418B4 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11E1C3F025B09FAC009418B4 /* start.txt */; };
+		11F97DF325B0BFAE00E142DE /* alphabet.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11F97DF225B0BFAD00E142DE /* alphabet.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		11E1C3E725B082F2009418B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11E1C3E925B082F2009418B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E1C3F025B09FAC009418B4 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.txt; path = ../../../05__anagramGame/Project5/Project5/start.txt; sourceTree = "<group>"; };
+		11F97DF225B0BFAD00E142DE /* alphabet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alphabet.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				11E1C3DB25B082EE009418B4 /* AppDelegate.swift */,
 				11E1C3DD25B082EE009418B4 /* SceneDelegate.swift */,
 				11E1C3DF25B082EE009418B4 /* ViewController.swift */,
+				11F97DF225B0BFAD00E142DE /* alphabet.txt */,
 				11E1C3F025B09FAC009418B4 /* start.txt */,
 				11E1C3E125B082EE009418B4 /* Main.storyboard */,
 				11E1C3E425B082F2009418B4 /* Assets.xcassets */,
@@ -130,6 +133,7 @@
 				11E1C3E825B082F2009418B4 /* LaunchScreen.storyboard in Resources */,
 				11E1C3F125B09FAD009418B4 /* start.txt in Resources */,
 				11E1C3E525B082F2009418B4 /* Assets.xcassets in Resources */,
+				11F97DF325B0BFAE00E142DE /* alphabet.txt in Resources */,
 				11E1C3E325B082EE009418B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -146,6 +146,8 @@ Will need to have:
 
 :star: Bonus to make it accessible? :)
 
+:red_circle: `Does the constraint or its anchors reference items in different view hierarchies?  That's illegal.`
+
 >That’s the game: can you make it? Don’t underestimate this one: it’s called a challenge for a reason – it’s supposed to stretch you!
 >
 >The main complexity you’ll come across is that _Swift has a special data type for individual letters_, called **`Character`**. It’s easy to create strings from characters and vice versa, but you do need to know how it’s done.
@@ -155,6 +157,8 @@ Will need to have:
 **`Character`** : *(type)* A single extended grapheme cluster that approximates a user-perceived character.
 
 :pushpin: [**Apple Developer**](https://developer.apple.com/documentation/swift/character) : *`Character`*
+
+I'm not sure how I'm supposed to use these tho.
 
 >When you write `for letter in word`, the `letter` constant will be of type `Character`, so if your `usedLetters` array contains strings you will need to convert that letter into a string, like this:
 
@@ -200,4 +204,167 @@ for letter in word.characters {
 }
 
 print(promptWord)
+```
+
+### scratch paper
+
+```swift
+//
+//  ViewController.swift
+//  HundredHangman
+//
+//  Created by Jamie Brannan on 14/01/2021.
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+  
+  // MARK: - Props
+  
+  // MARK: UI Elements
+  var buttonsContainer = UIView()
+  var targetWordLabel: UILabel!
+  var letterButtons = [UIButton]()
+  
+  // MARK: Data Storage
+  var words = [String]()
+  var usedLetters: [String] = []
+  var availableGuessLetters: [String] = []
+  
+  
+  // MARK: - Lifecycle
+  
+  override func loadView() {
+    view = UIView()
+    view.backgroundColor = .white
+    setUpButtonsContainer()
+    setUpTargetWord()
+    loadGame()
+    view.addSubview(buttonsContainer)
+    view.addSubview(targetWordLabel)
+    NSLayoutConstraint.activate([
+      targetWordLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+      targetWordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      
+      buttonsContainer.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8),
+      buttonsContainer.heightAnchor.constraint(equalToConstant: 282),
+      buttonsContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      buttonsContainer.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
+      //      buttonsContainer.bounds.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    ])
+    
+    // set some values for the width and height of each button
+    let width = 124
+    let height = 54
+    
+    for row in 0..<6 {
+      for col in 0..<6 {
+        // create a new button and give it a big font size
+        let letterButton = UIButton(type: .system)
+        letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+        
+        // give the button some temporary text so we can see it on-screen
+        //        letterButton.setTitle("WWW", for: .normal)
+        getAlphabetContents()
+        
+        // calculate the frame of this button using its column and row
+        let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
+        letterButton.frame = frame
+        
+        // add it to the buttons view
+        buttonsContainer.addSubview(letterButton)
+        
+        // and also to our letterButtons array
+        letterButtons.append(letterButton)
+        //        letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+      }
+    }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+  }
+  
+  // MARK: - Setup
+  
+  func loadGame() {
+    loadGameWords()
+  }
+  
+  func setUpTargetWord() {
+    targetWordLabel = UILabel()
+    targetWordLabel.translatesAutoresizingMaskIntoConstraints = false
+    targetWordLabel.text = "Testestest"
+    targetWordLabel.backgroundColor = .gray
+  }
+  
+  func setUpButtonsContainer() {
+    buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
+    buttonsContainer.layer.borderWidth = 1
+    buttonsContainer.layer.borderColor = UIColor.lightGray.cgColor
+    buttonsContainer.layer.cornerRadius = 25
+    buttonsContainer.backgroundColor = .green
+  }
+  
+  func getAlphabetContents() {
+    if let alphabetFileURL = Bundle.main.url(forResource: "alphabet", withExtension: "txt") {
+      if let letterButtonContents = try? String(contentsOf: alphabetFileURL) {
+        let alphabet = letterButtonContents.components(separatedBy: "\n")
+        if alphabet.count == letterButtons.count {
+          for i in 0 ..< alphabet.count {
+            letterButtons[i].setTitle(alphabet[i], for: .normal)
+          }
+        }
+      }
+    }
+  }
+  
+  // MARK: - Game mechanics
+  
+  func loadGameWords() {
+    var targetDisplayString = ""
+    if let wordsFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+      /// get words that are separated by a carriage return
+      if let gameContents = try? String(contentsOf: wordsFileURL){
+        var words = gameContents.components(separatedBy: "\n")
+        words.shuffle()
+      }
+    }
+    if words.isEmpty {
+      words.append("silkworm")
+    }
+    performSelector(onMainThread: #selector(startGame), with: nil, waitUntilDone: false)
+  }
+
+  // meant to be executed on main thread
+  @objc func startGame() {
+    
+    // returns nil only if collection is empty
+//    currentWord = words.randomElement()!.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+//
+//    for button in letterButtons {
+//      button.isUserInteractionEnabled = true
+//      button.setTitleColor(activeButtonColor, for: .normal)
+//    }
+//
+//    wordLabel.text = String(repeating: "_ ", count: currentWord.count).trimmingCharacters(in: .whitespaces)
+//
+//    numberOfErrors = 0
+//    correctLetters = [String]()
+//    imageView.image = UIImage(named: "hangman\(numberOfErrors)")
+  }
+}
+
+// MARK: Button presses
+
+//  @objc func letterTapped(_ sender: UIButton) {
+//    // compare the title text of button pressed with the answer
+////    guard let buttonTitle = sender.titleLabel?.text else { return }
+////    currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+////    activatedButtons.append(sender)
+////    sender.isHidden = true
+//  }
+
 ```
