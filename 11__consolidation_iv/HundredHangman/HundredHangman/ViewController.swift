@@ -9,14 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  // MARK: - Props
+
+  // MARK: UI Elements
   var letterButtonsContainer = UIView()
   var targetWordLabel: UILabel!
   var letterButtons = [UIButton]()
   
+  // MARK: Data Storage
   var usedLetters: [String] = []
   var availableGuessLetters: [String] = []
 
+
   // MARK: - Lifecycle
+
   override func loadView() {
     view = UIView()
     view.backgroundColor = .white
@@ -34,9 +40,19 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
   }
 
+  // MARK: - Setup
+
   func loadGame() {
     loadWord()
   }
+
+  func setupTargetWord() {
+    targetWordLabel = UILabel()
+    targetWordLabel.translatesAutoresizingMaskIntoConstraints = false
+    targetWordLabel.text = "Testestest"
+  }
+
+  // MARK: - Game mechanics
   
   func loadWord() {
     var targetDisplayString = ""
@@ -54,16 +70,6 @@ class ViewController: UIViewController {
       }
     }
     targetWordLabel.text = targetDisplayString
-  }
-//
-//  func fetchWordRessource() {
-//
-//  }
-  
-  func setupTargetWord() {
-    targetWordLabel = UILabel()
-    targetWordLabel.translatesAutoresizingMaskIntoConstraints = false
-    targetWordLabel.text = "Testestest"
   }
 }
 
