@@ -52,7 +52,11 @@ class ViewController: UIViewController {
         /// create a new button and give it a big font size
         let letterButton = UIButton(type: .system)
         letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
-        
+        letterButton.adjustsImageWhenDisabled = true
+        letterButton.setTitleColor(UIColor.blue, for: .normal)
+        letterButton.setTitleColor(UIColor.gray, for: .disabled)
+//        letterButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue], for: .normal)
+//        letterButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.grey], for: .disabled)
         /// give the button some temporary text so we can see it on-screen
         //        letterButton.setTitle("WWW", for: .normal)
         getAlphabetContents()
@@ -139,10 +143,17 @@ class ViewController: UIViewController {
 // MARK: Button presses
 
   @objc func letterTapped(_ sender: UIButton) {
-    // compare the title text of button pressed with the answer
+    /// compare the title text of button pressed with the answer
     guard let letter = sender.titleLabel?.text else { return }
+    sender.isEnabled = false
     
     if targetWord.contains(letter) {
+      /// add to used word
+      usedLetters.append(letter)
+      /// find and replace letters for label
+      /// if the word is complete, then trigger a congrats
+      /// update the label
+//      targetWordLabel.text =
       recordCorrectGuess()
     } else {
       recordIncorrectGuess()
