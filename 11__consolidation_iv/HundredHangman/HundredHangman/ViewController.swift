@@ -67,7 +67,7 @@ class ViewController: UIViewController {
       targetWordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       
       buttonsContainer.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: 0.8),
-      buttonsContainer.heightAnchor.constraint(equalToConstant: 282),
+      buttonsContainer.heightAnchor.constraint(equalToConstant: 248),
       buttonsContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       buttonsContainer.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
       //      buttonsContainer.bounds.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
@@ -76,22 +76,18 @@ class ViewController: UIViewController {
   
   func setUpAlphabetButtons() {
     /// set some values for the width and height of each button
-    let letterButtonWidth = 124
-    let letterButtonHeight = 54
+    let letterButtonWidth = 108
+    let letterButtonHeight = 60
     
-    for row in 0..<6 {
-      for col in 0..<6 {
+    for row in 0..<4 {
+      for col in 0..<8{
         /// create a new button and give it a big font size
         let letterButton = UIButton(type: .system)
         letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 32)
         letterButton.adjustsImageWhenDisabled = true
         letterButton.setTitleColor(UIColor.blue, for: .normal)
         letterButton.setTitleColor(UIColor.gray, for: .disabled)
-//        letterButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue], for: .normal)
-//        letterButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.grey], for: .disabled)
-        /// give the button some temporary text so we can see it on-screen
-        //        letterButton.setTitle("WWW", for: .normal)
-        getAlphabetContents()
+        getAlphabetButtons()
         
         /// calculate the frame of this button using its column and row
         let frame = CGRect(x: col * letterButtonWidth, y: row * letterButtonHeight, width: letterButtonWidth, height: letterButtonHeight)
@@ -108,7 +104,7 @@ class ViewController: UIViewController {
   }
   // MARK: Load data
   
-  func getAlphabetContents() {
+  func getAlphabetButtons() {
     if let alphabetFileURL = Bundle.main.url(forResource: "alphabet", withExtension: "txt") {
       if let letterButtonContents = try? String(contentsOf: alphabetFileURL) {
         let alphabet = letterButtonContents.components(separatedBy: "\n")
@@ -132,12 +128,15 @@ class ViewController: UIViewController {
         /// TODO: - Loop over word to add a character per letter `usedLetters`
       }
     }
-    // TODO: - Create a function that'll code ify the display label based on what's been passed off
     targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
   }
   
   @objc func loadNewGame(action: UIAlertAction) {
     loadGameWord()
+    correctLetters = []
+    guessCounter = 0
+    letterButtons = [UIButton]()
+    setUpAlphabetButtons()
   }
   
   // MARK: - GAME MECHANICS
@@ -204,5 +203,6 @@ class ViewController: UIViewController {
     ac.addAction(UIAlertAction(title: "I'm done", style: .default))
     present(ac, animated: true)
   }
-  // restart the game
+  
+  // TODO: - restart the game
 }
