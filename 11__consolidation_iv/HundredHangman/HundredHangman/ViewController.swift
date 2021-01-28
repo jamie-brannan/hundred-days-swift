@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     view = UIView()
     view.backgroundColor = .white
     setUpUi()
-    loadGame()
+    loadGameWord()
     view.addSubview(buttonsContainer)
     view.addSubview(targetWordLabel)
     implementConstraints()
@@ -136,7 +136,7 @@ class ViewController: UIViewController {
     targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
   }
   
-  func loadGame() {
+  @objc func loadNewGame(action: UIAlertAction) {
     loadGameWord()
   }
   
@@ -193,13 +193,15 @@ class ViewController: UIViewController {
   // MARK: Messages
   func presentWinMessage() {
     let ac = UIAlertController(title: "Congrats!", message: "You guessed right. \n You found the word : \(targetWord)", preferredStyle: .alert)
-    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    ac.addAction(UIAlertAction(title: "Let's go again!", style: .default, handler: loadNewGame))
+    ac.addAction(UIAlertAction(title: "Cancel", style: .default))
     present(ac, animated: true)
   }
   
   func presentLossMessage() {
     let ac = UIAlertController(title: "Sorry", message: "Great effort, but you fell short. \n The answer is : \(targetWord)", preferredStyle: .alert)
-    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    ac.addAction(UIAlertAction(title: "Try again", style: .default, handler: loadNewGame))
+    ac.addAction(UIAlertAction(title: "I'm done", style: .default))
     present(ac, animated: true)
   }
   // restart the game
