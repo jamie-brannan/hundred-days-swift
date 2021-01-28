@@ -17,11 +17,12 @@ class ViewController: UIViewController {
   var letterButtons = [UIButton]()
   
   // MARK: Data Storage
+  /// Game words
   var words = [String]()
+  /// Target word of the round
   var targetWord = ""
-  var usedLetters: [String] = []
-  var availableGuessLetters: [String] = []
-  
+  var correctLetters: [String] = []
+  var guessCounter = 0
   
   // MARK: - LIFE
   
@@ -104,7 +105,8 @@ class ViewController: UIViewController {
 //    buttonsContainer.backgroundColor = .lightGray
   }
 
-  // MARK: Data
+  // MARK: Load data
+  
   func getAlphabetContents() {
     if let alphabetFileURL = Bundle.main.url(forResource: "alphabet", withExtension: "txt") {
       if let letterButtonContents = try? String(contentsOf: alphabetFileURL) {
@@ -118,12 +120,6 @@ class ViewController: UIViewController {
     }
   }
   
-  func loadGame() {
-    loadGameWords()
-  }
-  
-  // MARK: - GAME MECHANICS
-  
   func loadGameWords() {
     if let wordsFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
       /// get words that are separated by a carriage return
@@ -131,29 +127,65 @@ class ViewController: UIViewController {
         var words = gameContents.components(separatedBy: "\n")
         words.shuffle()
         targetWord = words[0]
+        print("\(targetWord)")
+        /// TODO: - Loop over word to add a character per letter `usedLetters`
       }
     }
-    if words.isEmpty {
-      words.append("silkworm")
-      targetWord = words[0]
-    }
+//    if words.isEmpty {
+//      words.append("silkworm")
+//      targetWord = words[0]
+//      print("\(targetWord)")
+//    }
+    // TODO: - Create a function that'll code ify the display label based on what's been passed off
     targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
+  }
+  
+  func loadGame() {
+    loadGameWords()
+  }
+  
+  // MARK: - GAME MECHANICS
+
+//  func obscureTargetWordForLabel() {
+//    if guessCounter > 1 {
+//      targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
+////    } else {
+//      /// replace all letters not yet guessed with `"_ "`
+//      /// otherwise display letter with space
+//    }
+//  }
+  
+  func obscureTargetWordForLabel() {
+    /// replace all letters not yet guessed with `"_ "`
+    /// otherwise display letter with space
+    var updatedLabel = ""
+    for letter in targetWord {
+      let strLetter = String(letter)
+      if correctLetters.contains(strLetter) {
+        updatedLabel += strLetter
+      } else {
+        updatedLabel += "_ "
+      }
+    }
+    targetWordLabel.text = updatedLabel
   }
 
 // MARK: Button presses
 
   @objc func letterTapped(_ sender: UIButton) {
     /// compare the title text of button pressed with the answer
-    guard let letter = sender.titleLabel?.text else { return }
+    guard let sentLetter = sender.titleLabel?.text else { return }
     sender.isEnabled = false
+    guessCounter += 1
     
-    if targetWord.contains(letter) {
+    if targetWord.contains(sentLetter) {
+      correctLetters.append(sentLetter)
       /// add to used word
-      usedLetters.append(letter)
       /// find and replace letters for label
       /// if the word is complete, then trigger a congrats
       /// update the label
 //      targetWordLabel.text =
+      obscureTargetWordForLabel()
       recordCorrectGuess()
     } else {
       recordIncorrectGuess()
