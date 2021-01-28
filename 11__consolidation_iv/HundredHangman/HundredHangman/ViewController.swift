@@ -24,7 +24,7 @@ class ViewController: UIViewController {
   var correctLetters: [String] = []
   var guessCounter = 0
   
-  // MARK: - LIFE
+  // MARK: - LIFECYCLE
   
   override func loadView() {
     view = UIView()
@@ -33,6 +33,35 @@ class ViewController: UIViewController {
     loadGame()
     view.addSubview(buttonsContainer)
     view.addSubview(targetWordLabel)
+    implementConstraints()
+  }
+  
+  // MARK: - SETUP
+
+  // MARK: UI
+  func setUpUi() {
+    setUpTargetWord()
+    setUpButtonsContainer()
+    setUpAlphabetButtons()
+  }
+
+  func setUpTargetWord() {
+    targetWordLabel = UILabel()
+    targetWordLabel.translatesAutoresizingMaskIntoConstraints = false
+    targetWordLabel.text = "Testestest"
+    targetWordLabel.font = UIFont.systemFont(ofSize: 40)
+//    targetWordLabel.backgroundColor = .gray
+  }
+  
+  func setUpButtonsContainer() {
+    buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
+    buttonsContainer.layer.borderWidth = 1
+    buttonsContainer.layer.borderColor = UIColor.lightGray.cgColor
+    buttonsContainer.layer.cornerRadius = 25
+//    buttonsContainer.backgroundColor = .lightGray
+  }
+
+  func implementConstraints() {
     NSLayoutConstraint.activate([
       targetWordLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       targetWordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -43,7 +72,9 @@ class ViewController: UIViewController {
       buttonsContainer.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
       //      buttonsContainer.bounds.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     ])
-    
+  }
+  
+  func setUpAlphabetButtons() {
     /// set some values for the width and height of each button
     let letterButtonWidth = 124
     let letterButtonHeight = 54
@@ -75,36 +106,6 @@ class ViewController: UIViewController {
       }
     }
   }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
-  }
-  
-  // MARK: - SETUP
-
-  // MARK: UI
-  func setUpUi() {
-    setUpTargetWord()
-    setUpButtonsContainer()
-  }
-
-  func setUpTargetWord() {
-    targetWordLabel = UILabel()
-    targetWordLabel.translatesAutoresizingMaskIntoConstraints = false
-    targetWordLabel.text = "Testestest"
-    targetWordLabel.font = UIFont.systemFont(ofSize: 40)
-//    targetWordLabel.backgroundColor = .gray
-  }
-  
-  func setUpButtonsContainer() {
-    buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
-    buttonsContainer.layer.borderWidth = 1
-    buttonsContainer.layer.borderColor = UIColor.lightGray.cgColor
-    buttonsContainer.layer.cornerRadius = 25
-//    buttonsContainer.backgroundColor = .lightGray
-  }
-
   // MARK: Load data
   
   func getAlphabetContents() {
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
     }
   }
   
-  func loadGameWords() {
+  func loadGameWord() {
     if let wordsFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
       /// get words that are separated by a carriage return
       if let gameContents = try? String(contentsOf: wordsFileURL){
@@ -131,43 +132,33 @@ class ViewController: UIViewController {
         /// TODO: - Loop over word to add a character per letter `usedLetters`
       }
     }
-//    if words.isEmpty {
-//      words.append("silkworm")
-//      targetWord = words[0]
-//      print("\(targetWord)")
-//    }
     // TODO: - Create a function that'll code ify the display label based on what's been passed off
     targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
   }
   
   func loadGame() {
-    loadGameWords()
+    loadGameWord()
   }
   
   // MARK: - GAME MECHANICS
-
-//  func obscureTargetWordForLabel() {
-//    if guessCounter > 1 {
-//      targetWordLabel.text = String(repeating: "_ ", count: targetWord.count).trimmingCharacters(in: .whitespaces)
-////    } else {
-//      /// replace all letters not yet guessed with `"_ "`
-//      /// otherwise display letter with space
-//    }
-//  }
   
   func obscureTargetWordForLabel() {
-    /// replace all letters not yet guessed with `"_ "`
-    /// otherwise display letter with space
     var updatedLabel = ""
+    var wordComplete = true
+
     for letter in targetWord {
       let strLetter = String(letter)
       if correctLetters.contains(strLetter) {
         updatedLabel += strLetter
       } else {
         updatedLabel += "_ "
+        wordComplete = false
       }
     }
     targetWordLabel.text = updatedLabel
+    if wordComplete {
+      presentWinMessage()
+    }
   }
 
 // MARK: Button presses
@@ -176,16 +167,9 @@ class ViewController: UIViewController {
     /// compare the title text of button pressed with the answer
     guard let sentLetter = sender.titleLabel?.text else { return }
     sender.isEnabled = false
-    guessCounter += 1
     
     if targetWord.contains(sentLetter) {
       correctLetters.append(sentLetter)
-      /// add to used word
-      /// find and replace letters for label
-      /// if the word is complete, then trigger a congrats
-      /// update the label
-//      targetWordLabel.text =
-      obscureTargetWordForLabel()
       recordCorrectGuess()
     } else {
       recordIncorrectGuess()
@@ -193,19 +177,30 @@ class ViewController: UIViewController {
   }
   
   func recordCorrectGuess() {
-    /// add to used word
-    /// find and replace letters for label
-    /// if the word is complete, then trigger a congrats
-    /// update the label
+    obscureTargetWordForLabel()
     print("CORRECT")
   }
   
   func recordIncorrectGuess() {
-    /// count the number of errors
-    /// change image
-    /// if more than seven errors, then alert the loss
+    if guessCounter < 6 {
+      guessCounter += 1
+    } else {
+      presentLossMessage()
+    }
     print("INCORRECT")
   }
   
+  // MARK: Messages
+  func presentWinMessage() {
+    let ac = UIAlertController(title: "Congrats!", message: "You guessed right. \n You found the word : \(targetWord)", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    present(ac, animated: true)
+  }
+  
+  func presentLossMessage() {
+    let ac = UIAlertController(title: "Sorry", message: "Great effort, but you fell short. \n The answer is : \(targetWord)", preferredStyle: .alert)
+    ac.addAction(UIAlertAction(title: "OK", style: .default))
+    present(ac, animated: true)
+  }
   // restart the game
 }
