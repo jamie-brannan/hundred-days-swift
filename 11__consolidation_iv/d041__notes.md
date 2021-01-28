@@ -133,16 +133,16 @@ DispatchQueue.global().async { [weak self] in
 >The user can then **guess letters one at a time**: if they guess a letter that it’s in the word, e.g. H, it gets revealed to make “?H??H?”; _if they guess an incorrect letter, they inch closer to death_. If they seven incorrect answers they lose, but if they manage to spell the full word before that they win.
 
 Will need to have:
-  - [x]  word asset list
-  - [ ]  filter for letters only (exclude punctuation like spaces or hypens?)
-  - [ ]  property observers
-  - [ ]  array of usedLetters
-  - [ ]  array of unusedLetters
-  - [ ]  array of guessLetters
-  - [ ]  alphabetGuess uibuttons
-  - [ ]  button container view
-  - [ ]  hint view
-  - [ ]  failled guess alert
+- word asset list
+- filter for letters only (exclude punctuation like spaces or hypens?)
+- property observers
+- array of usedLetters
+- array of unusedLetters
+- array of guessLetters
+- alphabetGuess uibuttons
+- button container view
+- hint view
+- failled guess alert
 
 :star: Bonus to make it accessible? :)
 

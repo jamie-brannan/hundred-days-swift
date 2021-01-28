@@ -106,7 +106,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 41 | January 13 | ~ | Milestone, project 7-9, Hangman review game challenge |
+| Day 41 | January 13, 14, 17, 28 | <3 | Milestone, project 7-9, Hangman review game challenge, inspired a personal challenge to make side project with custom assets now that I have the mechanics. |
 
 ### :nine: **A whole new world**
 
