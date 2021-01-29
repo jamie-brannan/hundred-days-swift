@@ -100,5 +100,28 @@ Days organized by folders containing
 | Day 39 | January 10 | :white_check_mark: | Project 9, part i, learned about the different types of threads and `performSelector` as alternative to DispatchQues |
 | Day 40 | January 12 | :+1: | Project 9, part ii, review what's dispatchable in previous projects (1, 7, 8) |
 
+### :eight: **Consolidation IV**
+
+>You’ve tackled some really big projects these last few days, not least learning about building a user interface in code and running code in background threads. It’s time to take a moment to review what you’ve learned.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 41 | January 13, 14, 17, 28 | <3 | Milestone, project 7-9, Hangman review game challenge, inspired a personal challenge to make side project with custom assets now that I have the mechanics. |
+
+### :nine: **A whole new world**
+
+>The next three projects we’ll be making are markedly different from the previous 9 – you’ll learn about making grids rather than tables, learn how to make high-performance 2D games using SpriteKit, and, at last, learn how to save user data.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 42 | January ... | ~ | Project 10, part i ~ |
+| Day 43 | January ... | ~ | Project 10, part ii ~ |
+| Day 44 | January ... | ~ | Project 10, part iii ~ |
+| Day 45 | January ... | ~ | Project 11, part i ~ |
+| Day 46 | January ... | ~ | Project 11, part ii ~ |
+| Day 47 | January ... | ~ | Project 11, part iii ~ |
+| Day 48 | January ... | ~ | Project 12, part i ~ |
+| Day 49 | January ... | ~ | Project 12, part ii ~ |
+
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
