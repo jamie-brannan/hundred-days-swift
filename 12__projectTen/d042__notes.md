@@ -21,11 +21,13 @@
 >
 >Create a new Single View App project in Xcode, call it Project10, then save it somewhere. This should be second nature to you by now – you're becoming a veteran!
 
+:white_check_mark: yup!
+
 ## :two:  [Designing UICollectionView Cells](https://www.hackingwithswift.com/read/10/2/designing-uicollectionview-cells) 
 
 >We’ve used `UITableViewController` a few times so far, but this time we’re going to use `UICollectionViewController` instead. The procedure is quite similar, and starts by opening ViewController.swift and making it inherit from `UICollectionViewController` instead.
 >
->So, find this line:å
+>So, find this line:
 
 ```swift
 class ViewController: UIViewController {
@@ -37,8 +39,13 @@ class ViewController: UIViewController {
 class ViewController: UICollectionViewController {
 ```
 
->Now open Main.storyboard in Interface Builder and delete the existing view controller. In its place, drag out a Collection View Controller (not a regular collection view!), then mark it as the initial view controller and embed it inside a navigation controller. Make sure you also use the identity inspector to change its class to “ViewController” so that it points to our class in code.
->
+:white_check_mark: change made
+
+>Now open Main.storyboard in Interface Builder and delete the existing view controller. 
+>* I**n its place, drag out a Collection View Controller (not a regular collection view!**), then mark it as the initial view controller and embed it inside a navigation controller. Make sure you also use the identity inspector to **change its class to “ViewController” so that it points to our class in code**.
+
+:white_check_mark: Old hat.
+
 >Use the document outline to select the collection view inside the collection view controller, then go to the size inspector and set Cell Size to have the width 140 and height 180. Now set the section insets for top, bottom, left and right to all be 10.
 >
 >Collection views are extremely similar to table views, with the exception that they display as grids rather than as simple rows. But while the display is different, the underlying method calls are so similar that you could probably dive right in yourself if you wanted! (Don’t worry, though: I’ll walk you through it.)
