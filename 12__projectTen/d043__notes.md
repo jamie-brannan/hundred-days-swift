@@ -14,6 +14,7 @@ Privacy by design :metal: It's the law out here.
 
 - [*Day 43 • Saturday January 30, 2021*](#day-43--saturday-january-30-2021)
   - [:one:  Importing photos with `UIImagePickerController`](#one--importing-photos-with-uiimagepickercontroller)
+    - [`didFinishPickingMediaWithInfo`](#didfinishpickingmediawithinfo)
   - [:two:  Custom Subclasses of `NSObject`](#two--custom-subclasses-of-nsobject)
   - [:three:  Connecting up the people](#three--connecting-up-the-people)
 
@@ -66,11 +67,17 @@ class ViewController: UICollectionViewController {
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 ```
 
->That tells Swift you promise your class supports all the functionality required by the two protocols `UIImagePickerControllerDelegate` and `UINavigationControllerDelegate`. The first of those protocols is useful, telling us when the user either selected a picture or cancelled the picker. The second, `UINavigationControllerDelegate`, really is quite pointless here, so don't worry about it beyond just modifying your class declaration to include the protocol.
+>That tells Swift **you promise your class supports all the functionality required by the two protocols** `UIImagePickerControllerDelegate` and `UINavigationControllerDelegate`. 
+>
+>The first of those protocols is useful, **telling us when the user either selected a picture or cancelled the picker**. 
+>
+>The second, `UINavigationControllerDelegate`, really is quite pointless here, so don't worry about it beyond just modifying your class declaration to include the protocol.
 >
 >When you conform to the `UIImagePickerControllerDelegate` protocol, you don't need to add any methods because both are optional. But they aren't really – they are marked optional for whatever reason, but your code isn't much good unless you implement at least one of them!
->
->The delegate method we care about is `imagePickerController(_, didFinishPickingMediaWithInfo:)`, which returns when the user selected an image and it's being returned to you. This method needs to do several things:
+
+### `didFinishPickingMediaWithInfo`
+
+>The delegate method we care about is `imagePickerController(_, didFinishPickingMediaWithInfo:)`, which **returns when the user selected an image and it's being returned to you**. This method needs to do several things:
 >
 >* Extract the image from the dictionary that is passed as a parameter.
 >
@@ -82,17 +89,24 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 >
 >To make all this work you're going to need to learn a few new things.
 >
->First, it's very common for Apple to send you a dictionary of several pieces of information as a method parameter. This can be hard to work with sometimes because you need to know the names of the keys in the dictionary in order to be able to pick out the values, but you'll get the hang of it over time.
+> :one:  **First, it's very common for Apple to send you a dictionary of several pieces of information as a method parameter.** This can be hard to work with sometimes because you need to know the names of the keys in the dictionary in order to be able to pick out the values, but you'll get the hang of it over time.
 >
->This dictionary parameter will contain one of two keys: `.editedImage` (the image that was edited) or `.originalImage`, but in our case it should only ever be the former unless you change the `allowsEditing` property.
+>This dictionary parameter will contain one of two keys: 
 >
->The problem is, we don't know if this value exists as a `UIImage`, so we can't just extract it. Instead, we need to use an optional method of typecasting, `as?`, along with `if let`. Using this method, we can be sure we always get the right thing out.
+>* `.editedImage` (the image that was edited) or `.originalImage`, 
 >
->Second, we need to generate a unique filename for every image we import. This is so that we can copy it to our app's space on the disk without overwriting anything, and if the user ever deletes the picture from their photo library we still have our copy. We're going to use a new type for this, called `UUID`, which generates a Universally Unique Identifier and is perfect for a random filename.
+>* but in our case it should only ever be the former unless you change the `allowsEditing` property.
 >
->Third, once we have the image, we need to write it to disk. You're going to need to learn two new pieces of code: `UIImage` has a `jpegData()` to convert it to a Data object in JPEG image format, and there's a method on `Data` called `write(to:)` that, well, writes its data to disk. We used `Data` earlier, but as a reminder it’s a relatively simple data type that can hold any type of binary type – image data, zip file data, movie data, and so on.
+>The problem is, we don't know if this value exists as a `UIImage`, so we can't just extract it. Instead, we need to use **an optional method of typecasting**, `as?`, along with `if let`. Using this method, we can be sure we always get the right thing out.
 >
->Writing information to disk is easy enough, but finding where to put it is tricky. All apps that are installed have a directory called Documents where you can save private information for the app, and it's also automatically synchronized with iCloud. The problem is, it's not obvious how to find that directory, so I have a method I use called `getDocumentsDirectory()` that does exactly that – you don't need to understand how it works, but you do need to copy it into your code.
+> :two: Second, **we need to generate a unique filename for every image we import**. This is so that we can copy it to our app's space on the disk without overwriting anything, and if the user ever deletes the picture from their photo library we still have our copy. We're going to use a new type for this, called `UUID`, which generates a _Universally Unique Identifier_ and is perfect for a random filename.
+>
+> :three: Third, once we have the image, we need to write it to disk. You're going to need to learn two new pieces of code: `UIImage` has a `jpegData()` to convert it to a Data object in JPEG image format, and there's a method on `Data` called `write(to:)` that, well, writes its data to disk. 
+> 
+> We used `Data` earlier, but as a reminder it’s a relatively simple data type that can hold any type of binary type – image data, zip file data, movie data, and so on.
+>
+>Writing information to disk is easy enough, but finding where to put it is tricky. **All apps that are installed have a directory called Documents where you can save private information for the app, and it's also automatically synchronized with iCloud.** 
+>* The problem is, it's not obvious how to find that directory, so I have a method I use called `getDocumentsDirectory()` that does exactly that – you don't need to understand how it works, but you do need to copy it into your code.
 >
 >With all that in mind, here are the new methods:
 
@@ -116,9 +130,11 @@ func getDocumentsDirectory() -> URL {
 }
 ```
 
->Again, it doesn't matter how `getDocumentsDirectory()` works, but if you're curious: the first parameter of `FileManager.default.urls` asks for the documents directory, and its second parameter adds that we want the path to be relative to the user's home directory. This returns an array that nearly always contains only one thing: the user's documents directory. So, we pull out the first element and return it.
+>Again, it doesn't matter how `getDocumentsDirectory()` works, but if you're curious: the first parameter of `FileManager.default.urls` asks for the documents directory, and its second parameter adds that **we want the path to be relative to the user's home directory**. This returns an array that nearly always contains only one thing: the user's documents directory. So, we pull out the first element and return it.
 >
->Now onto the code that matters: as you can see I’ve used `guard` to pull out and typecast the image from the image picker, because if that fails we want to exit the method immediately. We then create an `UUID` object, and use its `uuidString` property to extract the unique identifier as a string data type.
+>Now onto the code that matters: as you can see I’ve used `guard` to pull out and typecast the image from the image picker, _because if that fails we want to exit the method immediately_. 
+>
+>We then create an `UUID` object, and use its `uuidString` property to extract the unique identifier as a string data type.
 >
 >The code then creates a new constant, `imagePath`, which takes the `URL` result of `getDocumentsDirectory()` and calls a new method on it: `appendingPathComponent()`. This is used when working with file paths, and adds one string (`imageName` in our case) to a path, including whatever path separator is used on the platform.
 >
