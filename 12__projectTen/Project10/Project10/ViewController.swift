@@ -7,12 +7,23 @@
 
 import UIKit
 
-class ViewController: UICollectionViewController {
+class ViewController: UICollectionViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    navigationController?.navigationBar.isHidden = false
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
   }
+
+  @objc func addNewPerson() {
+      let picker = UIImagePickerController()
+    /// allows the user to crop the picture they select
+      picker.allowsEditing = true
+      picker.delegate = self
+      present(picker, animated: true)
+  }
+  
+  // MARK: - Callbacks
 
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
       return 10
