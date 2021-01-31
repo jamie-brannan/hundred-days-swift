@@ -24,19 +24,25 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
   }
 
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+      /// try to read the image, and typecast it as an image for the interface – and  if it's not `guard` will let us bail out
       guard let image = info[.editedImage] as? UIImage else { return }
 
+      /// stringify the id name?
       let imageName = UUID().uuidString
+      /// read out documents directory wherever it is secretly on the device
       let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
 
+      /// `compressionQuality` is a value between 0 and 1, one being highest
       if let jpegData = image.jpegData(compressionQuality: 0.8) {
           try? jpegData.write(to: imagePath)
       }
 
+      /// when we're done, dismiss this vc away
       dismiss(animated: true)
   }
 
   func getDocumentsDirectory() -> URL {
+    /// our way of asking Apple for the directory
       let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
       return paths[0]
   }
