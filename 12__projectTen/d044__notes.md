@@ -12,6 +12,7 @@
   - [:one:  Wrap up](#one--wrap-up)
     - [Challenge](#challenge)
   - [:two:  Review for Project 10: Names to Faces](#two--review-for-project-10-names-to-faces)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 
 ## :one:  [Wrap up](https://www.hackingwithswift.com/read/10/7/wrap-up) 
 
@@ -67,4 +68,32 @@ Add an action the preceeds the current renaming alert.
 :white_check_mark: Refactoring page.
 
 ## :two:  [Review for Project 10: Names to Faces](https://www.hackingwithswift.com/review/hws/project-10-names-to-faces) 
+
+### :boom: Quiz insights
+
+* We can create custom classes for our collection view cells
+* When the user selects a picture using UIImagePickerController we'll be sent a dictionary of data.
+  * Apple prefers using dictionaries for this purpose because it allows them to expand it to add more things later on if needed.
+* The path property of a URL gives us the location as a string.
+  * It's helpful for APIs that use a string for the filename rather than a URL.
+* UIImagePickerController lets us read photos from the user's photo library.
+  * This is exactly what it's for, and it can also let us take photos using the camera.
+* UIKit re-uses collection view cells for performance reasons.
+  * As soon as one scrolls offscreen it becomes eligible for re-use.
+* Data can hold any kind of binary data
+  * It might be a zip file, it might be a JPEG, or it might just be a string stored as binary data.
+* Each app has its own documents directory.
+  * It's stored in a location we can't guess, so we need to read it using FileManager.
+* Collection view items are referenced using section and item rather than section and row.
+  * Collection views work as grids by default, so they don't have a concept of "rows".
+* When dequeueing a custom collection view cell we need to typecast it to our specific type
+  * UIKit gives us back a general UICollectionViewCell, but we know it's actually our custom type so we need to use as or as? to convert it.
+* CALayer can add borders and round corners of views.
+  * Every UIView has a layer property that we can manipulate in this way.
+* We can force a UICollectionView to reload all its data by calling its reloadData() method
+  * This works just the same as with UITableView.
+* UIColor can be created as a grayscale color.
+  * There's a dedicated UIColor(white:alpha:) initializer just for this purpose.
+
+:tada: 12/12 
 
