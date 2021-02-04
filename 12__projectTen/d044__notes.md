@@ -64,7 +64,7 @@ Add an action the preceeds the current renaming alert.
 
 >   - [ ]  Modify project 1 so that it uses a collection view controller rather than a table view controller. I recommend you keep a copy of your original table view controller code so you can refer back to it later on.
 
-Refactoring page.
+:white_check_mark: Refactoring page.
 
 ## :two:  [Review for Project 10: Names to Faces](https://www.hackingwithswift.com/review/hws/project-10-names-to-faces) 
 
