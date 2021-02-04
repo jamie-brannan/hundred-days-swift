@@ -16,6 +16,7 @@
 		11069DB925C4A2DF00F36B32 /* Project10Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11069DB825C4A2DF00F36B32 /* Project10Tests.swift */; };
 		11069DC425C4A2DF00F36B32 /* Project10UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11069DC325C4A2DF00F36B32 /* Project10UITests.swift */; };
 		11069DD825C4AB0300F36B32 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11069DD725C4AB0300F36B32 /* PersonCell.swift */; };
+		11A9C2D825C6D7F300140BAE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A9C2D725C6D7F300140BAE /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		11069DC325C4A2DF00F36B32 /* Project10UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project10UITests.swift; sourceTree = "<group>"; };
 		11069DC525C4A2DF00F36B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11069DD725C4AB0300F36B32 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		11A9C2D725C6D7F300140BAE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				11069DA125C4A2DE00F36B32 /* AppDelegate.swift */,
 				11069DA325C4A2DE00F36B32 /* SceneDelegate.swift */,
 				11069DA525C4A2DE00F36B32 /* ViewController.swift */,
+				11A9C2D725C6D7F300140BAE /* Person.swift */,
 				11069DA725C4A2DE00F36B32 /* Main.storyboard */,
 				11069DD725C4AB0300F36B32 /* PersonCell.swift */,
 				11069DAA25C4A2DF00F36B32 /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11A9C2D825C6D7F300140BAE /* Person.swift in Sources */,
 				11069DA625C4A2DE00F36B32 /* ViewController.swift in Sources */,
 				11069DA225C4A2DE00F36B32 /* AppDelegate.swift in Sources */,
 				11069DD825C4AB0300F36B32 /* PersonCell.swift in Sources */,
