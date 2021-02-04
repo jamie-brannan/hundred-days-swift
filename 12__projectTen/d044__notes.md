@@ -27,9 +27,36 @@
 
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
->   - [ ]  Add a second `UIAlertController` that gets shown when the user taps a picture, asking them whether they want to rename the person or delete them.
+>   - [x]  Add a second `UIAlertController` that gets shown when the user taps a picture, asking them whether they want to rename the person or delete them.
 
 Add an action the preceeds the current renaming alert.
+
+```swift
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let person = people[indexPath.item]
+    
+    let ac = UIAlertController(title: "Edit Contact", message: "How would you like to modify this contact?", preferredStyle: .alert)
+    
+    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    
+    ac.addAction(UIAlertAction(title: "Rename", style: .default) { [weak self, weak ac] _ in
+      guard let newName = ac?.textFields?[0].text else { return }
+      person.name = newName
+      
+      self?.collectionView.reloadData()
+    })
+    
+    ac.addAction(UIAlertAction(title: "Delete", style: .default) {_ in
+      self.people.remove(at: indexPath.item)
+      
+      collectionView.reloadData()
+    })
+    
+    present(ac, animated: true)
+  }
+```
+
 
 >  - [ ]  Try using `picker.sourceType = .camera` when creating your image picker, **which will tell it to create a new image by taking a photo.** This is only available on devices (not on the simulator) so you might want to check the return value of `UIImagePickerController.isSourceTypeAvailable()` before trying to use it!
 
