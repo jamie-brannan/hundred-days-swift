@@ -115,7 +115,7 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 42 | January 29 | :white_check_mark: | Project 10, part i, very straightforward setup of a Collection View which I've seen at work before |
-| Day 43 | January 30 | ~ | Project 10, part ii ~ |
+| Day 43 | January 30 | :white_check_mark: | Project 10, part ii, ImagePicker is super easy to take on though I expected to edit the `plist`, on IB need to be careful of auto-resizing settings |
 | Day 44 | January ... | ~ | Project 10, part iii ~ |
 | Day 45 | January ... | ~ | Project 11, part i ~ |
 | Day 46 | January ... | ~ | Project 11, part ii ~ |

@@ -291,3 +291,5 @@ override func collectionView(_ collectionView: UICollectionView, didSelectItemAt
 ```
 
 >Finally, the project is complete: you can import photos of people, then tap on them to rename. Well done!
+
+:warning: Just needed to switch off the auto resizing on the CollectionViewCell
