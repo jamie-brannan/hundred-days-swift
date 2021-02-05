@@ -116,7 +116,7 @@ Days organized by folders containing
 |---|---|---|---|
 | Day 42 | January 29 | :white_check_mark: | Project 10, part i, very straightforward setup of a Collection View which I've seen at work before |
 | Day 43 | January 30 | :white_check_mark: | Project 10, part ii, ImagePicker is super easy to take on though I expected to edit the `plist`, on IB need to be careful of auto-resizing settings |
-| Day 44 | February 4 | ~ | Project 10, part iii ~ |
+| Day 44 | February 4 | :white_check_mark: | Project 10, part iii, learned how to have the picker use the Camera instead and refactor a table view with a collection view – what the differences are. |
 | Day 45 | January ... | ~ | Project 11, part i ~ |
 | Day 46 | January ... | ~ | Project 11, part ii ~ |
 | Day 47 | January ... | ~ | Project 11, part iii ~ |
