@@ -19,6 +19,7 @@ Yesss, awesome. Besides playing with ARKit at school, this is my first time movi
 - [*Day 45 • Sunday February 07, 2021*](#day-45--sunday-february-07-2021)
   - [:one:  Setting up](#one--setting-up)
   - [:two:  Falling boxes: `SKSpriteNode`, `UITouch`, and `SKPhysicsBody`](#two--falling-boxes-skspritenode-uitouch-and-skphysicsbody)
+    - [Background](#background)
   - [:three:  Bouncing Balls: circleOfRadius](#three--bouncing-balls-circleofradius)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/11/1/setting-up) 
@@ -91,7 +92,11 @@ Noted.
 >All these changes have effectively cleaned the project, resetting it back to a vanilla state that we can build on.
 >
 >With the template stuff deleted, **I'd like you to import the assets for the project**. If you haven't already downloaded the code for this project, please do so now. You should copy the entire Content folder from the example project into your own, making sure the "Copy items if needed" box is checked.
->
+
+:white_check_mark: Done, copied.
+
+### Background
+
 >Let's kick off this project by ditching the plain background and replacing it with a picture. If you want to place an image in your game, the class to use is called SKSpriteNode, and it can load any picture from your app bundle just like UIImage.
 >
 >To place a background image, we need to load the file called background.jpg, then position it in the center of the screen. Remember, unlike UIKit SpriteKit positions things based on their center – i.e., the point 0,0 refers to the horizontal and vertical center of a node. And also unlike UIKit, SpriteKit's Y axis starts at the bottom edge, so a higher Y number places a node higher on the screen. So, to place the background image in the center of a landscape iPad, we need to place it at the position X:512, Y:384.
@@ -115,6 +120,8 @@ addChild(background)
 >If you run the app now you'll see a dark blue image for the background rather than plain gray – hardly a massive improvement, but this is just the beginning.
 
 (:camera: screen shot on website)
+
+:white_check_mark: Added background.
 
 >Let's do something a bit more interesting, so add this to the touchesBegan() method:
 
