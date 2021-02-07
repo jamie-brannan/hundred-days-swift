@@ -117,11 +117,11 @@ Days organized by folders containing
 | Day 42 | January 29 | :white_check_mark: | Project 10, part i, very straightforward setup of a Collection View which I've seen at work before |
 | Day 43 | January 30 | :white_check_mark: | Project 10, part ii, ImagePicker is super easy to take on though I expected to edit the `plist`, on IB need to be careful of auto-resizing settings |
 | Day 44 | February 4 | :white_check_mark: | Project 10, part iii, learned how to have the picker use the Camera instead and refactor a table view with a collection view – what the differences are. |
-| Day 45 | January ... | ~ | Project 11, part i ~ |
-| Day 46 | January ... | ~ | Project 11, part ii ~ |
-| Day 47 | January ... | ~ | Project 11, part iii ~ |
-| Day 48 | January ... | ~ | Project 12, part i ~ |
-| Day 49 | January ... | ~ | Project 12, part ii ~ |
+| Day 45 | February 7 | ~ | Project 11, part i ~ |
+| Day 46 | February ... | ~ | Project 11, part ii ~ |
+| Day 47 | February ... | ~ | Project 11, part iii ~ |
+| Day 48 | February ... | ~ | Project 12, part i ~ |
+| Day 49 | February ... | ~ | Project 12, part ii ~ |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
