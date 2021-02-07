@@ -68,21 +68,29 @@ class GameScene: SKScene {
 
 Whaaaat. This is giving me flashbacks to After Effects!
 
->While you’re in the scene editor, there’s one more change I’d like to make, and it will help simplify our positioning slightly. With the scene selected, look in the attributes inspector (note: its icon is different here!) for Anchor Point. This determines what coordinates SpriteKit uses to position children and it’s X:0.5 Y:0.5 by default.
+>While you’re in the scene editor, there’s one more change I’d like to make, and it will help simplify our positioning slightly. With the scene selected, look in the attributes inspector (note: its icon is different here!) for Anchor Point. This determines what coordinates **SpriteKit uses to position children and it’s X:0.5 Y:0.5 by default.**
 >
->This is different to UIKit: it means “position me based on my center”, whereas UIKit positions things based on their top-left corner. This is usually fine, but when working with the main scene it’s easiest to set this value to X:0 Y:0. So, please make that change now – anchor point should 0 for both X and Y.
+>**This is different to UIKit: it means “position me based on my center”, whereas UIKit positions things based on their top-left corner.**
+
+This is a major difference.
+
+>This is usually fine, but when working with the main scene it’s easiest to set this value to X:0 Y:0. So, please make that change now – anchor point should 0 for both X and Y.
 >
 >Note: SpriteKit considers Y:0 to be the bottom of the screen whereas UIKit considers it to be the top – hurray for uniformity!
 >
->I’d also like you to change the size of the scene, which is just above the anchor point. This is probably 750x1334 by default; please change it to 1024x768 to match iPad landscape size.
->
+>I’d also like you to change the size of the scene, which is just above the anchor point. This is probably 750x1334 by default; please **change it to 1024x768 to match iPad landscape size**.
+
+Noted.
+
 >Tip: The 9.7-inch iPad is 1024 points wide and 768 high, but the 10.5-inch and 12.9-inch are both larger. Helpfully, SpriteKit takes care of this for us: we just asked for a 1024x768 canvas and it will give us one regardless of what device our game runs on – nice!
 >
->The last change I’d like you to make is to select Actions.sks and tap your backspace button to delete it – select “Move to Trash” when Xcode asks you what you want to do.
->
+>The last change I’d like you to make is to select `Actions.sks` and tap your backspace button to delete it – select “Move to Trash” when Xcode asks you what you want to do.
+
+:white_check_mark: Okay thrown out.
+
 >All these changes have effectively cleaned the project, resetting it back to a vanilla state that we can build on.
 >
->With the template stuff deleted, I'd like you to import the assets for the project. If you haven't already downloaded the code for this project, please do so now. You should copy the entire Content folder from the example project into your own, making sure the "Copy items if needed" box is checked.
+>With the template stuff deleted, **I'd like you to import the assets for the project**. If you haven't already downloaded the code for this project, please do so now. You should copy the entire Content folder from the example project into your own, making sure the "Copy items if needed" box is checked.
 >
 >Let's kick off this project by ditching the plain background and replacing it with a picture. If you want to place an image in your game, the class to use is called SKSpriteNode, and it can load any picture from your app bundle just like UIImage.
 >
