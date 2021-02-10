@@ -194,24 +194,17 @@ bouncer.physicsBody?.isDynamic = false
 addChild(bouncer)
 ```
 
-```swift
-  func setupBouncer() {
-    let bouncer = SKSpriteNode(imageNamed: "bouncer")
-    bouncer.position = CGPoint(x: 512, y: 0)
-    bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
-    bouncer.physicsBody?.isDynamic = false
-    addChild(bouncer)
-  }
-```
-
-
->There's **a new data type** in there called `CGPoint`, but, like `CGSize`, it's very simple:_ it just holds X/Y co-ordinates_. Remember, SpriteKit's positions start from the center of nodes, so X:512 Y:0 means "centered horizontally on the bottom edge of the scene."
+>There's **a new data type** in there called `CGPoint`, but, like `CGSize`, it's very simple: _it just holds X/Y co-ordinates_. 
+>* Remember, **SpriteKit's positions start from the center of nodes**, so X:512 Y:0 means "centered horizontally on the bottom edge of the scene."
 >
->Also new is the `isDynamic` property of a physics body. When this is true, the object will be moved by the physics simulator based on gravity and collisions. When it's false (as we're setting it) the object will still collide with other things, but it won't ever be moved as a result.
+>**Also new is the `isDynamic` property of a physics body**. When this is true, the object _will be moved by the physics simulator based on gravity and collisions_. 
+>* When it's false (as we're setting it) the object will still collide with other things, but it won't ever be moved as a result.
 >
 >Using this code, the bouncer node will be placed on the screen and your balls can collide with it – but it won't move. Give it a try now.
 >
->Adding a bouncer took five lines of code, but our game needs more than one bouncer. In fact, I want five of them, evenly distributed across the screen. Now, you could just copy and paste the code five times then change the positions, but I hope you realize there's a better way: creating a method that does all the work, then calling that method each time we want a bouncer.
+>**Adding a bouncer took five lines of code, but our game needs more than one bouncer.** 
+>
+>In fact, I want five of them, evenly distributed across the screen. Now, you could just copy and paste the code five times then change the positions, but I hope you realize there's a better way: **creating a method that does all the work**, then calling that method each time we want a bouncer.
 >
 >The method code itself is nearly identical to what you just wrote, with the only change being that we need to position the box at the `CGPoint` specified as a parameter:
 
