@@ -22,6 +22,10 @@ class GameScene: SKScene {
       makeBouncer(at: CGPoint(x: 512, y: 0))
       makeBouncer(at: CGPoint(x: 768, y: 0))
       makeBouncer(at: CGPoint(x: 1024, y: 0))
+      makeSlot(at: CGPoint(x: 128, y: 0), isGood: true)
+      makeSlot(at: CGPoint(x: 384, y: 0), isGood: false)
+      makeSlot(at: CGPoint(x: 640, y: 0), isGood: true)
+      makeSlot(at: CGPoint(x: 896, y: 0), isGood: false)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -34,11 +38,31 @@ class GameScene: SKScene {
       addChild(ball)
     }
   
+  // MARK: - Setup UI
   func makeBouncer(at position: CGPoint) {
       let bouncer = SKSpriteNode(imageNamed: "bouncer")
       bouncer.position = position
       bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
       bouncer.physicsBody?.isDynamic = false
       addChild(bouncer)
+  }
+  
+  func makeSlot(at position: CGPoint, isGood: Bool) {
+      var slotBase: SKSpriteNode
+      var slotGlow: SKSpriteNode
+
+      if isGood {
+          slotBase = SKSpriteNode(imageNamed: "slotBaseGood")
+          slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
+      } else {
+          slotBase = SKSpriteNode(imageNamed: "slotBaseBad")
+          slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
+      }
+
+      slotBase.position = position
+      slotGlow.position = position
+
+      addChild(slotBase)
+      addChild(slotGlow)
   }
 }
