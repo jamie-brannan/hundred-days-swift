@@ -10,6 +10,8 @@
 
 - [*Day 46 • Wednesday February 10, 2021*](#day-46--wednesday-february-10-2021)
   - [:one:  Spinning Slots `SKAction`](#one--spinning-slots-skaction)
+    - [Good and bad slots](#good-and-bad-slots)
+    - [Adding spin](#adding-spin)
   - [:two:  Collision detection `SKPhysicsContactDelegate`](#two--collision-detection-skphysicscontactdelegate)
   - [:three:  Scores on the board `SKLabelNode`](#three--scores-on-the-board-sklabelnode)
 
@@ -45,7 +47,9 @@ makeSlot(at: CGPoint(x: 896, y: 0), isGood: false)
 ```
 
 >The X positions are exactly between the bouncers, so if you run the game now you'll see bouncer / slot / bouncer / slot and so on.
->
+
+### Good and bad slots
+
 >One of the obvious-but-nice things about using methods to create the bouncers and slots is that if we want to change the way slots look we only need to change it in one place. For example, we can make the slot colors look more obvious by adding a glow image behind them:
 
 ```swift
@@ -78,15 +82,16 @@ func makeSlot(at position: CGPoint, isGood: Bool) {
 >
 >Before we look at the code to make this happen, you need to learn a few things up front:
 >
->
->* Angles are specified in radians, not degrees. This is true in UIKit too. 360 degrees is equal to the value of 2 x Pi – that is, the mathematical value π. Therefore π radians is equal to 180 degrees.
+>* _Angles are specified in **radians**, not degrees_. This is true in UIKit too. **360 degrees is equal to the value of 2 x Pi – that is, the mathematical value π.** Therefore π radians is equal to 180 degrees.
 >
 >* Rather than have you try to memorize it, there is a built-in value of π called `CGFloat.pi`.
 >
 >* Yes `CGFloat` is yet another way of representing decimal numbers, just like `Double` and `Float`. Behind the scenes, `CGFloat` can be either a `Double` or a `Float` depending on the device your code runs on. Swift also has `Double.pi` and `Float.pi` for when you need it at different precisions.
 >
 >* When you create an action it will execute once. If you want it to run forever, you create another action to wrap the first using the `repeatForever()` method, then run that.
->
+
+### Adding spin
+
 >Our new code will rotate the node by 180 degrees (available as the constant `CGFloat.pi` or just `.pi`) over 10 seconds, repeating forever. Put this code just before the end of the `makeSlot(at:)` method:
 
 ```swift
@@ -98,6 +103,12 @@ slotGlow.run(spinForever)
 >If you run the game now, you'll see that the glow spins around very gently. It's a simple effect, but it makes a big difference.
 
 (:camera: screen shot on website)
+
+:white_check_mark: Yay spint set!
+
+:question: *So `SKAction` is a type of animation?*
+* What would be the UIKit animation equivalent?
+
 
 ## :two:  [Collision detection `SKPhysicsContactDelegate`](https://www.hackingwithswift.com/read/11/5/collision-detection-skphysicscontactdelegate) 
 
