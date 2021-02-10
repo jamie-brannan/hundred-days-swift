@@ -118,7 +118,7 @@ Days organized by folders containing
 | Day 43 | January 30 | :white_check_mark: | Project 10, part ii, ImagePicker is super easy to take on though I expected to edit the `plist`, on IB need to be careful of auto-resizing settings |
 | Day 44 | February 4 | :white_check_mark: | Project 10, part iii, learned how to have the picker use the Camera instead and refactor a table view with a collection view – what the differences are. |
 | Day 45 | February 7, 10 | ~ | Project 11, part i, first introduction into `SpriteKit`! :space_invader: So much fun! |
-| Day 46 | February ... | ~ | Project 11, part ii ~ |
+| Day 46 | February 10 | ~ | Project 11, part ii ~ |
 | Day 47 | February ... | ~ | Project 11, part iii ~ |
 | Day 48 | February ... | ~ | Project 12, part i ~ |
 | Day 49 | February ... | ~ | Project 12, part ii ~ |
