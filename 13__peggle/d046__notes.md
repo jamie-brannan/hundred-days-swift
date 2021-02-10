@@ -13,6 +13,9 @@
     - [Good and bad slots](#good-and-bad-slots)
     - [Adding spin](#adding-spin)
   - [:two:  Collision detection `SKPhysicsContactDelegate`](#two--collision-detection-skphysicscontactdelegate)
+    - [Rectangular slots](#rectangular-slots)
+    - [Naming nodes](#naming-nodes)
+    - [Physics Contact Delegate](#physics-contact-delegate)
   - [:three:  Scores on the board `SKLabelNode`](#three--scores-on-the-board-sklabelnode)
 
 ## :one:  [Spinning Slots `SKAction`](https://www.hackingwithswift.com/read/11/4/spinning-slots-skaction) 
@@ -114,13 +117,15 @@ slotGlow.run(spinForever)
 
 >Just by adding a physics body to the balls and bouncers we already have some collision detection because the objects bounce off each other. But it's not being detected by us, which means we can't do anything about it.
 >
->In this game, we want the player to win or lose depending on how many green or red slots they hit, so we need to make a few changes:
+>In this game, **we want the player to win or lose depending on how many green or red slots they hit**, so we need to make a few changes:
 >
 >* Add rectangle physics to our slots.
 >* Name the slots so we know which is which, then name the balls too.
 >* Make our scene the contact delegate of the physics world – this means, "tell us when contact occurs between two bodies."
 >* Create a method that handles contacts and does something appropriate.
->
+
+### Rectangular slots
+
 >The first step is easy enough: add these two lines just before you call `addChild()` for `slotBase`:
 
 ```swift
@@ -130,9 +135,13 @@ slotBase.physicsBody?.isDynamic = false
 
 >The slot base needs to be non-dynamic because we don't want it to move out of the way when a player ball hits.
 >
->The second step is also easy, but bears some explanation. As with UIKit, it's easy enough to store a variable pointing at specific nodes in your scene for when you want to make something happen, and there are lots of times when that's the right solution.
+>The second step is also easy, but bears some explanation. 
+
+### Naming nodes
+
+>As with UIKit, it's easy enough to store **a variable pointing at specific nodes in your scene** for when you want to make something happen, and there are lots of times when that's the right solution.
 >
->But for general use, Apple recommends assigning names to your nodes, then checking the name to see what node it is. We need to have three names in our code: good slots, bad slots and balls. This is really easy to do – just modify your `makeSlot(at:)` method so the `SKSpriteNode` creation looks like this:
+>But for general use, Apple recommends **assigning names to your nodes**, then checking the name to see what node it is. We need to have three names in our code: good slots, bad slots and balls. This is really easy to do – just modify your `makeSlot(at:)` method so the `SKSpriteNode` creation looks like this:
 
 ```swift
 if isGood {
@@ -152,29 +161,48 @@ if isGood {
 ball.name = "ball"
 ```
 
->We don't need to name the bouncers, because we don't actually care when their collisions happen.
+:white_check_mark: Done
+
+>We don't need to name the bouncers, _because we don't actually care when their collisions happen._
+
+### Physics Contact Delegate
+
+>Now comes the tricky part, which is setting up _**our scene** to be the **contact delegate of the physics world**_. 
+>* The initial change is easy: we just need to conform to the `SKPhysicsContactDelegate` protocol then assign the physics world's `contactDelegate` property to be our scene. 
 >
->Now comes the tricky part, which is setting up our scene to be the contact delegate of the physics world. The initial change is easy: we just need to conform to the SKPhysicsContactDelegate protocol then assign the physics world's contactDelegate property to be our scene. But by default, you still won't get notified when things collide.
+>* But by default, you still won't get notified when things collide.
 >
->What we need to do is change the contactTestBitMask property of our physics objects, which sets the contact notifications we want to receive. This needs to introduce a whole new concept – bitmasks – and really it doesn't matter at this point, so we're going to take a shortcut for now, then return to it in a later project.
+>What we need to do is change the `contactTestBitMask` property of our physics objects, which sets the contact notifications we want to receive. 
 >
->Let's set up all the contact delegates and bitmasks now. First, make your class conform to the SKPhysicsContactDelegate protocol by modifying its definition to this:
+>This needs to introduce a whole new concept – **bitmasks** – and really it doesn't matter at this point, so we're going to take a shortcut for now, then _return to it in a later project_.
+
+:hourglass: Return to bitmasks later as a subject.
+
+>Let's set up all the contact delegates and bitmasks now. First, make your class conform to the `SKPhysicsContactDelegate` protocol by modifying its definition to this:
 
 ```swift
 class GameScene: SKScene, SKPhysicsContactDelegate {
 ```
 
-Then assign the current scene to be the physics world's contact delegate by putting this line of code in didMove(to:), just below where we set the scene's physics body:
+Added.
+
+>Then assign the current scene to be the physics world's contact delegate by putting this line of code in `didMove(to:)`, just below where we set the scene's physics body:
 
 ```swift
 physicsWorld.contactDelegate = self
 ```
 
->Now for our shortcut: we're going to tell all the ball nodes to set their contactTestBitMask property to be equal to their collisionBitMask. Two bitmasks, with confusingly similar names but quite different jobs.
+>Now for our shortcut: we're going to tell all the ball nodes to set their `contactTestBitMask` property to be equal to their `collisionBitMask`. Two bitmasks, with confusingly similar names but quite _different jobs_.
 >
->The collisionBitMask bitmask means "which nodes should I bump into?" By default, it's set to everything, which is why our ball are already hitting each other and the bouncers. The contactTestBitMask bitmask means "which collisions do you want to know about?" and by default it's set to nothing. So by setting contactTestBitMask to the value of collisionBitMask we're saying, "tell me about every collision."
+>The `collisionBitMask` bitmask means **"which nodes should I bump into?"** By default, it's set to everything, which is why our ball are already hitting each other and the bouncers. 
 >
->This isn't particularly efficient in complicated games, but it will make no difference at all in this current project. And, like I said, we'll return to this in a later project to explain more. Until then, add this line just before you set each ball's restitution property:
+>The `contactTestBitMask` bitmask means "which collisions do you want to know about?" and by **default it's set to nothing**. 
+>* :arrow_right: So by setting `contactTestBitMask` to the value of `collisionBitMask` we're saying, _"tell me about every collision."_
+
+So bitmasks are telling us alert us to collisions and detect them for us (they almost function like property observers but for the physics?) _for now_ :hourglass:
+
+>**This isn't particularly efficient in complicated games**, but it will make no difference at all in this current project. And, like I said, we'll return to this in a later project to explain more. 
+>* Until then, add this line just before you set each ball's restitution property:
 
 ```swift
 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask           
