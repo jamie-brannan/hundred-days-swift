@@ -20,6 +20,7 @@
     - [Handling double collisions](#handling-double-collisions)
   - [:three:  Scores on the board `SKLabelNode`](#three--scores-on-the-board-sklabelnode)
     - [Adding label](#adding-label)
+    - [Add intermediary obstacles](#add-intermediary-obstacles)
 
 ## :one:  [Spinning Slots `SKAction`](https://www.hackingwithswift.com/read/11/4/spinning-slots-skaction) 
 
@@ -363,9 +364,11 @@ func collisionBetween(ball: SKNode, object: SKNode) {
 >The `+=` and `-=` operators add or subtract one to the variable depending on whether a good or bad slot was struck. **When we change the variable, the property observer will spot the change and update the label.**
 >
 >We have a score, so that means players have the achievement they were craving, right? Well, no. Clearly all it takes to get a number even higher than Gangnam Style's YouTube views is to sit and tap at the top of the screen directly above a green slot.
->
->Let's add some actual challenge: we're going to let you place obstacles between the top of the scene and the slots at the bottom, so that players have to position their balls exactly correctly to bounce off things in the right ways.
->
+
+>Let's add some actual challenge: we're going to let you **place obstacles** between the top of the scene and the slots at the bottom, _so that players have to position their balls exactly correctly to bounce off things in the right ways._
+
+### Add intermediary obstacles
+
 >To make this work, we're going to add two more properties. The first one will hold a label that says either "Edit" or "Done", and one to hold a boolean that tracks whether we're in editing mode or not. Add these two alongside the score properties from earlier:
 
 ```swift
@@ -382,7 +385,7 @@ var editingMode: Bool = false {
 }
 ```
 
->Then add this to didMove(to:) to create the edit label in the top-left corner of the scene:
+>Then add this to `didMove(to:)` to create the edit label in the top-left corner of the scene:
 
 ```swift
 editLabel = SKLabelNode(fontNamed: "Chalkduster")
@@ -391,11 +394,15 @@ editLabel.position = CGPoint(x: 80, y: 700)
 addChild(editLabel)
 ```
 
->That's pretty much identical to creating the score label, so nothing to see here. We're using a property observer again to automatically change the editing label's text when edit mode is changed.
+>**That's pretty much identical to creating the score label, so nothing to see here.** 
+>* We're using _a property observe_r again to automatically change the editing label's text when edit mode is changed.
 >
->But what is new is detecting whether the user tapped the edit/done button or is trying to create a ball. To make this work, we're going to ask SpriteKit to give us a list of all the nodes at the point that was tapped, and check whether it contains our edit label. If it does, we'll flip the value of our editingMode boolean; if it doesn't, we want to execute the previous ball-creation code.
+>But what is new is **detecting whether the user tapped the edit/done button** _or is trying to create a ball_.
+>* To make this work, we're going to ask SpriteKit to **give us a list of all the nodes at the point that was tapped,** and check **whether it contains our edit** label. 
+>    * If it does, we'll flip the value of our editingMode boolean; 
+>    * if it doesn't, we want to execute the previous ball-creation code.
 >
->We're going to insert this change just after let location = and before let ball =, i.e. right here:
+>We're going to insert this change just after `let location =` and before `let ball =`, i.e. right here:
 
 ```swift
 let location = touch.location(in: self)
@@ -418,11 +425,13 @@ if objects.contains(editLabel) {
 }
 ```
 
->Did you notice I slipped in a small but important new method there? editingMode.toggle() changes editingMode to true if it’s currently false, and to false if it was true. We could have written editingMode = !editingMode there and it would do the same thing, but toggle() is both shorter and clearer. That change will be picked up by the property observer, and the label will be updated to reflect the change.
+>Did you notice I slipped in a small but important new method there? `editingMode.toggle()` changes `editingMode` to true if it’s currently false, and to false if it was true. We could have written `editingMode = !editingMode` there and it would do the same thing, but `toggle()` is both shorter and clearer. That change will be picked up by the property observer, and the label will be updated to reflect the change.
 >
->Obviously the // rest of ball code comment is where the rest of the ball-creating code goes, but note that you need to add the new closing brace after you've created the ball, to close the else block.
+>Obviously the `//` rest of ball code comment is where the rest of the ball-creating code goes, but note that you need to add the new closing brace after you've created the ball, to close the else block.
 >
->Now that we have a boolean telling us whether we're in editing mode or not, we're going to extend touchesBegan() even further so that if we're in editing mode we add blocks to the screen of random sizes, and if we're not it drops a ball.
+>**Now that we have a boolean telling us whether we're in editing mode or not**, we're going to extend `touchesBegan()` even further so that :
+>* **if we're in editing mode** _we add blocks to the screen of random sizes_,
+>* and **if we're not** _it drops a ball_.
 >
 >To get the structure right, this is what you want to have:
 
@@ -438,11 +447,13 @@ if objects.contains(editLabel) {
 }
 ```
 
->The // create a ball comment is where your current ball creation code goes. The // create a box comment is what we're going to write in just a moment.
+>The `//` create a ball comment is where your current ball creation code goes. The `//` create a box comment is what we're going to write in just a moment.
 >
->First, we're going to use a new property on nodes called zRotation. When creating the background image, we gave it a Z position, which adjusts its depth on the screen, front to back. If you imagine sticking a skewer through the Z position – i.e., going directly into your screen – and through a node, then you can imagine Z rotation: it rotates a node on the screen as if it had been skewered straight through the screen.
+>First, we're going to use a new property on nodes called `zRotation`. 
 >
->To create randomness we’re going to be using both Int.random(in:) for integer values and CGFloat.random(in:) for CGFloat values, with the latter being used to create random red, green, and blue values for a UIColor. So, replace the // create a box comment with this:
+>When creating the background image, we gave it a Z position, _which adjusts its depth on the screen_, front to back. If you imagine sticking a skewer through the Z position – i.e., going directly into your screen – and through a node, then you can imagine Z rotation: it rotates a node on the screen as if it had been skewered straight through the screen.
+>
+>To create randomness we’re going to be using both `Int.random(in:)` for integer values and `CGFloat.random(in:)` for CGFloat values, with the latter being used to create random red, green, and blue values for a UIColor. So, replace the `//` create a box comment with this:
 
 ```swift
 let size = CGSize(width: Int.random(in: 16...128), height: 16)
@@ -456,8 +467,12 @@ box.physicsBody?.isDynamic = false
 addChild(box)
 ```
 
->So, we create a size with a height of 16 and a width between 16 and 128, then create an SKSpriteNode with the random size we made along with a random color, then give the new box a random rotation and place it at the location that was tapped on the screen. For a physics body, it's just a rectangle, but we need to make it non-dynamic so the boxes don't move when hit.
->
->At this point, we almost have a game: you can tap Edit, place as many blocks as you want, then tap Done and try to score by dropping balls. It's not perfect because we don't force the Y position of new balls to be the top of the screen, but that's something you can fix yourself – how else would you learn, right?
+>So, we create a size with a height of 16 and a width between 16 and 128, then create an `SKSpriteNode` with the random size we made along with a random color, then _give the new box a random rotation_ and place it at the location that was tapped on the screen. For a physics body, it's just a rectangle, but we need to make it non-dynamic so the boxes don't move when hit.
+
+:white_check_mark: Added
+
+>At this point, we almost have a game: **you can tap Edit, place as many blocks as you want, then tap Done and try to score by dropping balls**. 
+
+>It's not perfect because **we don't force the Y position of new balls to be the top of the screen**, but that's something you can fix yourself – how else would you learn, right?
 
 (:camera: screen shot on website)
