@@ -16,6 +16,8 @@
     - [Rectangular slots](#rectangular-slots)
     - [Naming nodes](#naming-nodes)
     - [Physics Contact Delegate](#physics-contact-delegate)
+    - [Collide and destroy](#collide-and-destroy)
+    - [Handling double collisions](#handling-double-collisions)
   - [:three:  Scores on the board `SKLabelNode`](#three--scores-on-the-board-sklabelnode)
 
 ## :one:  [Spinning Slots `SKAction`](https://www.hackingwithswift.com/read/11/4/spinning-slots-skaction) 
@@ -184,7 +186,7 @@ ball.name = "ball"
 class GameScene: SKScene, SKPhysicsContactDelegate {
 ```
 
-Added.
+:white_check_mark: Added.
 
 >Then assign the current scene to be the physics world's contact delegate by putting this line of code in `didMove(to:)`, just below where we set the scene's physics body:
 
@@ -208,11 +210,18 @@ So bitmasks are telling us alert us to collisions and detect them for us (they a
 ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask           
 ```
 
+:white_check_mark: Added.
+
 >That’s the only change required for us to detect collisions, so now it's time to write the code that does the hard work.
 >
->But first, a little explanation: when contact between two physics bodies occurs, we don't know what order it will come in. That is, did the ball hit the slot, did the slot hit the ball, or did both happen? I know this sounds like pointless philosophy, but it's important because we need to know which one is the ball!
->
->Before looking at the actual contact method, I want to look at two other methods first, because this is our ultimate goal. The first one, collisionBetween() will be called when a ball collides with something else. The second one, destroy() is going to be called when we're finished with the ball and want to get rid of it.
+>But first, a little explanation: **when contact between two physics bodies occurs, we don't know what order it will come in**. 
+>* That is, did the ball hit the slot, did the slot hit the ball, or did both happen? I know this sounds like pointless philosophy, but _it's important because we need to know which one is the ball!_
+
+### Collide and destroy
+
+>Before looking at the actual contact method, I want to look at two other methods first, because this is our ultimate goal.
+
+>The first one, `collisionBetween()` will be called when a ball collides with something else. The second one, `destroy()` is going to be called when we're finished with the ball and want to get rid of it.
 >
 >Put these new methods into to your code:
 
@@ -230,7 +239,7 @@ func destroy(ball: SKNode) {
 }
 ```
 
->The removeFromParent() method removes a node from your node tree. Or, in plain English, it removes the node from your game.
+>The `removeFromParent()` method **removes a node from your node tree**. Or, in plain English, it removes the node from your game.
 >
 >You might look at that and think it's utterly redundant, because no matter what happens it's effectively the same as writing this:
 
@@ -240,9 +249,13 @@ func collisionBetween(ball: SKNode, object: SKNode) {
 }
 ```
 
->But trust me on this: we're going to make these methods do more shortly, so get it right now and it will save refactoring later.
+>But trust me on this: _we're going to make these methods do more shortly, so get it right now and it will save refactoring later._
+
+:white_check_mark: Added but not implemented yet.
+
+>With those two in place, our contact checking method almost writes itself. 
 >
->With those two in place, our contact checking method almost writes itself. We'll get told which two bodies collided, and the contact method needs to determine which one is the ball so that it can call collisionBetween() with the correct parameters. This is as simple as checking the names of both properties to see which is the ball, so here's the new method to do contact checking:
+>We'll get told which two bodies collided, and the contact method needs to determine which one is the ball so that it can call `collisionBetween()` with the correct parameters. **This is as simple as checking the names of both properties to see which is the ball,** so here's the new method to do contact checking:
 
 ```swift
 func didBegin(_ contact: SKPhysicsContact) {
@@ -254,13 +267,18 @@ func didBegin(_ contact: SKPhysicsContact) {
 }
 ```
 
->If you're particularly observant, you may have noticed that we don't have a special case in there for when both bodies are balls – i.e., if one ball collides with another. This is because our collisionBetween() method will ignore that particular case, because it triggers code only if the other node is named "good" or "bad".
+>If you're particularly observant, you may have noticed that we don't have **a special case in there for when both bodies are balls** – i.e., if one ball collides with another. 
+>* This is because our `collisionBetween()` method will ignore that particular case, because it **triggers code _only if_ the other node is named "good" or "bad".**
 >
->Run the game now and you'll start to see things coming together: you can drop balls on the bouncers and they will bounce, but if they touch one of the good or bad slots the balls will be destroyed. It works, but it's boring. Players want to score points so they feel like they achieved something, even if that "something" is just nudging up a number on a CPU.
+>Run the game now and you'll start to see things coming together: you can drop balls on the bouncers and they will bounce, but if they touch one of the good or bad slots _the balls will be destroyed_. 
 >
->Before I move on, I want to return to my philosophical question from earlier: “did the ball hit the slot, did the slot hit the ball, or did both happen?” That last case won’t happen all the time, but it will happen sometimes, and it’s important to take it into account.
+>It works, but it's boring. Players want to score points so they feel like they achieved something, even if that "something" is just nudging up a number on a CPU.
+
+### Handling double collisions
+
+>Before I move on, I want to return to my philosophical question from earlier: _“did the ball hit the slot, did the slot hit the ball, or did both happen?”_ That last case won’t happen all the time, but it will happen sometimes, and it’s important to take it into account.
 >
->If SpriteKit reports a collision twice – i.e. “ball hit slot and slot hit ball” – then we have a problem. Look at this line of code:
+>**If SpriteKit reports a collision twice** – i.e. “ball hit slot and slot hit ball” – then we have a problem. Look at this line of code:
 
 ```swift
 collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
@@ -272,9 +290,11 @@ collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
 ball.removeFromParent()
 ```
 
->The first time that code runs, we force unwrap both nodes and remove the ball – so far so good. The second time that code runs (for the other half of the same collision), our problem strikes: we try to force unwrap something we already removed, and our game will crash.
->
->To solve this, we’re going to rewrite the didBegin() method to be clearer and safer: we’ll use guard to ensure both bodyA and bodyB have nodes attached. If either of them don’t then this is a ghost collision and we can bail out immediately.
+>The first time that code runs, we force unwrap both nodes and remove the ball – so far so good. The second time that code runs (for the other half of the same collision), our problem strikes: **we try to force unwrap something we already removed**,_ and our game will crash_.
+
+Make sense as far as bugs go.
+
+>To solve this, we’re going to rewrite the `didBegin()` method to be clearer and safer: we’ll use guard to ensure both `bodyA` and `bodyB` have nodes attached. If either of them don’t then this is a ghost collision and we can bail out immediately.
 
 ```swift
 func didBegin(_ contact: SKPhysicsContact) {
