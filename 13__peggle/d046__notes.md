@@ -19,6 +19,7 @@
     - [Collide and destroy](#collide-and-destroy)
     - [Handling double collisions](#handling-double-collisions)
   - [:three:  Scores on the board `SKLabelNode`](#three--scores-on-the-board-sklabelnode)
+    - [Adding label](#adding-label)
 
 ## :one:  [Spinning Slots `SKAction`](https://www.hackingwithswift.com/read/11/4/spinning-slots-skaction) 
 
@@ -314,10 +315,14 @@ func didBegin(_ contact: SKPhysicsContact) {
 
 ## :three:  [Scores on the board `SKLabelNode`](https://www.hackingwithswift.com/read/11/6/scores-on-the-board-sklabelnode) 
 
->To make a score show on the screen we need to do two things: create a score integer that tracks the value itself, then create a new node type, SKLabelNode, that displays the value to players.
+>To make a score show on the screen we need to do two things: >* create **a score integer that tracks the value itself**,
+>* then create **a new node type**, `SKLabelNode`, that displays the value to players.
 >
->The SKLabelNode class is somewhat similar to UILabel in that it has a text property, a font, a position, an alignment, and so on. Plus we can use Swift's string interpolation to set the text of the label easily, and we're even going to use the property observers you learned about in project 8 to make the label update itself when the score value changes.
->
+>The **`SKLabelNode` class is somewhat similar to `UILabel`** in that it has a text property, a font, a position, an alignment, and so on. 
+>* Plus we can use Swift's string interpolation to set the text of the label easily, and we're even going to use the property observers you learned about in project 8 to make the label update itself when the score value changes.
+
+### Adding label
+
 >Declare these properties at the top of your class:
 
 ```swift
@@ -330,7 +335,7 @@ var score = 0 {
 }
 ```
 
->We're going to use the Chalkduster font, then align the label to the right and position it on the top-right edge of the scene. Put this code into your didMove(to:) method, just before the end:
+>We're going to use the Chalkduster font, then align the label to the right and position it on the top-right edge of the scene. Put this code into your `didMove(to:)` method, just before the end:
 
 ```swift
 scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
@@ -341,7 +346,7 @@ addChild(scoreLabel)
 
 ```
 
->That places the label into the scene, and the property observer automatically updates the label as the score value changes. But it's not complete yet because we don't ever modify the player's score. Fortunately, we already have places in the collisionBetween() method where we can do exactly that, so modify the method to this:
+>That places the label into the scene, and **the property observer automatically updates** the label as the score value changes. But it's not complete yet because we don't ever modify the player's score. Fortunately, we already have places in the `collisionBetween()` method where we can do exactly that, so modify the method to this:
 
 ```swift
 func collisionBetween(ball: SKNode, object: SKNode) {
@@ -355,7 +360,7 @@ func collisionBetween(ball: SKNode, object: SKNode) {
 }
 ```
 
->The += and -= operators add or subtract one to the variable depending on whether a good or bad slot was struck. When we change the variable, the property observer will spot the change and update the label.
+>The `+=` and `-=` operators add or subtract one to the variable depending on whether a good or bad slot was struck. **When we change the variable, the property observer will spot the change and update the label.**
 >
 >We have a score, so that means players have the achievement they were craving, right? Well, no. Clearly all it takes to get a number even higher than Gangnam Style's YouTube views is to sit and tap at the top of the screen directly above a green slot.
 >
