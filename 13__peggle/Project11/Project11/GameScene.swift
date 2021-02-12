@@ -13,14 +13,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK:- Properties
   
   var scoreLabel: SKLabelNode!
-  let ballColors = ["Blue", "Cyan", "Green", "Grey", "Purple", "Red", "Yellow"]
-  
   var score = 0 {
     didSet {
       scoreLabel.text = "Score: \(score)"
     }
   }
-  
+
+  var remainingBallsLabel: SKLabelNode!
+  let ballColors = ["Blue", "Cyan", "Green", "Grey", "Purple", "Red", "Yellow"]
+  var remainingBalls = 5 {
+      didSet {
+          remainingBallsLabel.text = "Balls: \(remainingBalls)"
+      }
+  }
+
   var editLabel: SKLabelNode!
   
   var editingMode: Bool = false {
@@ -45,8 +51,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
     scoreLabel.text = "Score: 0"
     scoreLabel.horizontalAlignmentMode = .right
-    scoreLabel.position = CGPoint(x: 980, y: 700)
+    scoreLabel.position = CGPoint(x: 512, y: 700)
     addChild(scoreLabel)
+    
+    remainingBallsLabel = SKLabelNode(fontNamed: "Chalkduster")
+    remainingBallsLabel.text = "Balls: \(remainingBalls)"
+    remainingBallsLabel.horizontalAlignmentMode = .right
+    remainingBallsLabel.position = CGPoint(x: 980, y: 700)
+    addChild(remainingBallsLabel)
     
     editLabel = SKLabelNode(fontNamed: "Chalkduster")
     editLabel.text = "Edit"
@@ -73,10 +85,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     guard let nodeA = contact.bodyA.node else { return }
     guard let nodeB = contact.bodyB.node else { return }
     
-    if contact.bodyA.node?.name == "ball" {
-      collisionBetween(ball: contact.bodyA.node!, object: contact.bodyB.node!)
-    } else if contact.bodyB.node?.name == "ball" {
-      collisionBetween(ball: contact.bodyB.node!, object: contact.bodyA.node!)
+    if nodeA.name == "ball" {
+        collisionBetween(ball: nodeA, object: nodeB)
+    }
+    else if nodeB.name == "ball" {
+        collisionBetween(ball: nodeB, object: nodeA)
     }
   }
   
@@ -148,10 +161,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   func collisionBetween(ball: SKNode, object: SKNode) {
     if object.name == "good" {
       destroy(ball: ball)
+      if (remainingBalls < 5) && (scoreLabel.text != "DEFEAT") {
+        remainingBalls += 1
+      }
       score += 1
+      checkGameProgress()
     } else if object.name == "bad" {
       destroy(ball: ball)
+      if (remainingBalls >= 0) && (scoreLabel.text != "DEFEAT") {
+        remainingBalls -= 1
+      }
       score -= 1
+      checkGameProgress()
     }
   }
   
@@ -161,5 +182,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       addChild(fireParticles)
     }
     ball.removeFromParent()
+  }
+
+  func checkGameProgress() {
+    if remainingBalls == 0 {
+      scoreLabel.fontColor = .systemPink
+      scoreLabel.text = "DEFEAT"
+    }
   }
 }

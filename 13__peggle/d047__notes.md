@@ -127,7 +127,6 @@ Find a pattern in the names of the balls, gather an array of the names.
 let ball = SKSpriteNode(imageNamed: "ball\(ballColors.randomElement()!)")
 ```
 
-
 >  - [ ]  Right now, users can tap anywhere to have a ball created there, which makes the game too easy. Try to **force the Y value of new balls** so they are near the top of the screen.
 
 Predefine the y placement of the ball value.
@@ -143,10 +142,20 @@ Predefine the y placement of the ball value.
 
 So we want to force y of the ball position by predefiniing it but keep the `x` of `location` derived from `touch`.
 
->  - [ ]  Give players **a limit of five balls**, then remove obstacle boxes when they are hit. 
+>  - [x]  Give players **a limit of five balls**, 
+
+Adding counter and label
+
+Set conditions on counter, and change score label when limits are set.
+
+>  - [ ]  then **remove obstacle boxes when they are hit**. 
 >    * Can they clear all the pins with just five balls? 
+
+
+
 >    * You could make it so that landing on a green slot gets them an extra ball.
 
+:white_check_mark: You can earn back balls if you've missed shots according to conditions
 
 ## :three:  [Review for Project 11 : Pachinko](https://www.hackingwithswift.com/review/hws/project-11-pachinko) 
 
