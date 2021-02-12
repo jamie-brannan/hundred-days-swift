@@ -119,7 +119,7 @@ Days organized by folders containing
 | Day 44 | February 4 | :white_check_mark: | Project 10, part iii, learned how to have the picker use the Camera instead and refactor a table view with a collection view – what the differences are. |
 | Day 45 | February 7, 10 | ~ | Project 11, part i, first introduction into `SpriteKit`! :space_invader: So much fun! |
 | Day 46 | February 10, 11 | :white_check_mark: | Project 11, part ii, added collision handling and block adding mode |
-| Day 47 | February 11 | ~ | Project 11, part iii ~ |
+| Day 47 | February 11, 12 | :rocket: | Project 11, part iii, introduce to editing particles directly in Xcode, added collision cases, labels and chance counter – loved it, so intuitive! |
 | Day 48 | February ... | ~ | Project 12, part i ~ |
 | Day 49 | February ... | ~ | Project 12, part ii ~ |
 
