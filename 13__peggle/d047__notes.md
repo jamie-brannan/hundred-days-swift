@@ -129,7 +129,20 @@ let ball = SKSpriteNode(imageNamed: "ball\(ballColors.randomElement()!)")
 
 
 >  - [ ]  Right now, users can tap anywhere to have a ball created there, which makes the game too easy. Try to **force the Y value of new balls** so they are near the top of the screen.
->
+
+Predefine the y placement of the ball value.
+
+```swift
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let touch = touches.first else { return }
+    let location = touch.location(in: self)
+
+    //...
+            ball.position = location
+```
+
+So we want to force y of the ball position by predefiniing it but keep the `x` of `location` derived from `touch`.
+
 >  - [ ]  Give players **a limit of five balls**, then remove obstacle boxes when they are hit. 
 >    * Can they clear all the pins with just five balls? 
 >    * You could make it so that landing on a green slot gets them an extra ball.
