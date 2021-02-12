@@ -16,6 +16,7 @@
     - [Review what you learned](#review-what-you-learned)
     - [Challenge](#challenge)
   - [:three:  Review for Project 11 : Pachinko](#three--review-for-project-11--pachinko)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 
 ## :one:  [Special effects `SKEmitterNode`]([](https://www.hackingwithswift.com/read/11/7/specialeo-effects-skemitternode) ) 
 
@@ -126,3 +127,41 @@ Going to definitely want to try this in the future. :rocket:
 
 
 ## :three:  [Review for Project 11 : Pachinko](https://www.hackingwithswift.com/review/hws/project-11-pachinko) 
+
+### :boom: Quiz insights
+
+*  SKSpriteNode stores one sprite for our game scene.
+   * A sprite is any one visible image in our game.
+ * We can find the location of a touch in our game scene by using the location(in:) method.
+   * You can also call this on any SpriteKit node to find the touch location relative to that node.
+ * Xcode has a built-in graphical particle editor that lets us preview changes live.
+   * This editor makes it easy to create custom effects just by clicking buttons and typing numbers.
+ * Blend modes affect how nodes are drawn.
+   * We used .replace for our background image, which is faster because it ignores transparency.
+ * When collisions happen, we might get told that thing A hit thing B, thing B hit thing A, or potentially both.
+   * The "both" scenario is what can cause problems, so we need to unwrap the nodes carefully.
+ * ~~We can add text to our game scenes using SKLabel~~
+   * All node types in SpriteKit have "node" in their name – we should use SKLabelNode for this purpose.
+ * We can adjust whether a node is positioned in front of or behind other nodes by setting its zPosition property.
+   * Negative Z positions are placed further towards the back of our scene.
+ * The toggle() method of Booleans flips its value from true to false or vice versa.
+   * It's easier to write someVariable.a.b.toggle() than someVariable.a.b = !someVariable.a.b.
+ * ~~A `didSet` property observer gets triggered just before a property's value changes.~~
+   * `didSet` is called after the value changes; `willSet` is called before.
+ * A sprite node may or may not have a physics body attached.
+   * It's optional; many nodes, such as score labels, often don't need physics bodies.
+ * `collisionBitMask` determines what objects a node bounces off, and `contactTestBitMask` determines which collisions are reported to us.
+   * The collision bitmask determines bounces; the contact test bitmask determines which bounces we get told about.
+ * We can add physics to a node without letting it be moved, by changing its isDynamic property to false.
+   * This property allows the node to interact with other physics bodies without changing its position.
+ * ~~We can remove any node from our scene, and thus from the whole game, by calling its destroy method.~~
+   *  Nodes are removed using `removeFromParent()`.
+*  We can control the behavior of nodes using `SKAction`.
+   * In this project we made a node spin, but actions are capable of much more.
+
+9/12 :tada:
+
+
+
+
+
