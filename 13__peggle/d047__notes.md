@@ -118,7 +118,16 @@ Going to definitely want to try this in the future. :rocket:
 >
 >
 >  - [ ]  The pictures we’re using in have other ball pictures rather than just “ballRed”. Try writing code to **use a random ball color each time** they tap the screen.
->
+
+Find a pattern in the names of the balls, gather an array of the names.
+
+:thinking: I wanted to just use a unix wildcard like `*` but it doesn't work. :(
+
+```swift
+let ball = SKSpriteNode(imageNamed: "ball\(ballColors.randomElement()!)")
+```
+
+
 >  - [ ]  Right now, users can tap anywhere to have a ball created there, which makes the game too easy. Try to **force the Y value of new balls** so they are near the top of the screen.
 >
 >  - [ ]  Give players **a limit of five balls**, then remove obstacle boxes when they are hit. 
