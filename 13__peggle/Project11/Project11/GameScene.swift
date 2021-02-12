@@ -109,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
         box.physicsBody?.isDynamic = false
-
+        box.name = "box"
         addChild(box)
       } else {
         let ball = SKSpriteNode(imageNamed: "ball\(ballColors.randomElement()!)")
@@ -160,28 +160,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func collisionBetween(ball: SKNode, object: SKNode) {
     if object.name == "good" {
-      destroy(ball: ball)
+      destroy(node: ball)
       if (remainingBalls < 5) && (scoreLabel.text != "DEFEAT") {
         remainingBalls += 1
       }
       score += 1
       checkGameProgress()
     } else if object.name == "bad" {
-      destroy(ball: ball)
+      destroy(node: ball)
       if (remainingBalls >= 0) && (scoreLabel.text != "DEFEAT") {
         remainingBalls -= 1
       }
       score -= 1
       checkGameProgress()
+    } else if object.name == "box" {
+      destroy(node: object)
     }
   }
   
-  func destroy(ball: SKNode) {
+  func destroy(node: SKNode) {
     if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
-      fireParticles.position = ball.position
+      fireParticles.position = node.position
       addChild(fireParticles)
     }
-    ball.removeFromParent()
+    node.removeFromParent()
   }
 
   func checkGameProgress() {

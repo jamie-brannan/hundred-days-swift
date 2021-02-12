@@ -151,7 +151,11 @@ Set conditions on counter, and change score label when limits are set.
 >  - [ ]  then **remove obstacle boxes when they are hit**. 
 >    * Can they clear all the pins with just five balls? 
 
+Are our boxes named anything?
+* named them
+* added case of if the names match then destory them
 
+:tada: Yess I did it!
 
 >    * You could make it so that landing on a green slot gets them an extra ball.
 
