@@ -19,6 +19,13 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     super.viewDidLoad()
     navigationController?.navigationBar.isHidden = false
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+    let defaults = UserDefaults.standard
+
+    if let savedPeople = defaults.object(forKey: "people") as? Data {
+        if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
+            people = decodedPeople
+        }
+    }
   }
   
   @objc func addNewPerson() {
@@ -31,6 +38,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     picker.allowsEditing = true
     picker.delegate = self
     present(picker, animated: true)
+  }
+  
+  // MARK : - Data handling
+  
+  func save() {
+    /// converts our array into a `Data` object
+      if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+        /// save that data object to `UserDefaults`
+          let defaults = UserDefaults.standard
+          defaults.set(savedData, forKey: "people")
+      }
   }
   
   // MARK: - Actions
@@ -54,6 +72,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     /// Create a person instance when image is found
     let person = Person(name: "Unknown", image: imageName)
     people.append(person)
+    save()
     collectionView.reloadData()
     
     /// when we're done, dismiss this vc away
@@ -108,6 +127,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         person.name = newName
 
         self?.collectionView.reloadData()
+        self?.save()
       })
       self.present(act, animated: true)
     })

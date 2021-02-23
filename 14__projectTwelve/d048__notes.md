@@ -18,6 +18,7 @@ This is so true and I cannot believe I never realized this until now. Pretty awe
   - [:one:  Setting up](#one--setting-up)
   - [:two:  Reading and writing basics `UserDefaults`](#two--reading-and-writing-basics-userdefaults)
   - [:three:  Fixing project 10: `NSCoding`](#three--fixing-project-10-nscoding)
+    - [Load and save people array](#load-and-save-people-array)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/12/1/setting-up) 
 
@@ -207,13 +208,21 @@ func encode(with aCoder: NSCoder) {
 
 :white_check_mark: Done
 
->The initializer is used when loading objects of this class, and `encode()` is used when saving. The code is very similar to using `UserDefaults`, but here we’re adding `as?` typecasting and nil coalescing just in case we get invalid data back.
->
->With those changes, the `Person` class now conforms to `NSCoding`, so we can go back to ViewController.swift and add code to load and save the people array.
->
->Let's start with writing, because once you understand that the reading code will make much more sense. As I said earlier, you can write Data objects to `UserDefaults`, but we don't currently have a Data object – we just have an array.
->
->Fortunately, the `archivedData()` method of `NSKeyedArchiver` turns an object graph into a Data object using those `NSCoding` methods we just added to our class. Because we make changes to the array by adding people or by renaming them, let's create a single `save()` method we can use anywhere that's needed:
+>The initializer is used when loading objects of this class, and `encode()` is used when **saving**. The code is very similar to using `UserDefaults`, but here we’re adding `as?` _typecasting_ and _nil coalescing_ just in case we get invalid data back.
+
+:question: *What is **nil coalescing** again?*
+* :pushpin: [**Hacking Swift**](https://www.hackingwithswift.com/example-code/language/what-is-the-nil-coalescing-operator) : *What is the nil coalescing operator?*
+
+>With those changes, the `Person` class now conforms to `NSCoding`, so we can go back to ViewController.swift and _add code to load and save the people array._
+
+### Load and save people array
+
+>Let's start with writing, because once you understand that the reading code will make much more sense. As I said earlier, you can write `Data` objects to `UserDefaults`, but we don't currently have a `Data` object – we just have an array.
+
+We're going to change it though into Data.
+
+>Fortunately, the `archivedData()` method of `NSKeyedArchiver` _turns an object graph into a Data object_ using those `NSCoding` methods we just added to our class. 
+>* Because we make changes to the array by adding people or by renaming them, let's create a single `save()` method we can use anywhere that's needed:
 
 ```swift
 func save() {
@@ -224,12 +233,22 @@ func save() {
 }
 ```
 
+:white_check_mark: Added
+
 >So: line 1 is what converts our array into a Data object, then lines 2 and 3 save that data object to `UserDefaults`. You now just need to call that `save()` method when we change a person's name or when we import a new picture.
->
->You need to modify our collection view's didSelectItemAt method so that you call `self.save()` just after calling `self.collectionView.reloadData()`. Remember, the self is required because we're inside a closure. You then need to modify the image picker's `didFinishPickingMediaWithInfo` method so that it calls `save()` just before the end of the method.
+
+Understood and commented
+
+>You need to modify our collection view's `didSelectItemAt` method so that you call `self.save()` just after calling `self.collectionView.reloadData()`. 
+>* Remember, the self is required because we're inside a closure. 
+
+>You then need to modify the image picker's `didFinishPickingMediaWithInfo` method so that it calls `save()` just before the end of the method.
 >
 >And that's it – we only change the data in two places, and both now have a call to `save()`.
->
+
+:question: *I think I got this?*
+* but I have to test it on my phone
+
 >Finally, we need to load the array back from disk when the app runs, so add this code to `viewDidLoad()`:
 
 ```swift
