@@ -249,6 +249,8 @@ Understood and commented
 :question: *I think I got this?*
 * but I have to test it on my phone
 
+:white_check_mark: Yes done
+
 >Finally, we need to load the array back from disk when the app runs, so add this code to `viewDidLoad()`:
 
 ```swift
@@ -261,5 +263,7 @@ if let savedPeople = defaults.object(forKey: "people") as? Data {
 }
 ```
 
->This code is effectively the save() method in reverse: we use the object(forKey:) method to pull out an optional Data, using if let and as? to unwrap it. We then give that to the unarchiveTopLevelObjectWithData() method of NSKeyedUnarchiver to convert it back to an object graph – i.e., our array of Person objects.
+>**This code is effectively the `save()` method in reverse:** we use the `object(forKey:)` method to pull out an optional `Data`, using `if let` and `as?` to unwrap it. 
+>
+>We then give that to the `unarchiveTopLevelObjectWithData() `method of `NSKeyedUnarchiver` to convert it back to an object graph – i.e., our array of `Person` objects.
 
