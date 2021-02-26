@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
   @IBOutlet var imageView: UIImageView!
   var selectedImage: String?
   var pictureCount: Int?
-  var pictureViewCount: Codable = 0
+  var pictureViewCount: Int?
   var selectedImageListOrderRank: Int?
   
   // MARK: - Lifecycle
@@ -34,17 +34,16 @@ class DetailViewController: UIViewController {
 //    }
 
     /// Unwrapping optionalos
-    guard let detailPictureCount = pictureCount, let detailSelectedImageOrderRank = selectedImageListOrderRank else {
+    guard let detailPictureCount = pictureCount, let detailSelectedImageOrderRank = selectedImageListOrderRank, let detailPictureViewCount = pictureViewCount else {
       print("somethings missing")
       return
     }
 
 //    title = selectedImage // we want the title to be the name of the file
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
-    navigationItem.prompt = "\(pictureViewCount) views"
-    /// no need to unwrap because both are optionals, `title` is nil by default
+    navigationItem.prompt = "\(detailPictureViewCount) views"
 
-    /// Config for this one screen in app
+
     navigationItem.largeTitleDisplayMode = .never
 
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
@@ -52,7 +51,6 @@ class DetailViewController: UIViewController {
     if let imageToLoad = selectedImage {
       imageView.image  = UIImage(named: imageToLoad)
     }
-    // Do any additional setup after loading the view.
   }
 
   override func viewWillAppear(_ animated: Bool) {

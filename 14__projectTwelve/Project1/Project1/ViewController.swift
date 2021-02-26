@@ -51,6 +51,8 @@ class ViewController: UITableViewController {
       vc.selectedImage = pictures[indexPath.row].image
       /// additional dated needed in the `DetailViewController.swift`
       vc.pictureCount = pictures.count
+      pictures[indexPath.row].views += 1
+      vc.pictureViewCount = pictures[indexPath.row].views
       vc.selectedImageListOrderRank = indexPath.row
       navigationController?.pushViewController(vc, animated: true)
     }
