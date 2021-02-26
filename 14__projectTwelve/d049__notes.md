@@ -161,10 +161,21 @@ I wonder how much this will be the case as SwiftUI becomes more mainstream?
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
 > 1. Modify project 1 so that it remembers how many times each storm image was shown – you don’t need to show it anywhere, but you’re welcome to try modifying your original copy of project 1 to show the view count as a subtitle below each image name in the table view.
->
+
+  - [ ]  Add a UserDefault counter
+  - [x]  Display it in the subtitle
+
 > 2. Modify project 2 so that it saves the player’s highest score, and shows a special message if their new score beat the previous high score.
->
+
+- [ ]  Add a UserDefault of score (*when?*)
+- [ ]  Have an alert trigger when current score beats the previous UserDefault
+
+:question: *How do we establish a high score in the first place?*
+
 > 3. Modify project 5 so that it saves the current word and all the player’s entries to `UserDefaults`, then loads them back when the app launches.
+
+- [ ]  Add a UserDefault of targetWord and guesses
+- [ ]  check if there's a userDefault saved, and if so reload it.
 
 
 ## :three:  [Review for Project 12: `UserDefaults`](https://www.hackingwithswift.com/review/hws/project-12-userdefaults) 
