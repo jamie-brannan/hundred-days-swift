@@ -30,26 +30,19 @@ class ViewController: UITableViewController {
     }
   }
 
-  /// the number of cells will be the number of items in `pictures`
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return pictures.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    /// only cells on screen are the only ones that  exist, so reuse what leave screen when scrolling
     let cell = tableView.dequeueReusableCell(withIdentifier: "pictureCell", for: indexPath)
-    /// if there's text, add it (but `optional` hence the `textLabel?` :)
     cell.textLabel?.text = pictures[indexPath.row].name
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    /**
-     Type casting is done
-     */
     if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
       vc.selectedImage = pictures[indexPath.row].image
-      /// additional dated needed in the `DetailViewController.swift`
       vc.pictureCount = pictures.count
       pictures[indexPath.row].views += 1
       vc.pictureViewCount = pictures[indexPath.row].views

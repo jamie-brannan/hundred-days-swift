@@ -39,7 +39,6 @@ class DetailViewController: UIViewController {
       return
     }
 
-//    title = selectedImage // we want the title to be the name of the file
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
     navigationItem.prompt = "\(detailPictureViewCount) views"
 
