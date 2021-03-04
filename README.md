@@ -121,7 +121,7 @@ Days organized by folders containing
 | Day 46 | February 10, 11 | :white_check_mark: | Project 11, part ii, added collision handling and block adding mode |
 | Day 47 | February 11, 12 | :rocket: | Project 11, part iii, introduce to editing particles directly in Xcode, added collision cases, labels and chance counter – loved it, so intuitive! |
 | Day 48 | February 18, 23 | ~ | Project 12, part i, Save contact cards with `UserDefaults`|
-| Day 49 | February 25 | ~ | Project 12, part ii ~ |
+| Day 49 | February 25, March 4 | ~ | Project 12, part ii, Refactoring previous projects to add saving features relevant to their features |
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.

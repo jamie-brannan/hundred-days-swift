@@ -15,9 +15,9 @@
     - [Create `save()`](#create-save)
   - [:two: Wrap up](#two-wrap-up)
     - [Review what you learned](#review-what-you-learned)
-    - [:boom: Quiz insights](#boom-quiz-insights)
     - [Challenge](#challenge)
   - [:three:  Review for Project 12: `UserDefaults`](#three--review-for-project-12-userdefaults)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 
 ## :one: [Fixing Project 10 `Codable`](https://www.hackingwithswift.com/read/12/4/fixing-project-10-codable) 
 
@@ -127,35 +127,6 @@ I wonder how much this will be the case as SwiftUI becomes more mainstream?
 
 >Anyone can sit through a tutorial, but it takes actual work to remember what was taught. It’s my job to make sure you take as much from these tutorials as possible, so I’ve prepared a short review to help you check your learning.
 
-### :boom: Quiz insights
-
-* UserDefaults lets us store program settings and user settings in one place.
-  * All apps have access to their own `UserDefaults`.
-* Using `Codable` is preferred when you have an app that's written only in Swift.
-  * `Codable` takes much less work than `NSCoding`, and is safer too.
-* Nil coalescing (`??`) lets us provide a default value to use if an optional is nil.
-  * As much as I love optionals, I'd much rather have real types to work with, and nil coalescing helps provide just that.
-* Your app's default `UserDefaults` settings get loaded when the app launches.
-  * This ensures your data is immediately available for reading.
-* `NSCoding` uses string names for the keys it writes out.
-  * This makes it easy to think about, but also easy to break with typos.
-* A type that conforms to `NSCoding` must be a class that inherits from `NSObject`.
-  * This is because `NSCoding` comes from Objective-C and doesn't understand Swift's structs.
-* You shouldn't save too much information in `UserDefaults`, because it might slow down your app launch.
-  * If you save too much information your app will actually be killed by the system because of its slow launch.
-* :red_circle: ~~We need to ask the user's permission to read from `UserDefaults`.~~
-  * We can write to `UserDefaults` without the user knowing. ( :warning: eek :o isn't this kind of sketchy? Can apps look at other apps UserDefalts? Are they sanboxed somehow :question:  )
-* Types that conform to NSCoding can be written to UserDefaults.
-  * Lots of built-in types conform to NSCoding already, such as UIColor and SKSpriteNode.
-* The Codable protocol can convert Swift types to and from JSON.
-  * It can also write to XML, but JSON is more common.
-* It's the job of NSKeyedArchiver to convert NSCoding objects into Data
-  * To go the other way – to convert from Data to custom types – you should use NSKeyedUnarchiver.
-* Most built-in Swift types are compatible with NSCoding, including strings, integers, Booleans, and more.
-  * These can all be written to both NSCoding and Codable without extra work.
-* ~~You can encode any Codable object using the NSCoding class.~~
-  * :red_circle: _NSCoding is a `protocol`, not a class_, and has its own set of rules separate from Codable.
-
 ### Challenge
 
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
@@ -192,11 +163,43 @@ Then to load:
 ```
 
 
-
 > 3. Modify project 5 so that it saves the current word and all the player’s entries to `UserDefaults`, then loads them back when the app launches.
 
-- [ ]  Add a UserDefault of targetWord and guesses
+This is the anagram game with table view cells of guesses of words that can be identified within the given letter.
+
+- [ ]  Add a UserDefault object of targetWord and guesses
 - [ ]  check if there's a userDefault saved, and if so reload it.
+
+:question: *How do I want to structure my `UserDefault`?*
 
 
 ## :three:  [Review for Project 12: `UserDefaults`](https://www.hackingwithswift.com/review/hws/project-12-userdefaults) 
+
+### :boom: Quiz insights
+
+* UserDefaults lets us store program settings and user settings in one place.
+  * All apps have access to their own `UserDefaults`.
+* Using `Codable` is preferred when you have an app that's written only in Swift.
+  * `Codable` takes much less work than `NSCoding`, and is safer too.
+* Nil coalescing (`??`) lets us provide a default value to use if an optional is nil.
+  * As much as I love optionals, I'd much rather have real types to work with, and nil coalescing helps provide just that.
+* Your app's default `UserDefaults` settings get loaded when the app launches.
+  * This ensures your data is immediately available for reading.
+* `NSCoding` uses string names for the keys it writes out.
+  * This makes it easy to think about, but also easy to break with typos.
+* A type that conforms to `NSCoding` must be a class that inherits from `NSObject`.
+  * This is because `NSCoding` comes from Objective-C and doesn't understand Swift's structs.
+* You shouldn't save too much information in `UserDefaults`, because it might slow down your app launch.
+  * If you save too much information your app will actually be killed by the system because of its slow launch.
+* :red_circle: ~~We need to ask the user's permission to read from `UserDefaults`.~~
+  * We can write to `UserDefaults` without the user knowing. ( :warning: eek :o isn't this kind of sketchy? Can apps look at other apps UserDefalts? Are they sanboxed somehow :question:  )
+* Types that conform to NSCoding can be written to UserDefaults.
+  * Lots of built-in types conform to NSCoding already, such as UIColor and SKSpriteNode.
+* The Codable protocol can convert Swift types to and from JSON.
+  * It can also write to XML, but JSON is more common.
+* It's the job of NSKeyedArchiver to convert NSCoding objects into Data
+  * To go the other way – to convert from Data to custom types – you should use NSKeyedUnarchiver.
+* Most built-in Swift types are compatible with NSCoding, including strings, integers, Booleans, and more.
+  * These can all be written to both NSCoding and Codable without extra work.
+* ~~You can encode any Codable object using the NSCoding class.~~
+  * :red_circle: _NSCoding is a `protocol`, not a class_, and has its own set of rules separate from Codable.
