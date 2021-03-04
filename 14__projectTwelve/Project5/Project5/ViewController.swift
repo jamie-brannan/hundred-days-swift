@@ -10,48 +10,45 @@ import UIKit
 
 class ViewController: UITableViewController {
   
+  // Mark: - Properties
   var allWords = [String]()
   var usedWords = [String]()
+  let defaults = UserDefaults.standard
   
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     loadAllWordArray()
-    startGame()
+    // TODO: if the user default for the title is empty, start an all new game
+    startNewGame()
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
-    /// challenge 3
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startGame))
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startNewGame))
   }
   
-  // MARK: - Setting up the game
+  // MARK: - Setting up
   func loadAllWordArray() {
-    /// find the file named `start` with the file extension `.txt`
     if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
-      /// if that works then the words will be contents
       if let startWords = try? String(contentsOf: startWordsURL) {
-        /// each component is seperated by a return space
         allWords = startWords.components(separatedBy: "\n")
       }
     }
-    /// default add in the case the file isn't around or has no words in it.
     if allWords.isEmpty {
       allWords = ["silkworm"]
     }
   }
   
-  @objc func startGame() {
+  @objc func startNewGame() {
     title = allWords.randomElement()
     usedWords.removeAll(keepingCapacity: true)
+    // TODO: - save new title and delete old usedWords defaults
     tableView.reloadData()
   }
   
-  // MARK: - Used word management
-  /// as many rows as the number of words used
+  // MARK: - Callbacks
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return usedWords.count
   }
   
-  /// label a cell per used word
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
     cell.textLabel?.text = usedWords[indexPath.row]
@@ -82,7 +79,7 @@ class ViewController: UITableViewController {
           if isLessThanThreeLetters(lowerAnswer) {
             if isStartWord(lowerAnswer) {
               usedWords.insert(lowerAnswer, at: 0)
-              
+              // TODO: - save usedWords
               let indexPath = IndexPath(row: 0, section: 0)
               tableView.insertRows(at: [indexPath], with: .automatic)
               
@@ -107,20 +104,14 @@ class ViewController: UITableViewController {
   
   // MARK: - Checks
   func isPossible(word: String) -> Bool {
-    /// unwrap the titulary word and lower case it, or else just exit if it's not there
     guard var tempWord = title?.lowercased() else { return false }
-    
-    /// for each letter in the guessed word, loop it's first letter  compared to the titulary word and remove it if there's a match
     for letter in word {
-      
       if let position = tempWord.firstIndex(of: letter) {
         tempWord.remove(at: position)
       } else {
-        /// if you're not able to match any of the letters that it contains, then end it
         return false
       }
     }
-    
     return true
   }
   
@@ -138,14 +129,12 @@ class ViewController: UITableViewController {
     return misspelledRange.location == NSNotFound
   }
   
-  /// challenge 2
   func showErrorMessage(title: String, message: String) {
     let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
     ac.addAction(UIAlertAction(title: "OK", style: .default))
     present(ac, animated: true)
   }
   
-  /// challenge 1
   private func isLessThanThreeLetters(_ word: String) -> Bool {
     return word.count > 3
   }
