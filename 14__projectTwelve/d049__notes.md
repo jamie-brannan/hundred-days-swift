@@ -162,8 +162,10 @@ I wonder how much this will be the case as SwiftUI becomes more mainstream?
 >
 > 1. Modify project 1 so that it remembers how many times each storm image was shown – you don’t need to show it anywhere, but you’re welcome to try modifying your original copy of project 1 to show the view count as a subtitle below each image name in the table view.
 
-  - [ ]  Add a UserDefault counter
+  - [x]  Add a UserDefault counter
   - [x]  Display it in the subtitle
+
+Make a `Codable` `NSObject` refactoring because it'll separate the data from the view.
 
 > 2. Modify project 2 so that it saves the player’s highest score, and shows a special message if their new score beat the previous high score.
 
