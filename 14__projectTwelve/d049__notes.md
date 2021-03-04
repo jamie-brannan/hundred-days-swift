@@ -169,10 +169,29 @@ Make a `Codable` `NSObject` refactoring because it'll separate the data from the
 
 > 2. Modify project 2 so that it saves the player’s highest score, and shows a special message if their new score beat the previous high score.
 
-- [ ]  Add a UserDefault of score (*when?*)
-- [ ]  Have an alert trigger when current score beats the previous UserDefault
+- [x]  Add a UserDefault of score (*when?*)
+- [x]  Have an alert trigger when current score beats the previous UserDefault
 
 :question: *How do we establish a high score in the first place?*
+* There's a round limit already set in place
+  
+Logic was a bit messy since it was so old, but I straightened it out as simply as I could.
+
+Addeded simple `integer(forKey:)`
+
+```swift
+  func saveHighScore() {
+    defaults.set(score, forKey: "highScore")
+  }
+```
+
+Then to load:
+
+```swift
+    highScore == defaults.integer(forKey: "highScore")
+```
+
+
 
 > 3. Modify project 5 so that it saves the current word and all the player’s entries to `UserDefaults`, then loads them back when the app launches.
 
