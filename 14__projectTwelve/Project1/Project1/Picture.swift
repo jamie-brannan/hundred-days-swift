@@ -13,15 +13,15 @@ class Picture: NSObject, Codable {
   var image: String
   var subtitle: String
   var views: Int {
-      didSet {
-          subtitle = "\(views) views"
-      }
+    didSet {
+      subtitle = "\(views) views"
+    }
   }
   
   init(name: String, image: String, subtitle: String, views: Int) {
-      self.name = name
-      self.image = image
-      self.subtitle = subtitle
-      self.views = views
+    self.name = name
+    self.image = image
+    self.subtitle = subtitle
+    self.views = views
   }
 }

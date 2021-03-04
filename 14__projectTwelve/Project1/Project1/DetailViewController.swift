@@ -21,18 +21,6 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // MARK: User Defaults
-//    let defaults = UserDefaults.standard
-//    if let savedViews = defaults.object(forKey: "views") as? Data {
-//        let jsonDecoder = JSONDecoder()
-//
-//        do {
-//            pictureViewCount = try jsonDecoder.decode(self, from: savedViews)
-//        } catch {
-//            print("Failed to load people")
-//        }
-//    }
-
     /// Unwrapping optionalos
     guard let detailPictureCount = pictureCount, let detailSelectedImageOrderRank = selectedImageListOrderRank, let detailPictureViewCount = pictureViewCount else {
       print("somethings missing")
@@ -41,10 +29,7 @@ class DetailViewController: UIViewController {
 
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
     navigationItem.prompt = "\(detailPictureViewCount) views"
-
-
     navigationItem.largeTitleDisplayMode = .never
-
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 
     if let imageToLoad = selectedImage {

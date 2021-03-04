@@ -18,15 +18,28 @@ class ViewController: UITableViewController {
     title = "Storm Viewer by Jamie"
     navigationController?.navigationBar.prefersLargeTitles = true
 
-    let fm = FileManager.default
-    let path =  Bundle.main.resourcePath!
-    let items = try! fm.contentsOfDirectory(atPath: path)
-
-    for item in items {
-        if item.hasPrefix("nssl") {
-          let picture = Picture(name: item, image: item, subtitle: "0 views", views: 0)
-          pictures.append(picture)
+    let defaults = UserDefaults.standard
+    if let savedPictures = defaults.object(forKey: "savedPictures") as? Data {
+        let jsonDecoder = JSONDecoder()
+        
+        do {
+            pictures = try jsonDecoder.decode([Picture].self, from: savedPictures)
+        } catch {
+            print("Failed to load data")
         }
+    }
+
+    if pictures.isEmpty {
+      let fm = FileManager.default
+      let path =  Bundle.main.resourcePath!
+      let items = try! fm.contentsOfDirectory(atPath: path)
+
+      for item in items {
+          if item.hasPrefix("nssl") {
+            let picture = Picture(name: item, image: item, subtitle: "0 views", views: 0)
+            pictures.append(picture)
+          }
+      }
     }
   }
 
@@ -47,8 +60,20 @@ class ViewController: UITableViewController {
       pictures[indexPath.row].views += 1
       vc.pictureViewCount = pictures[indexPath.row].views
       vc.selectedImageListOrderRank = indexPath.row
+      save()
+      tableView.reloadData()
       navigationController?.pushViewController(vc, animated: true)
     }
   }
+  
+  func save() {
+          let jsonEncoder = JSONEncoder()
+          if let savedData = try? jsonEncoder.encode(pictures) {
+              let defaults = UserDefaults.standard
+              defaults.set(savedData, forKey: "savedPictures")
+          } else {
+              print("Failed to save people.")
+          }
+      }
 }
 
