@@ -19,6 +19,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     super.viewDidLoad()
     navigationController?.navigationBar.isHidden = false
     navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+    let defaults = UserDefaults.standard
+
+    if let savedPeople = defaults.object(forKey: "people") as? Data {
+        let jsonDecoder = JSONDecoder()
+
+        do {
+            people = try jsonDecoder.decode([Person].self, from: savedPeople)
+        } catch {
+            print("Failed to load people")
+        }
+    }
   }
   
   @objc func addNewPerson() {
@@ -31,6 +42,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     picker.allowsEditing = true
     picker.delegate = self
     present(picker, animated: true)
+  }
+  
+  // MARK: - Data
+  func save() {
+      let jsonEncoder = JSONEncoder()
+      if let savedData = try? jsonEncoder.encode(people) {
+          let defaults = UserDefaults.standard
+          defaults.set(savedData, forKey: "people")
+      } else {
+          print("Failed to save people.")
+      }
   }
   
   // MARK: - Actions
@@ -55,6 +77,8 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     let person = Person(name: "Unknown", image: imageName)
     people.append(person)
     collectionView.reloadData()
+    
+    save()
     
     /// when we're done, dismiss this vc away
     dismiss(animated: true)
@@ -108,6 +132,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         person.name = newName
 
         self?.collectionView.reloadData()
+        self?.save()
       })
       self.present(act, animated: true)
     })
