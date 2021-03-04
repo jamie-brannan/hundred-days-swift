@@ -19,8 +19,12 @@ class ViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     loadAllWordArray()
-    // TODO: if the user default for the title is empty, start an all new game
-    startNewGame()
+    let previousTitle = defaults.object(forKey: "title") as? String
+    if previousTitle == nil {
+      startNewGame()
+    } else {
+      continueSavedGame(with: previousTitle!)
+    }
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(startNewGame))
   }
@@ -40,10 +44,16 @@ class ViewController: UITableViewController {
   @objc func startNewGame() {
     title = allWords.randomElement()
     usedWords.removeAll(keepingCapacity: true)
-    // TODO: - save new title and delete old usedWords defaults
+    defaults.set(title, forKey: "title")
+    defaults.set([], forKey: "usedWords")
     tableView.reloadData()
   }
   
+  func continueSavedGame(with savedTitle: String) {
+    title = savedTitle
+    usedWords = defaults.object(forKey: "usedWords") as? [String] ?? [String]()
+    tableView.reloadData()
+  }
   // MARK: - Callbacks
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return usedWords.count
@@ -79,7 +89,7 @@ class ViewController: UITableViewController {
           if isLessThanThreeLetters(lowerAnswer) {
             if isStartWord(lowerAnswer) {
               usedWords.insert(lowerAnswer, at: 0)
-              // TODO: - save usedWords
+              defaults.set(usedWords, forKey: "usedWords")
               let indexPath = IndexPath(row: 0, section: 0)
               tableView.insertRows(at: [indexPath], with: .automatic)
               
@@ -115,13 +125,11 @@ class ViewController: UITableViewController {
     return true
   }
   
-  /// This checks if the word is not already in our table
   func isOriginal(word: String) -> Bool {
     return !usedWords.contains(word) && !usedWords.contains(word.capitalized)
   }
   
   func isReal(word: String) -> Bool {
-    /// create a spell checker instance
     let checker = UITextChecker()
     let range = NSRange(location: 0, length: word.utf16.count)
     let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")

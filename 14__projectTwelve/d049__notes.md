@@ -167,8 +167,8 @@ Then to load:
 
 This is the anagram game with table view cells of guesses of words that can be identified within the given letter.
 
-- [ ]  Add a UserDefault object of targetWord and guesses
-- [ ]  check if there's a userDefault saved, and if so reload it.
+- [x]  Add a UserDefault object of targetWord and guesses
+- [x]  check if there's a userDefault saved, and if so reload it.
 
 :question: *How do I want to structure my `UserDefault`?*
 
