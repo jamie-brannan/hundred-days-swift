@@ -5,7 +5,7 @@
 >**Aristotle** once said, _“it is frequent repetition that produces a natural tendency.”_ And that’s our goal with this repetition: to **bake knowledge of Swift and iOS so deep into your head and hands that you can start to build things without second guessing yourself**. 
 >* So, when it comes to writing code for your own projects, or even writing code during an iOS interview, you know for sure that you’ve got it in hand – you can do it, because you’ve done it 20 times before.
 
-muscle
+:muscle:
 
 >So, make sure you work through today’s challenge fully: experiment and see what you can make!
 >
@@ -33,8 +33,10 @@ I wonder if this has changed much with iOS 14, but seeing that it's all locally 
 >
 >The `SKSpriteNode` class is responsible for loading and drawing images on the screen.
 >* You can draw sprites using a selection of blend modes. We used .replace for drawing the background image, which causes `SpriteKit` to ignore transparency. This is faster, and perfect for our solid background image.
+>
 >* You add physics to sprite nodes using `SKPhysicsBody`, which has rectangleOf and `circleWithRadius` initializers that create different shapes of physics bodies.
 >* Adding actions to things, such as spinning around or removing from the game, is done using `SKAction`.
+>
 >* Angles are usually measured in radians using `CGFloat`.
 >
 >Lastly, you also met `UserDefaults`, which lets you read and write user preferences, and gets backed up to iCloud automatically. You shouldn’t abuse it, though: try to store only the absolute essentials in `UserDefaults` to avoid causing performance issues. In fact, tvOS limits you to just 500KB of `UserDefaults` storage, so you have no choice!
@@ -104,18 +106,30 @@ Is that how things are deleted? Why hasn't deleting user defaults been adressed 
 
 ## :three: [Challenge](https://www.hackingwithswift.com/guide/5/3/challenge) 
 
->Your challenge is to put two different projects into one: **I’d like you to let users take photos of things that interest them, add captions to them, then show those photos in a table view.** Tapping the caption should show the picture in a new view controller, like we did with project 1. So, your finished project needs to use elements from both project 1 and project 12, which should give you ample chance to practice.
+>Your challenge is to put two different projects into one: **I’d like you to let users take photos of things that interest them, add captions to them, then show those photos in a table view.** 
+>
+>Tapping the caption should show the picture in a new view controller, like we did with project 1. So, your finished project needs to use elements from both project 1 and project 12, which should give you ample chance to practice.
 >
 >This will require you to use the `picker.sourceType = .camera` setting for your image picker controller, create a custom type that stores a filename and a caption, then show the list of saved pictures in a table view. Remember: using the camera is only possible on a physical device.
 >
->It might sound counter-intuitive, but trust me: one of the best ways to learn things deeply is to learn them, forget them, then learn them again. So, don’t be worried if there are some things you don’t recall straight away: straining your brain for them, or perhaps re-reading an older chapter just briefly, is a great way to help your iOS knowledge sink in a bit more.
+>It might sound counter-intuitive, but trust me: one of the best ways to learn things deeply is to learn them, forget them, then learn them again. _So, don’t be worried if there are some things you don’t recall straight away_: straining your brain for them, or perhaps re-reading an older chapter just briefly, is a great way to help your iOS knowledge sink in a bit more.
 >
 >Here are some hints in case you hit problems:
 >
 >* You’ll need to make `ViewController` build on `UITableViewController` rather than just `UIViewController`.
->
+
+:thinking: Is there much difference?
+
 >* Just like in project 10, you should create a custom type that stores an image filename and a caption string, then use either `Codable` or `NSCoding` to load and save that.
 >
 >* Use a `UIAlertController` to get the user’s caption for their image – a single text field is enough.
 >
 >* You’ll need to design your detail view controller using Interface Builder, then call `instantiateViewController` to load it when a table view row is tapped.
+
+:construction: This seems to be pretty free form!
+
+So key criteria includes...
+  - [ ]  table view menu
+  - [ ]  adding an item by taking a photo
+  - [ ]  associating text with photo (immediately after taking it)
+  - [ ]  add a detail controller
