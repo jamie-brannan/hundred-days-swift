@@ -129,7 +129,28 @@ Is that how things are deleted? Why hasn't deleting user defaults been adressed 
 :construction: This seems to be pretty free form!
 
 So key criteria includes...
-  - [ ]  table view menu
+  - [x]  table view menu
   - [ ]  adding an item by taking a photo
   - [ ]  associating text with photo (immediately after taking it)
   - [ ]  add a detail controller
+
+### Adding an item by taking a photo
+
+Begun adding navigation bar button
+
+```swift
+  func setUpNavigationBar() {
+    title = "Photo Gallery"
+    guard let nav = navigationController else { return }
+    nav.navigationBar.prefersLargeTitles = true
+    navigationItem.prompt = "100 Days of Swift"
+    // TODO: - add a add button
+    let addNavButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: #selector(addNewPhoto))
+    navigationItem.rightBarButtonItems = [addNavButton]
+  }
+
+  @objc func addNewPhoto() {
+    // TODO: - demande use of the camera
+    // TODO: - ask for name and a description of the photo just taken
+  }
+```

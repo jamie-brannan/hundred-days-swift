@@ -1,5 +1,5 @@
 //
-//  Picture.swift
+//  Photo.swift
 //  ConsolidationV
 //
 //  Created by Jamie Brannan on 11/03/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Picture: NSObject, Codable {
+class Photo: NSObject, Codable {
   
   var name: String
   var comment: String
