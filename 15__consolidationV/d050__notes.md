@@ -154,3 +154,5 @@ Begun adding navigation bar button
     // TODO: - ask for name and a description of the photo just taken
   }
 ```
+
+Added `NSCameraUsageDescription` to .plist

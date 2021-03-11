@@ -8,8 +8,12 @@
 import Foundation
 import UIKit
 
-class MenuTableViewController: UITableViewController {
- 
+class MenuTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  // MARK: - Properties
+  var photoTitle: String?
+  var photoDesc: String?
+  var photoPath: String?
+  var galleryItems: [Photo] = []
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
@@ -29,6 +33,40 @@ class MenuTableViewController: UITableViewController {
 
   @objc func addNewPhoto() {
     // TODO: - demande use of the camera
+    let picker = UIImagePickerController()
+    picker.sourceType = .camera
+    picker.allowsEditing = true
+    picker.delegate = self
+    present(picker, animated: true)
     // TODO: - ask for name and a description of the photo just taken
+  }
+
+  func getDocumentsDirectory() -> URL {
+    /// our way of asking Apple for the directory
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    /// try to read the image, and typecast it as an image for the interface – and  if it's not `guard` will let us bail out
+    guard let photo = info[.editedImage] as? UIImage else { return }
+    
+    /// stringify the id name?
+    let photoId = UUID().uuidString
+    /// read out documents directory wherever it is secretly on the device
+    let photoPath = getDocumentsDirectory().appendingPathComponent(photoId)
+    
+    /// `compressionQuality` is a value between 0 and 1, one being highest
+    if let jpegData = photo.jpegData(compressionQuality: 0.8) {
+      try? jpegData.write(to: photoPath)
+    }
+    
+    /// Create a person instance when image is found
+    let galleryItem = Photo(name: "Unknown", comment: "Unknown", image: photoId)
+    galleryItems.append(galleryItem)
+    tableView.reloadData()
+    
+    /// when we're done, dismiss this vc away
+    dismiss(animated: true)
   }
 }
