@@ -132,7 +132,7 @@ So key criteria includes...
   - [x]  table view menu
   - [x]  adding an item by taking a photo
   - [x]  add photoItem to the table
-  - [ ]  associating text with photo (immediately after taking it)
+  - [x]  associating text with photo (immediately after taking it)
   - [ ]  add a detailed view of the photo on table-cell click
 
 ### Adding an item by taking a photo
@@ -180,3 +180,43 @@ Follow up dialoge for labeling the picture requires an alert that has a text fie
 :question: *How can I add the name and comment immedately after I take the photo before the table view is even reloaded?*
 * the answer is probably something related to closures and `weak in` stuff that I've never really messed with :arrow_right: let's just keep going along with what we know how to do that works – then tweak stuff
 
+### Add a detailed view of the photo on table-cell click
+
+Ugh, I need to take off the renaming on click, so how can I add the labeling and stuff to the post photo flow?
+
+**Or** does the feature need to be added to the detail view as something that can only be done in the navbar of the detail?
+* look over what some work other people have done.
+
+:pushpin: [**Github, clarknt**](https://github.com/clarknt/100-days-of-swift/blob/main/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift) : *100 Days of Swift, `100-days-of-swift/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift`*
+
+`DispatchQueue`s placed within `imagePickerController(:didFinishPickingMediaWithInfo:)`
+
+```swift
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        
+        DispatchQueue.global().async { [weak self] in
+            let imageName = UUID().uuidString
+            
+            if let jpegData = image.jpegData(compressionQuality: 0.8) {
+                try? jpegData.write(to: Utils.getImageURL(for: imageName))
+            }
+
+            DispatchQueue.main.async {
+                self?.dismiss(animated: true)
+
+                let ac = UIAlertController(title: "Caption?", message: "Enter a caption for this image", preferredStyle: .alert)
+                ac.addTextField()
+                ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak ac] _ in
+                    guard let caption = ac?.textFields?[0].text else { return }
+                    self?.savePicture(imageName: imageName, caption: caption)
+                }))
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+                self?.present(ac, animated: true)
+            }
+        }
+    }
+```
+
+:warning: However, this uses `UserDefaults` and we're not there yet... let's cycle back to this later – and maybe just have renaming in the detail view for the time being.
