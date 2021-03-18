@@ -27,26 +27,29 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     nav.navigationBar.prefersLargeTitles = true
     navigationItem.prompt = "100 Days of Swift"
     // TODO: - add a add button
-    let addNavButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: #selector(addNewPhoto))
+    let addNavButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPhoto))
     navigationItem.rightBarButtonItems = [addNavButton]
   }
-
+  
   @objc func addNewPhoto() {
     // TODO: - demande use of the camera
     let picker = UIImagePickerController()
+    guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+      return
+    }
     picker.sourceType = .camera
     picker.allowsEditing = true
     picker.delegate = self
     present(picker, animated: true)
     // TODO: - ask for name and a description of the photo just taken
   }
-
+  
   func getDocumentsDirectory() -> URL {
     /// our way of asking Apple for the directory
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
   }
-
+  
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     /// try to read the image, and typecast it as an image for the interface – and  if it's not `guard` will let us bail out
     guard let photo = info[.editedImage] as? UIImage else { return }

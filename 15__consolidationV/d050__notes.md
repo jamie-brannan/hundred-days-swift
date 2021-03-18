@@ -156,3 +156,10 @@ Begun adding navigation bar button
 ```
 
 Added `NSCameraUsageDescription` to .plist
+
+:question: *For some reason building on my phone doesn't trigger the camera as it did in the previous exerise?*
+* retest
+* compare with previous project
+
+:star: got it! I has not set the target of the action added to the nav, as its `self`, it was left nil which doesn't make sense because we need to use the view itself as the destination of the Camera Picker.
+* :question: *What exacly is a `target` in a program?*, I just assume it is what the actions of a function is direct at...
