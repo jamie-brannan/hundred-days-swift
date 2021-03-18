@@ -13,6 +13,18 @@
 >
 >Note: Don’t worry if you don’t complete challenges in the day they were assigned – in future days you’ll find you have some time to spare here and there, so challenges are something you can return back to in the future.
 
+- [*Day 50 • Tuesday March 09, 2021*](#day-50--tuesday-march-09-2021)
+  - [:one:  What you learned](#one--what-you-learned)
+  - [:two:  Key points](#two--key-points)
+    - [Initialiser for `Person`](#initialiser-for-person)
+    - [First touch trigger](#first-touch-trigger)
+    - [User defaults from project 12](#user-defaults-from-project-12)
+  - [:three: Challenge](#three-challenge)
+    - [Adding an item by taking a photo](#adding-an-item-by-taking-a-photo)
+    - [Add the photo to the table](#add-the-photo-to-the-table)
+    - [Associating custom text with a photo (once taken)](#associating-custom-text-with-a-photo-once-taken)
+    - [Add a detailed view of the photo on table-cell click](#add-a-detailed-view-of-the-photo-on-table-cell-click)
+
 ## :one:  [What you learned](https://www.hackingwithswift.com/guide/5/1/what-you-learned) 
 
 >You probably haven’t realized it yet, but the projects you just completed were some of the most important in the series. The end results are nice enough, but what they teach is more important – you **made your first class completely from scratch**, which is how you’ll tackle many, many problems in the future:
@@ -133,7 +145,11 @@ So key criteria includes...
   - [x]  adding an item by taking a photo
   - [x]  add photoItem to the table
   - [x]  associating text with photo (immediately after taking it)
-  - [ ]  add a detailed view of the photo on table-cell click
+  - [x]  add a detailed view of the photo on table-cell click
+  - [ ]  save photos to user defaults (so you can pass data between menu table and view)
+  - [ ]  add share feature to detail view (therefore get photo to show up and be retrieved)
+  - [ ]  find out how to add system icons as [`UIBarButtonItem`](https://developer.apple.com/design/human-interface-guidelines/carplay/icons-and-images/system-icons/)
+  - [ ]  make custom table view cells
 
 ### Adding an item by taking a photo
 
@@ -220,3 +236,8 @@ Ugh, I need to take off the renaming on click, so how can I add the labeling and
 ```
 
 :warning: However, this uses `UserDefaults` and we're not there yet... let's cycle back to this later – and maybe just have renaming in the detail view for the time being.
+
+:question: *What was previous photo viewer detail view made of?*
+* able to pass to a new view, but theres not the image because you've just taken it but I don't think it's actually saved anywhere, therefore is lost
+
+Added detail view fewautre, and moved the click on row edit to the upper right navigation bar

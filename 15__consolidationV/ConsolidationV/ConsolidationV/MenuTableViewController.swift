@@ -96,22 +96,28 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let galleryItem = galleryItems[indexPath.item]
-    let ac = UIAlertController(title: "Labeling", message: "What would you like to call your photo?", preferredStyle: .alert)
-    ac.addTextField() { (textField) in
-      textField.placeholder = "Name photo"
+    if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
+      vc.galleryItem = galleryItems[indexPath.row]
+      vc.pictureCount = galleryItems.count
+      vc.selectedImageListOrderRank = indexPath.row
+      navigationController?.pushViewController(vc, animated: true)
     }
-    ac.addTextField() { (textField) in
-      textField.placeholder = "Caption your photo"
-    }
-    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
-      guard let newName = ac?.textFields?[0].text, newName != "" else { return }
-      guard let newComment = ac?.textFields?[1].text, newComment != "" else { return }
-      galleryItem.name = newName
-      galleryItem.comment = newComment
-      
-      self?.tableView.reloadData()
-    })
-    self.present(ac, animated: true)
+//    let galleryItem = galleryItems[indexPath.item]
+//    let ac = UIAlertController(title: "Labeling", message: "What would you like to call your photo?", preferredStyle: .alert)
+//    ac.addTextField() { (textField) in
+//      textField.placeholder = "Name photo"
+//    }
+//    ac.addTextField() { (textField) in
+//      textField.placeholder = "Caption your photo"
+//    }
+//    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
+//      guard let newName = ac?.textFields?[0].text, newName != "" else { return }
+//      guard let newComment = ac?.textFields?[1].text, newComment != "" else { return }
+//      galleryItem.name = newName
+//      galleryItem.comment = newComment
+//
+//      self?.tableView.reloadData()
+//    })
+//    self.present(ac, animated: true)
   }
 }
