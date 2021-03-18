@@ -14,6 +14,7 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
   var photoDesc: String?
   var photoPath: String?
   var galleryItems: [Photo] = []
+
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
@@ -21,6 +22,7 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     setUpNavigationBar()
   }
   
+  // MARK: - Setup
   func setUpNavigationBar() {
     title = "Photo Gallery"
     guard let nav = navigationController else { return }
@@ -32,7 +34,6 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
   }
   
   @objc func addNewPhoto() {
-    // TODO: - demande use of the camera
     let picker = UIImagePickerController()
     guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
       return
@@ -50,11 +51,14 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     return paths[0]
   }
   
+  // MARK: - Callbacks
+  
+  // MARK: Imagepicker
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     /// try to read the image, and typecast it as an image for the interface – and  if it's not `guard` will let us bail out
     guard let photo = info[.editedImage] as? UIImage else { return }
     
-    /// stringify the id name?
+    /// stringify the id name
     let photoId = UUID().uuidString
     /// read out documents directory wherever it is secretly on the device
     let photoPath = getDocumentsDirectory().appendingPathComponent(photoId)
@@ -71,5 +75,20 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     
     /// when we're done, dismiss this vc away
     dismiss(animated: true)
+  }
+
+  // MARK: - Table view
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return galleryItems.count
+  }
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "Photo", for: indexPath) as? MenuItemTableViewCell else {
+      fatalError("[MainTableView] – Unable to deque Photo cell")
+    }
+    let galleryItem = galleryItems[indexPath.item]
+    cell.titleLabel.text = galleryItem.name
+    cell.subtitleLabel.text = galleryItem.comment
+    return cell
   }
 }

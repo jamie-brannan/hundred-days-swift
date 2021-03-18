@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 class MenuItemTableViewCell: UITableViewCell {
-//
+  @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var subtitleLabel: UILabel!
 }

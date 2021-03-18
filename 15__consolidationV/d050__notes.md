@@ -130,9 +130,10 @@ Is that how things are deleted? Why hasn't deleting user defaults been adressed 
 
 So key criteria includes...
   - [x]  table view menu
-  - [ ]  adding an item by taking a photo
+  - [x]  adding an item by taking a photo
+  - [x]  add photoItem to the table
   - [ ]  associating text with photo (immediately after taking it)
-  - [ ]  add a detail controller
+  - [ ]  add a detailed view of the photo on table-cell click
 
 ### Adding an item by taking a photo
 
@@ -163,3 +164,11 @@ Added `NSCameraUsageDescription` to .plist
 
 :star: got it! I has not set the target of the action added to the nav, as its `self`, it was left nil which doesn't make sense because we need to use the view itself as the destination of the Camera Picker.
 * :question: *What exacly is a `target` in a program?*, I just assume it is what the actions of a function is direct at...
+
+### Add the photo to the table 
+
+:red_circle: Be *very careful not to confuse `numberOfItemsInSection` with `numberOfSections`!* :scream_cat: What a waste of time, although autocompletion is super helpful.
+
+### Associating text with a photo (once taken)
+
+Follow up dialoge for labeling the picture requires an alert that has a text field which will be added to the `NSObject` (x2, `name` and `comment`)
