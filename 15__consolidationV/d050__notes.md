@@ -169,6 +169,14 @@ Added `NSCameraUsageDescription` to .plist
 
 :red_circle: Be *very careful not to confuse `numberOfItemsInSection` with `numberOfSections`!* :scream_cat: What a waste of time, although autocompletion is super helpful.
 
-### Associating text with a photo (once taken)
+### Associating custom text with a photo (once taken)
 
 Follow up dialoge for labeling the picture requires an alert that has a text field which will be added to the `NSObject` (x2, `name` and `comment`)
+
+:question: *Can I just have an alert controler popup function that'll return a String?*
+
+:white_check_mark: Got this going – HOWEVER, it is only once it's been added and you click on it. :/ 
+
+:question: *How can I add the name and comment immedately after I take the photo before the table view is even reloaded?*
+* the answer is probably something related to closures and `weak in` stuff that I've never really messed with :arrow_right: let's just keep going along with what we know how to do that works – then tweak stuff
+

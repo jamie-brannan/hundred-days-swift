@@ -68,6 +68,8 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
       try? jpegData.write(to: photoPath)
     }
     
+    // TODO: - Find a way to have alerts pop up so you can fill out name and comment right away?
+    
     /// Create a person instance when image is found
     let galleryItem = Photo(name: "Unknown", comment: "Unknown", image: photoId)
     galleryItems.append(galleryItem)
@@ -76,12 +78,13 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     /// when we're done, dismiss this vc away
     dismiss(animated: true)
   }
-
+  
   // MARK: - Table view
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return galleryItems.count
   }
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Photo", for: indexPath) as? MenuItemTableViewCell else {
       fatalError("[MainTableView] – Unable to deque Photo cell")
@@ -90,5 +93,25 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     cell.titleLabel.text = galleryItem.name
     cell.subtitleLabel.text = galleryItem.comment
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let galleryItem = galleryItems[indexPath.item]
+    let ac = UIAlertController(title: "Labeling", message: "What would you like to call your photo?", preferredStyle: .alert)
+    ac.addTextField() { (textField) in
+      textField.placeholder = "Name photo"
+    }
+    ac.addTextField() { (textField) in
+      textField.placeholder = "Caption your photo"
+    }
+    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
+      guard let newName = ac?.textFields?[0].text, newName != "" else { return }
+      guard let newComment = ac?.textFields?[1].text, newComment != "" else { return }
+      galleryItem.name = newName
+      galleryItem.comment = newComment
+      
+      self?.tableView.reloadData()
+    })
+    self.present(ac, animated: true)
   }
 }
