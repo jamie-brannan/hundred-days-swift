@@ -28,7 +28,6 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     guard let nav = navigationController else { return }
     nav.navigationBar.prefersLargeTitles = true
     navigationItem.prompt = "100 Days of Swift"
-    // TODO: - add a add button
     let addNavButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPhoto))
     navigationItem.rightBarButtonItems = [addNavButton]
   }
@@ -42,11 +41,9 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
     picker.allowsEditing = true
     picker.delegate = self
     present(picker, animated: true)
-    // TODO: - ask for name and a description of the photo just taken
   }
   
   func getDocumentsDirectory() -> URL {
-    /// our way of asking Apple for the directory
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
   }
@@ -55,28 +52,47 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
   
   // MARK: Imagepicker
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    /// try to read the image, and typecast it as an image for the interface – and  if it's not `guard` will let us bail out
     guard let photo = info[.editedImage] as? UIImage else { return }
     
-    /// stringify the id name
-    let photoId = UUID().uuidString
-    /// read out documents directory wherever it is secretly on the device
-    let photoPath = getDocumentsDirectory().appendingPathComponent(photoId)
-    
-    /// `compressionQuality` is a value between 0 and 1, one being highest
-    if let jpegData = photo.jpegData(compressionQuality: 0.8) {
-      try? jpegData.write(to: photoPath)
+    DispatchQueue.global().async { [weak self] in
+      let freshPhotoName = UUID().uuidString /// stringify the id name
+      if let jpegData = photo.jpegData(compressionQuality: 0.8) {
+        try? jpegData.write(to: GalleryUserDefaults.getGalleryItemURL(for: freshPhotoName))
+      }
+      
+      DispatchQueue.main.async {
+        self?.dismiss(animated: true)
+        
+        let ac = UIAlertController(title: "Labeling", message: "What would you like to call your photo?", preferredStyle: .alert)
+        ac.addTextField() { (textField) in
+          textField.placeholder = "Name photo"
+        }
+        ac.addTextField() { (textField) in
+          textField.placeholder = "Caption your photo"
+        }
+        ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak ac] _ in
+          guard let newName = ac?.textFields?[0].text, newName != "" else { return }
+          guard let newComment = ac?.textFields?[1].text, newComment != "" else { return }
+          self?.saveGalleryItem(name: newName, comment: newComment, image: freshPhotoName)
+        })
+        self?.present(ac, animated: true)
+      }
     }
-    
-    // TODO: - Find a way to have alerts pop up so you can fill out name and comment right away?
-    
-    /// Create a person instance when image is found
-    let galleryItem = Photo(name: "Unknown", comment: "Unknown", image: photoId)
+  }
+
+  func saveGalleryItem(name: String, comment: String, image: String) {
+    let galleryItem = Photo(name: name, comment: comment, image: image)
     galleryItems.append(galleryItem)
-    tableView.reloadData()
-    
-    /// when we're done, dismiss this vc away
-    dismiss(animated: true)
+
+    DispatchQueue.global().async { [weak self] in
+      if let pictures = self?.galleryItems {
+        GalleryUserDefaults.saveGalleryItem(items: pictures)
+      }
+
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
   }
   
   // MARK: - Table view
@@ -86,15 +102,19 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "Photo", for: indexPath) as? MenuItemTableViewCell else {
       fatalError("[MainTableView] – Unable to deque Photo cell")
     }
+
+    let path = GalleryUserDefaults.getGalleryItemURL(for: galleryItems[indexPath.row].image)
     let galleryItem = galleryItems[indexPath.item]
+    cell.imageView?.image = UIImage(contentsOfFile: path.path)
     cell.titleLabel.text = galleryItem.name
     cell.subtitleLabel.text = galleryItem.comment
     return cell
   }
-  
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
       vc.galleryItem = galleryItems[indexPath.row]
@@ -102,22 +122,5 @@ class MenuTableViewController: UITableViewController, UIImagePickerControllerDel
       vc.selectedImageListOrderRank = indexPath.row
       navigationController?.pushViewController(vc, animated: true)
     }
-//    let galleryItem = galleryItems[indexPath.item]
-//    let ac = UIAlertController(title: "Labeling", message: "What would you like to call your photo?", preferredStyle: .alert)
-//    ac.addTextField() { (textField) in
-//      textField.placeholder = "Name photo"
-//    }
-//    ac.addTextField() { (textField) in
-//      textField.placeholder = "Caption your photo"
-//    }
-//    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
-//      guard let newName = ac?.textFields?[0].text, newName != "" else { return }
-//      guard let newComment = ac?.textFields?[1].text, newComment != "" else { return }
-//      galleryItem.name = newName
-//      galleryItem.comment = newComment
-//
-//      self?.tableView.reloadData()
-//    })
-//    self.present(ac, animated: true)
   }
 }

@@ -18,10 +18,9 @@ class DetailViewController: UIViewController {
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    /// Unwrapping optionalos
     guard let galleryItem = galleryItem, let detailPictureCount = pictureCount, let detailSelectedImageOrderRank = selectedImageListOrderRank else { return }
-    // TODO : display image based on UUID? Or UserDefault is better, cause its actually saved?
-    imageView.image  = UIImage(named: galleryItem.image)
+    let path = GalleryUserDefaults.getGalleryItemURL(for: galleryItem.image)
+    imageView.image  = UIImage(contentsOfFile: path.path)
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
     navigationItem.largeTitleDisplayMode = .never
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editGalleryItem))

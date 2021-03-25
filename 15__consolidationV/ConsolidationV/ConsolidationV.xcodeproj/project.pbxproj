@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116BB66C260CCAAC003A4AD8 /* GalleryUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116BB66B260CCAAC003A4AD8 /* GalleryUserDefaults.swift */; };
 		11EC464E25FA775D0064BFA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC464D25FA775D0064BFA6 /* AppDelegate.swift */; };
 		11EC465025FA775D0064BFA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC464F25FA775D0064BFA6 /* SceneDelegate.swift */; };
 		11EC465225FA775D0064BFA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11EC465125FA775D0064BFA6 /* DetailViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		116BB66B260CCAAC003A4AD8 /* GalleryUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryUserDefaults.swift; sourceTree = "<group>"; };
 		11EC464A25FA775D0064BFA6 /* ConsolidationV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsolidationV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11EC464D25FA775D0064BFA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11EC464F25FA775D0064BFA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				11EC466225FA7C0A0064BFA6 /* Photo.swift */,
 				11EC466925FA7E680064BFA6 /* MenuTableViewController.swift */,
 				11EC466C25FA80940064BFA6 /* MenuItemTableViewCell.swift */,
+				116BB66B260CCAAC003A4AD8 /* GalleryUserDefaults.swift */,
 			);
 			path = ConsolidationV;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				11EC466A25FA7E680064BFA6 /* MenuTableViewController.swift in Sources */,
 				11EC466D25FA80940064BFA6 /* MenuItemTableViewCell.swift in Sources */,
 				11EC464E25FA775D0064BFA6 /* AppDelegate.swift in Sources */,
+				116BB66C260CCAAC003A4AD8 /* GalleryUserDefaults.swift in Sources */,
 				11EC465025FA775D0064BFA6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,13 +303,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 843FCJSS4Z;
+				DEVELOPMENT_TEAM = 5T446K389W;
 				INFOPLIST_FILE = ConsolidationV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.exemple.ConsolidationV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exemple.100dofswiftconsolidationv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -318,13 +322,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 843FCJSS4Z;
+				DEVELOPMENT_TEAM = 5T446K389W;
 				INFOPLIST_FILE = ConsolidationV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.exemple.ConsolidationV;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exemple.100dofswiftconsolidationv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
