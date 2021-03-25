@@ -240,4 +240,10 @@ Ugh, I need to take off the renaming on click, so how can I add the labeling and
 :question: *What was previous photo viewer detail view made of?*
 * able to pass to a new view, but theres not the image because you've just taken it but I don't think it's actually saved anywhere, therefore is lost
 
-Added detail view fewautre, and moved the click on row edit to the upper right navigation bar
+Added detail view features, and moved the click on row edit to the upper right navigation bar
+
+:bookmark: Thursday March 25, 2021 – 15:49 : *A lot of time has been spent on this project, it's best to keep moving along to a different day and mark here improvements that I'd like to try and go back to make.*
+* continue to be inspired by `clarknt`'s features, like the slide to delete
+* fix "edit" feature to allow the user default texts associated to modified
+* add a share button to the detail view
+* *wacky challenge* : perhaps enable exporting several? – like in photos, select as many as you'd like then share it?
