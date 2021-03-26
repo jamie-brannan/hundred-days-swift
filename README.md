@@ -123,5 +123,33 @@ Days organized by folders containing
 | Day 48 | February 18, 23 | ~ | Project 12, part i, Save contact cards with `UserDefaults`|
 | Day 49 | February 25, March 4 | ~ | Project 12, part ii, Refactoring previous projects to add saving features relevant to their features |
 
+### :one: :zero: **Consolidation V**
+
+>Now that you have conquered `UICollectionViewController` and `Codable`, it’s time to pause for a day and review what you learned – while also tackling a fresh challenge.
+
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 50 | March 9 | :pencil: | Milestone: Projects 10-12, learned a lot planning out each and every commit, as well as being inspired by user [`clarknt`'s example](https://github.com/clarknt/100-days-of-swift/blob/main/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift), also – a lot to study in terms of `DispatchQue` and `UserDefault` function externalisation |
+| Day 51 | March ~ | ~ | Expanding your horizons |
+
+### :one: :one: **Images and animation**
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 52 | March ~ | ~ | Project 13, part i |
+| Day 53 | March ~ | ~ | Project 13, part ii |
+| Day 54 | March ~ | ~ | Project 13, part iii |
+| Day 55 | March ~ | ~ | Project 14, part i |
+| Day 56 | March ~ | ~ | Project 14, part ii |
+| Day 57 | March ~ | ~ | Project 15, part i |
+| Day 58 | March ~ | ~ | Project 15, part ii |
+
+>The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
+
+
+
+
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
+* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was really lost :clap: Thanks you!!
