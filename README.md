@@ -130,7 +130,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 50 | March ~ | ~ | Milestone: Projects 10-12 |
+| Day 50 | March 9 | :pencil: | Milestone: Projects 10-12, learned a lot planning out each and every commit, as well as being inspired by user [`clarknt`'s example](https://github.com/clarknt/100-days-of-swift/blob/main/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift), also – a lot to study in terms of `DispatchQue` and `UserDefault` function externalisation |
 | Day 51 | March ~ | ~ | Expanding your horizons |
 
 ### :one: :one: **Images and animation**
@@ -152,3 +152,4 @@ Days organized by folders containing
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
+* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was really lost :clap: Thanks you!!
