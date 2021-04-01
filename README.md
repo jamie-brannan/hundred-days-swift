@@ -130,8 +130,8 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 50 | March 9 | :pencil: | Milestone: Projects 10-12, learned a lot planning out each and every commit, as well as being inspired by user [`clarknt`'s example](https://github.com/clarknt/100-days-of-swift/blob/main/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift), also – a lot to study in terms of `DispatchQue` and `UserDefault` function externalisation |
-| Day 51 | April 1 | ~ | Expanding your horizons |
+| Day 50 | March 9 | :pencil: | Milestone: Projects 10-12, learned a lot planning out each and every commit, as well as being inspired by user [`clarknt`'s example](https://github.com/clarknt/100-days-of-swift/blob/main/16-Milestone-Projects10-12/Milestone-Projects10-12/ViewController.swift), also – a lot to study in terms of `DispatchQue` and `UserDefault` function externalisation, kicked back and watched some talks :tv: :sunglasses:|
+| Day 51 | April 1 | :white_check_mark: | Expanding your horizons |
 
 ### :one: :one: **Images and animation**
 

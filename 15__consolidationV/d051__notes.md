@@ -98,3 +98,29 @@ It's possible to have Optional Optionals – `Int??`
 Swift is not a _"true functional language"_
 
 ## :two:  [Teaching Swift at Scale](https://vimeo.com/291590798) 
+
+Used to do a bunch of Magazine work. Journalist :arrow_right: App development
+
+Swift Knowledge Base, writes a lot of books
+
+What book do I want to read?
+* Where is Swift going, look at the analytics
+* What are people looking at when they're learning Swift
+
+Problems that people hit
+* Systeme
+  * UserDefaults
+  * Timers – memory leaks
+  * Energy Usage
+  * **Tolerance**
+  * Precision
+  * Concurrency
+* User Interface
+  * Videos
+  * Image Views
+  * Web Views
+  * Auto layout
+* Swift
+  * Strings – `StaticString`, `compactMap()
+
+Splitting up App Targets
