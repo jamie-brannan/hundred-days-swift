@@ -138,7 +138,7 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 52 | April 5 | :white_check_mark: | Project 13, part i, set up project by practicing auto-layout, ImpagePicker import |
-| Day 53 | April ~ | ~ | Project 13, part ii |
+| Day 53 | April 5 | ~ | Project 13, part ii |
 | Day 54 | April ~ | ~ | Project 13, part iii |
 | Day 55 | April ~ | ~ | Project 14, part i |
 | Day 56 | April ~ | ~ | Project 14, part ii |
