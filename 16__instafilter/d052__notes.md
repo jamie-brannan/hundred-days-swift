@@ -96,16 +96,26 @@ Outlets and actions completed :white_check_mark:
 var currentImage: UIImage!
 ```
 
->Our first task will be to import a photo from the user's photo library. This is almost identical to project 10, so I'm going to explain only the important bits. If you missed project 10, you should have paid heed to my warning not to skip projects!
->
->First we need to add a button to the navigation bar that will allow users to import a photo from their library. Put these two lines into your `viewDidLoad()` method:
+Why should this be implicit though
+
+>**Our first task will be to import a photo from the user's photo library.** This is almost identical to project 10, so I'm going to explain only the important bits. If you missed project 10, you should have paid heed to my warning not to skip projects!
+
+### Add import image button
+
+>**First we need to add a button to the navigation bar that will allow users to import a photo from their library.** Put these two lines into your `viewDidLoad()` method:
 
 ```swift
 title = "YACIFP"
 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
 ```
 
->Alright, so the first one isn't needed – it just sets the title to be YACIFP, short for "Yet Another Core Image Filters Program." (Spoiler: the App Store is full of them!) If you're feeling a bit less cynical than me, try "Instafilter" for a title instead. But what matters is the second line, because it starts the import process.
+:white_check_mark: added.
+
+>Alright, so the first one isn't needed – it just sets the title to be YACIFP, short for "**Yet Another Core Image Filters Program."** (Spoiler: the App Store is full of them!) 
+
+:joy: Easy to believe
+
+>If you're feeling a bit less cynical than me, try "Instafilter" for a title instead. But what matters is the second line, because it starts the import process.
 >
 >Here's the importPicture() method – it's almost identical to the import method from project 10, so again no explaining required:
 
@@ -140,6 +150,6 @@ func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMe
 }
 ```
 
->There is one slight change in there, and it's where we set our `currentImage` image to be the one selected in the image picker. This is required so that we can have a copy of what was originally imported. Whenever the user changes filter, we need to put that original image back into the filter.
+>There is one slight change in there, and it's where we set our `currentImage` image to be the one selected in the image picker. **This is required so that we can have a copy of what was originally imported.** _Whenever the user changes filter, we need to put that original image back into the filter._
 >
 >This has all been old code, so nothing too taxing. But now it's time for Core Image!
