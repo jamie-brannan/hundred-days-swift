@@ -58,21 +58,35 @@ This was actually the default for me, so cool
 >**So that's the basic layout complete,** but of course we need to add Auto Layout constraints because we need it all to resize smoothly on various devices. 
 >* But, you know, I'm feeling lazy – how about we make Auto Layout do the work for us this time?
 >
->Select the view controller by clicking on "View Controller" in the document outline, then go to the Editor menu and choose Resolve Auto Layout Issues > Reset To Suggested Constraints.
+>Select the view controller by clicking on "View Controller" in the document outline, then go to the Editor menu and choose **Resolve Auto Layout Issues** > **Reset To Suggested Constraints**.
 
 (:camera: screen shot on website)
 
+Woah, okay :white_check_mark: 
+
 >That's it! Your Auto Layout is done: Xcode just added the ideal constraints everywhere so that your interface resizes perfectly. Don't believe me? Try giving the image view a red background color (temporarily!), then launching it in any device and rotating the screen. You should see everything (including the red box) be positioned and resized correctly.
->
+
+:white_check_mark: yup works, althought I'm not sure that the image is going to stay that way. It should be un warped ideally right?
+
 >Make sure you switch the image view back to having a clear background color.
 >
->That was remarkably easy, and is another example of Apple doing a lot of hard work for you. Using Xcode to make your Auto Layout rules can be a real help, but it won't be right all the time. After all, it just takes its best guess as to your intentions. It will also frequently add more constraints than strictly necessary for the job, so use it with care.
+>That was remarkably easy, and is _another example of Apple doing a lot of hard work for you_. **Using Xcode to make your Auto Layout rules can be a real help, but it won't be right all the time.** 
+
+This also makes me wonder about switching languages and not having the conceptual practice piecing together how to build this kind of a thing. Like not all languages have libraries as powerfully maintained as this.
+
+Just followed some of the adjustment fixes in the video associated with this step but not included by type
+* altering the max/min values for constraints
+* eliminated warnings that appeared as a result.
+
+>After all, it just takes its best guess as to your intentions. It will also frequently add more constraints than strictly necessary for the job, so use it with care.
 >
->Before we leave Interface Builder, I'd like you to add an outlet for the image view and the slider, called respectively `imageView` and intensity. Please also create actions from the two buttons, calling methods `changeFilter()` and `save()`. You can leave these methods with no code inside them for now.
+>Before we leave Interface Builder, I'd like you to add an outlet for the image view and the slider, called respectively `imageView` and `intensity`. Please also create actions from the two buttons, calling methods `changeFilter()` and `save()`. You can leave these methods with no code inside them for now.
 >
 >Finally, we want the user interface to update when the slider is dragged, so please create an action from the slider. It should give you the "Value Changed" event rather than Touch Up Inside, and that's what we want. Call the action's method `intensityChanged()`.
 >
 >That's it for the storyboard, so bring up ViewController.swift and let's start coding…
+
+Outlets and actions completed :white_check_mark: 
 
 ## :three: [Importing a picture](https://www.hackingwithswift.com/read/13/3/importing-a-picture) 
 
