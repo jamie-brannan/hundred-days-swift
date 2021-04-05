@@ -214,22 +214,31 @@ func applyProcessing() {
 
 >I know it's fun to play around with Core Image filters (and you've only seen some of them!), but we have a project to finish so I want to introduce you to a new function: `UIImageWriteToSavedPhotosAlbum()`. This method does exactly what its name says: give it a `UIImage` and it will write the image to the photo album.
 >
->This method takes four parameters: the image to write, who to tell when writing has finished, what method to call, and any context. The context is just like the context value you can use with KVO, as seen in project 4, and again we're not going to use it here. The first two parameters are quite simple: we know what image we want to save (the processed one in the image view), and we also know that we want `self` (the current view controller) to be notified when writing has finished.
+>This method takes four parameters: 
+>* the image to write, 
+>* who to tell when writing has finished,
+>* what method to call,
+>* and any context. 
 >
->The third parameter can be provided in two ways: vague and clean, or specific and ugly. It needs to be a selector that lists the method in our view controller that will be called, and it's specified using `#selector`. The method it will call will look like this:
+>The context is just like the context value you can use with KVO, as seen in project 4, and again we're not going to use it here. 
+>
+>The first two parameters are quite simple: we know what image we want to save (the processed one in the image view), and we also know that we want `self` (the current view controller) to be notified when writing has finished.
+>
+>The third parameter can be provided in two ways: **vague and clean**, or **specific and ugly**. 
+>* It needs to be a selector that lists the method in our view controller that will be called, and it's specified using `#selector`. The method it will call will look like this:
 
 ```swift
 func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
 }
 ```
 
->Previously we've had very simple selectors, like `#selector(shareTapped)`. And we can use that approach here – Swift allows us to be really vague about the selector we intend to call, and this works just fine:
+>Previously we've had very simple selectors, like `#selector(shareTapped)`. And we can use that approach here – _Swift allows us to be really vague about the selector we intend to call_, and this works just fine:
 
 ```swift
 #selector(image)
 ```
 
->Yes, that approach is nice and easy to read, but it's also very vague: it doesn't say what is actually going to happen. The alternative is to be very specific about the method we want called, so you can write this:
+>Yes, that approach is nice and easy to read, but it's also very vague: it doesn't say what is actually going to happen. **The alternative** is to be very specific about the method we want called, so you can write this:
 
 ```swift
 #selector(image(_:didFinishSavingWithError:contextInfo:))
@@ -246,6 +255,8 @@ func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo
     UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
 }
 ```
+
+Woah `UIImageWriteToSavedPhotosAlbum` is so specific.
 
 >From here on it's easy, because we just need to write the `didFinishSavingWithError` method. This must show one of two messages depending on whether we get an error sent to us. The error might be, for example, that the user denied us permission to write to the photo album. This will be sent as an `Error?` object, so if it's `nil` we know there was no error.
 >
@@ -266,3 +277,6 @@ func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo
 }
 ```
 >And that's it: your app now imports pictures, manipulates them with a Core Image filter and a UISlider, then saves the result back to the photo library. Easy!
+
+:pushpin: [**Hacking with Swift**](https://www.hackingwithswift.com/books/ios-swiftui/how-to-save-images-to-the-users-photo-library) : *How to save images to the user's photo library*
+
