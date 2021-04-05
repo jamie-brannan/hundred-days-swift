@@ -10,6 +10,12 @@ HCI :point_up:
 >
 >**Today you have three topics to work through, and you’ll learn about `CIContext`, `CIFilter`, and more.**
 
+- [*Day 53 • Monday April 05, 2021*](#day-53--monday-april-05-2021)
+  - [:one:  Applying filters: CIContext, CIFilter](#one--applying-filters-cicontext-cifilter)
+    - [Apply a filter to the image selected](#apply-a-filter-to-the-image-selected)
+    - [Add options to change filter](#add-options-to-change-filter)
+  - [:two:  Saving to the iOS photo library](#two--saving-to-the-ios-photo-library)
+
 ## :one:  [Applying filters: CIContext, CIFilter](https://www.hackingwithswift.com/read/13/4/applying-filters-cicontext-cifilter) 
 
 >You're probably getting tired of hearing me saying this, but Core Image is yet another super-fast and super-powerful framework from Apple. It does only one thing, which is to apply filters to images that manipulate them in various ways.
@@ -35,13 +41,16 @@ var currentFilter: CIFilter!
 
 :white_check_mark: 
 
->The first is a Core Image `context`, which is the Core Image component _that handles rendering_. 
+>The first is a **Core Image context**, which is the Core Image component _that handles rendering_. 
 >* We create it here and use it throughout our app, because **creating a context is computationally expensive** so we don't want to keep doing it.
 
 :moneybag: Understandable.
 
->The second is a Core Image filter, and will store whatever filter the user has activated. This filter will be given various input settings before we ask it to output a result for us to show in the image view.
->
+>The second is a **Core Image filter**, and _will store whatever filter the user has activated_. 
+>* This filter will be given various input settings before we ask it to output a result for us to show in the image view.
+
+### Apply a filter to the image selected
+
 >We want to create both of these in `viewDidLoad()`, so put this just before the end of the method:
 
 ```swift
@@ -106,8 +115,14 @@ func applyProcessing() {
 >4. The fourth line creates a new `UIImage` from the `CGImage`, and line five assigns that `UIImage` to our image view. Yes, I know that `UIImage`, `CGImage` and `CIImage` all sound the same, but they are different under the hood and we have no choice but to use them here.
 >
 >You can now press Cmd+R to run the project as-is, then import a picture and make it sepia toned. It might be a little slow in the simulator, but I can promise you it runs brilliantly on devices - Core Image is extraordinarily fast.
->
->Adding a sepia effect isn't very interesting, and I want to help you explore some of the other options presented by Core Image. So, we're going to make the "Change Filter" button work: it will show a `UIAlertController` with a selection of filters, and when the user selects one it will update the image.
+
+Beautiful :art:
+
+>Adding a sepia effect isn't very interesting, and I want to help you explore some of the other options presented by Core Image. 
+
+### Add options to change filter
+
+>So, we're going to make the "Change Filter" button work: it will show a `UIAlertController` with a selection of filters, and when the user selects one it will update the image.
 >
 >First, here's the new` changeFilter()` method:
 
@@ -126,9 +141,11 @@ func applyProcessing() {
 }
 ```
 
->That's seven different Core Image filters plus one cancel button, but no new code. When tapped, each of the filter buttons will call the `setFilter()` method, which we need to make. This method should update our `currentFilter` property with the filter that was chosen, set the `kCIInputImageKey` key again (because we just changed the filter), then call `applyProcessing()`.
->
->Each `UIAlertAction` has its title set to a different Core Image filter, and because our `setFilter()` method must accept as its only parameter the action that was tapped, we can use the action's title to create our new Core Image filter. Here's the `setFilter()` method:
+>That's seven different Core Image filters plus one cancel button, but no new code. When tapped, each of the filter buttons will call the `setFilter()` method, which we need to make. _This method should update our `currentFilter` property with the filter that was chosen, set the `kCIInputImageKey` key again (because we just changed the filter), then call `applyProcessing()`._
+
+In other words, we need to make a handler for the alert action that'll set it definitely as the filter
+
+>Each `UIAlertAction` has its title set to a different Core Image filter, and because our `setFilter()` **method must accept as its only parameter the action that was tapped**, we can use the action's title to create our new Core Image filter. Here's the `setFilter()` method:
 
 ```swift
 func setFilter(action: UIAlertAction) {  
@@ -152,11 +169,18 @@ func setFilter(action: UIAlertAction) {
 ```swift
 currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
 ```
->That sets the intensity of the current filter. But the problem is that not all filters have an intensity setting. If you try this using the `CIBumpDistortion` filter, the app will crash because it doesn't know what to do with a setting for the key `kCIInputIntensityKey`.
+>That **sets the intensity of the current filter**. _But the problem is that not all filters have an intensity setting._ 
+>*If you try this using the `CIBumpDistortion` filter, the app will crash because it doesn't know what to do with a setting for the key `kCIInputIntensityKey`.
+
+:warning: Ah this is an issue because when you change mid setting, we need to deleate if this data is superflous or useful.
+
+>All the filters and the keys they use are described fully in Apple's documentation, but for this project _we're going to take a shortcut_. 
 >
->All the filters and the keys they use are described fully in Apple's documentation, but for this project we're going to take a shortcut. There are four input keys we're going to manipulate across seven different filters. Sometimes the keys mean different things, and sometimes the keys don't exist, so we're going to apply only the keys that do exist with some cunning code.
+>There are **four input keys we're going to manipulate across seven different filters**. >* Sometimes the keys mean different things, and sometimes the keys don't exist, _so we're going to apply only the keys that do exist with some cunning code._
 >
->Each filter has an `inputKeys` property that returns an array of all the keys it can support. We're going to use this array in conjunction with the `contains()` method to see if each of our input keys exist, and, if it does, use it. Not all of them expect a value between 0 and 1, so I sometimes multiply the slider's value to make the effect more pronounced.
+>Each filter has an `inputKeys` property that returns **an array of all the keys it can support**. 
+>* _We're going to use this array in conjunction with the `contains()` method to see if each of our input keys exist, and, if it does, use it._ 
+>* Not all of them expect a value between 0 and 1, so I sometimes multiply the slider's value to make the effect more pronounced.
 >
 >Change your `applyProcessing()` method to be this:
 
@@ -176,9 +200,15 @@ func applyProcessing() {
 }
 ```
 
->Using this method, we check each of our four keys to see whether the current filter supports it, and, if so, we set the value. The first three all use the value from our `intensity` slider in some way, which will produce some interesting results. If you wanted to improve this app later, you could perhaps add three sliders.
->
->If you run your app now, you should be able to choose from various filters then watch them distort your image in weird and wonderful ways. Note that some of them – such as the Gaussian blur – will run very slowly in the simulator, but quickly on devices. If we wanted to do more complex processing (not least chaining filters together!) you can add configuration options to the `CIContext` to make it run even faster; another time, perhaps.
+>Using this method, we check each of our four keys to see whether the current filter supports it, and, if so, we set the value. 
+>* The first three all use the value from our `intensity` slider in some way, which will produce some interesting results. 
+>* **If you wanted to improve this app later, you could perhaps add three sliders.**
+
+:pencil: Good idea for improvements later on
+
+>If you run your app now, you should be able to choose from various filters then watch them distort your image in weird and wonderful ways. Note that some of them – such as the Gaussian blur – will run very slowly in the simulator, but quickly on devices. If we wanted to do more complex processing (not least chaining filters together!) you can **add configuration options** to the `CIContext` to make it run even faster; another time, perhaps.
+
+:red_circle: `Thread 1: "[<CIGaussianBlur 0x282524600> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key inputIntensity."`
 
 ## :two:  [Saving to the iOS photo library](https://www.hackingwithswift.com/read/13/5/saving-to-the-ios-photo-library) 
 
