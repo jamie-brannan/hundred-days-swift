@@ -1,10 +1,12 @@
 # *Day 53 • Monday April 05, 2021*
 
->Pictures bring any user interface to life, but as app designers it’s our job to frame those pictures with a smart user interface to really bring them to life. As Ben Shneiderman, a professor for Computer Science at the University of Maryland, once said, “a picture is worth a thousand words; an interface is worth a thousand pictures” – for me that really underscores the importance of getting both right!
+>Pictures bring any user interface to life, but as app designers it’s our job to frame those pictures with a smart user interface to really bring them to life. As **Ben Shneiderman**, a professor for Computer Science at the University of Maryland, once said, _“a picture is worth a thousand words; an interface is worth a thousand pictures”_ – for me that really underscores the importance of getting both right!
+
+HCI :point_up:
+
+>Today you’re going to be trying Core Image for the first time. _Its API has never really been updated for Swift, so you’ll see a few quirks here and there._ It also has precious little margin for error, so you’ll see we add various checks to make sure our code is safe at runtime – it’s better to be safe than sorry.
 >
->Today you’re going to be trying Core Image for the first time. Its API has never really been updated for Swift, so you’ll see a few quirks here and there. It also has precious little margin for error, so you’ll see we add various checks to make sure our code is safe at runtime – it’s better to be safe than sorry.
->
->I said it before, but it bears repeating here: Core Image is extraordinarily fast on real iOS devices, but extraordinarily slow in Xcode’s simulator. So, don’t worry if you find the blur effect appears to lock up your Mac while it works – it will happen in the blink of an eye on a real device.
+>I said it before, but it bears repeating here: _Core Image is extraordinarily fast on real iOS devices, but extraordinarily slow in Xcode’s simulator_. So, don’t worry if you find the blur effect appears to lock up your Mac while it works – it will happen in the blink of an eye on a real device.
 >
 >**Today you have three topics to work through, and you’ll learn about `CIContext`, `CIFilter`, and more.**
 
@@ -12,13 +14,17 @@
 
 >You're probably getting tired of hearing me saying this, but Core Image is yet another super-fast and super-powerful framework from Apple. It does only one thing, which is to apply filters to images that manipulate them in various ways.
 >
->One downside to Core Image is it's not very guessable, so you need to know what you're doing otherwise you'll waste a lot of time. It's also not able to rely on large parts of Swift's type safety, so you need to be careful when using it because the compiler won't help you as much as you're used to.
->
+>One downside to Core Image is **it's not very guessable**, so you need to know what you're doing otherwise you'll waste a lot of time. It's also not able to rely on large parts of Swift's type safety, _so you need to be careful when using it because the compiler won't help you as much as you're used to._
+
+:warning: Eeek, lots of warnings before I even touch it. I'll be careful.
+
 >To get started, import CoreImage by adding this line near the top of ViewController.swift:
 
 ```swift
 import CoreImage
 ```
+
+:white_check_mark: 
 
 >We need to add two more properties to our class, so put these underneath the `currentImage` property:
 
@@ -26,8 +32,14 @@ import CoreImage
 var context: CIContext!
 var currentFilter: CIFilter!
 ```
->The first is a Core Image context, which is the Core Image component that handles rendering. We create it here and use it throughout our app, because creating a context is computationally expensive so we don't want to keep doing it.
->
+
+:white_check_mark: 
+
+>The first is a Core Image `context`, which is the Core Image component _that handles rendering_. 
+>* We create it here and use it throughout our app, because **creating a context is computationally expensive** so we don't want to keep doing it.
+
+:moneybag: Understandable.
+
 >The second is a Core Image filter, and will store whatever filter the user has activated. This filter will be given various input settings before we ask it to output a result for us to show in the image view.
 >
 >We want to create both of these in `viewDidLoad()`, so put this just before the end of the method:
@@ -37,7 +49,7 @@ context = CIContext()
 currentFilter = CIFilter(name: "CISepiaTone")
 ```
 
->That creates a default Core Image context, then creates an example filter that will apply a sepia tone effect to images. It's just for now; we'll let users change it soon enough.
+>That creates **a default Core Image context**, then creates an example filter that will apply a sepia tone effect to images. It's just for now; we'll let users change it soon enough.
 >
 >To begin with, we're going to let users drag the slider up and down to add varying amounts of sepia effect to the image they select.
 >
@@ -56,7 +68,8 @@ applyProcessing()
 >
 >The `CIImage` data type is, for the sake of this project, just the Core Image equivalent of `UIImage`. Behind the scenes it's a bit more complicated than that, but really it doesn't matter.
 >
->As you can see, we can create a `CIImage` from a `UIImage`, and we send the result into the current Core Image Filter using the `kCIInputImageKey`. There are lots of Core Image key constants like this; at least this one is somewhat self-explanatory!
+>As you can see, we can create a `CIImage` from a `UIImage`, and we send the result into the current Core Image Filter using the `kCIInputImageKey`. 
+>* There are lots of Core Image key constants like this; at least this one is somewhat self-explanatory!
 >
 >We also need to call the (still unwritten!) `applyProcessing()` method when the slider is dragged around, so modify the `intensityChanged()` method to this:
 
@@ -82,13 +95,15 @@ func applyProcessing() {
 
 >That's only five lines, none of which are terribly taxing.
 >
->The first line safely reads the output image from our current filter. This should always exist, but there’s no harm being safe.
+>1. The first line safely reads the output image from our current filter. This should always exist, but there’s no harm being safe.
 >
->The second line uses the value of our `intensity` slider to set the `kCIInputIntensityKey` value of our current Core Image filter. For sepia toning a value of 0 means "no effect" and 1 means "fully sepia."
+>2. The second line uses the value of our `intensity` slider to set the `kCIInputIntensityKey` value of our current Core Image filter. For sepia toning a value of 0 means "no effect" and 1 means "fully sepia."
 >
->The third line is where the hard work happens: it creates a new data type called `CGImage` from the output image of the current filter. We need to specify which part of the image we want to render, but using `image.extent` means "all of it." Until this method is called, no actual processing is done, so this is the one that does the real work. This returns an optional `CGImage` so we need to check and unwrap with `if let`.
+>3. The third line is _where the hard work happens_: **it creates a new data type called `CGImage` from the output image of the current filter.** 
+>* We need to specify which part of the image we want to render, but using `image.extent` means "all of it." 
+>* Until this method is called, no actual processing is done, so this is the one that does the real work. This returns an optional `CGImage` so we need to check and unwrap with `if let`.
 >
->The fourth line creates a new `UIImage` from the `CGImage`, and line five assigns that `UIImage` to our image view. Yes, I know that `UIImage`, `CGImage` and `CIImage` all sound the same, but they are different under the hood and we have no choice but to use them here.
+>4. The fourth line creates a new `UIImage` from the `CGImage`, and line five assigns that `UIImage` to our image view. Yes, I know that `UIImage`, `CGImage` and `CIImage` all sound the same, but they are different under the hood and we have no choice but to use them here.
 >
 >You can now press Cmd+R to run the project as-is, then import a picture and make it sepia toned. It might be a little slow in the simulator, but I can promise you it runs brilliantly on devices - Core Image is extraordinarily fast.
 >
