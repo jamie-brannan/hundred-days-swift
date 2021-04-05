@@ -12,6 +12,12 @@
 >
 >**Today you have three topics to work through, and you’ll learn about `UISlider` while also getting some practice with `UIImagePickerController`, and more.**
 
+- [*Day 52 • Monday April 05, 2021*](#day-52--monday-april-05-2021)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Designing the interface](#two--designing-the-interface)
+  - [:three: Importing a picture](#three-importing-a-picture)
+    - [Add import image button](#add-import-image-button)
+
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/13/1/setting-up) 
 
 >In project 10 you learned how to use `UIImagePickerController` to select and import a picture from your user's photo library. In this project, **we're going to add the reverse**: _writing images back to the photo library_. But because you're here to learn as much as possible, I'm also going to introduce you to another UIKit component, `UISlider`, and also a little bit of Core Image, which is Apple's high-speed image manipulation toolkit.
