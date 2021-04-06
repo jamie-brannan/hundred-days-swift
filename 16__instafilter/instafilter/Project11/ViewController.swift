@@ -82,7 +82,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   }
   
   @IBAction func save(_ sender: Any) {
-    guard let image = imageView.image else { return }
+    let warningAC = UIAlertController(title: "Ooops!", message: "You have not selected an image to edit yet.", preferredStyle: .alert)
+    warningAC.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+    guard let image = imageView.image else { return present(warningAC, animated: true) }
 
     UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
   }

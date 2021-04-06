@@ -30,7 +30,19 @@ That’s another project finished, and one that should be able to make some real
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
 >1. Try making the Save button show an error if there was no image in the image view.
->
+
+```swift
+  @IBAction func save(_ sender: Any) {
+    let warningAC = UIAlertController(title: "Ooops!", message: "You have not selected an image to edit yet.", preferredStyle: .alert)
+    warningAC.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+    guard let image = imageView.image else { return present(warningAC, animated: true) }
+
+    UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+  }
+```
+
+:white_check_mark: Complete
+
 >2. Make the Change Filter button change its title to show the name of the currently selected filter.
 >
 >3. Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
