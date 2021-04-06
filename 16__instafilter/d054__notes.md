@@ -44,7 +44,12 @@ That’s another project finished, and one that should be able to make some real
 :white_check_mark: Complete
 
 >2. Make the Change Filter button change its title to show the name of the currently selected filter.
->
+
+  - [x]  add outlet to button on view
+  - [x]  program button to always be set to the name of the currentFilter
+
+For looped over possible titles, then used a `changeFilterButton.setTitle("CISepiaTone", for: .normal)` on a new outlet
+
 >3. Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
 
 ## :two: [Review for Project 13: Instafilter](https://www.hackingwithswift.com/review/hws/project-13-instafilter) 
