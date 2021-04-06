@@ -139,7 +139,7 @@ Days organized by folders containing
 |---|---|---|---|
 | Day 52 | April 5 | :white_check_mark: | Project 13, part i, set up project by practicing auto-layout, ImpagePicker import |
 | Day 53 | April 5 | :white_check_mark: | Project 13, part ii, working with CoreImages I added and switched filters, changed intesity and saved back to photos. |
-| Day 54 | April ~ | ~ | Project 13, part iii |
+| Day 54 | April 6 | ~ | Project 13, part iii |
 | Day 55 | April ~ | ~ | Project 14, part i |
 | Day 56 | April ~ | ~ | Project 14, part ii |
 | Day 57 | April ~ | ~ | Project 15, part i |

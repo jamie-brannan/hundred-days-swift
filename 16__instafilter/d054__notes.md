@@ -52,6 +52,10 @@ For looped over possible titles, then used a `changeFilterButton.setTitle("CISep
 
 >3. Experiment with having more than one slider, to control each of the input keys you care about. For example, you might have one for radius and one for intensity.
 
+What other slider could we possibly want?
+
+What is the name of the types of inputs the filters can have (but not all have?)
+
 ## :two: [Review for Project 13: Instafilter](https://www.hackingwithswift.com/review/hws/project-13-instafilter) 
 
 ### :boom: Quiz insights
