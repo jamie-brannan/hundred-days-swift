@@ -1,17 +1,17 @@
 # *Day 54 • Tuesday April 06, 2021*
 
-Isn’t Core Image amazing? We only dabbled with a handful of effects, but even then it can do things in real-time that would take weeks if not months to code by hand. Even better, it automatically takes full advantage of the GPU and Metal, so you’re guaranteed maximum performance even though we barely wrote any code.
-
-I hope this has given you the taste for exploration. The challenges you’ll be completing today focus on enhancing what you have, but I really do encourage you to look up the list of Core Image filters and try some of them out. It’s fun, you’ll learn stuff, and you’ll really embed your new Core Image knowledge deep inside your brain.
-
-Nate Berkus, a famous American interior designer, once said “you will enrich your life immeasurably if you approach it with a sense of wonder and discovery, and always challenge yourself to try new things.” Well, this is your chance: step out into the world of Core Image, allow yourself to be playful for a while, and see what you can create!
-
-Today you should work through the wrap up chapter for project 13, complete its review, then work through all three of its challenges.
-
-* Wrap up
-* Review for Project 13: Instafilter
-
-That’s another project finished, and one that should be able to make some really interesting and experimental images! This is a great point to share your progress with others.
+>Isn’t Core Image amazing? We only dabbled with a handful of effects, but even then it can do things in real-time that would take weeks if not months to code by hand. Even better, it automatically takes full advantage of the GPU and Metal, so you’re guaranteed maximum performance even though we barely wrote any code.
+>
+>I hope this has given you the taste for exploration. The challenges you’ll be completing today focus on enhancing what you have, but I really do encourage you to look up the list of Core Image filters and try some of them out. It’s fun, you’ll learn stuff, and you’ll really embed your new Core Image knowledge deep inside your brain.
+>
+>Nate Berkus, a famous American interior designer, once said “you will enrich your life immeasurably if you approach it with a sense of wonder and discovery, and always challenge yourself to try new things.” Well, this is your chance: step out into the world of Core Image, allow yourself to be playful for a while, and see what you can create!
+>
+>Today you should work through the wrap up chapter for project 13, complete its review, then work through all three of its challenges.
+>
+>* Wrap up
+>* Review for Project 13: Instafilter
+>
+>That’s another project finished, and one that should be able to make some really interesting and experimental images! This is a great point to share your progress with others.
 
 ## :one: [Wrap up](https://www.hackingwithswift.com/read/13/6/wrap-up) 
 
@@ -55,6 +55,52 @@ For looped over possible titles, then used a `changeFilterButton.setTitle("CISep
 What other slider could we possibly want?
 
 What is the name of the types of inputs the filters can have (but not all have?)
+
+We're working with [CIFilter](https://developer.apple.com/documentation/coreimage/cifilter)
+* _You use the CIFilter object in conjunction with other Core Image classes, such as CIImage, CIContext, and CIColor, to take advantage of the built-in Core Image filters when processing images, creating filter generators, or writing custom filters._
+
+The CIFilter class automatically manages input parameters when archiving, copying, and deallocating filters. For this reason, your subclass must obey the following guidelines to ensure proper behavior:
+>
+>* Store input parameters in instance variables whose names are prefixed with input.
+>
+>* Don’t use auto-synthesized instance variables, because their names are automatically prefixed with an underscore. Instead, synthesize the property manually. For example: `@synthesize inputMyParameter;`
+>
+>* If using manual reference counting, don’t release input parameter instance variables in your dealloc method implementation. The dealloc implementation in the CIFilter class uses Key-value coding to automatically set the values of all input parameters to nil.
+
+So currently we have : `@IBOutlet var intensitySlider: UISlider!`, whic is applied...
+
+```swift
+  func applyProcessing() {
+    let inputKeys = currentFilter.inputKeys
+    
+    if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intensitySlider.value, forKey: kCIInputIntensityKey) }
+    if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(intensitySlider.value * 200, forKey: kCIInputRadiusKey) }
+    if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(intensitySlider.value * 10, forKey: kCIInputScaleKey) }
+    if inputKeys.contains(kCIInputCenterKey) { currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey) }
+    
+    if let cgimg = context.createCGImage(currentFilter.outputImage!, from: currentFilter.outputImage!.extent) {
+      let processedImage = UIImage(cgImage: cgimg)
+      self.imageView.image = processedImage
+    }
+  }
+```
+
+So what if for [Filter Parameter Keys](https://developer.apple.com/documentation/coreimage/cifilter/filter_parameter_keys)...
+* kCIInputIntensityKey
+* kCIInputRadiusKey
+* kCIInputScaleKey
+* kCIInputCenterKey
+
+These are constants for the Filter but not all filters use all the constants. Right now we use more than parameter key to hold the value of the slider.
+
+`intensitySlider` linked only to :arrow_right: `kCIInputIntensityKey`
+
+:heavy_plus_sign: 3?
+
+  - [x]  add slider to storyboard
+  - [x]  refactor the `kCIInputRadiusKey`
+  - [x]  completely re did all of the constraints by hand (good practice)
+
 
 ## :two: [Review for Project 13: Instafilter](https://www.hackingwithswift.com/review/hws/project-13-instafilter) 
 
