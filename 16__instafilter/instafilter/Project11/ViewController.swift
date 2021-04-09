@@ -13,12 +13,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   // MARK: Outlets
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var intensitySlider: UISlider!
+  @IBOutlet var radiusSlider: UISlider!
+  @IBOutlet var changeFilterButton: UIButton!
   
   // MARK: Properties
   var currentImage: UIImage!
   
   var context: CIContext!
   var currentFilter: CIFilter!
+  var filters: [String] = ["CIBumpDistortion", "CIGaussianBlur", "CIPixellate", "CISepiaTone", "CITwirlDistortion", "CIUnsharpMask", "CIVignette" ]
   
   // MARK: Lifecycle
   
@@ -30,6 +33,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     context = CIContext()
     currentFilter = CIFilter(name: "CISepiaTone")
+    changeFilterButton.setTitle("CISepiaTone", for: .normal)
   }
   
   // MARK: - Iamge handling
@@ -70,19 +74,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   // MARK: Buttons
   @IBAction func changeFilter(_ sender: Any) {
     let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
-    ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CIPixellate", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CISepiaTone", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CIUnsharpMask", style: .default, handler: setFilter))
-    ac.addAction(UIAlertAction(title: "CIVignette", style: .default, handler: setFilter))
+    for filter in filters {
+      ac.addAction(UIAlertAction(title: filter, style: .default, handler: setFilter))
+    }
     ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
     present(ac, animated: true)
   }
   
   @IBAction func save(_ sender: Any) {
-    guard let image = imageView.image else { return }
+    let warningAC = UIAlertController(title: "Ooops!", message: "You have not selected an image to edit yet.", preferredStyle: .alert)
+    warningAC.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+    guard let image = imageView.image else { return present(warningAC, animated: true) }
 
     UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
   }
@@ -93,13 +95,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   
   // MARK: Image processing
   func setFilter(action: UIAlertAction) {
-    // make sure we have a valid image before continuing!
     guard currentImage != nil else { return }
-    
-    // safely read the alert action's title
     guard let actionTitle = action.title else { return }
     
     currentFilter = CIFilter(name: actionTitle)
+    changeFilterButton.setTitle(actionTitle, for: .normal)
     
     let beginImage = CIImage(image: currentImage)
     currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let inputKeys = currentFilter.inputKeys
     
     if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intensitySlider.value, forKey: kCIInputIntensityKey) }
-    if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(intensitySlider.value * 200, forKey: kCIInputRadiusKey) }
+    if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(radiusSlider.value * 200, forKey: kCIInputRadiusKey) }
     if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(intensitySlider.value * 10, forKey: kCIInputScaleKey) }
     if inputKeys.contains(kCIInputCenterKey) { currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey) }
     
