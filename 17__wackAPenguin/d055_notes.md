@@ -1,26 +1,35 @@
 # *Day 55 • Friday April 09, 2021*
 
->Ezra Koenig said “some people say video games rot your brain, but I think they work different muscles that maybe you don't normally use.” By now you should know I believe that idea extends further: making video games works different muscles that you wouldn’t otherwise use making apps or similar.
+>Ezra Koenig said _“some people say video games rot your brain, but I think they work different muscles that maybe you don't normally use.”_ By now you should know I believe that idea extends further: making video games works different muscles that you wouldn’t otherwise use making apps or similar.
 >
->Yes, you might decide making games is what you want to do on iOS, and maybe you’ll even be lucky enough to get into Apple’s Arcade program. Of course, you’re also just as likely to decide that your goal is to make apps, but even then the skills you learn making games will prove useful.
->
->In this project, the skills include loops, masking, GCD, and more – all the kinds of things you can use regardless of whether you decide games are for you. And of course the deeper skill is learning how to structure Swift to solve problems – practicing the art of understanding code flow across larger projects.
->
+>Yes, you might decide making games is what you want to do on iOS, and maybe you’ll even be _lucky enough to get into_**Apple’s Arcade program**. Of course, you’re also just as likely to decide that your goal is to make apps, but even then the skills you learn making games will prove useful.
+
+Is the Arcade program invite only? Or can you apply to it?
+
+>In this project, the skills include **loops**, **masking**, **GCD**, and more – all the kinds of things you can use regardless of whether you decide games are for you. And of course the deeper skill is learning how to structure Swift to solve problems – practicing the art of understanding code flow across larger projects.
+
+Nice!
+
 >So, whether or not you decide to make games in the future, there’s lots to learn in this project!
 >
 >**Today you have three topics to work through, and you’ll learn about `SKCropNode`, `SKTexture`, and more.**
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/14/1/setting-up) 
 
->It's time for another game, and we'll be using more of SpriteKit to build a whack-a-mole game, except with penguins because Whack-a-Penguin isn't trademarked. You're going to learn about `SKCropNode`, `SKTexture` and some more types of `SKAction`, and we'll also use more GCD to execute closures after a delay.
->
+>It's time for another game, and we'll be using more of SpriteKit to build a whack-a-mole game, except with penguins because Whack-a-Penguin isn't trademarked. You're going to learn about `SKCropNode`, `SKTexture` and some more types of `SKAction`, and we'll also use more **GCD** to execute closures after a delay.
+
+:question: *What is GCD though?*
+
 >Create a new SpriteKit game project in Xcode, named Project14 and targeting landscape iPads, then delete most of the example code just like you did in project 11 – you want the same clean project, with no “Hello World” template content.
->
+
+Set up things right, but not sure what example code we should clear out.
+
 >If you don’t remember all the steps, here’s the abridged version:
 >
->* Delete Actions.sks.
->* Open GameScene.sks and delete the “Hello World” label.
->* Change the scene’s anchor point to X:0 Y:0, its width to 1024 and its height to 768.
+>   - [x]  Delete Actions.sks.
+>   - [x]  Open GameScene.sks and delete the “Hello World” label.
+>   - [c]  Change the scene’s anchor point to X:0 Y:0, its width to 1024 and its height to 768.
+> >
 >Finally, remove almost everything in GameScene.swift so that it looks like this:
 
 ```swift
@@ -35,8 +44,11 @@ class GameScene: SKScene {
 }
 ```
 
+
 >I won’t be repeating those instructions again from now on.
->
+
+:white_check_mark: great, all cleared up.
+
 >Now download the files for this project from GitHub (https://github.com/twostraws/HackingWithSwift) and copy the assets from the Content folder into your Xcode project.
 >
 >All set? Open up GameScene.swift and get whacking!
