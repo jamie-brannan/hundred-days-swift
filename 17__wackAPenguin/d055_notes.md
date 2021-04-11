@@ -93,9 +93,13 @@ override func didMove(to view: SKView) {
 ```
 
 >If you run the "game" now you'll see a grassy background with a tree on one side, plus the score label at the bottom left. We’re going to be doing much more with that in a moment, but first we need to fix one small but important bug: our game will look wrong on certain devices.
->
->We set our game scene to have the size 1024x768, which will be sized correctly for most iPads. However, the 11-inch iPad Pro is a little bit special: it has an aspect ratio that’s ever so slightly different from the other iPads, and the default behavior of our Xcode template is to stretch the game so the edges get cut off.
->
+
+:deciduous_tree: How pretty!
+
+>We set our game scene to have the size 1024x768, which will be sized correctly for most iPads. However, the 11-inch iPad Pro is a little bit special: _it has an aspect ratio that’s ever so slightly different from the other iPads_, and the default behavior of our Xcode template is to stretch the game so the edges get cut off.
+
+Is this part of the R and C differences of screen ratios that you can see on iPhones too?
+
 >Very often that solution is perfectly fine – the difference is only very slight, after all – but in this case we can ask SpriteKit to gently stretch our scene so that it fits the device dimensions no matter what aspect ratio.
 >
 >To do that, open GameViewController.swift and find this line of code:
@@ -109,6 +113,8 @@ scene.scaleMode = .aspectFill
 ```swift
 scene.scaleMode = .fill
 ```
+
+:white_check_mark: all set.
 
 >If you run the game again you’ll see it looks identical on iPad, iPad Air, and iPad Pro 12.9-inch, but it is ever so slightly stretched on the 11-inch iPad Pro – imperceptible, really, but it avoids our score lying off the screen.
 >
