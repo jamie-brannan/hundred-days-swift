@@ -50,7 +50,10 @@ class GameScene: SKScene {
 :white_check_mark: great, all cleared up.
 
 >Now download the files for this project from GitHub (https://github.com/twostraws/HackingWithSwift) and copy the assets from the Content folder into your Xcode project.
->
+
+In the video it says to add the `png` to the `Assets` as I'd though, but the `caf` being sound files can be set in the main arborecence – on the popup menu that comes up, it's important to click :heavy_check_mark: the Target.
+* :question: *What does adding files to the target matter in Xcode? Or in otherwords, what exactly am I asking it to do when I click this option?*
+
 >All set? Open up GameScene.swift and get whacking!
 >
 >Reminder: When working with SpriteKit projects I strongly recommend you use a device if possible. If you don’t have a physical iPad to hand, use the lowest-spec iPad simulator rather than something like the 12.9-inch iPad Pro – you'll get much slightly frame rates, making it much more suitable for testing.
