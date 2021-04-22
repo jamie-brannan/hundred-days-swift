@@ -9,6 +9,7 @@ import SpriteKit
 
 class GameScene: SKScene {
   // MARK: - Properties
+  var slots = [WhackSlot]()
   var gameScore: SKLabelNode!
   var score = 0 {
     didSet {

@@ -15,6 +15,7 @@
 		11435C04262388AA00602ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11435C03262388AA00602ED7 /* Assets.xcassets */; };
 		11435C0F26238A4900602ED7 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0D26238A4900602ED7 /* whackBad.caf */; };
 		11435C1026238A4900602ED7 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0E26238A4900602ED7 /* whack.caf */; };
+		116902922630B41700DAD5C6 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116902912630B41700DAD5C6 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		11435C05262388AA00602ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11435C0D26238A4900602ED7 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		11435C0E26238A4900602ED7 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		116902912630B41700DAD5C6 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				11435C05262388AA00602ED7 /* Info.plist */,
 				11435C0E26238A4900602ED7 /* whack.caf */,
 				11435C0D26238A4900602ED7 /* whackBad.caf */,
+				116902912630B41700DAD5C6 /* WhackSlot.swift */,
 			);
 			path = Project14;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				11435BFD262388A900602ED7 /* GameScene.swift in Sources */,
 				11435BFF262388A900602ED7 /* GameViewController.swift in Sources */,
+				116902922630B41700DAD5C6 /* WhackSlot.swift in Sources */,
 				11435BF7262388A900602ED7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

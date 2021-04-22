@@ -1,4 +1,4 @@
-# *Day 55 • Friday April 09, 2021*
+# *Day 55 • Friday April 11, 21 2021*
 
 >Ezra Koenig said _“some people say video games rot your brain, but I think they work different muscles that maybe you don't normally use.”_ By now you should know I believe that idea extends further: making video games works different muscles that you wouldn’t otherwise use making apps or similar.
 >
@@ -13,6 +13,12 @@ Nice!
 >So, whether or not you decide to make games in the future, there’s lots to learn in this project!
 >
 >**Today you have three topics to work through, and you’ll learn about `SKCropNode`, `SKTexture`, and more.**
+
+- [*Day 55 • Friday April 11, 21 2021*](#day-55--friday-april-11-21-2021)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Getting up and running SKCropNode](#two--getting-up-and-running-skcropnode)
+    - [Add wack-a-mole holes](#add-wack-a-mole-holes)
+  - [:three:  Penguin, show theyself: SKAction moveBy(x:y:duration:)](#three--penguin-show-theyself-skaction-movebyxyduration)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/14/1/setting-up) 
 
@@ -117,15 +123,22 @@ scene.scaleMode = .fill
 :white_check_mark: all set.
 
 >If you run the game again you’ll see it looks identical on iPad, iPad Air, and iPad Pro 12.9-inch, but it is ever so slightly stretched on the 11-inch iPad Pro – imperceptible, really, but it avoids our score lying off the screen.
->
+
+### Add wack-a-mole holes
+
 >Now that the small layout bug is fixed, the next job is to fill our game scene with holes, with a penguin in each hole. We want each hole to do as much work itself as possible, so rather than clutter our game scene with code we're going to create a subclass of `SKNode` that will encapsulate all hole related functionality.
 >
->Add a new file, choosing iOS > Source > Cocoa Touch Class, make it a subclass of `SKNode` and name it "WhackSlot". You've already met `SKSpriteNode`, `SKLabelNode` and `SKEmitterNode`, and they all come from `SKNode`. This base class doesn't draw images like sprites or hold text like labels; it just sits in our scene at a position, holding other nodes as children.
+>Add a new file, choosing iOS > Source > Cocoa Touch Class, make it a subclass of `SKNode` and name it "WhackSlot". 
+>* You've already met `SKSpriteNode`, `SKLabelNode` and `SKEmitterNode`, and they all come from `SKNode`. 
+>
+>This base class doesn't draw images like sprites or hold text like labels; it just sits in our scene at a position, holding other nodes as children.
 >
 >Note: If you were wondering why we're not calling the class WhackHole it's because a slot is more than just a hole. It will contain a hole, yes, but it will also contain the penguin image and more.
 >
->When you create the subclass you will immediately get a compile error, because Swift claims not to know what `SKNode` is. This is easily fixed by adding the line `import SpriteKit `at the top of your file, just above the `import UIKit`.
->
+>When you create the subclass you will immediately get a compile error, because Swift claims not to know what `SKNode` is. This is easily fixed by adding the line `import SpriteKit` at the top of your file, just above the `import UIKit`.
+
+:white_check_mark: File started with correct imports.
+
 >To begin with, all we want the `WhackSlot` class to do is add a hole at its current position, so add this method to your new class:
 
 ```swift
@@ -140,12 +153,12 @@ func configure(at position: CGPoint) {
 >You might wonder why we aren't using an initializer for this purpose, but the truth is that if you created a custom initializer you get roped into creating others because of Swift's `required init` rules. If you don't create any custom initializers (and don't have any non-optional properties) Swift will just use the parent class's `init()` methods.
 >
 >We want to create four rows of slots, with five slots in the top row, then four in the second, then five, then four. This creates quite a pleasing shape, but as we're creating lots of slots we're going to need three things:
-
+>
 > 1. An array in which we can store all our slots for referencing later.
-> 2. A createSlot(at:) method that handles slot creation.
+> 2. A `createSlot(at:)` method that handles slot creation.
 > 3. Four loops, one for each row.
-
->The first item is easy enough – just add this property above the existing gameScore definition in GameScene.swift:
+>
+>The first item is easy enough – just add this property above the existing `gameScore` definition in GameScene.swift:
 
 ```swift
 var slots = [WhackSlot]()
