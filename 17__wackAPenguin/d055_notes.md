@@ -184,6 +184,8 @@ for i in 0 ..< 5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 230)) }
 for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 140)) }
 ```
 
+Fix points.
+
 >Remember that higher Y values in SpriteKit place nodes towards the top of the scene, so those lines create the uppermost slots first then work downwards.
 >
 >In case you've forgotten, ..< is the half-open range operator, meaning that the first loop will count 0, 1, 2, 3, 4 then stop. The i is useful because we use that to calculate the X position of each slot.
@@ -236,7 +238,7 @@ cropNode.maskNode = SKSpriteNode(imageNamed: "whackMask")
 
 >If you run the game now, you'll see the penguins are invisible. They are still there, of course, but now can't be seen.
 
-
+:white_check_mark:  Added mask
 
 ## :three:  [Penguin, show theyself: SKAction moveBy(x:y:duration:)](https://www.hackingwithswift.com/read/14/3/penguin-show-thyself-skaction-movebyxyduration) 
 
