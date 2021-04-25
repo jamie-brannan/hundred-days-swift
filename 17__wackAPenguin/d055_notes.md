@@ -19,6 +19,7 @@ Nice!
   - [:two:  Getting up and running SKCropNode](#two--getting-up-and-running-skcropnode)
     - [Add wack-a-mole holes](#add-wack-a-mole-holes)
   - [:three:  Penguin, show theyself: SKAction moveBy(x:y:duration:)](#three--penguin-show-theyself-skaction-movebyxyduration)
+  - [Changing texture](#changing-texture)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/14/1/setting-up) 
 
@@ -253,13 +254,19 @@ var isVisible = false
 var isHit = false
 ```
 
->Showing a penguin for the player to tap on will be handled by a new method called `show()`. This will make the character slide upwards so it becomes visible, then set `isVisible` to be true and `isHit` to be false. The movement is going to be created by a new `SKAction`, called `moveBy(x:y:duration:)`.
+:white_check_mark: Added
+
+>Showing a penguin for the player to tap on will be handled by a new method called `show()`. 
+>* This will make the character slide upwards so it becomes visible, then set `isVisible` to be true and `isHit` to be false. 
+>* The movement is going to be created by a new `SKAction`, called `moveBy(x:y:duration:)`.
 >
->This method will also decide whether the penguin is good or bad – i.e., whether the player should hit it or not. This will be done using Swift’s `Int.random()` method: one-third of the time the penguin will be good; the rest of the time it will be bad.
+>This method will also decide whether the penguin is good or bad – i.e., whether the player should hit it or not. >* This will be done using Swift’s `Int.random()` method: one-third of the time the penguin will be good; the rest of the time it will be bad.
 >
 >To make it clear to the player which is which, we have two different pictures: penguinGood and penguinEvil. We can change the image inside our penguin sprite by changing its `texture` property. This takes a new class called `SKTexture`, which is to `SKSpriteNode` sort of what `UIImage` is to `UIImageView` – it holds image data, but isn't responsible for showing it.
->
->Changing the character node's texture like this is helpful because it means we don't need to keep adding and removing nodes. Instead, we can just change the texture to match what kind of penguin this is, then change the node name to match so we can do tap detection later on.
+
+## Changing texture
+
+>**Changing the character node's texture** like this is helpful because it means we don't need to keep adding and removing nodes. Instead, we can just change the texture to match what kind of penguin this is, then change the node name to match so we can do tap detection later on.
 >
 >However, all the above should only happen if the slot isn't already visible, because it could cause havoc. So, the very first thing the method needs to do is check whether `isVisible` is true, and if so exit.
 >
