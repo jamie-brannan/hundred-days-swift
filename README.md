@@ -141,7 +141,7 @@ Days organized by folders containing
 | Day 53 | April 5 | :white_check_mark: | Project 13, part ii, working with CoreImages I added and switched filters, changed intesity and saved back to photos. |
 | Day 54 | April 6,8 | :white_check_mark: | Project 13, part iii, completed review challenges : error message display, filter change feature, and adding a radius slider – including re-adding constraints by hand to the storyboard so it was responsive. Some tricks I was able to recall from work, but others did not work as precisely as I'd like – but doesn't take away from how great it feels to be not so afraid of storyboards! :joy: |
 | Day 55 | April 11, 21, 24, 25 | ~ | Project 14, part i, A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
-| Day 56 | April ~ | ~ | Project 14, part ii |
+| Day 56 | May 3 | ~ | Project 14, part ii |
 | Day 57 | April ~ | ~ | Project 15, part i |
 | Day 58 | April ~ | ~ | Project 15, part ii |
 
