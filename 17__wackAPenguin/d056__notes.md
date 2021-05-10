@@ -200,11 +200,46 @@ if numRounds >= 30 {
 
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
-> 1. Record your own voice saying "Game over!" and have it play when the game ends.
->
-> 2. When showing “Game Over” add an SKLabelNode showing their final score.
->
-> 3. Use SKEmitterNode to create a smoke-like effect when penguins are hit, and a separate mud-like effect when they go into or come out of a hole.
+#### 1. Record your own voice saying "Game over!" and have it play when the game ends.
+
+:question: *What file type should I go for? Does it necessarily have to be `.caf` like the other files?* 
+* What are the advantages of `.caf` files?
+
+:pushpin: [**Wikipedia**](https://en.wikipedia.org/wiki/Core_Audio_Format) : *Core Audio Format*
+* _a .caf container can contain many different audio formats, metadata tracks, and much more data._
+* _Like the RF64, it is not limited to a 4 GB file size and a single .caf file can theoretically save hundreds of years of recorded audio due to its use of 64-bit file offsets_
+* https://developer.apple.com/library/archive/documentation/MusicAudio/Reference/CAFSpec/CAF_overview/CAF_overview.html#//apple_ref/doc/uid/TP40001862-CH209-TPXREF101
+
+Recorded audio with VoiceNotes app, converted in VLC to `.wav` format.
+
+Added file to Project14
+
+_“Using the `playSoundFileNamed(_:waitForCompletion:)` action, it takes just one line of code to play a sound effect with SpriteKit. The node on which you run this action doesn’t matter, so typically you’ll run it as an action on the scene itself.”_ (Excerpt From: By Ray Wenderlich. “2D Apple Games by Tutorials”. Apple Books. )
+* in the book example they use `.wav`
+
+We use `playSoundFileNamed` already in `GameScene.swift`.
+
+:question: *Where exactly do I place the `run` for the SKAction to play the sound associated with the Game Over screen though?* 
+
+:red_circle: `SKAction: Error loading sound resource: "gameOver.wav"` So maybe this is the file format?
+
+```sh
+2021-05-10 12:33:01.575042+0200 Project14[14542:467059] Metal GPU Frame Capture Enabled
+2021-05-10 12:33:01.575242+0200 Project14[14542:467059] Metal API Validation Enabled
+2021-05-10 12:33:07.004273+0200 Project14[14542:467246] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x600003402aa0> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2021-05-10 12:33:07.164561+0200 Project14[14542:467421] [aurioc] AURemoteIO.h:323:entry: Unable to join I/O thread to workgroup ((null)): 2
+2021-05-10 12:33:07.165158+0200 Project14[14542:467059] ExtAudioFile.cpp:665:SetClientFormat: about to throw 'fmt?': create audio converter
+2021-05-10 12:33:07.165283+0200 Project14[14542:467059] SKAction: Error loading sound resource: "gameOver.wav"
+2021-05-10 12:33:07.165504+0200 Project14[14542:467059] ExtAudioFile.cpp:665:SetClientFormat: about to throw 'fmt?': create audio converter
+2021-05-10 12:33:07.165639+0200 Project14[14542:467059] SKAction: Error loading sound resource: "gameOver.wav"
+```
+
+**Converted to `caf`**, but now ... :red_circle: `2021-05-10 12:54:00.121684+0200 Project14[15191:505253] [aurioc] AURemoteIO.h:323:entry: Unable to join I/O thread to workgroup ((null)): 2`
+
+#### 2. When showing “Game Over” add an SKLabelNode showing their final score.
+
+
+#### 3. Use SKEmitterNode to create a smoke-like effect when penguins are hit, and a separate mud-like effect when they go into or come out of a hole.
 
 ## :three:  [Review for project : Whack-a-penguin](https://www.hackingwithswift.com/review/hws/project-14-whack-a-penguin) 
 

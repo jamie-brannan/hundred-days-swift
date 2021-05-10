@@ -16,6 +16,7 @@
 		11435C0F26238A4900602ED7 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0D26238A4900602ED7 /* whackBad.caf */; };
 		11435C1026238A4900602ED7 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0E26238A4900602ED7 /* whack.caf */; };
 		116902922630B41700DAD5C6 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116902912630B41700DAD5C6 /* WhackSlot.swift */; };
+		11CC53642649464200B0C7B5 /* gameOver.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11CC53632649464200B0C7B5 /* gameOver.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		11435C0D26238A4900602ED7 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		11435C0E26238A4900602ED7 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		116902912630B41700DAD5C6 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
+		11CC53632649464200B0C7B5 /* gameOver.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				11435BF6262388A900602ED7 /* AppDelegate.swift */,
 				11435BF8262388A900602ED7 /* GameScene.sks */,
 				11435BFC262388A900602ED7 /* GameScene.swift */,
+				11CC53632649464200B0C7B5 /* gameOver.caf */,
 				11435BFE262388A900602ED7 /* GameViewController.swift */,
 				11435C00262388A900602ED7 /* Main.storyboard */,
 				11435C03262388AA00602ED7 /* Assets.xcassets */,
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CC53642649464200B0C7B5 /* gameOver.caf in Resources */,
 				11435C02262388A900602ED7 /* Main.storyboard in Resources */,
 				11435C1026238A4900602ED7 /* whack.caf in Resources */,
 				11435C0F26238A4900602ED7 /* whackBad.caf in Resources */,
