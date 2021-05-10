@@ -16,6 +16,9 @@
 		11435C0F26238A4900602ED7 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0D26238A4900602ED7 /* whackBad.caf */; };
 		11435C1026238A4900602ED7 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11435C0E26238A4900602ED7 /* whack.caf */; };
 		116902922630B41700DAD5C6 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116902912630B41700DAD5C6 /* WhackSlot.swift */; };
+		11CC53642649464200B0C7B5 /* gameOver.caf in Resources */ = {isa = PBXBuildFile; fileRef = 11CC53632649464200B0C7B5 /* gameOver.caf */; };
+		11CC5368264972DC00B0C7B5 /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 11CC5367264972DC00B0C7B5 /* Smoke.sks */; };
+		11CC536A2649741900B0C7B5 /* Mud.sks in Resources */ = {isa = PBXBuildFile; fileRef = 11CC53692649741900B0C7B5 /* Mud.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		11435C0D26238A4900602ED7 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		11435C0E26238A4900602ED7 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		116902912630B41700DAD5C6 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
+		11CC53632649464200B0C7B5 /* gameOver.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.caf; sourceTree = "<group>"; };
+		11CC5367264972DC00B0C7B5 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
+		11CC53692649741900B0C7B5 /* Mud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Mud.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,9 @@
 				11435BF6262388A900602ED7 /* AppDelegate.swift */,
 				11435BF8262388A900602ED7 /* GameScene.sks */,
 				11435BFC262388A900602ED7 /* GameScene.swift */,
+				11CC5367264972DC00B0C7B5 /* Smoke.sks */,
+				11CC53692649741900B0C7B5 /* Mud.sks */,
+				11CC53632649464200B0C7B5 /* gameOver.caf */,
 				11435BFE262388A900602ED7 /* GameViewController.swift */,
 				11435C00262388A900602ED7 /* Main.storyboard */,
 				11435C03262388AA00602ED7 /* Assets.xcassets */,
@@ -133,8 +142,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CC53642649464200B0C7B5 /* gameOver.caf in Resources */,
 				11435C02262388A900602ED7 /* Main.storyboard in Resources */,
+				11CC5368264972DC00B0C7B5 /* Smoke.sks in Resources */,
 				11435C1026238A4900602ED7 /* whack.caf in Resources */,
+				11CC536A2649741900B0C7B5 /* Mud.sks in Resources */,
 				11435C0F26238A4900602ED7 /* whackBad.caf in Resources */,
 				11435BF9262388A900602ED7 /* GameScene.sks in Resources */,
 				11435C04262388AA00602ED7 /* Assets.xcassets in Resources */,
@@ -220,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -275,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
