@@ -214,8 +214,9 @@ Recorded audio with VoiceNotes app, converted in VLC to `.wav` format.
 
 Added file to Project14
 
-_“Using the `playSoundFileNamed(_:waitForCompletion:)` action, it takes just one line of code to play a sound effect with SpriteKit. The node on which you run this action doesn’t matter, so typically you’ll run it as an action on the scene itself.”_ (Excerpt From: By Ray Wenderlich. “2D Apple Games by Tutorials”. Apple Books. )
-* in the book example they use `.wav`
+_“Using the `playSoundFileNamed(_:waitForCompletion:)` action, it takes just one line of code to play a sound effect with SpriteKit. The node on which you run this action doesn’t matter, so typically you’ll run it as an action on the scene itself.”_ 
+* (Excerpt From: By Ray Wenderlich. “2D Apple Games by Tutorials”. Apple Books. )
+  * in the book example they use `.wav`
 
 We use `playSoundFileNamed` already in `GameScene.swift`.
 
@@ -234,12 +235,30 @@ We use `playSoundFileNamed` already in `GameScene.swift`.
 2021-05-10 12:33:07.165639+0200 Project14[14542:467059] SKAction: Error loading sound resource: "gameOver.wav"
 ```
 
-**Converted to `caf`**, but now ... :red_circle: `2021-05-10 12:54:00.121684+0200 Project14[15191:505253] [aurioc] AURemoteIO.h:323:entry: Unable to join I/O thread to workgroup ((null)): 2`
+**Converted to `caf`**, but now ... :red_circle: `2021-05-10 12:54:00.121684+0200 Project14[15191:505253] [aurioc] AURemoteIO.h:323:entry: Unable to join I/O thread to workgroup ((null)): 2` :disappointed_relieved:
 
 #### 2. When showing “Game Over” add an SKLabelNode showing their final score.
 
+Add new label node placed right on the screen.
+
+```swift
+      let finalScore = SKLabelNode(fontNamed: "Chalkduster")
+      finalScore.text = "Final Score • \(score)"
+      finalScore.position = CGPoint(x: 512, y: 300)
+      finalScore.zPosition = 2
+      finalScore.horizontalAlignmentMode = .center
+      finalScore.fontSize = 48
+      addChild(finalScore)
+```
+
 
 #### 3. Use SKEmitterNode to create a smoke-like effect when penguins are hit, and a separate mud-like effect when they go into or come out of a hole.
+
+_“SpriteKit makes it incredibly easy to create and use particle systems by giving you a special node named `SKEmitterNode`, the sole purpose of which is to make particle systems and render them as quickly as possible.”_ 
+
+_“These templates give you a handy starting point from which to create your own particles. The items in the list are common particle configurations that you can adapt to your own needs. The following images show what each template looks like:”_
+
+* Excerpt From: By Ray Wenderlich. “2D Apple Games by Tutorials”. Apple Books.
 
 ## :three:  [Review for project : Whack-a-penguin](https://www.hackingwithswift.com/review/hws/project-14-whack-a-penguin) 
 
