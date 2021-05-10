@@ -83,12 +83,17 @@ class GameScene: SKScene {
       for slot in slots {
         slot.hide()
       }
+
+      run(SKAction.playSoundFileNamed("gameOver.caf", waitForCompletion: true))
+
       let gameOver = SKSpriteNode(imageNamed: "gameOver")
       gameOver.position = CGPoint(x: 512, y: 384)
       gameOver.zPosition = 1
       addChild(gameOver)
+            
       return
     }
+    
     popupTime *= 0.991 // number found just by trial and error, decreasing slowly over time
     slots.shuffle()
     slots[0].show(hideTime: popupTime)
