@@ -142,7 +142,7 @@ Days organized by folders containing
 | Day 54 | April 6,8 | :white_check_mark: | **Project 13, part iii** • completed review challenges : error message display, filter change feature, and adding a radius slider – including re-adding constraints by hand to the storyboard so it was responsive. Some tricks I was able to recall from work, but others did not work as precisely as I'd like – but doesn't take away from how great it feels to be not so afraid of storyboards! :joy: |
 | Day 55 | April 11, 21, 24, 25 | ~ | **Project 14, part i** • A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
 | Day 56 | May 3, 7, 10 | :question: | **Project 14, part ii** • Ran into a lot of technical difficulties with `wav` and `caf` audio formats (that I'll return to later), but still came a way with a complete project |
-| Day 57 | May ~ | ~ | **Project 15, part i** |
+| Day 57 | May 11 | ~ | **Project 15, part i** |
 | Day 58 | May ~ | ~ | **Project 15, part ii** |
 
 >The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
