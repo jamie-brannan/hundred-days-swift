@@ -47,7 +47,10 @@
 
 :white_check_mark: Added outlet called `tappedTappedButton`
 
->Every time the user taps the "Tap" button, we're going to execute a different animation. This will be accomplished by cycling through a counter, and moving an image view. To make all that work, you need to add two more properties to the class:
+>**Every time the user taps the "Tap" button, we're going to execute a different animation.** 
+>* This will be accomplished by cycling through a counter, and moving an image view. 
+>
+>To make all that work, you need to add two more properties to the class:
 
 ```swift
 var imageView: UIImageView!
