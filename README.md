@@ -143,7 +143,7 @@ Days organized by folders containing
 | Day 55 | April 11, 21, 24, 25 | ~ | **Project 14, part i** • A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
 | Day 56 | May 3, 7, 10 | :question: | **Project 14, part ii** • Ran into a lot of technical difficulties with `wav` and `caf` audio formats (that I'll return to later), but still came a way with a complete project |
 | Day 57 | May 11, 14, 16 | :heart_eyes; | **Project 15, part i** • Super fun first exploration of Core Animation which makes me think of how much easier animating may be in swift than with Adobe After Effects if I really tune into the documentation and practice different projects :joy: |
-| Day 58 | May ~ | ~ | **Project 15, part ii** • |
+| Day 58 | May 16 | :white_check_mark: | **Project 15, part ii** • Suprisingly inutive, the challenges just flew by. :rocket: |
 
 >The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
 
