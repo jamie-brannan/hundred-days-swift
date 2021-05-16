@@ -18,6 +18,11 @@
   - [:two:  Preparing for action](#2️⃣-preparing-for-action)
   - [:three:  Switch, case, animate, animate(withDuration:)](#3️⃣-switch-case-animate-animatewithduration)
   - [:four:  Transform CGAffineTransform](#4️⃣-transform-cgaffinetransform)
+    - [Case 1: Scale up](#case-1-scale-up)
+    - [Case 2 : identity transform](#case-2--identity-transform)
+    - [Case 3 : transformations](#case-3--transformations)
+    - [Case 4 : rotations](#case-4--rotations)
+    - [Case 5 : properties](#case-5--properties)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/15/1/setting-up) 
 
@@ -140,3 +145,148 @@ if currentAnimation > 7 {
 :white_check_mark: Yup, no animation so no hiding, just the cases are established with the cases.
 
 ## :four:  [Transform CGAffineTransform](https://www.hackingwithswift.com/read/15/4/transform-cgaffinetransform) 
+
+>**Our code now has the perfect structure in place to let us dabble with animations freely**, so it's time to learn about `CGAffineTransform`. 
+>* This is a structure that represents a specific kind of transform that we can _apply to any `UIView` object or subclass_.
+>
+>Unless you're into mathematics, affine transforms can seem like a black art. 
+>* But Apple does provide some great helper functions to make it easier: there are functions to _scale up a view_, functions to _rotate_, functions to _move_, and functions to _reset back to default_.
+
+These are transformation in the geometric sense when you move objects points, right?
+
+We're going to show case all of these with our `cases`?
+
+>All of these functions return a `CGAffineTransform` value that you can put into a view's `transform` property to apply it. 
+>* As we'll be doing this inside an animation block, _the transform will automatically be animated_. 
+>
+>This illustrates one of the many powerful things of Core Animation: **you tell it what you want to happen, and it calculates all the intermediary states automatically.**
+
+### Case 1: Scale up
+
+>Let's start with something simple: when we're at `currentAnimation` value 0, we want to make the view 2x its default size. Change the switch/case code to this:
+
+```swift
+switch self.currentAnimation {
+case 0:
+    self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+
+default:
+    break
+}
+```
+>That uses an initializer for `CGAffineTransform` that takes an X and Y scale value as its two parameters. 
+>
+>**A value of 1 means "the default size,"** so `2, 2` will make the view twice its normal width and height. 
+>* By default, UIKit animations have _an "ease in, ease out" curve_, which means the movement starts slow, accelerates, then slows down again before reaching the end.
+
+Are there visualisers for this curve anywhere like you'd have in AfterEffects? Or is it all raw numbers?
+
+>Run the app now and tap the button to watch the penguin animate from 1x to 2x its size over one second, all by setting the transform inside an animation. 
+>* You can keep tapping the button as many times more as you want, but nothing else will happen at this time. If you apply a 2x scale transform to a view that already has a 2x scale transform, nothing happens.
+
+:white_check_mark: Yup checks out.
+
+(:camera: screen shot on website)
+
+### Case 2 : identity transform
+
+>The next case is going to be 1, and we're going to use a special existing transform called `CGAffineTransform.identity`, or just `.identity`. 
+>* This effectively _clears our view of any pre-defined transform_, resetting any changes that have been applied by modifying its `transform` property.
+>
+>Add this to the switch/case statement after the existing case:
+
+```swift
+case 1:
+    self.imageView.transform = .identity
+```
+>For the sake of clarity, your code should now read:
+
+```swift
+switch self.currentAnimation {
+case 0:
+    self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+
+case 1:
+    self.imageView.transform = .identity
+
+default:
+    break
+}
+```
+>With the second case in there, tapping the button repeatedly will first scale the penguin up, then scale it back down (resetting to defaults), then do nothing for lots of taps, then repeat the scale up/scale down. 
+>
+>This is because our `currentAnimation` value is told to wrap (return to 0) when it's greater than 7, so the `default` case executes quite a few times.
+
+:white_check_mark: Yup, cases are super readable in swift.
+
+### Case 3 : transformations
+
+>Let's continue adding more cases: one to move the image view, then another to reset it back to the identity transform:
+
+```swift
+case 2:
+    self.imageView.transform = CGAffineTransform(translationX: -256, y: -256)
+
+case 3:
+    self.imageView.transform = .identity
+```
+>That uses another new initializer for `CGAffineTransform` that takes X and Y values for its parameters. 
+>* _These values are **deltas, or differences from the current value**, meaning that the above code subtracts 256 from both the current X and Y position._
+
+[[math delta]] are differences in two values such as points on a line, can also be refering to the rate of change as in derivitive.
+
+>Tapping the button now will scale up then down, then move and return back to the center, all smoothly animated by Core Animation.
+
+### Case 4 : rotations
+
+>We can also use `CGAffineTransform` to rotate views, using its `rotationAngle` initializer. This accepts one parameter, which is the amount in radians you want to rotate. There are three catches to using this function:
+>
+> 1. You need to provide the value in radians specified as a `CGFloat`. This usually isn't a problem – if you type 1.0 in there, Swift is smart enough to make that a `CGFloat` automatically. _If you want to use a value like pi, use `CGFloat.pi`._
+>
+> 2. Core Animation will always take the shortest route to make the rotation work. So, if your object is straight and you rotate to 90 degrees (radians: half of pi), it will rotate clockwise. _If your object is straight and you rotate to 270 degrees (radians: pi + half of pi) it will rotate counter-clockwise because it's the smallest possible animation._
+>
+> 3. A consequence of the second catch is that if you try to rotate 360 degrees (radians: pi times 2), Core Animation will calculate the shortest rotation to be "just don't move, because we're already there." The same goes for values over 360, for example if you try to rotate 540 degrees (one and a half full rotations), you'll end up with just a 180-degree rotation.
+
+>With all that in mind, here's are two more cases that show off rotation:
+
+```swift
+case 4:
+    self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+case 5:
+    self.imageView.transform = .identity
+```
+
+### Case 5 : properties
+
+>As well as animating transforms, Core Animation **can animate many of the properties** of your views. For example, it can animate the background color of the image view, or the level of transparency. You can even change multiple things at once if you want something more complicated to happen.
+>
+>As an example, to make our view almost fade out then fade back in again while also changing its background color, we're going to modify its transparency by setting its `alpha` value, where 0 is invisible and 1 is fully visible, and also set its `backgroundColor` property – first to green, then to clear.
+>
+>Add these two new cases:
+
+```swift
+case 6:
+    self.imageView.alpha = 0.1
+    self.imageView.backgroundColor = UIColor.green
+
+case 7:
+    self.imageView.alpha = 1
+    self.imageView.backgroundColor = UIColor.clear
+```
+
+>That completes all possible cases, 0 to 7. But Core Animation isn't finished just yet. **In fact, we've only scratched its surface in these tests, and there's much more it can do.**
+
+:heart_eyes: Love it! This looks like so much fun and like something that would be great to add to my hangman game
+
+>To give you the briefest glimpse of its power, replace this line of code:
+
+```swift
+UIView.animate(withDuration: 1, delay: 0, options: [],
+
+```
+>...with this:
+
+```swift
+UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [],
+```
+>This changes the `animate(withDuration:)` so that it uses spring animations rather than the default, ease-in-ease-out animation. I'm not even going to tell you what this does because I'm sure you're going to be impressed – press Cmd+R to run the app and tap the button for yourself. We're done!
