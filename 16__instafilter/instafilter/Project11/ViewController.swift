@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     title = "Instafilter"
     navigationItem.prompt = "Day 52 of 100"
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
-    
+    imageView.alpha = 0
     context = CIContext()
     currentFilter = CIFilter(name: "CISepiaTone")
     changeFilterButton.setTitle("CISepiaTone", for: .normal)
@@ -52,6 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     dismiss(animated: true)
     
     currentImage = image
+    UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {self.imageView.alpha = 1})
     let beginImage = CIImage(image: currentImage)
     currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
     
