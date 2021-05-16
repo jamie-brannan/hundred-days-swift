@@ -25,6 +25,35 @@
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
 >   - [ ]  Go back to project 8 and make the letter group buttons fade out when they are tapped. We were using the `isHidden` property, but you'll need to switch to alpha because `isHidden` is either true or false, it has no animatable values between.
+
+**Swifty Words** project.
+
+_"the letter group buttons fade out when they are tapped"_
+* remove `isHidden` and swap it for alpha 3 or something.
+
+```swift
+  @objc func letterTapped(_ sender: UIButton) {
+    guard let buttonTitle = sender.titleLabel?.text else { return }
+    currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+    activatedButtons.append(sender)
+//    sender.isHidden = true
+    UIView.animate(withDuration: 1, delay: 0, options: [], animations: { sender.alpha = 0.1 })
+  }
+
+  @objc func clearTapped(_ sender: UIButton) {
+    currentAnswer.text = ""
+    
+    for btn in activatedButtons {
+      //      btn.isHidden = false
+      btn.alpha = 1
+    }
+    
+    activatedButtons.removeAll()
+  }
+```
+
+:white_check_mark: mission complete
+
 >   - [ ]  Go back to project 13 and make the image view fade in when a new picture is chosen. To make this work, set the `alpha` to 0 first.
 >   - [ ]  Go back to project 2 and make the flags scale down with a little bounce when pressed.
 
