@@ -68,23 +68,26 @@ class ViewController: UIViewController {
   
   @IBAction func buttonTapped(_ sender: UIButton) {
     /// title of the alert card
-    var resultTitle: String
-    
-    /// Score keeper
-    if sender.tag == correctAnswer {
-      resultTitle = "Correct"
-      score += 1
-      roundAlert(title: resultTitle, countrySelected: sender.tag)
-    } else {
-      resultTitle = "Wrong"
-      score -= 1
-      roundAlert(title: resultTitle, countrySelected: sender.tag)
-    }
+    UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 2, options: [], animations: {
+      sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+      sender.transform = .identity
+    }) { finished in
+      var resultTitle: String
+      if sender.tag == self.correctAnswer {
+        resultTitle = "Correct"
+        self.score += 1
+        self.roundAlert(title: resultTitle, countrySelected: sender.tag)
+      } else {
+        resultTitle = "Wrong"
+        self.score -= 1
+        self.roundAlert(title: resultTitle, countrySelected: sender.tag)
+      }
 
-    if round == 10 {
-      finalScoreAlert()
-    } else {
-      return
+      if self.round == 10 {
+        self.finalScoreAlert()
+      } else {
+        return
+      }
     }
   }
 

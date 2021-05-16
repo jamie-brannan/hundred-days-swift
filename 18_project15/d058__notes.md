@@ -65,6 +65,36 @@ Specifically **when a new picture is chosen**, we have a fade in.
 
 >   - [ ]  Go back to project 2 and make the flags scale down with a little bounce when pressed.
 
+  - [x]  `UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [],` in the right spot
+  - [x]  ...on the right element
+
+```swift
+  @IBAction func buttonTapped(_ sender: UIButton) {
+    /// title of the alert card
+    UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 2, options: [], animations: {
+      sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+      sender.transform = .identity
+    }) { finished in
+      var resultTitle: String
+      if sender.tag == self.correctAnswer {
+        resultTitle = "Correct"
+        self.score += 1
+        self.roundAlert(title: resultTitle, countrySelected: sender.tag)
+      } else {
+        resultTitle = "Wrong"
+        self.score -= 1
+        self.roundAlert(title: resultTitle, countrySelected: sender.tag)
+      }
+
+      if self.round == 10 {
+        self.finalScoreAlert()
+      } else {
+        return
+      }
+    }
+  }
+```
+
 ## :two:  [Review](https://www.hackingwithswift.com/review/hws/project-15-animation) 
 
 ### :boom: Quiz insights
