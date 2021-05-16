@@ -141,13 +141,118 @@ Days organized by folders containing
 | Day 53 | April 5 | :white_check_mark: | **Project 13, part ii** • working with CoreImages I added and switched filters, changed intesity and saved back to photos. |
 | Day 54 | April 6,8 | :white_check_mark: | **Project 13, part iii** • completed review challenges : error message display, filter change feature, and adding a radius slider – including re-adding constraints by hand to the storyboard so it was responsive. Some tricks I was able to recall from work, but others did not work as precisely as I'd like – but doesn't take away from how great it feels to be not so afraid of storyboards! :joy: |
 | Day 55 | April 11, 21, 24, 25 | ~ | **Project 14, part i** • A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
-| Day 56 | May 3, 7, 10 | ~ | **Project 14, part ii** • Ran into a lot of technical difficulties with `wav` and `caf` audio formats (that I'll return to later), but still came a way with a complete project |
-| Day 57 | April ~ | ~ | **Project 15, part i** |
-| Day 58 | April ~ | ~ | **Project 15, part ii** |
+| Day 56 | May 3, 7, 10 | :question: | **Project 14, part ii** • Ran into a lot of technical difficulties with `wav` and `caf` audio formats (that I'll return to later), but still came a way with a complete project |
+| Day 57 | May 11, 14, 16 | :heart_eyes; | **Project 15, part i** • Super fun first exploration of Core Animation which makes me think of how much easier animating may be in swift than with Adobe After Effects if I really tune into the documentation and practice different projects :joy: |
+| Day 58 | May ~ | ~ | **Project 15, part ii** • |
 
 >The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
 
+### :one: :two: **Consolidation VI**
+>We’ve covered some hugely important iOS technologies that you’ll be relying on time and time again, so let’s take a brief pause to recap what you’ve learned.
 
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 59 | May ~ | ~ | **Milestone: Projects 13-15** • |
+
+### :one: :three: **Maps and bugs**
+>In the next three projects we’ll be edging a little further away from UIKit as we explore MapKit, Apple’s powerful and flexible mapping framework, then we’ll tackle a skill you’re more than ready for: debugging.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 60 | May ~ | ~ | **Projects 16, part i** • |
+| Day 61 | May ~ | ~ | **Projects 16, part ii** • |
+| Day 62 | May ~ | ~ | **Projects 17, part i** • |
+| Day 63 | May ~ | ~ | **Projects 17, part ii** • |
+| Day 64 | May ~ | ~ | **Projects 18, part i** • |
+| Day 65 | May ~ | ~ | **Projects 18, part ii** • |
+
+### :one: :four: **Consolidation VII**
+>Although these last few projects should have been nice and easy for you, it’s still worth pausing for a day to review what was learned and try out a fresh challenge.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 66 | May ~ | ~ | **Milestone: Projects 16-18** • |
+
+### :one: :five: **Leveling up**
+>We’re going to tackle two tough projects back to back, but in doing so you’ll start to really be amazed at the things you can build on iOS – brace yourself!
+
+| Day 67 | May ~ | ~ | **Projects 19, part i** • |
+| Day 68 | May ~ | ~ | **Projects 19, part ii** • |
+| Day 69 | May ~ | ~ | **Projects 19, part iii** • |
+| Day 70 | May ~ | ~ | **Projects 20, part i** • |
+| Day 71 | May ~ | ~ | **Projects 20, part ii** • |
+| Day 72 | May ~ | ~ | **Projects 21, part i** • |
+| Day 73 | May ~ | ~ | **Projects 21, part ii** • |
+
+### :one: :six: **Consolidation VIII**
+>After two tough projects and yet another important technique, it’s time to hit the brakes for a day and double check everything is sinking in.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 74 | May ~ | ~ | **Milestone: Projects 19-21** • |
+
+### :one: :seven: **Beacons and bombs**
+>These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
+
+| Day 75 | May ~ | ~ | **Projects 22, part i** • |
+| Day 76 | May ~ | ~ | **Projects 22, part ii** • |
+| Day 77 | May ~ | ~ | **Projects 23, part i** • |
+| Day 78 | May ~ | ~ | **Projects 23, part ii** • |
+| Day 79 | May ~ | ~ | **Projects 23, part iii** • |
+| Day 80 | May ~ | ~ | **Projects 24, part i** • |
+| Day 81 | May ~ | ~ | **Projects 24, part ii** • |
+
+### :one: :eight: **Consolidation IX**
+>Your head is probably spinning with Bezier paths and iBeacons, so before we continue on with more learning it’s important to take a day to pause and reflect on what has been covered.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 82 | May ~ | ~ | **Milestone: Projects 22-24** • |
+
+### :one: :nine: **Multipeer and motion**
+>These next three projects give you chance to go over some earlier topics again, while also introducing some new frameworks such as MultipeerConnectivity and Core Motion.
+
+| Day 83 | May ~ | ~ | **Projects 25, part i** • |
+| Day 84 | May ~ | ~ | **Projects 25, part ii** • |
+| Day 85 | May ~ | ~ | **Projects 26, part i** • |
+| Day 86 | May ~ | ~ | **Projects 26, part ii** • |
+| Day 87 | May ~ | ~ | **Projects 27, part i** • |
+| Day 88 | May ~ | ~ | **Projects 27, part ii** • |
+| Day 89 | May ~ | ~ | **Projects 27, part iii** • |
+
+### :two: :zero: **Consolidation X**
+>As we enter the last few days of this challenge, it’s as important as ever to pause for a moment and review what you’ve learned these last few days.
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 90 | May ~ | ~ | **Milestone: Projects 25-27** • |
+| Day 91 | May ~ | ~ | **Core Graphics redux** • |
+
+### :two: :one: **Beacons and bombs**
+>These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
+
+| Day 92 | May ~ | ~ | **Projects 28, part i** • |
+| Day 93 | May ~ | ~ | **Projects 28, part ii** • |
+| Day 94 | May ~ | ~ | **Projects 29, part i** • |
+| Day 95 | May ~ | ~ | **Projects 29, part ii** • |
+| Day 96 | May ~ | ~ | **Projects 29, part iii** • |
+| Day 97 | May ~ | ~ | **Projects 30, part i** • |
+| Day 98 | May ~ | ~ | **Projects 30, part ii** • |
+
+### :two: :two: **Consolidation XI**
+>It’s time to recap all the things you’ve learned in the last few days, and start work on a big challenge to go out with. You’ve got this!
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 99 | May ~ | ~ | **Milestone: Projects 28-30** • |
+
+### :two: :three: **Wrap up**
+>It’s time to see how much you remember from across the entire curriculum. Are you ready for this?
+
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
+| Day 100 | May ~ | ~ | **Final Exam** • |
+| Epilogue | May ~ | ~ | **What now?** • |
 
 
 ## Acknowledgments
