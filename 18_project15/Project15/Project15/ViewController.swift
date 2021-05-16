@@ -18,7 +18,22 @@ class ViewController: UIViewController {
     view.addSubview(imageView)
   }
 
-  @IBAction func tappedTappedButton(_ sender: Any) {
+  @IBAction func tappedTappedButton(_ sender: UIButton) {
+    sender.isHidden = true
+    
+    UIView.animate(withDuration: 1, delay: 0, options: [],
+       animations: {
+        switch self.currentAnimation {
+        case 0:
+            break
+
+        default:
+            break
+        }
+    }) { finished in
+        sender.isHidden = false /// show the sender button again when the animation is complete
+    }
+    
     currentAnimation += 1
 
     if currentAnimation > 7 {
