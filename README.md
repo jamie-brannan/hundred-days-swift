@@ -152,7 +152,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 59 | May ~ | ~ | **Milestone: Projects 13-15** • |
+| Day 59 | May 17 | ~ | **Milestone: Projects 13-15** • |
 
 ### :one: :three: **Maps and bugs**
 >In the next three projects we’ll be edging a little further away from UIKit as we explore MapKit, Apple’s powerful and flexible mapping framework, then we’ll tackle a skill you’re more than ready for: debugging.
