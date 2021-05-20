@@ -11,7 +11,6 @@ class ViewController: UITableViewController {
 
   var countriesList = [Country]()
 
-
   override func viewDidLoad() {
     super.viewDidLoad()
     getListOfCountries()
@@ -31,5 +30,15 @@ class ViewController: UITableViewController {
     } catch let error {
       print(error)
     }
+  }
+
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return countriesList.count
+  }
+
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
+    cell.textLabel?.text = countriesList[indexPath.row].name
+    return cell
   }
 }
