@@ -137,7 +137,7 @@ No API then? Just a local JSON? ~~Maybe I can find one...~~ more hassle than its
 
 >Go ahead and try coding it now. If you hit problems, here are some hints:
 >
->   - [ ]  You should create a custom `Country` struct that has _properties for each of the facts_ you have in your JSON file. You can then have a `[Country]` array in your view controller.
+>   - [x]  You should create a custom `Country` struct that has _properties for each of the facts_ you have in your JSON file. You can then have a `[Country]` array in your view controller.
 
 Full country name
 * ~~abreviation – `String`~~
@@ -150,28 +150,12 @@ Full country name
 * government – `String`
 * GDP – `Int`
 
-Starting point to build up from :
-
-```json
-{
-    "United States of America" : {
-        "motto": "In God We Trust",
-        "language": "English",
-        "capital": "Washington D.C."
-    },
-    "France" : {
-        "motto": "Liberté, égalité, fraternité",
-        "language": "French",
-        "capital": "Paris"
-    }
-}
-```
 
   - [x]  copy v1 json (with two items) to project
   - [x]  create Country struct
   - [x]  create Countries struct
   - [x]  create storyboard of table view encapsulated in a navigation controller
-  - [ ]  query v1 json locally upon opening the app.
+  - [x]  query v1 json locally upon opening the app.
 
  [Apple Developer, *Foundation > Archives and Serialization*](https://developer.apple.com/documentation/foundation/jsondecoder) : **JSONDecoder**, *An object that decodes instances of data type form JSON orjects*
 
@@ -187,11 +171,50 @@ let stringPath = Bundle.main.path(forResource: "input", ofType: "txt")
 
 So in this case it's going to be a path because we're within the bundle – then use `JSONDecoder().Decode(Countries.self, from: stringPath)`
 
+Complete query of local json using data structs :
+
+```swift
+class ViewController: UITableViewController {
+
+  var countriesList = [Country]()
+
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    getListOfCountries()
+  }
+
+  func getListOfCountries() {
+    guard let urlPath = Bundle.main.url(forResource: "countries", withExtension: "json") else { return }
+    guard let data = try? Data(contentsOf: urlPath) else { return }
+    parse(json: data)
+  }
+
+  func parse(json: Data) {
+    do {
+      let decoder = JSONDecoder()
+      let decodedResults = try decoder.decode(Countries.self, from: json)
+      self.countriesList = decodedResults.results
+    } catch let error {
+      print(error)
+    }
+  }
+}
+```
+
+  - [x]  connect table cell text to data name
+  - [ ]  connect table cell subtitle text to data motto
+  - [ ]  add a title and subtitle to navigation controller main view
 
 
 >   - [ ]  When using a table view in your detail view controller, try setting the `numberOfLines` property of _the cell’s text label to be 0_. That ought to allow the cell to fill up to two lines of text by default.
 
 :question: *This is done through storyboard normally, right?* 
+* :white_check_mark: set up basic storyboard stuff with main `ViewController` converted to `UITableViewController`
+
+  - [ ]  create a custom detail view with table view
+  - [ ]  create custom specific table view cells for detail page
+
 
 >   - [ ]  Don’t forget all the little UI touches: adding **a disclosure indicator** to the countries table, adding titles to the navigation controller, and so on. You could even _add an action button_ to the **detail view that shares a fact** about the selected country.
 
@@ -199,5 +222,10 @@ So in this case it's going to be a path because we're within the bundle – then
 * I've never heard of it, but maybe it's in the video?
 
 **Detail view**
-  - [ ]  share page button
-  - [ ]  navigation controller title
+  - [ ]  add share page button of page's text
+  - [ ]  add country name as navigation controller title
+
+### Further tasks
+
+  - [ ]  Elaborate on json data
+  - [ ]  Add image urls?
