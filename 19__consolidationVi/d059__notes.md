@@ -13,9 +13,13 @@
 >**Today you have three topics to work through, one of which of is your challenge.**
 
 - [*Day 59 • Monday May 17, 20 2021*](#day-59--monday-may-17-20-2021)
-  - [:one:  What you learned](#one--what-you-learned)
-  - [:two:  Key points](#two--key-points)
-  - [:three:  Challenge](#three--challenge)
+  - [:one:  What you learned](#1️⃣-what-you-learned)
+  - [:two:  Key points](#2️⃣-key-points)
+  - [:three:  Challenge](#3️⃣-challenge)
+    - [Challenge 1](#challenge-1)
+    - [Challenge 2](#challenge-2)
+    - [Challenge 3](#challenge-3)
+    - [Further tasks](#further-tasks)
 
 >Note: Don’t worry if you don’t complete challenges in the day they were assigned – in future days you’ll find you have some time to spare here and there, so challenges are something you can return back to in the future.
 
@@ -136,7 +140,9 @@ No API then? Just a local JSON? ~~Maybe I can find one...~~ more hassle than its
 
 
 >Go ahead and try coding it now. If you hit problems, here are some hints:
->
+
+### Challenge 1
+
 >   - [x]  You should create a custom `Country` struct that has _properties for each of the facts_ you have in your JSON file. You can then have a `[Country]` array in your view controller.
 
 Full country name
@@ -206,15 +212,25 @@ class ViewController: UITableViewController {
   - [ ]  connect table cell subtitle text to data motto
   - [ ]  add a title and subtitle to navigation controller main view
 
+### Challenge 2
 
->   - [ ]  When using a table view in your detail view controller, try setting the `numberOfLines` property of _the cell’s text label to be 0_. That ought to allow the cell to fill up to two lines of text by default.
+>   - [x]  When using a table view in your detail view controller, try setting the `numberOfLines` property of _the cell’s text label to be 0_. That ought to allow the cell to fill up to two lines of text by default.
 
 :question: *This is done through storyboard normally, right?* 
 * :white_check_mark: set up basic storyboard stuff with main `ViewController` converted to `UITableViewController`
 
-  - [ ]  create a custom detail view with table view
+  - [x]  create a custom detail view with table view
   - [ ]  create custom specific table view cells for detail page
 
+:red_circle: `Thread 1: "unable to dequeue a cell with identifier detailCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard"`
+
+```swift
+self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCell")
+```
+
+  - [ ]  design a more interesting detail page layout (play with sections of table views or even create custom cells for different segments of data)
+
+### Challenge 3
 
 >   - [ ]  Don’t forget all the little UI touches: adding **a disclosure indicator** to the countries table, adding titles to the navigation controller, and so on. You could even _add an action button_ to the **detail view that shares a fact** about the selected country.
 
@@ -229,3 +245,4 @@ class ViewController: UITableViewController {
 
   - [ ]  Elaborate on json data
   - [ ]  Add image urls?
+  - [ ]  have main countries table be segmented by continent – load in data but seperate it depending on continent case.
