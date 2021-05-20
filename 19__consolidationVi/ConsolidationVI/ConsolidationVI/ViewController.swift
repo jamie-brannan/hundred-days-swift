@@ -40,7 +40,15 @@ class ViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
-    cell.textLabel?.text = countriesList[indexPath.row].name
+    let country = countriesList[indexPath.row]
+    cell.textLabel?.text = country.name
+    cell.detailTextLabel?.text = country.motto
     return cell
+  }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let vc = CountryDetailViewController()
+    vc.country = countriesList[indexPath.row]
+    navigationController?.pushViewController(vc, animated: true)
   }
 }
