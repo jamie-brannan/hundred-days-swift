@@ -13,9 +13,9 @@
 >**Today you have three topics to work through, one of which of is your challenge.**
 
 - [*Day 59 • Monday May 17, 20 2021*](#day-59--monday-may-17-20-2021)
-  - [:one:  What you learned](#1️⃣-what-you-learned)
-  - [:two:  Key points](#2️⃣-key-points)
-  - [:three:  Challenge](#3️⃣-challenge)
+  - [:one:  What you learned](#one--what-you-learned)
+  - [:two:  Key points](#two--key-points)
+  - [:three:  Challenge](#three--challenge)
 
 >Note: Don’t worry if you don’t complete challenges in the day they were assigned – in future days you’ll find you have some time to spare here and there, so challenges are something you can return back to in the future.
 
@@ -124,25 +124,69 @@ self.imageView.transform = CGAffineTransform.identity
 >
 >**How you load data into the app** is going to be an interesting problem for you to solve.
 >
-> I suggested project 7 above because a sensible approach would be to create a JSON file with your facts in, then load that in using `contentsOf` and parse it using `Codable`. 
+> I suggested project 7 above because a sensible approach would be to create **a JSON file** with your facts in, then load that in using `contentsOf` and parse it using `Codable`. 
 > Regardless of how you end up solving this, I suggest you don’t just hard-code it into the app – i.e., _typing all the facts manually_ into your Swift code. You’re better than that!
 
-No API then? Just a local JSON? Maybe I can find one...
+
+Project 1 :arrow_right: **Photo Viewer** from day ~20
+
+Project 7 :arrow_right: **White House API Viewer** from day ~20
+
+No API then? Just a local JSON? ~~Maybe I can find one...~~ more hassle than its worth and not neccesarily what'll endure over time, if a service ends.
+
 
 >Go ahead and try coding it now. If you hit problems, here are some hints:
 >
 >   - [ ]  You should create a custom `Country` struct that has _properties for each of the facts_ you have in your JSON file. You can then have a `[Country]` array in your view controller.
 
-Country
-* name – `String`
+Full country name
+* ~~abreviation – `String`~~
 * motto – `String`
-* fouding – `Date` (yyyy)
+* ~~fouding – `Date` (yyyy)~~
 * continent - `String`
 * capital – `String`
 * language – `String`
 * population - `Int`
 * government – `String`
 * GDP – `Int`
+
+Starting point to build up from :
+
+```json
+{
+    "United States of America" : {
+        "motto": "In God We Trust",
+        "language": "English",
+        "capital": "Washington D.C."
+    },
+    "France" : {
+        "motto": "Liberté, égalité, fraternité",
+        "language": "French",
+        "capital": "Paris"
+    }
+}
+```
+
+  - [x]  copy v1 json (with two items) to project
+  - [x]  create Country struct
+  - [x]  create Countries struct
+  - [x]  create storyboard of table view encapsulated in a navigation controller
+  - [ ]  query v1 json locally upon opening the app.
+
+ [Apple Developer, *Foundation > Archives and Serialization*](https://developer.apple.com/documentation/foundation/jsondecoder) : **JSONDecoder**, *An object that decodes instances of data type form JSON orjects*
+
+:pushpin: [**Hacking With Swift**](https://www.hackingwithswift.com/example-code/system/how-to-decode-json-from-your-app-bundle-the-easy-way) : *How to decode JSON from your app bundle the easy way*
+* this feels a bit over kill...
+
+:pushpin: [**Hacking With Swift**](https://www.hackingwithswift.com/example-code/system/how-to-find-the-path-to-a-file-in-your-bundle) : *How to find the path to a file in your bundle*
+>>Rather than try to figure out the layout of your bundle at runtime, the correct thing to do is call the `path(forResource:)` method if you’re looking for a string path, or `url(forResource:)` if you’re looking for a `URL`.
+
+```swift
+let stringPath = Bundle.main.path(forResource: "input", ofType: "txt")
+```
+
+So in this case it's going to be a path because we're within the bundle – then use `JSONDecoder().Decode(Countries.self, from: stringPath)`
+
 
 
 >   - [ ]  When using a table view in your detail view controller, try setting the `numberOfLines` property of _the cell’s text label to be 0_. That ought to allow the cell to fill up to two lines of text by default.
