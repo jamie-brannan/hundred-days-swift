@@ -13,6 +13,9 @@
 		1164314626568D0400DD22FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1164314426568D0400DD22FD /* Main.storyboard */; };
 		1164314826568D0600DD22FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1164314726568D0600DD22FD /* Assets.xcassets */; };
 		1164314B26568D0600DD22FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1164314926568D0600DD22FD /* LaunchScreen.storyboard */; };
+		1164315426569D5200DD22FD /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1164315326569D5200DD22FD /* Country.swift */; };
+		116431572656A05B00DD22FD /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116431562656A05B00DD22FD /* Countries.swift */; };
+		1164315B2656A6DF00DD22FD /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 1164315A2656A6DF00DD22FD /* countries.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		1164314726568D0600DD22FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1164314A26568D0600DD22FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1164314C26568D0600DD22FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1164315326569D5200DD22FD /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		116431562656A05B00DD22FD /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		1164315A2656A6DF00DD22FD /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countries.json; path = ../../countries.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +62,16 @@
 		1164313D26568D0400DD22FD /* ConsolidationVI */ = {
 			isa = PBXGroup;
 			children = (
+				1164315326569D5200DD22FD /* Country.swift */,
 				1164313E26568D0400DD22FD /* AppDelegate.swift */,
 				1164314026568D0400DD22FD /* SceneDelegate.swift */,
 				1164314226568D0400DD22FD /* ViewController.swift */,
+				1164315A2656A6DF00DD22FD /* countries.json */,
 				1164314426568D0400DD22FD /* Main.storyboard */,
 				1164314726568D0600DD22FD /* Assets.xcassets */,
 				1164314926568D0600DD22FD /* LaunchScreen.storyboard */,
 				1164314C26568D0600DD22FD /* Info.plist */,
+				116431562656A05B00DD22FD /* Countries.swift */,
 			);
 			path = ConsolidationVI;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 			files = (
 				1164314B26568D0600DD22FD /* LaunchScreen.storyboard in Resources */,
 				1164314826568D0600DD22FD /* Assets.xcassets in Resources */,
+				1164315B2656A6DF00DD22FD /* countries.json in Resources */,
 				1164314626568D0400DD22FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1164315426569D5200DD22FD /* Country.swift in Sources */,
 				1164314326568D0400DD22FD /* ViewController.swift in Sources */,
 				1164313F26568D0400DD22FD /* AppDelegate.swift in Sources */,
+				116431572656A05B00DD22FD /* Countries.swift in Sources */,
 				1164314126568D0400DD22FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
