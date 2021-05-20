@@ -1,12 +1,16 @@
 {
-    "United States of America" : {
-        "motto": "In God We Trust",
-        "language": "English",
-        "capital": "Washington D.C."
-    },
-    "France" : {
-        "motto": "Liberté, égalité, fraternité",
-        "language": "French",
-        "capital": "Paris"
-    }
+   "results":[
+      {
+         "name": "United States of America",
+         "motto": "In God We Trust",
+         "language": "English",
+         "capital": "Washington D.C."
+      },
+      {
+         "name": "France",
+         "motto": "Liberté, égalité, fraternité",
+         "language": "French",
+         "capital": "Paris"
+      }
+   ]
 }
