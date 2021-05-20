@@ -1,16 +1,18 @@
-# *Day 59 • Monday May 17, 2021*
+# *Day 59 • Monday May 17, 20 2021*
 
 >I don’t know what you’ll go on to do once you reach the end of these 100 days. Maybe you’ll go on to make your own games, maybe you’ll join a company that specializes in Core Image work, or maybe you’ll create your own app that uses collection views and animations to build something new.
 >
 >This uncertainty is part of why the 100 days curriculum is so varied – I try to cover a little bit of everything so you’re able to say you have some experience no matter where you end up working.
 >
->But the main reason we cover so much ground is because I want to inspire in you a desire to keep learning about iOS, because it’s a marvelously powerful ecosystem where so many extraordinary frameworks lie at our fingertips it can be hard to know where to start. As Anthony J. D'Angelo once said, “develop a passion for learning – if you do, you will never cease to grow.”
->
->Today we’re going to be reviewing what has been covered in projects 13, 14, and 15, and you’ll also be faced with a fresh challenge to write a new app from scratch. While you tackle it, please keep in your head that passion for learning, because you’re growing as a developer all the time.
+>But the main reason we cover so much ground is because **I want to inspire in you a desire to keep learning about iOS**, because it’s a marvelously powerful ecosystem where so many extraordinary frameworks lie at our fingertips it can be hard to know where to start. As Anthony J. D'Angelo once said, “develop a passion for learning – if you do, you will never cease to grow.”
+
+:rocket: Definitely feel I'm on that track.
+
+>Today we’re going to be reviewing what has been covered in projects 13, 14, and 15, and you’ll also be faced with a fresh challenge to _write a new app from scratch_. While you tackle it, please keep in your head that passion for learning, because you’re growing as a developer all the time.
 >
 >**Today you have three topics to work through, one of which of is your challenge.**
 
-- [*Day 59 • Monday May 17, 2021*](#day-59--monday-may-17-2021)
+- [*Day 59 • Monday May 17, 20 2021*](#day-59--monday-may-17-20-2021)
   - [:one:  What you learned](#1️⃣-what-you-learned)
   - [:two:  Key points](#2️⃣-key-points)
   - [:three:  Challenge](#3️⃣-challenge)
@@ -21,7 +23,11 @@
 
 >Project 13 was a trivial application if you look solely at the amount of code we had to write, but it’s remarkable behind the scenes thanks to the power of Core Images. Modern iPhones have extraordinary CPU and GPU hardware, and Core Image uses them both to the full so that advanced image transformations can happen in real time – if you didn’t try project 13 on a real device, you really ought to if only to marvel at how incredibly fast it is!
 >
->You also met UIKit’s animation framework for the first time, which is a wrapper on top of another of Apple’s cornerstone frameworks: Core Animation. This is a particularly useful framework to get familiar with because of its simplicity: you tell it what you want (“move this view to position X/Y”) then tell it a duration (“move it over three seconds”), and Core Animation figures out what each individual frame looks like.
+>You also met `UIKit`’s animation framework for the first time, which is a _wrapper_ on top of another of Apple’s cornerstone frameworks: Core Animation. 
+
+Had to check what the definition of wrapper is here.
+
+>This is a particularly useful framework to get familiar with because of its simplicity: you tell it what you want (“move this view to position X/Y”) then tell it a duration (“move it over three seconds”), and Core Animation figures out what each individual frame looks like.
 >
 >Here are just some of the other things you’ve now learned:
 >
@@ -54,16 +60,23 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
     self.doStuff()
 }
 ```
->The call to `asyncAfter()` needs two parameters, but we pass the second one in using trailing closure syntax because it’s clearer. The first parameter is specified as a DispatchTime value, which is the exact time to execute the code. When we specify `.now()`, Swift is smart enough to realize that means `DispatchTime.now()`, which is the current time. It then lets us add 1 second to it, so that the finished deadline ends up being one second away from now.
+>The call to `asyncAfter()` needs two parameters, but we pass the second one in using _trailing closure syntax_ because it’s clearer. 
 >
->Then there’s the `[unowned self]`. This is called a capture list, and it gives Swift instructions how to handle values that get used inside the closure. In this case, `self.doStuff()` references self, so the capture list `[unowned self]` means “I know you want to capture self strongly so that it can be used later, but I want you not to have any ownership at all.”
+>The first parameter is specified as a _DispatchTime_ value, which is the exact time to execute the code. 
+>* When we specify `.now()`, Swift is smart enough to realize that means `DispatchTime.now()`, which is the current time. It then lets us add 1 second to it, so that the finished deadline ends up being one second away from now.
 >
->If the closure runs and self has become nil for some reason, the call to `self.doStuff()` will crash: we told Swift not to worry about ownership, then accidentally let self get destroyed, so the crash is our own fault. As an alternative, we could have written `[weak self]`, which would capture self in the closure as an optional. With that change, you’d need to run this code instead:
+>Then there’s the `[unowned self]`. This is called a **capture list**, and it gives Swift instructions how to handle values that get used inside the closure. In this case, `self.doStuff()` references self, so the capture list `[unowned self]` means _“I know you want to capture self strongly so that it can be used later, but I want you not to have any ownership at all.”_
+
+I still cannot picture what *capture* or *ownership* looks like :thinking:
+
+>If the closure runs and `self` has become `nil` for some reason, the call to `self.doStuff()` will crash: _we told Swift not to worry about ownership, then accidentally let self get destroyed, so the crash is our own fault._ 
+>
+>As an alternative, we could have written `[weak self]`, which would capture self in the closure as an optional. With that change, you’d need to run this code instead:
 
 ```swift
 self?.doStuff()
 ```
->Closure capturing can be a complicated topic. In this case, `[unowned self]` isn’t really even needed because there’s no chance of a reference cycle: `self` doesn’t own `DispatchQueue.main`, so the reference will be destroyed once the closure finishes. However, there’s no harm adding `[weak self]`, which is why I often include it.
+>Closure capturing can be a complicated topic. In this case, `[unowned self]` isn’t really even needed because there’s no chance of a _reference cycle_: `self` doesn’t own `DispatchQueue.main`, so the reference will be destroyed once the closure finishes. However, there’s no harm adding `[weak self]`, which is why I often include it.
 >
 >The second piece of code I’d like to review is this, taken from project 15:
 
@@ -80,9 +93,12 @@ UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
     sender.isHidden = false
 }
 ```
->At this point in your Swift career you’ve seen several functions that accept closures, but this one takes two: one is a set of animations to perform, and one is a set of actions to run when the animations have completed. I didn’t include closure capturing here because it isn’t needed – the animation closure will be used once then destroyed.
->
->I don’t want to sound like a broken record, but: if you use `[weak self]` when it isn’t needed, nothing happens. But if you don’t use it and it was needed, bad things will happen - at the very least you’ll leak memory.
+>At this point in your Swift career you’ve seen several functions that accept closures, but this one takes two: one is _a set of animations to perform_, and one is _a set of actions to run when the animations have completed_. 
+>* **I didn’t include closure capturing here because it isn’t needed – the animation closure will be used once then destroyed.**
+
+This is something I remember being encouraged to do in school from the start, but have a hard time thinking of when to actually implement it myself.
+
+>I don’t want to sound like a broken record, but: if you use `[weak self]` when it isn’t needed, nothing happens. But _if you don’t use it and it was needed, bad things will happen - at the very least you’ll leak memory_.
 >
 >The final piece of code to review is this, also taken from project 15:
 
@@ -92,24 +108,52 @@ self.imageView.transform = CGAffineTransform.identity
 ```
 >There are a few things in there that I’d like to recap just briefly:
 >
-> 1. The `self` is required when accessing `imageView`, because we’re inside a closure and Swift wants us to explicitly acknowledge we recognize `self` will be captured.
+> 1. The `self` is required when accessing `imageView`, because we’re _inside a closure and Swift wants us to explicitly acknowledge we recognize `self` will be captured._
 >
 > 2. The `CGFloat.pi` constant is equal to 180 degrees, and it also has equivalents in `Float.pi` and `Double.pi` – this is just to save you having to typecast values.
 >
-> 3. The identity matrix, `CGAffineTransform.identity`, has no transformations: it’s not scaled, moved, or rotated, and it’s useful for resetting a transform.
+> 3. The identity matrix, `CGAffineTransform.identity`, has no transformations: it’s not scaled, moved, or rotated, and _it’s useful for resetting a transform_.
 
 ## :three:  [Challenge](https://www.hackingwithswift.com/guide/6/3/challenge) 
 
 >Your challenge is to make an app that contains facts about countries: show a list of country names in a table view, then when one is tapped bring in a new screen that contains its capital city, size, population, currency, and any other facts that interest you. The type of facts you include is down to you – Wikipedia has a huge selection to choose from.
 >
->To make this app, I would recommend you blend parts of project 1 project 7. That means showing the country names in a table view, then showing the detailed information in a second table view.
+>To make this app, I would recommend you blend parts of project 1 project 7. 
+>* That means showing **the country names in a table view**, 
+>* then **showing the detailed information in a second table view**.
 >
->How you load data into the app is going to be an interesting problem for you to solve. I suggested project 7 above because a sensible approach would be to create a JSON file with your facts in, then load that in using `contentsOf` and parse it using `Codable`. Regardless of how you end up solving this, I suggest you don’t just hard-code it into the app – i.e., typing all the facts manually into your Swift code. You’re better than that!
+>**How you load data into the app** is going to be an interesting problem for you to solve.
 >
+> I suggested project 7 above because a sensible approach would be to create a JSON file with your facts in, then load that in using `contentsOf` and parse it using `Codable`. 
+> Regardless of how you end up solving this, I suggest you don’t just hard-code it into the app – i.e., _typing all the facts manually_ into your Swift code. You’re better than that!
+
+No API then? Just a local JSON? Maybe I can find one...
+
 >Go ahead and try coding it now. If you hit problems, here are some hints:
 >
->   - [ ]  You should create a custom `Country` struct that has properties for each of the facts you have in your JSON file. You can then have a `[Country]` array in your view controller.
->
->   - [ ]  When using a table view in your detail view controller, try setting the `numberOfLines` property of the cell’s text label to be 0. That ought to allow the cell to fill up to two lines of text by default.
->
->   - [ ]  Don’t forget all the little UI touches: adding a disclosure indicator to the countries table, adding titles to the navigation controller, and so on. You could even add an action button to the detail view that shares a fact about the selected country.
+>   - [ ]  You should create a custom `Country` struct that has _properties for each of the facts_ you have in your JSON file. You can then have a `[Country]` array in your view controller.
+
+Country
+* name – `String`
+* motto – `String`
+* fouding – `Date` (yyyy)
+* continent - `String`
+* capital – `String`
+* language – `String`
+* population - `Int`
+* government – `String`
+* GDP – `Int`
+
+
+>   - [ ]  When using a table view in your detail view controller, try setting the `numberOfLines` property of _the cell’s text label to be 0_. That ought to allow the cell to fill up to two lines of text by default.
+
+:question: *This is done through storyboard normally, right?* 
+
+>   - [ ]  Don’t forget all the little UI touches: adding **a disclosure indicator** to the countries table, adding titles to the navigation controller, and so on. You could even _add an action button_ to the **detail view that shares a fact** about the selected country.
+
+:question: *What's a discolsure indictor in this context?* 
+* I've never heard of it, but maybe it's in the video?
+
+**Detail view**
+  - [ ]  share page button
+  - [ ]  navigation controller title
