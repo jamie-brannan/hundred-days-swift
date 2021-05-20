@@ -14,6 +14,8 @@ class ViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     getListOfCountries()
+    self.navigationController?.navigationBar.prefersLargeTitles = true
+    self.navigationItem.title = "Countries"
   }
 
   func getListOfCountries() {
