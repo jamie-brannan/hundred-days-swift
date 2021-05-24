@@ -1,14 +1,14 @@
 {
    "results":[
       {
-         "name": "United States of America",
+         "name": "United States",
          "motto": "In God We Trust",
          "language": "English",
          "capital": "Washington D.C."
       },
       {
          "name": "France",
-         "motto": "Liberté, égalité, fraternité",
+         "motto": "Liberty, equality, fraternity",
          "language": "French",
          "capital": "Paris"
       }

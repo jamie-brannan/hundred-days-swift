@@ -11,6 +11,7 @@ import UIKit
 class CountryDetailViewController: UITableViewController {
   
   var country: Country? = nil
+  var sectionTitles = ["Motto", "Language", "Capital"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -18,10 +19,23 @@ class CountryDetailViewController: UITableViewController {
     if let country = country {
       self.navigationItem.title = country.name
     }
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+  }
+
+  @objc func shareTapped() {
+    guard let country = country else { return }
+    let countryText = "Checkout \(country.name) : \(country.motto) in the country app!"
+    let vc = UIActivityViewController(activityItems: [countryText], applicationActivities: [])
+    vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+    present(vc, animated: true)
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return sectionTitles.count
+  }
+
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return sectionTitles[section]
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,8 +44,28 @@ class CountryDetailViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
-    guard let motto = country?.motto, let language = country?.language, let capital = country?.capital else { return cell }
-    cell.textLabel?.text = "\(motto), \(language), \(capital)"
-    return cell
+    switch indexPath.section {
+    case 0:
+      guard let motto = country?.motto else {
+        return cell
+      }
+      cell.textLabel?.text = motto
+      return cell
+    case 1:
+      guard let language = country?.language else {
+        return cell
+      }
+      cell.textLabel?.text = language
+      return cell
+    case 2:
+      guard let capital = country?.capital else {
+        return cell
+      }
+      cell.textLabel?.text = capital
+      return cell
+    default:
+      cell.textLabel?.text = ""
+      return cell
+    }
   }
 }

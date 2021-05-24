@@ -1,4 +1,4 @@
-# *Day 59 • Monday May 17, 20 2021*
+# *Day 59 • Monday May 17, 20, 24, 2021*
 
 >I don’t know what you’ll go on to do once you reach the end of these 100 days. Maybe you’ll go on to make your own games, maybe you’ll join a company that specializes in Core Image work, or maybe you’ll create your own app that uses collection views and animations to build something new.
 >
@@ -12,7 +12,7 @@
 >
 >**Today you have three topics to work through, one of which of is your challenge.**
 
-- [*Day 59 • Monday May 17, 20 2021*](#day-59--monday-may-17-20-2021)
+- [*Day 59 • Monday May 17, 20, 24, 2021*](#day-59--monday-may-17-20-24-2021)
   - [:one:  What you learned](#1️⃣-what-you-learned)
   - [:two:  Key points](#2️⃣-key-points)
   - [:three:  Challenge](#3️⃣-challenge)
@@ -209,8 +209,8 @@ class ViewController: UITableViewController {
 ```
 
   - [x]  connect table cell text to data name
-  - [ ]  connect table cell subtitle text to data motto
-  - [ ]  add a title and subtitle to navigation controller main view
+  - [x]  connect table cell subtitle text to data motto
+  - [x]  add a title and subtitle to navigation controller main view
 
 ### Challenge 2
 
@@ -220,15 +220,13 @@ class ViewController: UITableViewController {
 * :white_check_mark: set up basic storyboard stuff with main `ViewController` converted to `UITableViewController`
 
   - [x]  create a custom detail view with table view
-  - [ ]  create custom specific table view cells for detail page
+  - [x]  create custom specific section / table view row cells pairing for detail page
 
 :red_circle: `Thread 1: "unable to dequeue a cell with identifier detailCell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard"`
 
 ```swift
 self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCell")
 ```
-
-  - [ ]  design a more interesting detail page layout (play with sections of table views or even create custom cells for different segments of data)
 
 ### Challenge 3
 
@@ -238,11 +236,18 @@ self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailCel
 * I've never heard of it, but maybe it's in the video?
 
 **Detail view**
-  - [ ]  add share page button of page's text
-  - [ ]  add country name as navigation controller title
+  - [x]  add share page button of page's text
+  - [x]  add country name as navigation controller title
+
+`/hundred-days-swift/02__startingIOS/d022/d022_w16__notes_d01.md` was the last time I was looking at activity controller to add a share button.
+
+
 
 ### Further tasks
 
+  - [ ]  perhaps share only the cell that's slected from the table with `shareTapped`
+  - [ ]  design a more interesting detail page layout (play with sections of table views or even create custom cells for different segments of data)
   - [ ]  Elaborate on json data
   - [ ]  Add image urls?
+  - [ ]  Add an alphabetical scroll by country name?
   - [ ]  have main countries table be segmented by continent – load in data but seperate it depending on continent case.
