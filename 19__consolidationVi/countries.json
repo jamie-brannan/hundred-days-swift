@@ -1,0 +1,16 @@
+{
+   "results":[
+      {
+         "name": "United States",
+         "motto": "In God We Trust",
+         "language": "English",
+         "capital": "Washington D.C."
+      },
+      {
+         "name": "France",
+         "motto": "Liberty, equality, fraternity",
+         "language": "French",
+         "capital": "Paris"
+      }
+   ]
+}

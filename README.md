@@ -23,18 +23,18 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 01 | March 30 - 31 | ~ | Review of pre-challenge practice |
-| Day 02 | March 31 – April 1 | ~ | Recall tuples and dictionaries, how to create empty collections |
+| Day 01 | March 30 - 31 | :arrow_right: | Review of pre-challenge practice |
+| Day 02 | March 31 – April 1 | :arrow_right: | Recall tuples and dictionaries, how to create empty collections |
 | Day 03 | April 3 | :white_check_mark: | Allowed to write with `_` as a seperator |
-| Day 04 | April 6, 9 | ~ | Looping ranges |
+| Day 04 | April 6, 9 | :arrow_right: | Looping ranges |
 | Day 05 | April 9 | :white_check_mark: | Parameter labels, default params, throwing functions, `inout` params |
 | Day 06 | April 11 | :white_check_mark: | Closures :bomb: |
-| Day 07 | April 14, 19, 21 | ~ | Shorthand params, closures as params when they return values, returning closures |
-| Day 08 | April 21, 22, 23 | ~ | Property observers |
-| Day 09 | April 23, 29, 30 | ~ | `lazy` properties, `static` properties |
-| Day 10 | April 30, May 14 | ~ | to be reviewed... |
-| Day 11 | May 14, 25 | ~ | to be reviewed... |
-| Day 12 | May 26, 27, 28 | ~ | to be reviewed... |
+| Day 07 | April 14, 19, 21 | :arrow_right: | Shorthand params, closures as params when they return values, returning closures |
+| Day 08 | April 21, 22, 23 | :arrow_right: | Property observers |
+| Day 09 | April 23, 29, 30 | :arrow_right: | `lazy` properties, `static` properties |
+| Day 10 | April 30, May 14 | :arrow_right: | to be reviewed... |
+| Day 11 | May 14, 25 | :arrow_right: | to be reviewed... |
+| Day 12 | May 26, 27, 28 | :arrow_right: | to be reviewed... |
 
 ### :two: **Consolidation I**
 >You just learned a lot about Swift in only 12 days, so before we continue it's important you reflect on what you've learned: look for weak spots, re-watch videos, re-take tests, and so on, until you feel comfortable that you have mastered all the Swift language fundamentals covered in days 1-12.
@@ -42,7 +42,7 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 13 | June 4 | :white_check_mark: | to be reviewed... |
-| Day 14 | June 4, 5 | ~ | to be reviewed... |
+| Day 14 | June 4, 5 | :arrow_right: | to be reviewed... |
 | Day 15 | June 5 | :white_check_mark: | to be reviewed... |
 
 ### :three: **Starting iOS**
@@ -51,19 +51,19 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 16 | June 8 | :white_check_mark: | to be reviewed... |
-| Day 17 | June 11, 12, 15 | ~ | to be reviewed... |
+| Day 17 | June 11, 12, 15 | :arrow_right: | to be reviewed... |
 | Day 18 | June 17 | :white_check_mark: | Unwrapped with `guard if` faster than I expected! yay! |
 | Day 19 | June 18 | :white_check_mark: | Shortcuts to _Auto Layout_ constraints `cgColor` |
 | Day 20 | June 25 | :white_check_mark: | Shuffle flags, correct score, quiz insights |
 | Day 21 | July 8 | :white_check_mark: | Project 2 challenges complete; Connecting all the right information at the right moment in the control of flow based on previous challenges.  |
-| Day 22 | July 8, 17, August 6, 13 | ~ | Project 3 and chapter wrap up challenges; `UIActivityControllers` from start to finish |
+| Day 22 | July 8, 17, August 6, 13 | :arrow_right: | Project 3 and chapter wrap up challenges; `UIActivityControllers` from start to finish |
 
 ### :four: **Consolidation II**
 >In the last few days we covered some of the fundamentals of iOS development, and before we move on to the next set of projects it’s important to take a step back and review what you’ve learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 23 | August 13, 20, September 17 | ~ | **Consolidation II : Starting iOS Milestones** •  :boom: tricky figuring out how to programatically fill in the table view with file manager in a clean way |
+| Day 23 | August 13, 20, September 17 | :arrow_right: | **Consolidation II : Starting iOS Milestones** •  :boom: tricky figuring out how to programatically fill in the table view with file manager in a clean way |
 
 ### :five: **Web views, user input, and Auto Layout**
 >The next three projects we’re looking at will push your iOS skills further as you create some user interface in code, manage table views more carefully, and get some experience with closures.
@@ -71,20 +71,20 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 24 | September 24 | :white_check_mark: | **Web Views, Project 4, part i** • Very familiar because of FTV work |
-| Day 25 | October 1, 8, 14 | ~ | **Web Views, Project 4, part ii** • :globe_with_meridians: `WKNavigationActionPolicy` and handling networking traffic in the view |
+| Day 25 | October 1, 8, 14 | :arrow_right: | **Web Views, Project 4, part ii** • :globe_with_meridians: `WKNavigationActionPolicy` and handling networking traffic in the view |
 | Day 26 | October 15 | :white_check_mark: | **Web Views, Project 4, part iii** • Wrap up quiz |
-| Day 27 | October 15, 17 | ~ | **User Input, Project 5, part i**  Much needed closure review |
+| Day 27 | October 15, 17 | :arrow_right: | **User Input, Project 5, part i**  Much needed closure review |
 | Day 28 | October 20 | :white_check_mark: | **User Input, Project 5, part ii** • `UITextChcker` &  `rangeOfMisspelledWord(in:)` :sparkles: is a whole toolbox |
 | Day 29 | October 22 | :white_check_mark: | **User Input, Project 5, part iii** • attention to case sensitivity |
 | Day 30 | October 29 | :white_check_mark: | **Auto Layout, Project 6, part i** • Drag and drop on Interface Builder, _Auto Layout Visual Format Language (VFL)_ |
-| Day 31 | October 29, November 5 | ~ | **Auto Layout, Project 6, part ii** • VFL pushed further |
+| Day 31 | October 29, November 5 | :arrow_right: | **Auto Layout, Project 6, part ii** • VFL pushed further |
 
 ### :six: **Consolidation III**
 >You’ve learned about WebKit, UIAlertController, Auto Layout, and more – some more fundamentals of iOS development. Before we continue on to more projects, let’s take a moment to review what you’ve learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 32 | November 5, 12 | ~ | Review fundamentals and ShoppingList app challenge |
+| Day 32 | November 5, 12 | :arrow_right: | Review fundamentals and ShoppingList app challenge |
 
 ### :seven: **Codable, buttons and GCD**
 >The next three projects we’ll be building projects where you meet some of the most important topics in iOS development: working with data from the internet, and taking advantage of the raw power of iOS devices. Of course, you’ll also be making useful products along the way!
@@ -94,9 +94,9 @@ Days organized by folders containing
 | Day 33 | November 19 | :white_check_mark: | **Project 7, part i** •  Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
 | Day 34 | November 25, 29, December 10 | :raised_hand: | **Project 7, part ii** • had major issue :bomb:  with `SceneDelegate` since examples were in Swift 4.2 rather than 5 – got help from FTV Guild |
 | Day 35 | December 10, 12, 13 | :+1: | **Project 7, part iii** •  challenges were easy to go over. |
-| Day 36 | January 1, 7 | ~ | **Project 8, part i** •  first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
+| Day 36 | January 1, 7 | :arrow_right: | **Project 8, part i** •  first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
 | Day 37 | January 8 | :+1: | **Project 8, part ii** •  added button targets and game mechanics |
-| Day 38 | January 9, 10 | ~ | **Project 8, part iii** •  challenge to add outline to view, negative score and errors messaging |
+| Day 38 | January 9, 10 | :arrow_right: | **Project 8, part iii** •  challenge to add outline to view, negative score and errors messaging |
 | Day 39 | January 10 | :white_check_mark: | **Project 9, part i** •  learned about the different types of threads and `performSelector` as alternative to DispatchQues |
 | Day 40 | January 12 | :+1: | **Project 9, part ii** •  review what's dispatchable in previous projects (1, 7, 8) |
 
@@ -117,11 +117,11 @@ Days organized by folders containing
 | Day 42 | January 29 | :white_check_mark: | **Project 10, part i** • very straightforward setup of a Collection View which I've seen at work before |
 | Day 43 | January 30 | :white_check_mark: | **Project 10, part ii** • ImagePicker is super easy to take on though I expected to edit the `plist`, on IB need to be careful of auto-resizing settings |
 | Day 44 | February 4 | :white_check_mark: | **Project 10, part iii** • learned how to have the picker use the Camera instead and refactor a table view with a collection view – what the differences are. |
-| Day 45 | February 7, 10 | ~ | **Project 11, part i** • first introduction into `SpriteKit`! :space_invader: So much fun! |
+| Day 45 | February 7, 10 | :arrow_right: | **Project 11, part i** • first introduction into `SpriteKit`! :space_invader: So much fun! |
 | Day 46 | February 10, 11 | :white_check_mark: | **Project 11, part ii** • added collision handling and block adding mode |
 | Day 47 | February 11, 12 | :rocket: | **Project 11, part iii** • introduce to editing particles directly in Xcode, added collision cases, labels and chance counter – loved it, so intuitive! |
-| Day 48 | February 18, 23 | ~ | **Project 12, part i** • Save contact cards with `UserDefaults`|
-| Day 49 | February 25, March 4 | ~ | **Project 12, part ii** • Refactoring previous projects to add saving features relevant to their features |
+| Day 48 | February 18, 23 | :arrow_right: | **Project 12, part i** • Save contact cards with `UserDefaults`|
+| Day 49 | February 25, March 4 | :arrow_right: | **Project 12, part ii** • Refactoring previous projects to add saving features relevant to their features |
 
 ### :one: :zero: **Consolidation V**
 
@@ -135,24 +135,25 @@ Days organized by folders containing
 
 ### :one: :one: **Images and animation**
 
+>The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
+
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 52 | April 5 | :white_check_mark: | **Project 13, part i** • set up project by practicing auto-layout, ImpagePicker import |
 | Day 53 | April 5 | :white_check_mark: | **Project 13, part ii** • working with CoreImages I added and switched filters, changed intesity and saved back to photos. |
 | Day 54 | April 6,8 | :white_check_mark: | **Project 13, part iii** • completed review challenges : error message display, filter change feature, and adding a radius slider – including re-adding constraints by hand to the storyboard so it was responsive. Some tricks I was able to recall from work, but others did not work as precisely as I'd like – but doesn't take away from how great it feels to be not so afraid of storyboards! :joy: |
-| Day 55 | April 11, 21, 24, 25 | ~ | **Project 14, part i** • A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
+| Day 55 | April 11, 21, 24, 25 | :arrow_right: | **Project 14, part i** • A lot of interruptions over the past few weeks but introduced to `asyncAfter` for dispatching appearance/disappearance of penguins and change up the texture of SKSprites. |
 | Day 56 | May 3, 7, 10 | :question: | **Project 14, part ii** • Ran into a lot of technical difficulties with `wav` and `caf` audio formats (that I'll return to later), but still came a way with a complete project |
-| Day 57 | May 11, 14, 16 | :heart_eyes; | **Project 15, part i** • Super fun first exploration of Core Animation which makes me think of how much easier animating may be in swift than with Adobe After Effects if I really tune into the documentation and practice different projects :joy: |
+| Day 57 | May 11, 14, 16 | :heart_eyes: | **Project 15, part i** • Super fun first exploration of Core Animation which makes me think of how much easier animating may be in swift than with Adobe After Effects if I really tune into the documentation and practice different projects :joy: |
 | Day 58 | May 16 | :white_check_mark: | **Project 15, part ii** • Suprisingly inutive, the challenges just flew by. :rocket: |
 
->The next three projects we’ll be making move into the realm of richer user interfaces – you’ll learn about manipulating images using Core Image, animation views, and more.
 
 ### :one: :two: **Consolidation VI**
 >We’ve covered some hugely important iOS technologies that you’ll be relying on time and time again, so let’s take a brief pause to recap what you’ve learned.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 59 | May ~ | ~ | **Milestone: Projects 13-15** • |
+| Day 59 | May 17, 20, 24 | :pencil: | **Milestone: Projects 13-15** • Created a MVP Countries of the World app that I plan on returning to and presenting in mobile guild at work in our code dojo :rocket: |
 
 ### :one: :three: **Maps and bugs**
 >In the next three projects we’ll be edging a little further away from UIKit as we explore MapKit, Apple’s powerful and flexible mapping framework, then we’ll tackle a skill you’re more than ready for: debugging.
@@ -176,6 +177,8 @@ Days organized by folders containing
 ### :one: :five: **Leveling up**
 >We’re going to tackle two tough projects back to back, but in doing so you’ll start to really be amazed at the things you can build on iOS – brace yourself!
 
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 67 | May ~ | ~ | **Projects 19, part i** • |
 | Day 68 | May ~ | ~ | **Projects 19, part ii** • |
 | Day 69 | May ~ | ~ | **Projects 19, part iii** • |
@@ -194,6 +197,8 @@ Days organized by folders containing
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 75 | May ~ | ~ | **Projects 22, part i** • |
 | Day 76 | May ~ | ~ | **Projects 22, part ii** • |
 | Day 77 | May ~ | ~ | **Projects 23, part i** • |
@@ -212,6 +217,8 @@ Days organized by folders containing
 ### :one: :nine: **Multipeer and motion**
 >These next three projects give you chance to go over some earlier topics again, while also introducing some new frameworks such as MultipeerConnectivity and Core Motion.
 
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 83 | May ~ | ~ | **Projects 25, part i** • |
 | Day 84 | May ~ | ~ | **Projects 25, part ii** • |
 | Day 85 | May ~ | ~ | **Projects 26, part i** • |
@@ -231,6 +238,8 @@ Days organized by folders containing
 ### :two: :one: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
+| Challenge day | Calendar day | Within goaltime?| What was new? |
+|---|---|---|---|
 | Day 92 | May ~ | ~ | **Projects 28, part i** • |
 | Day 93 | May ~ | ~ | **Projects 28, part ii** • |
 | Day 94 | May ~ | ~ | **Projects 29, part i** • |
