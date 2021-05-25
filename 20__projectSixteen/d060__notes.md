@@ -24,6 +24,9 @@
 >Create a new Single View App project in Xcode, naming it `Project16`. Now go to Interface Builder for your view controller, and embed it inside a navigation controller. Search for "map" in the object library, drop a map view into your view controller so that it occupies the full view, then use **Resolve Auto Layout Issues** > **Add Missing Constraints** so that it stays next to each edge.
 >
 >Now, run your program and you should see a basic map working nicely.x
+>Now, run your program and you should see a basic map working nicely.
+
+:white_check_mark: all set.
 
 ## :two: [Up and running with MapKit](https://www.hackingwithswift.com/read/16/2/up-and-running-with-mapkit) 
 
