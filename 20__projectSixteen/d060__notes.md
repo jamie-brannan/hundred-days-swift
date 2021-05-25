@@ -13,6 +13,7 @@
 - [*Day 60 • Monday May 24, 2021*](#day-60--monday-may-24-2021)
   - [:one:  Setting up](#1️⃣-setting-up)
   - [:two: Up and running with MapKit](#2️⃣-up-and-running-with-mapkit)
+    - [Annotations](#annotations)
   - [:three:  Annotation and accessory views MKPinAnnotationView](#3️⃣-annotation-and-accessory-views-mkpinannotationview)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/16/1/setting-up) 
@@ -23,7 +24,6 @@
 >
 >Create a new Single View App project in Xcode, naming it `Project16`. Now go to Interface Builder for your view controller, and embed it inside a navigation controller. Search for "map" in the object library, drop a map view into your view controller so that it occupies the full view, then use **Resolve Auto Layout Issues** > **Add Missing Constraints** so that it stays next to each edge.
 >
->Now, run your program and you should see a basic map working nicely.x
 >Now, run your program and you should see a basic map working nicely.
 
 :white_check_mark: all set.
@@ -35,12 +35,20 @@
 >Using the assistant editor, please create an outlet for your map view called `mapView`. You should also set your view controller to be the delegate of the map view by Ctrl-dragging from the map view to the orange and white view controller button just above the layout area. You will also need to add `import MapKit` to ViewController.swift so it understands what `MKMapView` is.
 >
 >Note: If you don’t set the map’s delegate, the rest of this project won’t work too well.
+
+:white_check_mark: added import and error on new outlet worked through.
+
+### Annotations
+
+>With that done, _we're going to add some annotations to our map_. **Annotations are objects that contain a title, a subtitle and a position.** 
+>* The first two are both strings, the third is a new data type called `CLLocationCoordinate2D`, which is a structure that holds a latitude and longitude for where the annotation should be placed.
 >
->With that done, we're going to add some annotations to our map. Annotations are objects that contain a title, a subtitle and a position. The first two are both strings, the third is a new data type called `CLLocationCoordinate2D`, which is a structure that holds a latitude and longitude for where the annotation should be placed.
+>Map annotations are described not as a class, but as a **protocol**. This is something you haven't seen before, because so far protocols have all been about methods. 
+>* But if we want to conform to the `MKAnnotation` protocol, which is the one we need to adopt in order to create map annotations, it states that we must have a coordinate in our annotation. 
 >
->Map annotations are described not as a class, but as a protocol. This is something you haven't seen before, because so far protocols have all been about methods. But if we want to conform to the `MKAnnotation` protocol, which is the one we need to adopt in order to create map annotations, it states that we must have a coordinate in our annotation. That makes sense, because there's no point in having an annotation on a map if we don't know where it is. The title and subtitle are optional, but we'll provide them anyway.
+>That makes sense, because there's no point in having an annotation on a map if we don't know where it is. The title and subtitle are optional, but we'll provide them anyway.
 >
->Create a new file and choose iOS > Source > Cocoa Touch Class. Make it a subclass of `NSObject` and name it “Capital”. With map annotations, you can't use structs, and you must inherit from `NSObject` because it needs to be interactive with Apple's Objective-C code.
+>Create a new file and choose _iOS > Source > Cocoa Touch Class_. Make it a subclass of `NSObject` and name it “Capital”. With map annotations, you can't use structs, and you must inherit from `NSObject` because it needs to be interactive with Apple's Objective-C code.
 >
 >Change the contents of Capital.swift to this:
 
@@ -60,7 +68,9 @@ class Capital: NSObject, MKAnnotation {
     }
 }
 ```
->There are our three properties, along with a basic initializer that just copies in the data it's given. Again, we need to use `self.` here because the parameters being passed in are the same name as our properties. I've added `import MapKit` to the file because that's where `MKAnnotation` and `CLLocationCoordinate2D` are defined.
+>There are our three properties, along with a basic initializer that just copies in the data it's given. 
+>* Again, we need to use `self.` here because _the parameters being passed in are the same name as our properties_. 
+>* I've added `import MapKit` to the file because that's where `MKAnnotation` and `CLLocationCoordinate2D` are defined.
 >
 >With this custom subclass, we can create capital cities by passing in their name, coordinate and information – I'll be using the `info` property to hold one priceless (read: off-the-cuff, I sucked at geography) informational nugget about each city. You're welcome to do better!
 >
