@@ -17,7 +17,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
     let mapPoints = setupAnnotations()
     mapView.addAnnotations(mapPoints)
   }
-  
+
+  // MARK: - Setup
+
+  func askForMapType() {
+    
+  }
+
   func setupAnnotations() -> [Capital] {
     let london = Capital(title: "London", coordinate: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), info: "Home to the 2012 Summer Olympics.")
     let oslo = Capital(title: "Oslo", coordinate: CLLocationCoordinate2D(latitude: 59.95, longitude: 10.75), info: "Founded over a thousand years ago.")
@@ -27,7 +33,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     let points = [london, oslo, paris, rome, washington]
     return points
   }
-  
+
+  // MARK: - Map view delegates
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     guard annotation is Capital else { return nil }
     let identifier = "Capital"
@@ -40,7 +47,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     } else {
       annotationView?.annotation = annotation
     }
-    
+    if let annotationPinView = annotationView as? MKPinAnnotationView {
+      annotationPinView.pinTintColor = .blue
+      return annotationPinView
+    }
     return annotationView
   }
   

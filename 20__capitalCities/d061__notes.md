@@ -26,7 +26,16 @@ Again, we've only scratched the surface of what maps can do in iOS, but that jus
 
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
->   - [ ]   Try typecasting the return value from `dequeueReusableAnnotationView()` so that it's an `MKPinAnnotationView`. Once that’s done, change the `pinTintColor` property to your favorite `UIColor`.
+>   - [x]   Try typecasting the return value from `dequeueReusableAnnotationView()` so that it's an `MKPinAnnotationView`. Once that’s done, change the `pinTintColor` property to your favorite `UIColor`.
+
+```swift
+    if let annotationPinView = annotationView as? MKPinAnnotationView {
+      annotationPinView.pinTintColor = .cyan
+      return annotationPinView
+    }
+```
+
+:white_check_mark: Easy peasy!
 
 >   - [ ]   Add a `UIAlertController` that lets users specify how they want to view the map. There's a `mapType` property that draws the maps in different ways. For example, `.satellite` gives a satellite view of the terrain.
 
