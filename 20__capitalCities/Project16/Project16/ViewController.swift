@@ -11,17 +11,30 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
   
   @IBOutlet var mapView: MKMapView!
-  
+  let types: [String:MKMapType] = [
+    "Hybrid" : MKMapType.hybrid,
+    "Satellite" : MKMapType.satellite,
+    "Muted Standard" : MKMapType.mutedStandard
+  ]
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map type", style: .plain, target: self, action: #selector(askForMapType))
     let mapPoints = setupAnnotations()
     mapView.addAnnotations(mapPoints)
   }
 
   // MARK: - Setup
 
-  func askForMapType() {
-    
+  @objc func askForMapType() {
+    let ac = UIAlertController(title: "Welcome!", message: "What style of map would you like?", preferredStyle: .alert)
+    for (typeName, rawMapType) in types {
+      ac.addAction(UIAlertAction(title: typeName, style: .default) { _ in
+        self.mapView.mapType = rawMapType
+      })
+    }
+    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    present(ac, animated: true)
   }
 
   func setupAnnotations() -> [Capital] {

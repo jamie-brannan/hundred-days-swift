@@ -37,7 +37,31 @@ Again, we've only scratched the surface of what maps can do in iOS, but that jus
 
 :white_check_mark: Easy peasy!
 
->   - [ ]   Add a `UIAlertController` that lets users specify how they want to view the map. There's a `mapType` property that draws the maps in different ways. For example, `.satellite` gives a satellite view of the terrain.
+>   - [x]   Add a `UIAlertController` that lets users specify how they want to view the map. There's a `mapType` property that draws the maps in different ways. For example, `.satellite` gives a satellite view of the terrain.
+
+Go dictionaries :) 
+
+```swift
+  let types: [String:MKMapType] = [
+    "Hybrid" : MKMapType.hybrid,
+    "Satellite" : MKMapType.satellite,
+    "Muted Standard" : MKMapType.mutedStandard
+  ]
+
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Map type", style: .plain, target: self, action: #selector(askForMapType))
+
+    @objc func askForMapType() {
+    let ac = UIAlertController(title: "Welcome!", message: "What style of map would you like?", preferredStyle: .alert)
+    for (typeName, rawMapType) in types {
+      ac.addAction(UIAlertAction(title: typeName, style: .default) { _ in
+        self.mapView.mapType = rawMapType
+      })
+    }
+    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    present(ac, animated: true)
+  }
+```
+
 
 >   - [ ]   Modify the callout button so that pressing it shows a new view controller with a web view, taking users to the Wikipedia entry for that city.
 
