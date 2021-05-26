@@ -62,8 +62,42 @@ Go dictionaries :)
   }
 ```
 
+>   - [x]   Modify the callout button so that pressing it shows a new view controller with a web view, taking users to the Wikipedia entry for that city.
 
->   - [ ]   Modify the callout button so that pressing it shows a new view controller with a web view, taking users to the Wikipedia entry for that city.
+```swift
+//
+//  CityWikiDetailViewController.swift
+//  Project16
+//
+//  Created by Jamie Brannan on 26/05/2021.
+//
+
+import UIKit
+import WebKit
+
+class CityWikiDetailViewController: UIViewController {
+  
+  let webView = WKWebView()
+  var capital: Capital?
+  
+  override func loadView() {
+      self.view = webView
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    guard let capital = capital?.title else { return }
+    let urlString = "https://en.wikipedia.org/wiki/\(capital)"
+    if let url = URL(string: urlString) {
+      let request = URLRequest(url: url)
+      webView.load(request)
+    }
+  }
+}
+
+```
+
+:warning: adding a web view to the storyboard was a waste of time – way easier to past via an instance initiate with the class instance.
 
 ## :two:  [Review for Project 16: Capital cities](https://www.hackingwithswift.com/review/hws/project-16-capital-cities) 
 
