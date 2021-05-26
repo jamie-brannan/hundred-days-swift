@@ -199,3 +199,4 @@ func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, callou
 ```
 >With that, the project is done. We have pins in place, city names being showed when the pins are tapped, and more information popping up when requested. Perfect!
 
+:white_check_mark: All done! :D
