@@ -24,12 +24,16 @@
 >
 >Remarkably, we're going to make this project in just over 100 lines of code. To begin, create a new SpriteKit project in Xcode named Project17. 
 >   - [x]  Configure it to work only on landscape iPads,
->   - [ ]  then download the files for this project and copy the Content folder into your project.
-
-
-
->Now for the most important – and most boring - part: please clean Xcode’s template project so that it’s back to showing a large empty screen. Don’t forget to change the anchor point and size of the scene!
+>   - [x]  then download the files for this project and copy the Content folder into your project.
 >
+>Now for the most important – and most boring - part: _please clean Xcode’s template project so that it’s back to showing a large empty screen_. Don’t forget to change the anchor point and size of the scene!
+
+[Cleaning project instructions](https://www.hackingwithswift.com/read/14/1/setting-up) date back to project 14
+
+* delete hello world label
+* reset the anchor point
+* clear out the GameScene.swift functions and extra import
+
 >All done? Start the clock – let's see how long it takes to make this game!
 
 ## :two:  [Space : the final frontier](https://www.hackingwithswift.com/read/17/2/space-the-final-frontier) 
