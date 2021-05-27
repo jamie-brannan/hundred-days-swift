@@ -14,6 +14,8 @@
 		1156CD69265FE6B600770F18 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1156CD68265FE6B600770F18 /* GameViewController.swift */; };
 		1156CD6C265FE6B600770F18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1156CD6A265FE6B600770F18 /* Main.storyboard */; };
 		1156CD6E265FE6B900770F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1156CD6D265FE6B900770F18 /* Assets.xcassets */; };
+		1156CD81265FE84600770F18 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1156CD79265FE84600770F18 /* explosion.sks */; };
+		1156CD87265FE84600770F18 /* starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1156CD7F265FE84600770F18 /* starfield.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1156CD6B265FE6B600770F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1156CD6D265FE6B900770F18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1156CD6F265FE6B900770F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1156CD79265FE84600770F18 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
+		1156CD7F265FE84600770F18 /* starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = starfield.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		1156CD5F265FE6B600770F18 /* Project17 */ = {
 			isa = PBXGroup;
 			children = (
+				1156CD78265FE84600770F18 /* Content */,
 				1156CD60265FE6B600770F18 /* AppDelegate.swift */,
 				1156CD62265FE6B600770F18 /* GameScene.sks */,
 				1156CD64265FE6B600770F18 /* Actions.sks */,
@@ -68,6 +73,15 @@
 				1156CD6F265FE6B900770F18 /* Info.plist */,
 			);
 			path = Project17;
+			sourceTree = "<group>";
+		};
+		1156CD78265FE84600770F18 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				1156CD79265FE84600770F18 /* explosion.sks */,
+				1156CD7F265FE84600770F18 /* starfield.sks */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,8 +142,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1156CD6C265FE6B600770F18 /* Main.storyboard in Resources */,
+				1156CD87265FE84600770F18 /* starfield.sks in Resources */,
 				1156CD63265FE6B600770F18 /* GameScene.sks in Resources */,
 				1156CD6E265FE6B900770F18 /* Assets.xcassets in Resources */,
+				1156CD81265FE84600770F18 /* explosion.sks in Resources */,
 				1156CD65265FE6B600770F18 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
