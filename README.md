@@ -162,7 +162,7 @@ Days organized by folders containing
 |---|---|---|---|
 | Day 60 | May 24, 25, 26 | :arrow_right:  | **Projects 16, part i** • Began reorganizing git branches by chapter, Nice start to MapKit |
 | Day 61 | May 26 | :white_check_mark: | **Projects 16, part ii** • Linking together WKWebKit, alert controler knowledge to make a broader map navigation experience. |
-| Day 62 | May ~ | ~ | **Projects 17, part i** • |
+| Day 62 | May 27 | ~ | **Projects 17, part i** • |
 | Day 63 | May ~ | ~ | **Projects 17, part ii** • |
 | Day 64 | May ~ | ~ | **Projects 18, part i** • |
 | Day 65 | May ~ | ~ | **Projects 18, part ii** • |
