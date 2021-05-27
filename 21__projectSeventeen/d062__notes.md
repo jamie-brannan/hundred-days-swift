@@ -1,23 +1,33 @@
 # *Day 62 • Thursday May 27, 2021*
 
->Way back in day 8 of this course I gave you a quote from Fred Brooks, who wrote the seminal book The Mythical Man-Month. Well, today I want to channel him once more, because in that book he provided a timeless piece of advice for all software developers: “Plan to throw the first one away.”
+>Way back in day 8 of this course I gave you a quote from Fred Brooks, who wrote the seminal book The Mythical Man-Month. Well, today I want to channel him once more, because in that book he provided a timeless piece of advice for all software developers: _“Plan to throw the first one away.”_
 >
->You see, sometimes we only know whether a solution is optimal, or if it will even work, after we’ve had a first pass at implementing it. As has been said many times before, in theory theory and practice are the same thing, but in practice they aren’t – it’s one thing to have an idea in your head, but quite another to actually bring it to life with Swift.
+>You see, sometimes we only know whether a solution is optimal, or if it will even work, after we’ve had a first pass at implementing it. As has been said many times before, in theory theory and practice are the same thing, but in practice they aren’t – _it’s one thing to have an idea in your head, but quite another to actually bring it to life with Swift._
 >
->While you might think throwing away code sounds bad, in this project you’ll start to realize just how fast we can get functionality up and running – in about 20 minutes we’ll go from an empty Xcode project to a working game, all thanks to SpriteKit.
+>While you might think throwing away code sounds bad, in this project you’ll start to realize just how fast we can get functionality up and running – **in about 20 minutes we’ll go from an empty Xcode project to a working game, all thanks to SpriteKit.**
 >
 >Of course you’ll also be learning some important new techniques long the way – it’s a busy day!
 >
->**Today you have four topics to work through, and you’ll learn about pixel-perfect collision detection, Timer, linearDamping, and more.**
+>**Today you have four topics to work through, and you’ll learn about pixel-perfect collision detection, `Timer`, `linearDamping`, and more.**
+
+- [*Day 62 • Thursday May 27, 2021*](#day-62--thursday-may-27-2021)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Space : the final frontier](#two--space--the-final-frontier)
+  - [:three:  Bring on the enemies: Timer, linearDamping, angularDamping](#three--bring-on-the-enemies-timer-lineardamping-angulardamping)
+  - [:four: Making contact: didBegin()](#four-making-contact-didbegin)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/17/1/setting-up) 
 
 >In this game project we'll seek to answer the question, "how fast can you make a fun game in SpriteKit?" Spoiler warning: the answer is very fast. And that's even when you ignore learning about `Timer`, advancing particle systems, linear and angular damping, and per-pixel collision detection.
 >
->The game we're going to produce is a very simple survival game: our player will have to pilot a spaceship safely through a field of space junk. The longer they stay alive the higher their score will be, but they need to keep moving otherwise certain death awaits!
+>The game we're going to produce is **a very simple survival game**: _our player will have to pilot a spaceship safely through a field of space junk_. The longer they stay alive the higher their score will be, but they need to keep moving otherwise certain death awaits!
 >
->Remarkably, we're going to make this project in just over 100 lines of code. To begin, create a new SpriteKit project in Xcode named Project17. Configure it to work only on landscape iPads, then download the files for this project and copy the Content folder into your project.
->
+>Remarkably, we're going to make this project in just over 100 lines of code. To begin, create a new SpriteKit project in Xcode named Project17. 
+>   - [x]  Configure it to work only on landscape iPads,
+>   - [ ]  then download the files for this project and copy the Content folder into your project.
+
+
+
 >Now for the most important – and most boring - part: please clean Xcode’s template project so that it’s back to showing a large empty screen. Don’t forget to change the anchor point and size of the scene!
 >
 >All done? Start the clock – let's see how long it takes to make this game!
