@@ -1,4 +1,4 @@
-# *Day 62 • Thursday May 27, 2021*
+# *Day 62 • Thursday May 27, June 10, 2021*
 
 >Way back in day 8 of this course I gave you a quote from Fred Brooks, who wrote the seminal book The Mythical Man-Month. Well, today I want to channel him once more, because in that book he provided a timeless piece of advice for all software developers: _“Plan to throw the first one away.”_
 >
@@ -10,7 +10,7 @@
 >
 >**Today you have four topics to work through, and you’ll learn about pixel-perfect collision detection, `Timer`, `linearDamping`, and more.**
 
-- [*Day 62 • Thursday May 27, 2021*](#day-62--thursday-may-27-2021)
+- [*Day 62 • Thursday May 27, June 10, 2021*](#day-62--thursday-may-27-june-10-2021)
   - [:one:  Setting up](#one--setting-up)
   - [:two:  Space : the final frontier](#two--space--the-final-frontier)
   - [:three:  Bring on the enemies: Timer, linearDamping, angularDamping](#three--bring-on-the-enemies-timer-lineardamping-angulardamping)
