@@ -123,9 +123,9 @@ var isGameOver = false
 var gameTimer: Timer?
 ```
 
->The possibleEnemies array contains the names of the three images that can be used as space debris in the game: a ball, a hammer and a TV. The `isGameOver` is a simple boolean that will be set to true when we should stop increasing the player's score.
+>The `possibleEnemies` array contains the names of the _three images _that can be used as space debris in the game: a ball, a hammer and a TV. The `isGameOver` is a simple boolean that will be set to true when we should stop increasing the player's score.
 >
->The third property is a new type, called Timer. This is responsible for running code after a period of time has passed, either once or repeatedly.
+>The third property is a new type, called `Timer`. _This is responsible for running code after a period of time has passed, either once or repeatedly._
 >
 >When you create an Timer you specify five parameters: how many seconds you want the delay to be, what object should be told when the timer fires, what method should be called on that object when the timer fires, any context you want to provide, and whether the time should repeat.
 >
@@ -133,7 +133,6 @@ var gameTimer: Timer?
 
 ```swift
 gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
-
 ```
 
 >Tip: The `scheduledTimer()` timer not only creates a timer, but also starts it immediately.
@@ -179,9 +178,11 @@ override func update(_ currentTime: TimeInterval) {
 }
 ```
 
+:white_check_mark: Yup we've got plenty of debris and can even knock stuff out.
+
 ## :four: [Making contact: didBegin()](https://www.hackingwithswift.com/read/17/4/making-contact-didbegin) 
 
->Check your clock, because remarkably we’re just two methods away from finishing this game! Predictably, the two methods are critically important: one to move the player around the screen, and one to handle collisions between the player and the space debris.
+>Check your clock, because remarkably we’re just two methods away from finishing this game! Predictably, the two methods are critically important: **one to move the player around the screen, and one to handle collisions between the player and the space debris**.
 >
 >Handling player movement is as simple as implementing the `touchesMoved()` method. We will, like always, need to use the `location(in:)` method to figure out where on the screen the user touched. But this time we're going to clamp the player's Y position, which in plain English means that we're going to stop them going above or below a certain point, keeping them firmly in the game area.
 >
@@ -215,3 +216,5 @@ func didBegin(_ contact: SKPhysicsContact) {
     isGameOver = true
 }
 ```
+
+:warning: I had to do a tonnnnnn of dimension adjustments for iPadPro run.
