@@ -163,7 +163,7 @@ Days organized by folders containing
 | Day 60 | May 24, 25, 26 | :arrow_right:  | **Projects 16, part i** • Began reorganizing git branches by chapter, Nice start to MapKit |
 | Day 61 | May 26 | :white_check_mark: | **Projects 16, part ii** • Linking together WKWebKit, alert controler knowledge to make a broader map navigation experience. |
 | Day 62 | May 27, June 10 | :arrow_right: | **Projects 17, part i** • It was tricky handling the sizing of iPad Pro screen and certain asset limits, but nodes were old hat. |
-| Day 63 | June ~ | ~ | **Projects 17, part ii** • |
+| Day 63 | June 10, 17 | :arrow_right: | **Projects 17, part ii** • Pretty approachable and easy to place logic :) |
 | Day 64 | June ~ | ~ | **Projects 18, part i** • |
 | Day 65 | June ~ | ~ | **Projects 18, part ii** • |
 

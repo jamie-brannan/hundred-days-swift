@@ -20,9 +20,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   let possibleEnemies = ["ball", "hammer", "tv"]
+  var enemiesKilledCounter = 0
+  var timeInterval: Double = 1
   var isGameOver = false
   var gameTimer: Timer?
-  
   
   // MARK: - Delegation
   override func didMove(to view: SKView) {
@@ -50,7 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.gravity = CGVector(dx: 0, dy: 0)
     physicsWorld.contactDelegate = self
     
-    gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+    gameTimer?.invalidate()
+    gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -92,6 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   @objc func createEnemy() {
     guard !isGameOver else { return }
+    enemiesKilledCounter += 1
     guard let enemy = possibleEnemies.randomElement() else { return }
     
     let sprite = SKSpriteNode(imageNamed: enemy)
@@ -104,12 +107,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     sprite.physicsBody?.angularVelocity = 5
     sprite.physicsBody?.linearDamping = 0
     sprite.physicsBody?.angularDamping = 0
+    checkCountAgainstClock()
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
     guard !isGameOver else { return }
     gameOver()
   }
+
+  func checkCountAgainstClock() {
+    guard enemiesKilledCounter >= 20 else { return }
+    guard timeInterval > 0.2 else { return }
+    timeInterval -= 0.1
+    gameTimer?.invalidate()
+    gameTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+  }
+
   
   func gameOver(){
     let explosion = SKEmitterNode(fileNamed: "explosion")!

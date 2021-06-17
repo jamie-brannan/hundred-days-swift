@@ -1,4 +1,4 @@
-# *Day 63 • Thursday June 10, 2021*
+# *Day 63 • Thursday June 10, 17, 2021*
 
 >When you follow this course you are, in a way, following in my footsteps. I lay out a path for you to follow, showing you how to make a variety of apps and games, and give you tips and advice to help you stay on track.
 >
@@ -21,7 +21,10 @@
 * created a `gameOver` function
 * edited the `didBegin` and `touchesEnded` functions
 
->  - [ ]  Make the timer start at one second, but then after 20 enemies have been made subtract 0.1 seconds from it so it’s triggered every 0.9 seconds. After making 20 more, subtract another 0.1, and so on. Note: you should call `invalidate()` on `gameTimer` before giving it a new value, otherwise you end up with multiple timers.
+>  - [x]  Make the timer start at one second, but then after 20 enemies have been made subtract 0.1 seconds from it so it’s triggered every 0.9 seconds. After making 20 more, subtract another 0.1, and so on. Note: you should call `invalidate()` on `gameTimer` before giving it a new value, otherwise you end up with multiple timers.
+
+  - [x]  start at one second
+  - [x]  trigger at 20 enemies count, subtract 0.1 seconds
   
 >  - [x]  Stop creating space debris after the player has died.
 
