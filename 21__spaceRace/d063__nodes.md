@@ -23,7 +23,7 @@
 
 >  - [ ]  Make the timer start at one second, but then after 20 enemies have been made subtract 0.1 seconds from it so it’s triggered every 0.9 seconds. After making 20 more, subtract another 0.1, and so on. Note: you should call `invalidate()` on `gameTimer` before giving it a new value, otherwise you end up with multiple timers.
   
->  - [ ]  Stop creating space debris after the player has died.
+>  - [x]  Stop creating space debris after the player has died.
 
 
 ## :two:  [Review for Project Space Race](https://www.hackingwithswift.com/review/hws/project-17-space-race) 
