@@ -16,7 +16,10 @@
 
 >One of the best ways to learn is to write your own code as often as possible, so here are three ways you should try your new knowledge to make sure you fully understand what’s going on:
 >
->  - [ ]  Stop the player from cheating by lifting their finger and tapping elsewhere – try implementing `touchesEnded()` to make it work.
+>  - [x]  Stop the player from cheating by lifting their finger and tapping elsewhere – try implementing `touchesEnded()` to make it work.
+
+* created a `gameOver` function
+* edited the `didBegin` and `touchesEnded` functions
 
 >  - [ ]  Make the timer start at one second, but then after 20 enemies have been made subtract 0.1 seconds from it so it’s triggered every 0.9 seconds. After making 20 more, subtract another 0.1, and so on. Note: you should call `invalidate()` on `gameTimer` before giving it a new value, otherwise you end up with multiple timers.
   

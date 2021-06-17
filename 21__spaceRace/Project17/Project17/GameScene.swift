@@ -18,11 +18,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       scoreLabel.text = "Score: \(score)"
     }
   }
-
+  
   let possibleEnemies = ["ball", "hammer", "tv"]
   var isGameOver = false
   var gameTimer: Timer?
-
+  
   
   // MARK: - Delegation
   override func didMove(to view: SKView) {
@@ -35,7 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     starfield.zPosition = -1
     
     player = SKSpriteNode(imageNamed: "player")
-    player.position = CGPoint(x: 16, y: 584)
+    player.position = CGPoint(x: 56, y: 484)
     player.physicsBody = SKPhysicsBody(texture: player.texture!, size: player.size)
     player.physicsBody?.contactTestBitMask = 1
     addChild(player)
@@ -55,56 +55,68 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
   }
-
+  
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-      guard let touch = touches.first else { return }
-      var location = touch.location(in: self)
-
-      if location.y < 100 {
-          location.y = 100
-      } else if location.y > 1024 {
-          location.y = 1024
-      }
-
-      player.position = location
+    guard let touch = touches.first else { return }
+    var location = touch.location(in: self)
+    
+    if location.y < 100 {
+      location.y = 100
+    } else if location.y > 1024 {
+      location.y = 1024
+    }
+    
+    player.position = location
   }
-
+  
   override func update(_ currentTime: TimeInterval) {
-      for node in children {
-          if node.position.x < -300 {
-              node.removeFromParent()
-          }
+    for node in children {
+      if node.position.x < -300 {
+        node.removeFromParent()
       }
-
-      if !isGameOver {
-          score += 1
-      }
+    }
+    
+    if !isGameOver {
+      score += 1
+    }
   }
-
+  
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    if !isGameOver {
+      gameOver()
+      return
+    }
+  }
+  
   // MARK: - Actions
-
+  
   @objc func createEnemy() {
-      guard let enemy = possibleEnemies.randomElement() else { return }
-
-      let sprite = SKSpriteNode(imageNamed: enemy)
-      sprite.position = CGPoint(x: 1366, y: Int.random(in: 50...1024))
-      addChild(sprite)
-
-      sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
-      sprite.physicsBody?.categoryBitMask = 1
-      sprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
-      sprite.physicsBody?.angularVelocity = 5
-      sprite.physicsBody?.linearDamping = 0
-      sprite.physicsBody?.angularDamping = 0
+    guard let enemy = possibleEnemies.randomElement() else { return }
+    
+    let sprite = SKSpriteNode(imageNamed: enemy)
+    sprite.position = CGPoint(x: 1366, y: Int.random(in: 50...1024))
+    addChild(sprite)
+    
+    sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+    sprite.physicsBody?.categoryBitMask = 1
+    sprite.physicsBody?.velocity = CGVector(dx: -500, dy: 0)
+    sprite.physicsBody?.angularVelocity = 5
+    sprite.physicsBody?.linearDamping = 0
+    sprite.physicsBody?.angularDamping = 0
   }
   
   func didBegin(_ contact: SKPhysicsContact) {
-      let explosion = SKEmitterNode(fileNamed: "explosion")!
-      explosion.position = player.position
-      addChild(explosion)
-
-      player.removeFromParent()
-
-      isGameOver = true
+    guard !isGameOver else { return }
+    gameOver()
+  }
+  
+  func gameOver(){
+    let explosion = SKEmitterNode(fileNamed: "explosion")!
+    explosion.position = player.position
+    addChild(explosion)
+    player.removeFromParent()
+    isGameOver = true
+    gameTimer?.invalidate()
+    return
   }
 }
