@@ -164,7 +164,7 @@ Days organized by folders containing
 | Day 61 | May 26 | :white_check_mark: | **Projects 16, part ii** • Linking together WKWebKit, alert controler knowledge to make a broader map navigation experience. |
 | Day 62 | May 27, June 10 | :arrow_right: | **Projects 17, part i** • It was tricky handling the sizing of iPad Pro screen and certain asset limits, but nodes were old hat. |
 | Day 63 | June 10, 17 | :arrow_right: | **Projects 17, part ii** • Pretty approachable and easy to place logic :) |
-| Day 64 | June ~ | ~ | **Projects 18, part i** • |
+| Day 64 | June 21, 23 | :arrow_right: | **Projects 18, part i** • I'd never seen `assert()`, breakpoint keyboard shortcuts before but peaks my interest in trying to really push for a TDD style of coding on a practice app. |
 | Day 65 | June ~ | ~ | **Projects 18, part ii** • |
 
 ### :one: :four: **Consolidation VII**
