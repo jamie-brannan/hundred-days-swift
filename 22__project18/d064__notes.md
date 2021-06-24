@@ -10,17 +10,17 @@ Oh cool, looking forward to focusing on a skills outside of API knowledge :)
 
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/18/1/setting-up) 
 
->Debugging is the act of removing mistakes from your apps, so in some respects programming is the act of putting bugs into your apps. What’s more, there’s a famous quote that should strike terror into your heart: “Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”
+>Debugging is the act of removing mistakes from your apps, so in some respects programming is the act of putting bugs into your apps. What’s more, there’s a famous quote that should strike terror into your heart: _“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”_
 >
->Of course, the truth is that we’re not able to write code “as cleverly as possible” – we all just muddle through and do our best. Debugging, then, is inevitable: even the best of us writes software with mistakes in, and it’s a hugely important skill to be able to find and fix those mistakes as efficiently as possible.
+>Of course, the truth is that we’re not able to write code “as cleverly as possible” – we all just muddle through and do our best. Debugging, then, is inevitable: even the best of us writes software with mistakes in, and **it’s a hugely important skill to be able to find and fix those mistakes as efficiently as possible.**
 >
->In this project we’ll be looking at several different debugging techniques, all of which are useful. I’ve arranged them easy to hard, so you can get started immediately and work your way forward as your skills improve.
+>In this project we’ll be looking at several different debugging techniques, all of which are useful. _I’ve arranged them easy to hard_, so you can get started immediately and work your way forward as your skills improve.
 >
->Remember: there is no learning without struggle. Every time you make a mistake coding, you’ll be forced to debug it, and in doing so your coding skills will improve as will your debugging skills. So: don’t be annoyed when you screw up – it benefits you in the long term!
+>Remember: **there is no learning without struggle**. Every time you make a mistake coding, you’ll be forced to debug it, and in doing so your coding skills will improve as will your debugging skills. So: don’t be annoyed when you screw up – it benefits you in the long term!
 >
 >To follow along, please create a new Single View App project named Project18.
 
-
+:white_check_mark: created.
 
 ## :two:  [Basic Swift Debugging using print](https://www.hackingwithswift.com/read/18/2/basic-swift-debugging-using-print) 
 
