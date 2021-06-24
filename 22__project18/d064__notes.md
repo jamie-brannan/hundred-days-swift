@@ -1,4 +1,4 @@
-# *Day 64 • Monday June 21, 24 2021*
+# *Day 64 • Monday June 21, 24, 2021*
 
 >Thomas Fuchs once said, **“the best error message is the one that never shows up.”** Of course, getting to that point is easier said than done – even in just your progress in this course so far you’ve almost certainly hit 50 or more bugs in your code, and had to figure out the problem then resolve it.
 >
