@@ -8,6 +8,14 @@ Oh cool, looking forward to focusing on a skills outside of API knowledge :)
 
 >**Today you have five short topics to work through, and you’ll learn about `assert()`, breakpoints, view debugging, and more.**
 
+- [*Day 64 • Monday June 21, 24, 2021*](#day-64--monday-june-21-24-2021)
+  - [:one:  Setting up](#one--setting-up)
+  - [:two:  Basic Swift Debugging using print](#two--basic-swift-debugging-using-print)
+  - [:three:  Debugging with assert](#three--debugging-with-assert)
+  - [:four:  Debugging with breakpoints](#four--debugging-with-breakpoints)
+  - [:five:  View debugging](#five--view-debugging)
+  - [:arrow_right_hook: :gift: Wrap up the day](#arrow_right_hook-gift-wrap-up-the-day)
+
 ## :one:  [Setting up](https://www.hackingwithswift.com/read/18/1/setting-up) 
 
 >Debugging is the act of removing mistakes from your apps, so in some respects programming is the act of putting bugs into your apps. What’s more, there’s a famous quote that should strike terror into your heart: _“Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.”_
