@@ -165,7 +165,7 @@ Days organized by folders containing
 | Day 62 | May 27, June 10 | :arrow_right: | **Projects 17, part i** • It was tricky handling the sizing of iPad Pro screen and certain asset limits, but nodes were old hat. |
 | Day 63 | June 10, 17 | :arrow_right: | **Projects 17, part ii** • Pretty approachable and easy to place logic :) |
 | Day 64 | June 21, 23 | :arrow_right: | **Projects 18, part i** • I'd never seen `assert()`, breakpoint keyboard shortcuts before but peaks my interest in trying to really push for a TDD style of coding on a practice app. |
-| Day 65 | June ~ | ~ | **Projects 18, part ii** • |
+| Day 65 | June 25, 26 | :arrow_right: | **Projects 18, part ii** • Putting into practice different types of breakpoints is so much more interested and easy that I realized! Gonna move away plain breakpoints here on out. |
 
 ### :one: :four: **Consolidation VII**
 >Although these last few projects should have been nice and easy for you, it’s still worth pausing for a day to review what was learned and try out a fresh challenge.
