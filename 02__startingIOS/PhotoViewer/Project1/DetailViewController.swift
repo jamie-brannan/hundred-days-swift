@@ -13,15 +13,14 @@ class DetailViewController: UIViewController {
   var selectedImage: String?
   var pictureCount: Int?
   var selectedImageListOrderRank: Int?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
     /// Unwrapping optionalos
     guard let detailPictureCount = pictureCount, let detailSelectedImageOrderRank = selectedImageListOrderRank else {
       print("somethings missing")
       return
     }
-
 //    title = selectedImage // we want the title to be the name of the file
     title = "Picture \(detailSelectedImageOrderRank + 1) of \(detailPictureCount)"
     /// no need to unwrap because both are optionals, `title` is nil by default
@@ -34,7 +33,7 @@ class DetailViewController: UIViewController {
     if let imageToLoad = selectedImage {
       imageView.image  = UIImage(named: imageToLoad)
     }
-    // Do any additional setup after loading the view.
+    assert(selectedImage != nil, "There must always be a value for selected image")
   }
 
   override func viewWillAppear(_ animated: Bool) {
