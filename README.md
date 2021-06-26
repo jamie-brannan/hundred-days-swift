@@ -94,7 +94,7 @@ Days organized by folders containing
 | Day 33 | November 19 | :white_check_mark: | **Project 7, part i** •  Review of codable, and parsing which was what I first learned. Embedding tabs was new! :) |
 | Day 34 | November 25, 29, December 10 | :raised_hand: | **Project 7, part ii** • had major issue :bomb:  with `SceneDelegate` since examples were in Swift 4.2 rather than 5 – got help from FTV Guild |
 | Day 35 | December 10, 12, 13 | :+1: | **Project 7, part iii** •  challenges were easy to go over. |
-| Day 36 | January 1, 7 | :arrow_right: | **Project 8, part i** •  first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
+| Day 36 | January 1, 7, 2021| :arrow_right: | **Project 8, part i** •  first playable project without storyboard, `NSLayoutConstraints` activation on views added programatically, different anchors |
 | Day 37 | January 8 | :+1: | **Project 8, part ii** •  added button targets and game mechanics |
 | Day 38 | January 9, 10 | :arrow_right: | **Project 8, part iii** •  challenge to add outline to view, negative score and errors messaging |
 | Day 39 | January 10 | :white_check_mark: | **Project 9, part i** •  learned about the different types of threads and `performSelector` as alternative to DispatchQues |
@@ -160,52 +160,52 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 60 | May ~ | ~ | **Projects 16, part i** • |
-| Day 61 | May ~ | ~ | **Projects 16, part ii** • |
-| Day 62 | May ~ | ~ | **Projects 17, part i** • |
-| Day 63 | May ~ | ~ | **Projects 17, part ii** • |
-| Day 64 | May ~ | ~ | **Projects 18, part i** • |
-| Day 65 | May ~ | ~ | **Projects 18, part ii** • |
+| Day 60 | May 24, 25, 26 | :arrow_right:  | **Projects 16, part i** • Began reorganizing git branches by chapter, Nice start to MapKit |
+| Day 61 | May 26 | :white_check_mark: | **Projects 16, part ii** • Linking together WKWebKit, alert controler knowledge to make a broader map navigation experience. |
+| Day 62 | May 27, June 10 | :arrow_right: | **Projects 17, part i** • It was tricky handling the sizing of iPad Pro screen and certain asset limits, but nodes were old hat. |
+| Day 63 | June 10, 17 | :arrow_right: | **Projects 17, part ii** • Pretty approachable and easy to place logic :) |
+| Day 64 | June 21, 23 | :arrow_right: | **Projects 18, part i** • I'd never seen `assert()`, breakpoint keyboard shortcuts before but peaks my interest in trying to really push for a TDD style of coding on a practice app. |
+| Day 65 | June 25, 26 | :arrow_right: | **Projects 18, part ii** • Putting into practice different types of breakpoints is so much more interested and easy that I realized! Gonna move away plain breakpoints here on out. |
 
 ### :one: :four: **Consolidation VII**
 >Although these last few projects should have been nice and easy for you, it’s still worth pausing for a day to review what was learned and try out a fresh challenge.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 66 | May ~ | ~ | **Milestone: Projects 16-18** • |
+| Day 66 | June ~ | ~ | **Milestone: Projects 16-18** • |
 
 ### :one: :five: **Leveling up**
 >We’re going to tackle two tough projects back to back, but in doing so you’ll start to really be amazed at the things you can build on iOS – brace yourself!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 67 | May ~ | ~ | **Projects 19, part i** • |
-| Day 68 | May ~ | ~ | **Projects 19, part ii** • |
-| Day 69 | May ~ | ~ | **Projects 19, part iii** • |
-| Day 70 | May ~ | ~ | **Projects 20, part i** • |
-| Day 71 | May ~ | ~ | **Projects 20, part ii** • |
-| Day 72 | May ~ | ~ | **Projects 21, part i** • |
-| Day 73 | May ~ | ~ | **Projects 21, part ii** • |
+| Day 67 | June ~ | ~ | **Projects 19, part i** • |
+| Day 68 | June ~ | ~ | **Projects 19, part ii** • |
+| Day 69 | June ~ | ~ | **Projects 19, part iii** • |
+| Day 70 | June ~ | ~ | **Projects 20, part i** • |
+| Day 71 | June ~ | ~ | **Projects 20, part ii** • |
+| Day 72 | June ~ | ~ | **Projects 21, part i** • |
+| Day 73 | June ~ | ~ | **Projects 21, part ii** • |
 
 ### :one: :six: **Consolidation VIII**
 >After two tough projects and yet another important technique, it’s time to hit the brakes for a day and double check everything is sinking in.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 74 | May ~ | ~ | **Milestone: Projects 19-21** • |
+| Day 74 | June ~ | ~ | **Milestone: Projects 19-21** • |
 
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 75 | May ~ | ~ | **Projects 22, part i** • |
-| Day 76 | May ~ | ~ | **Projects 22, part ii** • |
-| Day 77 | May ~ | ~ | **Projects 23, part i** • |
-| Day 78 | May ~ | ~ | **Projects 23, part ii** • |
-| Day 79 | May ~ | ~ | **Projects 23, part iii** • |
-| Day 80 | May ~ | ~ | **Projects 24, part i** • |
-| Day 81 | May ~ | ~ | **Projects 24, part ii** • |
+| Day 75 | June ~ | ~ | **Projects 22, part i** • |
+| Day 76 | June ~ | ~ | **Projects 22, part ii** • |
+| Day 77 | June ~ | ~ | **Projects 23, part i** • |
+| Day 78 | June ~ | ~ | **Projects 23, part ii** • |
+| Day 79 | June ~ | ~ | **Projects 23, part iii** • |
+| Day 80 | June ~ | ~ | **Projects 24, part i** • |
+| Day 81 | June ~ | ~ | **Projects 24, part ii** • |
 
 ### :one: :eight: **Consolidation IX**
 >Your head is probably spinning with Bezier paths and iBeacons, so before we continue on with more learning it’s important to take a day to pause and reflect on what has been covered.
@@ -219,49 +219,49 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 83 | May ~ | ~ | **Projects 25, part i** • |
-| Day 84 | May ~ | ~ | **Projects 25, part ii** • |
-| Day 85 | May ~ | ~ | **Projects 26, part i** • |
-| Day 86 | May ~ | ~ | **Projects 26, part ii** • |
-| Day 87 | May ~ | ~ | **Projects 27, part i** • |
-| Day 88 | May ~ | ~ | **Projects 27, part ii** • |
-| Day 89 | May ~ | ~ | **Projects 27, part iii** • |
+| Day 83 | June ~ | ~ | **Projects 25, part i** • |
+| Day 84 | June ~ | ~ | **Projects 25, part ii** • |
+| Day 85 | June ~ | ~ | **Projects 26, part i** • |
+| Day 86 | June ~ | ~ | **Projects 26, part ii** • |
+| Day 87 | June ~ | ~ | **Projects 27, part i** • |
+| Day 88 | June ~ | ~ | **Projects 27, part ii** • |
+| Day 89 | June ~ | ~ | **Projects 27, part iii** • |
 
 ### :two: :zero: **Consolidation X**
 >As we enter the last few days of this challenge, it’s as important as ever to pause for a moment and review what you’ve learned these last few days.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 90 | May ~ | ~ | **Milestone: Projects 25-27** • |
-| Day 91 | May ~ | ~ | **Core Graphics redux** • |
+| Day 90 | June ~ | ~ | **Milestone: Projects 25-27** • |
+| Day 91 | June ~ | ~ | **Core Graphics redux** • |
 
 ### :two: :one: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 92 | May ~ | ~ | **Projects 28, part i** • |
-| Day 93 | May ~ | ~ | **Projects 28, part ii** • |
-| Day 94 | May ~ | ~ | **Projects 29, part i** • |
-| Day 95 | May ~ | ~ | **Projects 29, part ii** • |
-| Day 96 | May ~ | ~ | **Projects 29, part iii** • |
-| Day 97 | May ~ | ~ | **Projects 30, part i** • |
-| Day 98 | May ~ | ~ | **Projects 30, part ii** • |
+| Day 92 | June ~ | ~ | **Projects 28, part i** • |
+| Day 93 | June ~ | ~ | **Projects 28, part ii** • |
+| Day 94 | June ~ | ~ | **Projects 29, part i** • |
+| Day 95 | June ~ | ~ | **Projects 29, part ii** • |
+| Day 96 | June ~ | ~ | **Projects 29, part iii** • |
+| Day 97 | June ~ | ~ | **Projects 30, part i** • |
+| Day 98 | June ~ | ~ | **Projects 30, part ii** • |
 
 ### :two: :two: **Consolidation XI**
 >It’s time to recap all the things you’ve learned in the last few days, and start work on a big challenge to go out with. You’ve got this!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 99 | May ~ | ~ | **Milestone: Projects 28-30** • |
+| Day 99 | June ~ | ~ | **Milestone: Projects 28-30** • |
 
 ### :two: :three: **Wrap up**
 >It’s time to see how much you remember from across the entire curriculum. Are you ready for this?
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 100 | May ~ | ~ | **Final Exam** • |
-| Epilogue | May ~ | ~ | **What now?** • |
+| Day 100 | June ~ | ~ | **Final Exam** • |
+| Epilogue | June ~ | ~ | **What now?** • |
 
 
 ## Acknowledgments
