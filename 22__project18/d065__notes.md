@@ -1,4 +1,4 @@
-# *Day 65 • Friday June 25, 2021*
+# *Day 65 • Friday June 25, 26, 2021*
 
 > When I first took up cycling there was a particular long, steep hill I used to practice on, and it was so hard for me – I remember getting off half way up and walking the remainder! I asked one of the team at my local bike shop about it, and his response really stuck with me: “it doesn’t get much easier, but you do get faster.”
 >
@@ -27,3 +27,31 @@
 >  - [ ]  Go back to project 5, and try adding a conditional breakpoint to the start of the `submit()` method that pauses only if the user submits a word with six or more letters.
 
 ## :two:  [Review for Project 18 : Debugging](https://www.hackingwithswift.com/review/hws/project-18-debugging) 
+
+### :boom: Quiz insights
+
+* print() is a variadic function.
+  * This means it can accepts lots of parameters to be printed.
+* If you pass a separator to print() it will be used between each value that gets printed.
+  * This lets you format its output more cleanly.
+* The p command in LLDB is short for "print".
+  * It's an easy way to read the value of a particular variable.
+* It's a good idea to make liberal use of assertions.
+  * These can help catch errors in your program state.
+* Variadic functions accept zero or more values of the same type
+  * Inside the function they get grouped into an array.
+* View debugging renders your UI in 3D so you can see how views are layered.
+  * It's a great way to find out why a specific view isn't visible.
+* The print() function accepts any kind of value.
+  * It's really flexible – you can send it whatever you need.
+* Assertions are removed when we build our apps for the App Store.
+  * This means you can run slow functionality and it doesn't matter – it never happens on users' devices.
+* Assertions must be provided with a condition to check.
+  * You can provide a message to print if that check fails, but the message is optional.
+* Breakpoints can have conditions attached.
+   *  These let you pause only when specific conditions are true.
+*  Breakpoints pause execution of your code.
+   *  When your code is paused you can read the values of any properties and variables.
+*  Back traces only show you all the functions that were called into the lead up to the current location, not all the code run.
+*  Exception breakpoints automatically get triggered when some code throws an error.
+*  This commonly happens when system APIs hit problems.
