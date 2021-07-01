@@ -76,9 +76,14 @@ Oh cool! Interesting to look at sometime
 
 ## :three:  [Challenge](https://www.hackingwithswift.com/guide/7/3/challenge) 
 
-> It’s time to put your skills to the test and make your own app, starting from a blank canvas. This time your challenge is to make a shooting gallery game using SpriteKit: create three rows on the screen, then have targets slide across from one side to the other. If the user taps a target, make it fade out and award them points.
+> _It’s time to put your skills to the test and make your own app, starting from a blank canvas._ 
 > 
-> How you implement this game really depends on what kind of shooting gallery games you’ve played in the past, but here are some suggestions to get you started:
+> This time your challenge is to make a shooting gallery game using SpriteKit: 
+> * create three rows on the screen, 
+> * then have targets slide across from one side to the other. 
+> * If the user taps a target, make it fade out and award them points.
+> 
+> How you implement _this game really depends on what kind of shooting gallery games you’ve played in the past_, but here are some suggestions to get you started:
 >
 >   - [ ]  Make some targets big and slow, and others small and fast. The small targets should be worth more points.
 >
@@ -93,7 +98,21 @@ Oh cool! Interesting to look at sometime
 >   - [ ]  Give the user six bullets per clip. Make them tap a different part of the screen to reload.
 >
 > Those are just suggestions – it’s your game, so do what you like!
-> 
+
+
+  - [ ]  start new project
+  - [ ]  reset game scenes as usual
+  - [ ]  add good and bad target assets to project
+  - [ ]  add three rows (with different bg colors)
+  - [ ]  add random number of targets to the rows
+  - [ ]  make targets disappear on touch
+  - [ ]  add points on good target touch
+  - [ ]  remove points on bad target touch
+  - [ ]  display points in label somewhere on the screen
+  - [ ]  make top and bottom row targets move left to right
+  - [ ]  make middle row targets move right to left
+  - [ ]  limit user to six tries
+
 > Tip: I made a SpriteKit shooting gallery game in my book Hacking with macOS – the SpriteKit code for that project is compatible with iOS, but rather than just reading my code you might prefer to just take my assets and use them to build your own project.
 > 
 > As always, please try to code the challenge yourself before reading any of the hints below.
