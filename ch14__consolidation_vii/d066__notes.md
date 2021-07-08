@@ -12,6 +12,14 @@
 > 
 > Today you have three topics to work through, one of which of is your challenge.
 
+- [*Day 66 • Thursday July 01, 2021*](#day-66--thursday-july-01-2021)
+  - [:one:  What you learned](#one--what-you-learned)
+  - [:two:  Key points](#two--key-points)
+    - [Assertions](#assertions)
+    - [Timer](#timer)
+  - [:three:  Challenge](#three--challenge)
+    - [References](#references)
+
 ## :one:  [What you learned](https://www.hackingwithswift.com/guide/7/1/what-you-learned) 
 
 > Although these projects shouldn’t have been too difficult for someone at your level, they definitely covered some important skills that you’ll come back to time and time again.
@@ -100,10 +108,10 @@ Oh cool! Interesting to look at sometime
 > Those are just suggestions – it’s your game, so do what you like!
 
 
-  - [ ]  start new project
-  - [ ]  reset game scenes as usual
+  - [x]  start new project
+  - [x]  reset game scenes as usual
   - [ ]  add good and bad target assets to project
-  - [ ]  add three rows (with different bg colors)
+  - [x]  add three rows (with different bg colors)
   - [ ]  add random number of targets to the rows
   - [ ]  make targets disappear on touch
   - [ ]  add points on good target touch
@@ -117,12 +125,26 @@ Oh cool! Interesting to look at sometime
 > 
 > As always, please try to code the challenge yourself before reading any of the hints below.
 >
-> Moving the targets in your shooting gallery is a perfect job for the moveBy() action. Use a sequence so that targets move across the screen smoothly, then remove themselves when they are off screen.
+> Moving the targets in your shooting gallery is a perfect job for the `moveBy()` action. Use a sequence so that targets move across the screen smoothly, then remove themselves when they are off screen.
 >
-> You can create a timer using an SKLabelNode, a secondsRemaining integer, and a Timer that takes 1 away from secondsRemaining every 1 second.
+> You can create a timer using an `SKLabelNode`, a `secondsRemaining` integer, and a `Timer` that takes 1 away from `secondsRemaining` every 1 second.
 >
-> Make sure you call invalidate() when the time runs out.
+> Make sure you call `invalidate()` when the time runs out.
 >
-> Use nodes(at:) to see what was tapped. If you don’t find a node named “Target” in the returned array, you could subtract points for the player missing a shot.
+> Use `nodes(at:)` to see what was tapped. If you don’t find a node named “Target” in the returned array, you could subtract points for the player missing a shot.
 >
-> You should be able to use a property observer for both player score and number of bullets remaining in clip. Changing the score or bullets would update the appropriate SKLabelNode on the screen.
+> You should be able to use a property observer for both player score and number of bullets remaining in clip. Changing the score or bullets would update the appropriate `SKLabelNode` on the screen.
+
+### References
+
+:pencil: Getting the background and rows set right isn't easy but seems it would be wisest to do it in different classes :
+
+* https://github.com/clarknt/100-days-of-swift/blob/main/24-Milestone-Projects16-18/Milestone-Projects16-18/GameScene.swift
+* https://github.com/nocto7/Day66/blob/master/Day66/GameScene.swift
+* https://github.com/leoidiaz/100DaysOfSwift/blob/master/MilestoneProject16-18/MilestoneProject16-18/GameScene.swift
+* https://github.com/robbaldwin/100DaysOfSwift/tree/master/C06%20ShootingGallery
+* https://github.com/roblack/100DaysOfSwift_challenges/blob/master/Day66_challenge/Day66_challenge/GameScene.swift
+* https://github.com/thomaskellough/tutorialsSwift/blob/master/Milestone%20Projects%2016-18/Milestone%20Projects%2016-18/GameScene.swift
+* https://github.com/clarknt/100-days-of-swift/blob/main/24-Milestone-Projects16-18/Milestone-Projects16-18/WaveNode.swift
+
+:question: *When do I use a `struct` versus using a `protocol` ?* 
