@@ -10,12 +10,11 @@ import GameplayKit
 
 class GameScene: SKScene {
 
-//  var topRow = SKShapeNode(rect: CGRect(x: 10, y: 10, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 3))
-  var topRow = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width, height: (UIScreen.main.bounds.height / 3)))
-
   override func didMove(to view: SKView) {
-//    backgroundColor = .yellow
+    backgroundColor = .yellow
+    var topRow = SKShapeNode(rectOf: CGSize(width: size.width, height: (size.height / 3)))
     topRow.fillColor = .blue
-    topRow.position = CGPoint(x: 10, y: 10)
+    topRow.position = CGPoint(x: size.width/2, y: size.height)
+    addChild(topRow)
   }
 }
