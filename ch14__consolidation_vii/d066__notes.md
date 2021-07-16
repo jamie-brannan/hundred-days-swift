@@ -19,6 +19,7 @@
     - [Timer](#timer)
   - [:three:  Challenge](#three--challenge)
     - [References](#references)
+    - [Trying to get TargetRow right](#trying-to-get-targetrow-right)
 
 ## :one:  [What you learned](https://www.hackingwithswift.com/guide/7/1/what-you-learned) 
 
@@ -148,3 +149,109 @@ Oh cool! Interesting to look at sometime
 * https://github.com/clarknt/100-days-of-swift/blob/main/24-Milestone-Projects16-18/Milestone-Projects16-18/WaveNode.swift
 
 :question: *When do I use a `struct` versus using a `protocol` ?* 
+
+### Trying to get TargetRow right
+
+`ch14__consolidation_vii/ConsolidationVii/ConsolidationVii/RowNode.swift`
+
+```swift
+//
+//  RowNode.swift
+//  ConsolidationVii
+//
+//  Created by Jamie Brannan on 08/07/2021.
+//
+
+import SpriteKit
+
+enum FlowDirection {
+  case right
+  case left
+}
+
+enum VerticalPosition {
+  case top
+  case middle
+  case bottom
+}
+
+class TargetRow: SKShapeNode {
+  
+  // MARK: Props
+  let duration = Double.random(in: 0.2...0.6)
+  lazy var goLeft = SKAction.moveBy(x: -20, y: 0, duration: duration)
+  lazy var goRight = SKAction.moveBy(x: 20, y: 0, duration: duration)
+  lazy var sequenceLeft = SKAction.sequence([goLeft, goRight])
+  lazy var sequenceRight = SKAction.sequence([goRight, goLeft])
+
+  var direction : FlowDirection = .right
+  var rowName: VerticalPosition = .top
+//  var fill: UIColor
+//  var point: CGPoint
+
+  // MARK: Configuration
+  override init() {
+    super.init()
+  }
+
+  convenience init(direction: FlowDirection, fill: UIColor, point: CGPoint, named name: VerticalPosition) {
+    self.init()
+    self.direction = direction
+    self.fillColor = fill
+    self.position = point
+    self.name = "\(name)Row"
+  }
+//  init(direction: FlowDirection, fill: UIColor, point: CGPoint, named name: VerticalPosition) {
+//    super.init(rect: CGRect(x: point.x, y: point.y, width: 300, height: 100))
+//    self.direction = direction
+//    self.fillColor = fill
+//    self.position = point
+//    self.name = "\(name)Row"
+//  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  func animate() {
+    switch direction {
+    case .right:
+      let forever = SKAction.repeatForever(sequenceRight)
+      self.run(forever)
+    default:
+      let forever = SKAction.repeatForever(sequenceLeft)
+      self.run(forever)
+    }
+  }
+}
+
+```
+
+`ch14__consolidation_vii/ConsolidationVii/ConsolidationVii/GameScene.swift`
+
+```swift
+//
+//  GameScene.swift
+//  ConsolidationVii
+//
+//  Created by Jamie Brannan on 05/07/2021.
+//
+
+import SpriteKit
+import GameplayKit
+
+class GameScene: SKScene {
+
+  override func didMove(to view: SKView) {
+    backgroundColor = .yellow
+    let topRow = TargetRow(direction: .left, fill: .cyan, point: CGPoint(x: frame.midX, y: frame.midY + frame.height/3 ), named: .top)
+    let middleRow = TargetRow(direction: .right, fill: .brown, point: CGPoint(x: frame.midX, y: frame.midY), named: .middle)
+    let bottomRow = TargetRow(direction: .right, fill: .cyan, point: CGPoint(x: frame.midX, y: frame.midY - frame.height/3 ), named: .bottom)
+    addChild(topRow)
+    addChild(middleRow)
+    addChild(bottomRow)
+  }
+}
+
+```
+
