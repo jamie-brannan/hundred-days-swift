@@ -1,5 +1,5 @@
 //
-//  RowNode.swift
+//  Row.swift
 //  ConsolidationVii
 //
 //  Created by Jamie Brannan on 08/07/2021.
@@ -18,7 +18,7 @@ enum VerticalPosition {
   case bottom
 }
 
-class TargetRow: SKShapeNode {
+class Row: SKShapeNode {
   
   // MARK: Props
   let duration = Double.random(in: 0.2...0.6)
