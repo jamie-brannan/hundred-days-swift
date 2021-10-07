@@ -31,7 +31,7 @@ class Row: SKShapeNode {
   var rowName: VerticalPosition = .top
 
   // MARK: Configuration
-  convenience init(direction: FlowDirection, fill: UIColor, size:CGSize, point: CGPoint, named name: VerticalPosition) {
+  convenience init(direction: FlowDirection, fill: UIColor, size: CGSize, point: CGPoint, named name: VerticalPosition) {
     self.init(rectOf: size)
     self.direction = direction
     self.fillColor = fill

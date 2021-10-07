@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1167DB37269751990035307F /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167DB36269751990035307F /* Row.swift */; };
+		117EA2C826A763A200936A43 /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117EA2C726A763A200936A43 /* Target.swift */; };
 		1185E28F26939D4900827850 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1185E28E26939D4900827850 /* AppDelegate.swift */; };
 		1185E29126939D4900827850 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1185E29026939D4900827850 /* GameScene.sks */; };
 		1185E29326939D4900827850 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1185E29226939D4900827850 /* Actions.sks */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1167DB36269751990035307F /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
+		117EA2C726A763A200936A43 /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
 		1185E28B26939D4900827850 /* ConsolidationVii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsolidationVii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1185E28E26939D4900827850 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1185E29026939D4900827850 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				1185E29B26939D4A00827850 /* Assets.xcassets */,
 				1185E29D26939D4A00827850 /* Info.plist */,
 				1167DB36269751990035307F /* Row.swift */,
+				117EA2C726A763A200936A43 /* Target.swift */,
 			);
 			path = ConsolidationVii;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				1185E29726939D4900827850 /* GameViewController.swift in Sources */,
 				1167DB37269751990035307F /* Row.swift in Sources */,
 				1185E28F26939D4900827850 /* AppDelegate.swift in Sources */,
+				117EA2C826A763A200936A43 /* Target.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

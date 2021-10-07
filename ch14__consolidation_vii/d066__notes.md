@@ -20,6 +20,8 @@
   - [:three:  Challenge](#three--challenge)
     - [References](#references)
     - [Trying to get TargetRow right](#trying-to-get-targetrow-right)
+    - [Source files](#source-files)
+    - [Assign targets to rows?](#assign-targets-to-rows)
 
 ## :one:  [What you learned](https://www.hackingwithswift.com/guide/7/1/what-you-learned) 
 
@@ -111,7 +113,7 @@ Oh cool! Interesting to look at sometime
 
   - [x]  start new project
   - [x]  reset game scenes as usual
-  - [ ]  add good and bad target assets to project
+  - [x]  add good and bad target assets to project
   - [x]  add three rows (with different bg colors)
   - [ ]  add random number of targets to the rows
   - [ ]  make targets disappear on touch
@@ -255,3 +257,18 @@ class GameScene: SKScene {
 
 ```
 
+### Source files
+
+* https://openclipart.org/detail/240684/Zika-Virus
+
+* https://openclipart.org/download/261819/Monarch-Butterfly-2.svg
+
+* https://openclipart.org/download/9255/lalolalo-ladybug.svg
+
+Resized some of them in Affinity Designer :pushpin: [**Affinity Forums**](https://forum.affinity.serif.com/index.php?/topic/33847-cropping-canvas-to-selected-objects-size/) : *Cropping canvas to selected objects size*
+
+How can I shift the scale of a node?
+
+### Assign targets to rows?
+
+If I can calculate all positions according to spaces of rows, and assign targets to rows randomly.
