@@ -9,20 +9,29 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-  
-  private var label : SKLabelNode?
-  private var spinnyNode : SKShapeNode?
+  var rows = [RowVerticalPosition: RowNode]()
+  var durations = [RowDirection: TimeInterval]()
   
   override func didMove(to view: SKView) {
     addBackground()
+    rows[.back] = addRow(at: CGPoint(x: -82, y: 350), zPosition: 0, xScale: 1, direction: .right)
   }
   
-  func addBackground() {
+  private func addBackground() {
     let background = SKSpriteNode(imageNamed: "whackBackground")
     background.position = CGPoint(x: 512, y: 384)
     background.zPosition = -1
     background.blendMode = .replace
     addChild(background)
+  }
+
+  private func addRow(at position: CGPoint, zPosition: CGFloat, xScale: CGFloat, direction: RowDirection) -> RowNode {
+    let row = RowNode()
+    row.configure(at: position, xScale: xScale, direction: direction)
+    row.zPosition = zPosition
+    addChild(row)
+    row.animate()
+    return row
   }
   //    func touchDown(atPoint pos : CGPoint) {
   //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {

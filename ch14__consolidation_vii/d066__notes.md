@@ -272,3 +272,5 @@ How can I shift the scale of a node?
 ### Assign targets to rows?
 
 If I can calculate all positions according to spaces of rows, and assign targets to rows randomly.
+
+:question: *what's the difference between a `SKNode` and an `SKSpriteNode` again?* 
