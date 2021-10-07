@@ -10,11 +10,17 @@ import GameplayKit
 
 class GameScene: SKScene {
   var rows = [RowVerticalPosition: RowNode]()
-  var durations = [RowDirection: TimeInterval]()
+  var durations = [RowVerticalPosition: TimeInterval]()
   
   override func didMove(to view: SKView) {
     addBackground()
     rows[.back] = addRow(at: CGPoint(x: -82, y: 350), zPosition: 0, xScale: 1, direction: .right)
+    rows[.middle] = addRow(at: CGPoint(x: -82, y: 200), zPosition: 0.2, xScale: 0.75, direction: .left)
+    rows[.front] = addRow(at: CGPoint(x: -82, y: 50), zPosition: 0.4, xScale: 0.5, direction: .right)
+    durations[.back] = 4
+    durations[.middle] = 5
+    durations[.front] = 6
+    generateTargets()
   }
   
   private func addBackground() {
@@ -32,6 +38,59 @@ class GameScene: SKScene {
     addChild(row)
     row.animate()
     return row
+  }
+
+  private func addTarget(row: RowNode, scale: CGFloat, duration: TimeInterval, points: Int) {
+    let target = TargetNode()
+    let targetType: TargetType
+    if Int.random(in: 1...5) <= 4 {
+      targetType = .good
+    } else {
+      targetType = .bad
+    }
+    // target will be child of the row, compensate for row scale
+    var xScale = scale * (1/row.xScale)
+    let yScale = scale
+    
+    let startingPoint: CGFloat = row.childrenStartingPoint
+    let movement: CGFloat = row.childMovement
+ 
+    if row.direction == .right { // reverse direct its facing if its other direction
+      xScale = -xScale
+    }
+    
+    let position = CGPoint(x: startingPoint, y: 100)
+    target.configure(at: position, type: targetType, points: 1, xScale: xScale, yScale: yScale
+    )
+    
+    target.zPosition = -0.1
+    target.name = "target"
+    row.addChild(target)
+    
+    let moveAction = SKAction.move(by: CGVector(dx: movement, dy: 0), duration: duration)
+    let removeAction = SKAction.customAction(withDuration: 1) { (target, _) in
+        target.removeFromParent()
+    }
+    let sequence = SKAction.sequence([moveAction, removeAction])
+    target.run(sequence)
+  }
+
+  func generateTargets() {
+    // 3/5 chances to generate a duck
+    if Int.random(in: 1...5) <= 3 {
+        addTarget(row: rows[.front]!, scale: 1, duration: durations[.back]!, points: 100)
+    }
+    if Int.random(in: 1...5) <= 3 {
+        addTarget(row: rows[.middle]!, scale: 0.75, duration: durations[.middle]!, points: 200)
+
+    }
+    if Int.random(in: 1...5) <= 3 {
+        addTarget(row: rows[.back]!, scale: 0.5, duration: durations[.front]!, points: 300)
+    }
+    
+    durations[.back]! *= 0.996
+    durations[.middle]! *= 0.996
+    durations[.front]! *= 0.996
   }
   //    func touchDown(atPoint pos : CGPoint) {
   //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
