@@ -14,13 +14,14 @@ class GameScene: SKScene {
   
   override func didMove(to view: SKView) {
     addBackground()
+    // TODO: externalize in a function
     rows[.back] = addRow(at: CGPoint(x: -82, y: 350), zPosition: 0, xScale: 1, direction: .right)
     rows[.middle] = addRow(at: CGPoint(x: -82, y: 200), zPosition: 0.2, xScale: 0.75, direction: .left)
     rows[.front] = addRow(at: CGPoint(x: -82, y: 50), zPosition: 0.4, xScale: 0.5, direction: .right)
     durations[.back] = 4
     durations[.middle] = 5
     durations[.front] = 6
-    generateTargets()
+//    generateTargets()
   }
   
   private func addBackground() {
@@ -66,7 +67,7 @@ class GameScene: SKScene {
     target.zPosition = -0.1
     target.name = "target"
     row.addChild(target)
-    
+
     let moveAction = SKAction.move(by: CGVector(dx: movement, dy: 0), duration: duration)
     let removeAction = SKAction.customAction(withDuration: 1) { (target, _) in
         target.removeFromParent()
@@ -92,52 +93,4 @@ class GameScene: SKScene {
     durations[.middle]! *= 0.996
     durations[.front]! *= 0.996
   }
-  //    func touchDown(atPoint pos : CGPoint) {
-  //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-  //            n.position = pos
-  //            n.strokeColor = SKColor.green
-  //            self.addChild(n)
-  //        }
-  //    }
-  //
-  //    func touchMoved(toPoint pos : CGPoint) {
-  //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-  //            n.position = pos
-  //            n.strokeColor = SKColor.blue
-  //            self.addChild(n)
-  //        }
-  //    }
-  //
-  //    func touchUp(atPoint pos : CGPoint) {
-  //        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-  //            n.position = pos
-  //            n.strokeColor = SKColor.red
-  //            self.addChild(n)
-  //        }
-  //    }
-  //
-  //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-  //        if let label = self.label {
-  //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-  //        }
-  //
-  //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-  //    }
-  //
-  //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-  //        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-  //    }
-  //
-  //    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-  //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-  //    }
-  //
-  //    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-  //        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-  //    }
-  //
-  //
-  //    override func update(_ currentTime: TimeInterval) {
-  //        // Called before each frame is rendered
-  //    }
 }
