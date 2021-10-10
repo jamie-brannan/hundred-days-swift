@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene {
   var rows = [RowVerticalPosition: RowNode]()
-  var durations = [RowVerticalPosition: TimeInterval]()
+  var targetRotationDurations = [RowVerticalPosition: TimeInterval]()
   var gameTimer: Timer?
   var timeTimer: Timer?
   
@@ -20,11 +20,11 @@ class GameScene: SKScene {
     rows[.back] = addRow(at: CGPoint(x: -82, y: 350), zPosition: 0, xScale: 1, direction: .right)
     rows[.middle] = addRow(at: CGPoint(x: -82, y: 200), zPosition: 0.2, xScale: 0.75, direction: .left)
     rows[.front] = addRow(at: CGPoint(x: -82, y: 50), zPosition: 0.4, xScale: 0.5, direction: .right)
-    durations[.back] = 4
-    durations[.middle] = 5
-    durations[.front] = 6
+    targetRotationDurations[.back] = 4
+    targetRotationDurations[.middle] = 5
+    targetRotationDurations[.front] = 6
 //    generateTargets()
-    gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(generateTargets), userInfo: nil, repeats: true)
+    gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(generatePopulatedRows), userInfo: nil, repeats: true)
   }
   
   private func addBackground() {
@@ -80,21 +80,21 @@ class GameScene: SKScene {
     target.run(sequence)
   }
 
-  @objc func generateTargets() {
-    // 3/5 chances to generate a duck
+  @objc func generatePopulatedRows() {
+    // 3/5 chances to generate a mosquito
     if Int.random(in: 1...5) <= 3 {
-        addTargetToSceneRow(row: rows[.front]!, scale: 1, duration: durations[.back]!, points: 100)
+        addTargetToSceneRow(row: rows[.front]!, scale: 1, duration: targetRotationDurations[.back]!, points: 100)
     }
     if Int.random(in: 1...5) <= 3 {
-        addTargetToSceneRow(row: rows[.middle]!, scale: 0.75, duration: durations[.middle]!, points: 200)
+        addTargetToSceneRow(row: rows[.middle]!, scale: 0.75, duration: targetRotationDurations[.middle]!, points: 200)
 
     }
     if Int.random(in: 1...5) <= 3 {
-        addTargetToSceneRow(row: rows[.back]!, scale: 0.5, duration: durations[.front]!, points: 300)
+        addTargetToSceneRow(row: rows[.back]!, scale: 0.5, duration: targetRotationDurations[.front]!, points: 300)
     }
     
-    durations[.back]! *= 0.996
-    durations[.middle]! *= 0.996
-    durations[.front]! *= 0.996
+    targetRotationDurations[.back]! *= 0.996
+    targetRotationDurations[.middle]! *= 0.996
+    targetRotationDurations[.front]! *= 0.996
   }
 }
