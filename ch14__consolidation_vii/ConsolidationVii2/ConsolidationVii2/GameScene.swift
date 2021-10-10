@@ -44,7 +44,7 @@ class GameScene: SKScene {
     return row
   }
 
-  private func addTarget(row: RowNode, scale: CGFloat, duration: TimeInterval, points: Int) {
+  private func addTargetToSceneRow(row: RowNode, scale: CGFloat, duration: TimeInterval, points: Int) {
     let target = TargetNode()
     let targetType: TargetType
     if Int.random(in: 1...5) <= 4 {
@@ -83,14 +83,14 @@ class GameScene: SKScene {
   @objc func generateTargets() {
     // 3/5 chances to generate a duck
     if Int.random(in: 1...5) <= 3 {
-        addTarget(row: rows[.front]!, scale: 1, duration: durations[.back]!, points: 100)
+        addTargetToSceneRow(row: rows[.front]!, scale: 1, duration: durations[.back]!, points: 100)
     }
     if Int.random(in: 1...5) <= 3 {
-        addTarget(row: rows[.middle]!, scale: 0.75, duration: durations[.middle]!, points: 200)
+        addTargetToSceneRow(row: rows[.middle]!, scale: 0.75, duration: durations[.middle]!, points: 200)
 
     }
     if Int.random(in: 1...5) <= 3 {
-        addTarget(row: rows[.back]!, scale: 0.5, duration: durations[.front]!, points: 300)
+        addTargetToSceneRow(row: rows[.back]!, scale: 0.5, duration: durations[.front]!, points: 300)
     }
     
     durations[.back]! *= 0.996

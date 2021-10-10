@@ -13,17 +13,28 @@ enum TargetType {
 }
 
 class TargetNode: SKNode {
-  static let collection: [String] = ["ladybug", "butterfly"]
+  static let goodGuys: [String] = ["ladybug", "butterfly"]
+  static let badGuys: [String] = ["enemy"]
   var type: TargetType = .good
   
   func configure(at position: CGPoint, type: TargetType, points: Int, xScale: CGFloat, yScale: CGFloat) {
     self.position = position
     self.type = type
-    let target = SKSpriteNode(imageNamed: TargetNode.collection.randomElement()!)
+    switch type {
+    case .good:
+      let target = SKSpriteNode(imageNamed: TargetNode.goodGuys.randomElement()!)
+      calibrate(the: target)
+    case .bad:
+      let target = SKSpriteNode(imageNamed: TargetNode.badGuys.randomElement()!)
+      calibrate(the: target)
+    }
+    self.xScale = xScale
+    self.yScale = yScale
+  }
+
+  func calibrate(the target: SKSpriteNode) {
     target.zPosition = 0.1
     target.position = CGPoint(x: 0, y: 100)
     addChild(target)
-    self.xScale = xScale
-    self.yScale = yScale
   }
 }
