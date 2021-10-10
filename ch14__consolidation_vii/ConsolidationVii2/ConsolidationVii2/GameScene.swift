@@ -11,6 +11,8 @@ import GameplayKit
 class GameScene: SKScene {
   var rows = [RowVerticalPosition: RowNode]()
   var durations = [RowVerticalPosition: TimeInterval]()
+  var gameTimer: Timer?
+  var timeTimer: Timer?
   
   override func didMove(to view: SKView) {
     addBackground()
@@ -22,6 +24,7 @@ class GameScene: SKScene {
     durations[.middle] = 5
     durations[.front] = 6
 //    generateTargets()
+    gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(generateTargets), userInfo: nil, repeats: true)
   }
   
   private func addBackground() {
@@ -68,6 +71,7 @@ class GameScene: SKScene {
     target.name = "target"
     row.addChild(target)
 
+    // TODO: Externalize if possible
     let moveAction = SKAction.move(by: CGVector(dx: movement, dy: 0), duration: duration)
     let removeAction = SKAction.customAction(withDuration: 1) { (target, _) in
         target.removeFromParent()
@@ -76,7 +80,7 @@ class GameScene: SKScene {
     target.run(sequence)
   }
 
-  func generateTargets() {
+  @objc func generateTargets() {
     // 3/5 chances to generate a duck
     if Int.random(in: 1...5) <= 3 {
         addTarget(row: rows[.front]!, scale: 1, duration: durations[.back]!, points: 100)
