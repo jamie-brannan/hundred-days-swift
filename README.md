@@ -172,7 +172,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 66 | June ~ | ~ | **Milestone: Projects 16-18** • |
+| Day 66 | October 10 | :arrow_right_hook: | **Milestone: Projects 16-18** • This milestone challenge came right before the major Olympics project at work and also served as a very useful Proof of Concept at work for a completely different company wide subject – something to return to |
 
 ### :one: :five: **Leveling up**
 >We’re going to tackle two tough projects back to back, but in doing so you’ll start to really be amazed at the things you can build on iOS – brace yourself!
