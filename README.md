@@ -266,4 +266,4 @@ Days organized by folders containing
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
-* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was really lost :clap: Thanks you!!
+* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was lost :clap: Thank you so much for sharing!
