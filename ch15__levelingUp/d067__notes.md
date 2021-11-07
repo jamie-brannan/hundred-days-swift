@@ -5,7 +5,9 @@
 > Today we’re going to start a tricky project that creates a bridge between our Swift app and JavaScript running in Safari. It’s not tricky because we’re doing anything clever, but instead because Apple’s API here – the types and methods we use - are a bit clumsy, and require some very precise organization.
 > 
 > **Please don’t think for a second that you need to memorize all this stuff.** The goal in learning isn’t rote memorization of long parameter lists and similar, but instead to remember the larger structure of what’s possible. The goal here is for you to be able to say in a year or more, “I need to do X, and I remember learning about that previously…” and then proceeding to open up the code you wrote so you can refresh your memory.
-> 
+
+Got it :white_check_mark:
+
 > Ginni Rometty once said, “what I knew was I liked math and science, and I never wanted to memorize everything – I wanted to understand where it came from.” That’s the key to being a good developer: don’t worry about memorizing all the types and methods we’ll be using in this project, but instead focus on understanding the concepts and why they are used – you’ll do much better!
 > 
 > **Today you have four topics to work through, and you’ll learn about extensions, `NSExtensionItem`, and just a touch of JavaScript.**
