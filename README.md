@@ -180,7 +180,7 @@ Days organized by folders containing
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
 | Day 67 | November 3 | :arrow_right: | **Projects 19, part i** • |
-| Day 68 | November 7 | ~ | **Projects 19, part ii** • |
+| Day 68 | November 7 | :white_check_mark: | **Projects 19, part ii** • |
 | Day 69 | November ~ | ~ | **Projects 19, part iii** • |
 | Day 70 | November ~ | ~ | **Projects 20, part i** • |
 | Day 71 | November ~ | ~ | **Projects 20, part ii** • |
