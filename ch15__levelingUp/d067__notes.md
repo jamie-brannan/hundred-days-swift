@@ -102,7 +102,9 @@ override func viewDidLoad() {
 > Adding this value to the dictionary means that we only want to receive web pages – we aren't interested in images or other data types.
 > 
 > Now select the NSExtensionAttributes line itself, and click the + button that appears next to the word Dictionary. Replace "New item" with "NSExtensionJavaScriptPreprocessingFile", then give it the value "Action". This tells iOS that when our extension is called, we need to run the JavaScript preprocessing file called Action.js, which will be in our app bundle. Make sure you type "Action" and not "Action.js", because iOS will append the ".js" itself.
-> 
+
+Wooooow this feels like such a headache.
+
 > In the picture below you can see how your extension's property list should look. Make sure you enter the key names precisely, because there is no room for error.
 
  (:camera: screen shot on website)
