@@ -14,11 +14,15 @@ class ActionViewController: UIViewController {
   @IBOutlet var script: UITextView!
   var pageTitle = ""
   var pageURL = ""
-  
+
+  let titleScript = "alert(document.title);"
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+    let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addScript))
+    navigationItem.rightBarButtonItems = [doneButton, addButton]
     
     if let inputItem = extensionContext?.inputItems.first as? NSExtensionItem {
       if let itemProvider = inputItem.attachments?.first {
@@ -45,5 +49,16 @@ class ActionViewController: UIViewController {
 
     extensionContext?.completeRequest(returningItems: [item])
   }
-  
+
+  @objc func addScript() {
+    print("Add pressed")
+    let titleAction = UIAlertAction(title: "alert(document.title);", style: .default) { [weak self] (action) in
+      self?.script.text = action.title
+    }
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+    let ac = UIAlertController(title: "Safari Scripts", message: "What script would you like?", preferredStyle: .actionSheet)
+    ac.addAction(titleAction)
+    ac.addAction(cancelAction)
+    present(ac, animated: true)
+  }
 }
