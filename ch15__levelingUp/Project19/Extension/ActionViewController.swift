@@ -10,13 +10,16 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 
 class ActionViewController: UIViewController {
-  
+
+  // MARK: - Properties and outlets
   @IBOutlet var script: UITextView!
   var pageTitle = ""
   var pageURL = ""
 
-  let titleScript = "alert(document.title);"
+  var savedUserScripts = [SavableUserScript]()
+  var savedUserScriptsKey = "SavedUserScripts"
 
+  // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -27,6 +30,7 @@ class ActionViewController: UIViewController {
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addScript))
     navigationItem.rightBarButtonItems = [doneButton, addButton]
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
     
     if let inputItem = extensionContext?.inputItems.first as? NSExtensionItem {
       if let itemProvider = inputItem.attachments?.first {
@@ -72,6 +76,29 @@ class ActionViewController: UIViewController {
       script.scrollRangeToVisible(selectedRange)
   }
 
+  // MARK: - Data
+
+  
+  func loadLocalData() {
+    let userDefaults = UserDefaults.standard
+    savedUserScripts = userDefaults.object(forKey: savedUserScriptsKey) as? [SavableUserScript] ?? [SavableUserScript]()
+  }
+
+  func saveScript(name: String) {
+    guard let scriptRawText = script.text else { return }
+    let savableScript = SavableUserScript(associatedUrl: pageURL, name: name, script: scriptRawText)
+    let savedData = savedUserScripts
+    var newSaveData = savedUserScripts.append(savableScript)
+    let jsonEncoder = JSONEncoder()
+    if let savedData = try? jsonEncoder.encode(newSaveData) {
+      let userDefaults = UserDefaults.standard
+      userDefaults.set(savedData, forKey: savedUserScriptsKey)
+      userDefaults.synchronize()
+    }
+  }
+
+  // MARK: - Actions
+
   @objc func addScript() {
     print("Add pressed")
     let titleAction = UIAlertAction(title: "alert(document.title);", style: .default) { [weak self] (action) in
@@ -82,5 +109,16 @@ class ActionViewController: UIViewController {
     ac.addAction(titleAction)
     ac.addAction(cancelAction)
     present(ac, animated: true)
+  }
+
+  @objc func saveTapped() {
+    let ac = UIAlertController(title: "Script name", message: nil, preferredStyle: .alert)
+    ac.addTextField()
+    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    ac.addAction(UIAlertAction(title: "OK", style: .default) { [weak self, weak ac] _ in
+      guard let name = ac?.textFields?[0].text else { return }
+      self?.saveScript(name: name)
+    })
+    present(ac, animated: false)
   }
 }
