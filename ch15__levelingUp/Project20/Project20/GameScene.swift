@@ -11,6 +11,7 @@ class GameScene: SKScene {
 
   // MARK: - Properties
   var gameTimer: Timer?
+  var roundCounter = 3
   var fireworks = [SKNode]()
 
   let leftEdge = -22
@@ -36,6 +37,8 @@ class GameScene: SKScene {
     scoreLabel.position = CGPoint(x: 50, y: 50)
     scoreLabel.fontSize = 16
     scoreLabel.zPosition = 150
+    scoreLabel.verticalAlignmentMode = .center
+    scoreLabel.horizontalAlignmentMode = .left
     addChild(scoreLabel)
 
     gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
@@ -89,6 +92,11 @@ class GameScene: SKScene {
   }
 
   @objc func launchFireworks() {
+    guard roundCounter > 1 else {
+      gameTimer?.invalidate()
+      scoreLabel.text = "Sorry, out of rounds. Final score : \(score)"
+      return
+    }
       let movementAmount: CGFloat = 1800
 
       switch Int.random(in: 0...3) {
@@ -127,6 +135,7 @@ class GameScene: SKScene {
       default:
           break
       }
+    roundCounter -= 1
   }
 
   // MARK: Explosions
