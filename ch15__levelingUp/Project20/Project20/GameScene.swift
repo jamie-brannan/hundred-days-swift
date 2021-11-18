@@ -19,9 +19,11 @@ class GameScene: SKScene {
 
   var score = 0 {
       didSet {
-          // your code here
+        scoreLabel.text = "Score: \(score)"
       }
   }
+
+  let scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
 
   // MARK: - Lifecycle
   override func didMove(to view: SKView) {
@@ -30,6 +32,11 @@ class GameScene: SKScene {
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
+    scoreLabel.fontColor = SKColor.white
+    scoreLabel.position = CGPoint(x: 50, y: 50)
+    scoreLabel.fontSize = 16
+    scoreLabel.zPosition = 150
+    addChild(scoreLabel)
 
     gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
   }
