@@ -35,17 +35,17 @@ class GameScene: SKScene {
   }
 
   func createFirework(xMovement: CGFloat, x: Int, y: Int) {
-      // 1
+      // 1 – make node
       let node = SKNode()
       node.position = CGPoint(x: x, y: y)
 
-      // 2
+      // 2 – get asset
       let firework = SKSpriteNode(imageNamed: "rocket")
       firework.colorBlendFactor = 1
       firework.name = "firework"
       node.addChild(firework)
 
-      // 3
+      // 3 - set color
       switch Int.random(in: 0...2) {
       case 0:
           firework.color = .cyan
@@ -60,22 +60,22 @@ class GameScene: SKScene {
           break
       }
 
-      // 4
+      // 4 - decide its parallel path
       let path = UIBezierPath()
       path.move(to: .zero)
       path.addLine(to: CGPoint(x: xMovement, y: 1000))
 
-      // 5
+      // 5 - speed
       let move = SKAction.follow(path.cgPath, asOffset: true, orientToPath: true, speed: 200)
       node.run(move)
 
-      // 6
+      // 6 - add the fuse tail to the firework node itself at the bottom of it's own frame
       if let emitter = SKEmitterNode(fileNamed: "fuse") {
           emitter.position = CGPoint(x: 0, y: -22)
           node.addChild(emitter)
       }
 
-      // 7
+      // 7 - add the firework to the creater set node and scene
       fireworks.append(node)
       addChild(node)
   }
