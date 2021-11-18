@@ -253,6 +253,8 @@ func checkTouches(_ touches: Set<UITouch>) {
 }
 ```
 
+:bulb: Did not realise you can continue through a guard rather than return it! :anguished:
+
 > Apart from the for case let you've seen most of that previously, but that's because I missed out the logic to handle ensuring that players select only one color at a time. The above code will let them select all the fireworks, regardless of color.
 
 > So, we need to insert a second loop just before the node.name = "selected" line. When you place one loop inside another it's called an inner loop, and you need to be careful: if you have one loop that executes 100 times it's OK, and if you have another loop that executes 200 times that's OK too, but if you put one inside the other you now have 20,000 iterations of your loop and that's almost certainly not OK. Here, though, we'll have maybe two or three items in our outer loop and a maximum of 10 or so in the inner, so we're quite safe.
