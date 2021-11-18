@@ -209,13 +209,13 @@ func createFirework(xMovement: CGFloat, x: Int, y: Int) {
 
 ## :three:  [Swipe to select](https://www.hackingwithswift.com/read/20/3/swipe-to-select) 
 
-> Now that you can see fireworks shooting across your screen, it's time to reveal the difficulty element. You see, every game needs some challenge, and in our case the challenge is to destroy fireworks in groups of the same color. We're going to make it so that players can select only one color of firework at a time, so if they choose two red then touch a green, the two red will become deselected.
+> Now that you can see fireworks shooting across your screen, it's time to reveal the difficulty element. You see, every game needs some challenge, and in our case **the challenge is to destroy fireworks in groups of the same color.** We're going to make it so that players can select only one color of firework at a time, so if they choose two red then touch a green, the two red will become deselected.
 
-> So, the challenge will be to select and detonate fireworks based on their color, and as you'll see shortly we're going to heavily bias scores so that players receive many more points for larger groups.
+> So, the challenge will be to **select and detonate fireworks based on their colo**r, and as you'll see shortly we're going to heavily bias scores so that players receive many more points for larger groups.
 
-> What we're going to code now is the touch handling method, checkTouches(). We're going to call this from touchesBegan() and touchesMoved() so that users can either tap to select fireworks or just swipe across the screen.
+> What we're going to code now is the touch handling method, `checkTouches()`. We're going to call this from `touchesBegan()` and `touchesMoved()` so that users can either tap to select fireworks or just swipe across the screen.
 
-> The method needs to start by figuring out where in the scene the player touches, and what nodes are at that point. It will then loop through all nodes under the point to find any with the name "firework". When it finds one, it will set its name to be "selected" rather than "firework" and change its colorBlendFactor value to 0. That will disable the color blending entirely, making the firework white.
+> The method needs to start by figuring out _where in the scene the player touches_, **and** _what nodes are at that point_. It will then loop through all nodes under the point to find any with the name "firework". **When it finds one, it will set its name to be "`selected`" rather than "`firework`" and change its `colorBlendFactor` value to `0`.** That will _disable the color blending entirely_, making the firework white.
 
 > To make this code a little cleaner I want to introduce you to a new piece of Swift syntax that is a bit confusing at first because it uses three keywords back to back: for case let.
 

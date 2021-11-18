@@ -120,4 +120,39 @@ class GameScene: SKScene {
           break
       }
   }
+
+  func checkTouches(_ touches: Set<UITouch>) { /// Veriy touch corresponds with color group selected before adding change
+    guard let touch = touches.first else { return }
+    
+    let location = touch.location(in: self)
+    let nodesAtPoint = nodes(at: location) /// Returns an array of all visible descendants that intersect a point.
+    
+    // Must typecast for the loop cause otherwise we won't get a SKSpriteNode
+    for case let node as SKSpriteNode in nodesAtPoint {
+      guard node.name == "firework" else { continue }
+      
+      for parent in fireworks {
+        guard let firework = parent.children.first as? SKSpriteNode else { continue } /// Notions of parent child already in `SKNode`
+        
+        if firework.name == "selected" && firework.color != node.color {
+          firework.name = "firework"
+          firework.colorBlendFactor = 1
+        }
+      }
+      
+      node.name = "selected"
+      node.colorBlendFactor = 0
+    }
+  }
+  
+  // MARK: - Touch handling
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    checkTouches(touches)
+  }
+  
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesMoved(touches, with: event)
+    checkTouches(touches)
+  }
 }
