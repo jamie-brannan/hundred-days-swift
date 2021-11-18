@@ -34,6 +34,7 @@ class GameScene: SKScene {
     gameTimer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(launchFireworks), userInfo: nil, repeats: true)
   }
 
+  // MARK: - Fireworks
   func createFirework(xMovement: CGFloat, x: Int, y: Int) {
       // 1 – make node
       let node = SKNode()
@@ -121,6 +122,49 @@ class GameScene: SKScene {
       }
   }
 
+  // MARK: Explosions
+  func explode(firework: SKNode) {
+      if let emitter = SKEmitterNode(fileNamed: "explode") {
+          emitter.position = firework.position
+          addChild(emitter)
+      }
+
+      firework.removeFromParent()
+  }
+
+  func explodeFireworks() {
+      var numExploded = 0
+
+      for (index, fireworkContainer) in fireworks.enumerated().reversed() {
+          guard let firework = fireworkContainer.children.first as? SKSpriteNode else { continue }
+
+          if firework.name == "selected" {
+              // destroy this firework!
+              explode(firework: fireworkContainer)
+              fireworks.remove(at: index)
+              numExploded += 1
+          }
+      }
+
+      switch numExploded {
+      case 0:
+          // nothing – rubbish!
+          break
+      case 1:
+          score += 200
+      case 2:
+          score += 500
+      case 3:
+          score += 1500
+      case 4:
+          score += 2500
+      default:
+          score += 4000
+      }
+  }
+
+  // MARK: - Touch handling
+
   func checkTouches(_ touches: Set<UITouch>) { /// Veriy touch corresponds with color group selected before adding change
     guard let touch = touches.first else { return }
     
@@ -145,7 +189,6 @@ class GameScene: SKScene {
     }
   }
   
-  // MARK: - Touch handling
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     checkTouches(touches)
@@ -155,4 +198,14 @@ class GameScene: SKScene {
     super.touchesMoved(touches, with: event)
     checkTouches(touches)
   }
+
+  override func update(_ currentTime: TimeInterval) {
+    for (index, firework) in fireworks.enumerated().reversed() {
+      if firework.position.y > 900 {
+        fireworks.remove(at: index)
+        firework.removeFromParent()
+      }
+    }
+  }
+
 }
