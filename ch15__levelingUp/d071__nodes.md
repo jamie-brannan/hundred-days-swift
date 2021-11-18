@@ -106,7 +106,7 @@ Pretty fun and compact.
 >
 >   - [x]  Make the game end after a certain number of launches. You will need to use the `invalidate()` method of Timer to stop it from repeating.
 >
->   - [ ]  Use the `waitForDuration` and `removeFromParent` actions in a sequence to make sure explosion particle emitters are removed from the game scene when they are finished.
+>   - [x]  Use the `waitForDuration` and `removeFromParent` actions in a sequence to make sure explosion particle emitters are removed from the game scene when they are finished.
 
 ## :three:  [Review](https://www.hackingwithswift.com/review/hws/project-20-fireworks-night) 
 
