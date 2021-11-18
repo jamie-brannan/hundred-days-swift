@@ -17,6 +17,7 @@
   - [:two:  Wrap up](#two--wrap-up)
     - [Challenge](#challenge)
   - [:three:  Review](#three--review)
+    - [:boom: Quiz insights](#boom-quiz-insights)
 
 ## :one:  [Making things go bang: SKEmitterNode](https://www.hackingwithswift.com/read/20/4/making-things-go-bang-skemitternode) 
 
@@ -93,6 +94,8 @@ override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) 
 ```
 > That's it, your game is done. Obviously you can't shake your laptop to make the iOS Simulator respond, but you can use the keyboard shortcut `Ctrl+Cmd+Z` to get the same result. If you're testing on your iPad, make sure you give it a good shake in order to trigger the explosions!
 
+Pretty fun and compact.
+
 ## :two:  [Wrap up](https://www.hackingwithswift.com/read/20/5/wrap-up) 
 
 ### Challenge
@@ -106,3 +109,42 @@ override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) 
 >   - [ ]  Use the `waitForDuration` and `removeFromParent` actions in a sequence to make sure explosion particle emitters are removed from the game scene when they are finished.
 
 ## :three:  [Review](https://www.hackingwithswift.com/review/hws/project-20-fireworks-night) 
+
+### :boom: Quiz insights
+
+A UIBezierPath describes a line that might be curved or straight.
+We can add as many points as we need to describe complex shapes.
+
+ Drawing a sprite with the blend mode .replace is faster than the default blend mode.
+The .replace blend more ignores transparency, which makes it faster to draw.
+
+To use a UIBezierPath with an SKAction.follow() action we must pass in its cgPath property.
+SpriteKit is a cross-platform framework, and UIKit types like UIBezierPath aren't available on macOS.
+* :warning: Whhhaaat. that's weird...
+
+Coloring a sprite means setting its `color` and `colorBlendFactor` properties.
+This lets us control the dergree of coloration precisely.
+
+Calling nodes(at:) on a SpriteKit scene will return an array of SKNode.
+If we're looking for something more specific, such as sprite nodes, we need to typecast the array elements.
+
+We can compare the color of one SpriteKit node with the color of another SpriteKit node.
+Colors like .red or .green are shared values, so we can compare them freely.
+
+When following a path, SpriteKit can turn nodes so they always face the direction of movement.
+This lets them face forwards no matter what kind of path you specify.
+
+A colorBlendFactor value of 1 adds maximum recoloring to an SKSpriteNode.
+There is no performance cost to recoloring sprites like this.
+
+If we use `for case let` as a loop we can conditionally typecast each element our loop.
+The body of the loop will be run only if the typecast is successful.
+
+We can add one SpriteKit node as a child of another.
+SKNode has a children property just for this purpose.
+
+When looping over an array and removing objects, it's best to loop backwards rather than forwards.
+If you loop forwards, removing items causes untouched items to move down, which often causes problems. 
+
+The location(in:) method of UITouch tells us where the user touched the screen.
+It's useful so we can track what they tapped on.
