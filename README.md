@@ -182,8 +182,8 @@ Days organized by folders containing
 | Day 67 | November 3 | :arrow_right: | **Projects 19, part i** • |
 | Day 68 | November 7 | :white_check_mark: | **Projects 19, part ii** • |
 | Day 69 | November 14 | :white_circle: | **Projects 19, part iii** • Already work with `UserDefaults` so extra time spend handling and managing a custom object isn't a new lesson, but worth circling back to practice after with a new timebox. |
-| Day 70 | November 18 | ~ | **Projects 20, part i** • |
-| Day 71 | November ~ | ~ | **Projects 20, part ii** • |
+| Day 70 | November 18 | :white_check_mark: | **Projects 20, part i** • Set up project basics, good recall on Sprite kit nodes, and child/parent link and touch coordination |
+| Day 71 | November 18 | :white_check_mark: | **Projects 20, part ii** • Added explosion mechanics and did challenges which were great recall of previous points in earlier SpriteKit projects|
 | Day 72 | November ~ | ~ | **Projects 21, part i** • |
 | Day 73 | November ~ | ~ | **Projects 21, part ii** • |
 
