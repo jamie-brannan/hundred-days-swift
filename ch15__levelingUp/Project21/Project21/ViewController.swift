@@ -59,6 +59,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
       center.setNotificationCategories([category])
   }
 
+  enum actionMessage: String {
+    case automaticId = "Default identifier"
+    case showId = ""
+  }
+
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
       // pull out the buried userInfo dictionary
       let userInfo = response.notification.request.content.userInfo
@@ -82,6 +87,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
       // you must call the completion handler when you're done
       completionHandler()
+  }
+
+  func presentActionIdAlert(for caseMessage: String) {
+    
   }
 }
 
