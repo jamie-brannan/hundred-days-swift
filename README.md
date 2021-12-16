@@ -179,91 +179,91 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 67 | June ~ | ~ | **Projects 19, part i** • |
-| Day 68 | June ~ | ~ | **Projects 19, part ii** • |
-| Day 69 | June ~ | ~ | **Projects 19, part iii** • |
-| Day 70 | June ~ | ~ | **Projects 20, part i** • |
-| Day 71 | June ~ | ~ | **Projects 20, part ii** • |
-| Day 72 | June ~ | ~ | **Projects 21, part i** • |
-| Day 73 | June ~ | ~ | **Projects 21, part ii** • |
+| Day 67 | November 3 | :arrow_right: | **Projects 19, part i** • |
+| Day 68 | November 7 | :white_check_mark: | **Projects 19, part ii** • |
+| Day 69 | November 14 | :white_circle: | **Projects 19, part iii** • Already work with `UserDefaults` so extra time spend handling and managing a custom object isn't a new lesson, but worth circling back to practice after with a new timebox. |
+| Day 70 | November 18 | :white_check_mark: | **Projects 20, part i** • Set up project basics, good recall on Sprite kit nodes, and child/parent link and touch coordination |
+| Day 71 | November 18 | :white_check_mark: | **Projects 20, part ii** • Added explosion mechanics and did challenges which were great recall of previous points in earlier SpriteKit projects|
+| Day 72 | December 9 | :white_check_mark:  | **Projects 21, part i** • Scheduling notifications locally with actions |
+| Day 73 | December 10 | :arrow_right: | **Projects 21, part ii** • Adding actions and feedback for action via alerts. Challenge 3 extra to come back to some other time. |
 
 ### :one: :six: **Consolidation VIII**
 >After two tough projects and yet another important technique, it’s time to hit the brakes for a day and double check everything is sinking in.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 74 | June ~ | ~ | **Milestone: Projects 19-21** • |
+| Day 74 | November ~ | ~ | **Milestone: Projects 19-21** • |
 
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 75 | June ~ | ~ | **Projects 22, part i** • |
-| Day 76 | June ~ | ~ | **Projects 22, part ii** • |
-| Day 77 | June ~ | ~ | **Projects 23, part i** • |
-| Day 78 | June ~ | ~ | **Projects 23, part ii** • |
-| Day 79 | June ~ | ~ | **Projects 23, part iii** • |
-| Day 80 | June ~ | ~ | **Projects 24, part i** • |
-| Day 81 | June ~ | ~ | **Projects 24, part ii** • |
+| Day 75 | November ~ | ~ | **Projects 22, part i** • |
+| Day 76 | November ~ | ~ | **Projects 22, part ii** • |
+| Day 77 | November ~ | ~ | **Projects 23, part i** • |
+| Day 78 | November ~ | ~ | **Projects 23, part ii** • |
+| Day 79 | November ~ | ~ | **Projects 23, part iii** • |
+| Day 80 | November ~ | ~ | **Projects 24, part i** • |
+| Day 81 | November ~ | ~ | **Projects 24, part ii** • |
 
 ### :one: :eight: **Consolidation IX**
 >Your head is probably spinning with Bezier paths and iBeacons, so before we continue on with more learning it’s important to take a day to pause and reflect on what has been covered.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 82 | May ~ | ~ | **Milestone: Projects 22-24** • |
+| Day 82 | November ~ | ~ | **Milestone: Projects 22-24** • |
 
 ### :one: :nine: **Multipeer and motion**
 >These next three projects give you chance to go over some earlier topics again, while also introducing some new frameworks such as MultipeerConnectivity and Core Motion.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 83 | June ~ | ~ | **Projects 25, part i** • |
-| Day 84 | June ~ | ~ | **Projects 25, part ii** • |
-| Day 85 | June ~ | ~ | **Projects 26, part i** • |
-| Day 86 | June ~ | ~ | **Projects 26, part ii** • |
-| Day 87 | June ~ | ~ | **Projects 27, part i** • |
-| Day 88 | June ~ | ~ | **Projects 27, part ii** • |
-| Day 89 | June ~ | ~ | **Projects 27, part iii** • |
+| Day 83 | November ~ | ~ | **Projects 25, part i** • |
+| Day 84 | November ~ | ~ | **Projects 25, part ii** • |
+| Day 85 | November ~ | ~ | **Projects 26, part i** • |
+| Day 86 | November ~ | ~ | **Projects 26, part ii** • |
+| Day 87 | November ~ | ~ | **Projects 27, part i** • |
+| Day 88 | November ~ | ~ | **Projects 27, part ii** • |
+| Day 89 | November ~ | ~ | **Projects 27, part iii** • |
 
 ### :two: :zero: **Consolidation X**
 >As we enter the last few days of this challenge, it’s as important as ever to pause for a moment and review what you’ve learned these last few days.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 90 | June ~ | ~ | **Milestone: Projects 25-27** • |
-| Day 91 | June ~ | ~ | **Core Graphics redux** • |
+| Day 90 | November ~ | ~ | **Milestone: Projects 25-27** • |
+| Day 91 | November ~ | ~ | **Core Graphics redux** • |
 
 ### :two: :one: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 92 | June ~ | ~ | **Projects 28, part i** • |
-| Day 93 | June ~ | ~ | **Projects 28, part ii** • |
-| Day 94 | June ~ | ~ | **Projects 29, part i** • |
-| Day 95 | June ~ | ~ | **Projects 29, part ii** • |
-| Day 96 | June ~ | ~ | **Projects 29, part iii** • |
-| Day 97 | June ~ | ~ | **Projects 30, part i** • |
-| Day 98 | June ~ | ~ | **Projects 30, part ii** • |
+| Day 92 | November ~ | ~ | **Projects 28, part i** • |
+| Day 93 | November ~ | ~ | **Projects 28, part ii** • |
+| Day 94 | November ~ | ~ | **Projects 29, part i** • |
+| Day 95 | November ~ | ~ | **Projects 29, part ii** • |
+| Day 96 | November ~ | ~ | **Projects 29, part iii** • |
+| Day 97 | November ~ | ~ | **Projects 30, part i** • |
+| Day 98 | November ~ | ~ | **Projects 30, part ii** • |
 
 ### :two: :two: **Consolidation XI**
 >It’s time to recap all the things you’ve learned in the last few days, and start work on a big challenge to go out with. You’ve got this!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 99 | June ~ | ~ | **Milestone: Projects 28-30** • |
+| Day 99 | November ~ | ~ | **Milestone: Projects 28-30** • |
 
 ### :two: :three: **Wrap up**
 >It’s time to see how much you remember from across the entire curriculum. Are you ready for this?
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 100 | June ~ | ~ | **Final Exam** • |
-| Epilogue | June ~ | ~ | **What now?** • |
+| Day 100 | November ~ | ~ | **Final Exam** • |
+| Epilogue | November ~ | ~ | **What now?** • |
 
 
 ## Acknowledgments
 * Big thanks to *France Télévisions* Mobile development guild for the inspiration to take up the challenge, and carving out the time to encourage me.
-* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was really lost :clap: Thanks you!!
+* :pushpin: [**Clarknt**](https://github.com/clarknt/100-days-of-swift) : *100 Days of Swift* was a huge help and great example to follow when I was lost :clap: Thank you so much for sharing!
