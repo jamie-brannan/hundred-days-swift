@@ -9,13 +9,25 @@ import UIKit
 import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
-  
+
+  // MARK: Props
+
+  enum actionMessage: String {
+    case automaticId = "Default identifier"
+    case showId = "Show more information…"
+    case delayId = "Reminder scheduled"
+  }
+
+  // MARK: Lifecycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(triggerScheduling))
   }
-  
+
+  // MARK: - Navigation Buttons
+
   @objc func registerLocal() {
     let center = UNUserNotificationCenter.current()
     
@@ -27,8 +39,13 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
       }
     }
   }
-  
-  @objc func scheduleLocal() {
+
+  @objc func triggerScheduling() {
+    scheduleLocal(delaySeconds: 5)
+  }
+
+  func scheduleLocal(delaySeconds: TimeInterval) {
+    registerCategories()
     let center = UNUserNotificationCenter.current()
     center.removeAllPendingNotificationRequests()
     
@@ -39,49 +56,69 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     content.userInfo = ["customData": "fizzbuzz"]
     content.sound = UNNotificationSound.default
     
-    var dateComponents = DateComponents()
-    dateComponents.hour = 10
-    dateComponents.minute = 30
+//    var dateComponents = DateComponents()
+//    dateComponents.hour = 10
+//    dateComponents.minute = 30
 //    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) /// Fake trigger just for practice time
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delaySeconds, repeats: false) /// Fake trigger just for practice time
+    // MARK: - Mega important: must lock simulator after hitting schedule in order to trigger notification!
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
     center.add(request)
   }
 
+  // MARK: - Notifications
+
+  // MARK: Actions
   func registerCategories() {
-      let center = UNUserNotificationCenter.current()
-      center.delegate = self
-
-      let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
-      let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
-
-      center.setNotificationCategories([category])
+    let center = UNUserNotificationCenter.current()
+    center.delegate = self
+    
+    let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
+    let delay = UNNotificationAction(identifier: "delay", title: "Remind me later", options: .foreground)
+    let category = UNNotificationCategory(identifier: "alarm", actions: [show, delay], intentIdentifiers: [])
+    
+    center.setNotificationCategories([category])
   }
 
+  // MARK: - Alerts
+
+  func presentActionIdAlert(for caseMessage: String) {
+    let alert = UIAlertController(title: "My Alert", message: caseMessage, preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
+  }
+
+  // MARK: Callbacks
+
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-      // pull out the buried userInfo dictionary
-      let userInfo = response.notification.request.content.userInfo
-
-      if let customData = userInfo["customData"] as? String {
-          print("Custom data received: \(customData)")
-
-          switch response.actionIdentifier {
-          case UNNotificationDefaultActionIdentifier:
-              // the user swiped to unlock
-              print("Default identifier")
-
-          case "show":
-              // the user tapped our "show more info…" button
-              print("Show more information…")
-
-          default:
-              break
-          }
+    // pull out the buried userInfo dictionary
+    let userInfo = response.notification.request.content.userInfo
+    
+    if let customData = userInfo["customData"] as? String {
+      print("Custom data received: \(customData)")
+      
+      // MARK: - Challenge 1 : add alerts for each action
+      switch response.actionIdentifier {
+      case UNNotificationDefaultActionIdentifier:
+        // the user swiped to unlock
+        print(actionMessage.automaticId.rawValue)
+        presentActionIdAlert(for: actionMessage.automaticId.rawValue)
+      case "show":
+        // the user tapped our "show more info…" button
+        print(actionMessage.showId.rawValue)
+        presentActionIdAlert(for: actionMessage.showId.rawValue)
+      case "delay": /// challenge 2
+        scheduleLocal(delaySeconds: 3600*24)
+        presentActionIdAlert(for: actionMessage.delayId.rawValue)
+      default:
+        break
       }
-
-      // you must call the completion handler when you're done
-      completionHandler()
+    }
+    
+    // you must call the completion handler when you're done
+    completionHandler()
   }
 }
 
