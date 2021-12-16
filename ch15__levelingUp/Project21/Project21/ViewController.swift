@@ -50,50 +50,51 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
     center.add(request)
   }
-
+  
   func registerCategories() {
-      let center = UNUserNotificationCenter.current()
-      center.delegate = self
-
-      let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
-      let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
-
-      center.setNotificationCategories([category])
+    let center = UNUserNotificationCenter.current()
+    center.delegate = self
+    
+    let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
+    
+    let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
+    
+    center.setNotificationCategories([category])
   }
-
+  
   enum actionMessage: String {
     case automaticId = "Default identifier"
     case showId = "Show more information…"
   }
-
+  
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-      // pull out the buried userInfo dictionary
-      let userInfo = response.notification.request.content.userInfo
+    // pull out the buried userInfo dictionary
+    let userInfo = response.notification.request.content.userInfo
     
-      if let customData = userInfo["customData"] as? String {
-          print("Custom data received: \(customData)")
-
-        // MARK: - Challenge 1 : add alerts for each action
-          switch response.actionIdentifier {
-          case UNNotificationDefaultActionIdentifier:
-              // the user swiped to unlock
-            print(actionMessage.automaticId.rawValue)
-            presentActionIdAlert(for: actionMessage.automaticId.rawValue)
-
-          case "show":
-              // the user tapped our "show more info…" button
-            print(actionMessage.showId.rawValue)
-            presentActionIdAlert(for: actionMessage.showId.rawValue)
-
-          default:
-              break
-          }
+    if let customData = userInfo["customData"] as? String {
+      print("Custom data received: \(customData)")
+      
+      // MARK: - Challenge 1 : add alerts for each action
+      switch response.actionIdentifier {
+      case UNNotificationDefaultActionIdentifier:
+        // the user swiped to unlock
+        print(actionMessage.automaticId.rawValue)
+        presentActionIdAlert(for: actionMessage.automaticId.rawValue)
+        
+      case "show":
+        // the user tapped our "show more info…" button
+        print(actionMessage.showId.rawValue)
+        presentActionIdAlert(for: actionMessage.showId.rawValue)
+        
+      default:
+        break
       }
-
-      // you must call the completion handler when you're done
-      completionHandler()
+    }
+    
+    // you must call the completion handler when you're done
+    completionHandler()
   }
-
+  
   func presentActionIdAlert(for caseMessage: String) {
     let alert = UIAlertController(title: "My Alert", message: caseMessage, preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .default, handler: nil)
