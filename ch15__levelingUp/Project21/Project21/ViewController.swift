@@ -15,6 +15,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   enum actionMessage: String {
     case automaticId = "Default identifier"
     case showId = "Show more information…"
+    case delayId = "Reminder scheduled"
   }
 
   // MARK: Lifecycle
@@ -22,7 +23,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(triggerScheduling))
   }
 
   // MARK: - Navigation Buttons
@@ -38,8 +39,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
       }
     }
   }
-  
-  @objc func scheduleLocal() {
+
+  @objc func triggerScheduling() {
+    scheduleLocal(delaySeconds: 5)
+  }
+
+  func scheduleLocal(delaySeconds: TimeInterval) {
     registerCategories()
     let center = UNUserNotificationCenter.current()
     center.removeAllPendingNotificationRequests()
@@ -51,11 +56,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     content.userInfo = ["customData": "fizzbuzz"]
     content.sound = UNNotificationSound.default
     
-    var dateComponents = DateComponents()
-    dateComponents.hour = 10
-    dateComponents.minute = 30
+//    var dateComponents = DateComponents()
+//    dateComponents.hour = 10
+//    dateComponents.minute = 30
 //    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) /// Fake trigger just for practice time
+    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delaySeconds, repeats: false) /// Fake trigger just for practice time
     // MARK: - Mega important: must lock simulator after hitting schedule in order to trigger notification!
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
@@ -70,8 +75,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     center.delegate = self
     
     let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
-    
-    let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
+    let delay = UNNotificationAction(identifier: "delay", title: "Remind me later", options: .foreground)
+    let category = UNNotificationCategory(identifier: "alarm", actions: [show, delay], intentIdentifiers: [])
     
     center.setNotificationCategories([category])
   }
@@ -104,6 +109,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // the user tapped our "show more info…" button
         print(actionMessage.showId.rawValue)
         presentActionIdAlert(for: actionMessage.showId.rawValue)
+      case "delay": /// challenge 2
+        scheduleLocal(delaySeconds: 3600*24)
+        presentActionIdAlert(for: actionMessage.delayId.rawValue)
       default:
         break
       }
