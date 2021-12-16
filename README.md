@@ -192,76 +192,76 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 74 | November ~ | ~ | **Milestone: Projects 19-21** • |
+| Day 74 | December ~ | ~ | **Milestone: Projects 19-21** • |
 
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 75 | November ~ | ~ | **Projects 22, part i** • |
-| Day 76 | November ~ | ~ | **Projects 22, part ii** • |
-| Day 77 | November ~ | ~ | **Projects 23, part i** • |
-| Day 78 | November ~ | ~ | **Projects 23, part ii** • |
-| Day 79 | November ~ | ~ | **Projects 23, part iii** • |
-| Day 80 | November ~ | ~ | **Projects 24, part i** • |
-| Day 81 | November ~ | ~ | **Projects 24, part ii** • |
+| Day 75 | December ~ | ~ | **Projects 22, part i** • |
+| Day 76 | December ~ | ~ | **Projects 22, part ii** • |
+| Day 77 | December ~ | ~ | **Projects 23, part i** • |
+| Day 78 | December ~ | ~ | **Projects 23, part ii** • |
+| Day 79 | December ~ | ~ | **Projects 23, part iii** • |
+| Day 80 | December ~ | ~ | **Projects 24, part i** • |
+| Day 81 | December ~ | ~ | **Projects 24, part ii** • |
 
 ### :one: :eight: **Consolidation IX**
 >Your head is probably spinning with Bezier paths and iBeacons, so before we continue on with more learning it’s important to take a day to pause and reflect on what has been covered.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 82 | November ~ | ~ | **Milestone: Projects 22-24** • |
+| Day 82 | December ~ | ~ | **Milestone: Projects 22-24** • |
 
 ### :one: :nine: **Multipeer and motion**
 >These next three projects give you chance to go over some earlier topics again, while also introducing some new frameworks such as MultipeerConnectivity and Core Motion.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 83 | November ~ | ~ | **Projects 25, part i** • |
-| Day 84 | November ~ | ~ | **Projects 25, part ii** • |
-| Day 85 | November ~ | ~ | **Projects 26, part i** • |
-| Day 86 | November ~ | ~ | **Projects 26, part ii** • |
-| Day 87 | November ~ | ~ | **Projects 27, part i** • |
-| Day 88 | November ~ | ~ | **Projects 27, part ii** • |
-| Day 89 | November ~ | ~ | **Projects 27, part iii** • |
+| Day 83 | December ~ | ~ | **Projects 25, part i** • |
+| Day 84 | December ~ | ~ | **Projects 25, part ii** • |
+| Day 85 | December ~ | ~ | **Projects 26, part i** • |
+| Day 86 | December ~ | ~ | **Projects 26, part ii** • |
+| Day 87 | December ~ | ~ | **Projects 27, part i** • |
+| Day 88 | December ~ | ~ | **Projects 27, part ii** • |
+| Day 89 | December ~ | ~ | **Projects 27, part iii** • |
 
 ### :two: :zero: **Consolidation X**
 >As we enter the last few days of this challenge, it’s as important as ever to pause for a moment and review what you’ve learned these last few days.
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 90 | November ~ | ~ | **Milestone: Projects 25-27** • |
-| Day 91 | November ~ | ~ | **Core Graphics redux** • |
+| Day 90 | December ~ | ~ | **Milestone: Projects 25-27** • |
+| Day 91 | December ~ | ~ | **Core Graphics redux** • |
 
-### :two: :one: **Beacons and bombs**
+### :two: :one: **The Final Countdown**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 92 | November ~ | ~ | **Projects 28, part i** • |
-| Day 93 | November ~ | ~ | **Projects 28, part ii** • |
-| Day 94 | November ~ | ~ | **Projects 29, part i** • |
-| Day 95 | November ~ | ~ | **Projects 29, part ii** • |
-| Day 96 | November ~ | ~ | **Projects 29, part iii** • |
-| Day 97 | November ~ | ~ | **Projects 30, part i** • |
-| Day 98 | November ~ | ~ | **Projects 30, part ii** • |
+| Day 92 | December ~ | ~ | **Projects 28, part i** • |
+| Day 93 | December ~ | ~ | **Projects 28, part ii** • |
+| Day 94 | December ~ | ~ | **Projects 29, part i** • |
+| Day 95 | December ~ | ~ | **Projects 29, part ii** • |
+| Day 96 | December ~ | ~ | **Projects 29, part iii** • |
+| Day 97 | December ~ | ~ | **Projects 30, part i** • |
+| Day 98 | December ~ | ~ | **Projects 30, part ii** • |
 
 ### :two: :two: **Consolidation XI**
 >It’s time to recap all the things you’ve learned in the last few days, and start work on a big challenge to go out with. You’ve got this!
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 99 | November ~ | ~ | **Milestone: Projects 28-30** • |
+| Day 99 | December ~ | ~ | **Milestone: Projects 28-30** • |
 
 ### :two: :three: **Wrap up**
 >It’s time to see how much you remember from across the entire curriculum. Are you ready for this?
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 100 | November ~ | ~ | **Final Exam** • |
-| Epilogue | November ~ | ~ | **What now?** • |
+| Day 100 | December ~ | ~ | **Final Exam** • |
+| Epilogue | December ~ | ~ | **What now?** • |
 
 
 ## Acknowledgments
