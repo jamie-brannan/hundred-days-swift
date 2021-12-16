@@ -29,6 +29,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
   
   @objc func scheduleLocal() {
+    registerCategories()
     let center = UNUserNotificationCenter.current()
     center.removeAllPendingNotificationRequests()
     
@@ -44,6 +45,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     dateComponents.minute = 30
 //    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false) /// Fake trigger just for practice time
+    // MARK: - Mega important: must lock simulator after hitting schedule in order to trigger notification!
     
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
     center.add(request)
@@ -61,24 +63,27 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
   enum actionMessage: String {
     case automaticId = "Default identifier"
-    case showId = ""
+    case showId = "Show more information…"
   }
 
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
       // pull out the buried userInfo dictionary
       let userInfo = response.notification.request.content.userInfo
-
+    
       if let customData = userInfo["customData"] as? String {
           print("Custom data received: \(customData)")
 
+        // MARK: - Challenge 1 : add alerts for each action
           switch response.actionIdentifier {
           case UNNotificationDefaultActionIdentifier:
               // the user swiped to unlock
-              print("Default identifier")
+            print(actionMessage.automaticId.rawValue)
+            presentActionIdAlert(for: actionMessage.automaticId.rawValue)
 
           case "show":
               // the user tapped our "show more info…" button
-              print("Show more information…")
+            print(actionMessage.showId.rawValue)
+            presentActionIdAlert(for: actionMessage.showId.rawValue)
 
           default:
               break
@@ -90,7 +95,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
   }
 
   func presentActionIdAlert(for caseMessage: String) {
-    
+    let alert = UIAlertController(title: "My Alert", message: caseMessage, preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
 }
 
