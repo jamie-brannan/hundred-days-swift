@@ -9,13 +9,24 @@ import UIKit
 import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
-  
+
+  // MARK: Props
+
+  enum actionMessage: String {
+    case automaticId = "Default identifier"
+    case showId = "Show more information…"
+  }
+
+  // MARK: Lifecycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerLocal))
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schedule", style: .plain, target: self, action: #selector(scheduleLocal))
   }
-  
+
+  // MARK: - Navigation Buttons
+
   @objc func registerLocal() {
     let center = UNUserNotificationCenter.current()
     
@@ -50,7 +61,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
     center.add(request)
   }
-  
+
+  // MARK: - Notifications
+
+  // MARK: Actions
   func registerCategories() {
     let center = UNUserNotificationCenter.current()
     center.delegate = self
@@ -61,12 +75,18 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     center.setNotificationCategories([category])
   }
-  
-  enum actionMessage: String {
-    case automaticId = "Default identifier"
-    case showId = "Show more information…"
+
+  // MARK: - Alerts
+
+  func presentActionIdAlert(for caseMessage: String) {
+    let alert = UIAlertController(title: "My Alert", message: caseMessage, preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
-  
+
+  // MARK: Callbacks
+
   func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
     // pull out the buried userInfo dictionary
     let userInfo = response.notification.request.content.userInfo
@@ -80,12 +100,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // the user swiped to unlock
         print(actionMessage.automaticId.rawValue)
         presentActionIdAlert(for: actionMessage.automaticId.rawValue)
-        
       case "show":
         // the user tapped our "show more info…" button
         print(actionMessage.showId.rawValue)
         presentActionIdAlert(for: actionMessage.showId.rawValue)
-        
       default:
         break
       }
@@ -93,13 +111,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     // you must call the completion handler when you're done
     completionHandler()
-  }
-  
-  func presentActionIdAlert(for caseMessage: String) {
-    let alert = UIAlertController(title: "My Alert", message: caseMessage, preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-    alert.addAction(action)
-    present(alert, animated: true, completion: nil)
   }
 }
 
