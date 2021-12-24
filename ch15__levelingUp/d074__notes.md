@@ -15,31 +15,47 @@
 
 ## :one: [What you learned](https://www.hackingwithswift.com/guide/8/1/what-you-learned) 
 
-> These three projects were a mixed bag in terms of difficulty: although Safari extensions are clearly a bit of a wart in Apple’s APIs, it’s still marvelous to be able to add features directly to one of the most important features in iOS. As for the Fireworks Night project, I hope it showed you it doesn’t take much in the way of graphics to make something fun!
+> These three projects were a mixed bag in terms of difficulty: although **Safari extensions** are clearly a bit of a wart in Apple’s APIs, it’s still marvelous to be able to add features directly to one of the most important features in iOS. As for the **Fireworks Night project**, I hope it showed you it doesn’t take much in the way of graphics to make something fun!
 > 
-> You also learned about local notifications, which might seem trivial at first but actually open up a huge range of possibilities for your apps because you can prompt users to take action even when your app isn’t running.
+> You also learned about **local notifications**, which might seem trivial at first but actually open up a huge range of possibilities for your apps because you can prompt users to take action even when your app isn’t running.
 > 
 > The best example of this is the Duolingo app – it sets “You should practice your language!” reminders for 1 day, 2 days, and 3 days after the app was most recently launched. If you launch the app before the reminders appear, they just clear them and reset the timer so you never notice them.
 
-Here’s a quick reminder of the things we covered:
+Lol shout out to Duolingo
+
+>Here’s a quick reminder of the things we covered:
 > 
 > * How to make extensions for Safari by connecting Swift code to JavaScript. Getting the connection working isn’t too easy, but once it’s set up you can send whatever you want between the two.
-> 
-> * Editing multi-line text using UITextView. This is used by apps like Mail, Messages, and Notes, so you’ll definitely use it in your own apps.
-> 
-> * You met Objective-C’s NSDictionary type. It’s not used much in Swift because you lose Swift’s strong typing, but it’s occasionally unavoidable.
-> 
+
+Bleh JS wasn't fun :( but it would be worth playing with in freetime and looking at books about it.
+
+> * _Editing multi-line text using UITextView_. This is used by apps like Mail, Messages, and Notes, so you’ll definitely use it in your own apps.
+
+This was a sneaky high user value component I hav enot gotten to use yet for sure. :)
+
+> * You met Objective-C’s `NSDictionary` type. It’s not used much in Swift because you lose Swift’s strong typing, but it’s occasionally unavoidable.
+
+I remember running into this within one of Zino's lessons but I didn't understand programmatically how valuable typing was just yet or what libraries really were. The kind of memories I'm treasuring recrossing by accident. :+1:
+
 > * We used the iOS NotificationCenter center class to receive system messages. Specifically, we requested that a method be called when the keyboard was shown or hidden so that we can adjust the insets of our text view. We’ll be using this again in a later project, so you have ample chance for practice.
+
+This was sweet cause it even made me rethink my behavior as a user.
+
+> * The `follow()` `SKAction`, which causes a node to follow a bezier path that you specify. Use `orientToPath`: true to make the sprite rotate as it follows.
+
+:heart_eyes_cat: Dying to play more with graphics once time opens up to structure a project
+
+It was a bit of a hard left turn to jump back into SpriteKit though.
+
+> * The `color` and `colorBlendFactor` properties for `SKSpriteNode`, which let you dynamically recolor your sprite.
 > 
-> * The follow() SKAction, which causes a node to follow a bezier path that you specify. Use orientToPath: true to make the sprite rotate as it follows.
+> * The `motionBegan()` method, which gets called on your view controllers when the user shakes their device.
 > 
-> * The color and colorBlendFactor properties for SKSpriteNode, which let you dynamically recolor your sprite.
-> 
-> * The motionBegan() method, which gets called on your view controllers when the user shakes their device.
-> 
-> * Swift’s for case let syntax for adding a condition to a loop.
-> 
-> * The UserNotifications framework, which allows you to create notifications and attach them to triggers.
+> * Swift’s for `case let` syntax for adding a condition to a loop.
+
+This blew my mind at work when Haifa showed me.
+
+> * The `UserNotifications` framework, which allows you to create notifications and attach them to triggers.
 
 ## :two: [Key points](https://www.hackingwithswift.com/guide/8/2/key-points)
 
