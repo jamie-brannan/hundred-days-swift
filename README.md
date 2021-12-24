@@ -192,7 +192,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 74 | December ~ | ~ | **Milestone: Projects 19-21** • |
+| Day 74 | December 24 | ~ | **Milestone: Projects 19-21** • |
 
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!
