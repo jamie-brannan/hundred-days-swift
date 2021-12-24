@@ -11,6 +11,8 @@
 - [*Day 74 • Friday December 24, 2021*](#day-74--friday-december-24-2021)
   - [:one: What you learned](#one-what-you-learned)
   - [:two: Key points](#two-key-points)
+    - [Observers in iOS with NotificationCenter](#observers-in-ios-with-notificationcenter)
+    - [Permissions](#permissions)
   - [:three: Challenge](#three-challenge)
 
 ## :one: [What you learned](https://www.hackingwithswift.com/guide/8/1/what-you-learned) 
@@ -59,28 +61,51 @@ This blew my mind at work when Haifa showed me.
 
 ## :two: [Key points](https://www.hackingwithswift.com/guide/8/2/key-points)
 
+### Observers in iOS with NotificationCenter
+
 > There are three pieces of code I’d like to review, just to make sure you understand them fully.
 > 
-> The first thing I’d like to recap is `NotificationCenter`, which is a system-wide broadcasting framework that lets you send and receive messages. These messages come in two forms: messages that come from iOS, and messages you send yourself. Regardless of whether the messages come from, `NotificationCenter` is a good example of loose coupling – you don’t care who subscribes to receive your messages, or indeed if anyone at all does; you’re just responsible for posting them.
+> The first thing I’d like to recap is `NotificationCenter`, which is a system-wide broadcasting framework that _lets you send and receive messages_. 
 > 
-> In project 19 we used `NotificationCenter` so that iOS notified us when the keyboard was shown or hidden. This meant registering for the `Notification.Name.UIKeyboardWillChangeFrame` and `Notification.Name.UIKeyboardWillHide`: we told iOS we want to be notified when those events occurred, and asked it to execute our `adjustForKeyboard()` method. Here’s the code we used:
+> These messages come in two forms: 
+> * messages that come from iOS, 
+> * and messages you send yourself.
+
+And to think I believed it was a misnommer in our project code way back.
+
+>  Regardless of whether the messages come from, `NotificationCenter` is a good example of loose coupling – you don’t care who subscribes to receive your messages, or indeed if anyone at all does; you’re just responsible for posting them.
+
+Computer Sciences Design pattern of an "observer" from what I've grown to understand
+
+> In project 19 we used `NotificationCenter` so that iOS notified us _when the keyboard was shown or hidden_. This meant registering for the `Notification.Name.UIKeyboardWillChangeFrame` and `Notification.Name.UIKeyboardWillHide`: we told iOS we want to be notified when those events occurred, and asked it to execute our `adjustForKeyboard()` method. Here’s the code we used:
 
 ```swift
 let notificationCenter = NotificationCenter.default
 notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: Notification.Name.UIKeyboardWillHide, object: nil)
 ```
 
-> There are lots of these events – just try typing Notification.Name. and letting autocomplete show you what’s available. For example, in project 28 we use the Notification.Name.UIApplicationWillResignActive event to detect when the app moves to the background.
+Detecting local user behavior to trigger events in app.
+
+> There are lots of these events – just try typing `Notification.Name`. and letting autocomplete show you what’s available. 
+
+:bulb: This would be worth while to explore on my own
+
+> For example, in project 28 we use the `Notification.Name.UIApplicationWillResignActive` event to _detect when the app moves to the background._
 > 
-> Like I said, it’s also possible to send your own notifications using NotificationCenter. Their names are just strings, and only your application ever sees them, so you can go ahead and make as many as you like. For example, to post a “UserLoggedIn” notification, you would write this:
+> Like I said, it’s also possible to send your own notifications using `NotificationCenter`. _Their names are just strings, and only your application ever sees them, so you can go ahead and make as many as you like._ 
+> * For example, to post a “UserLoggedIn” notification, you would write this:
 
 ```swift
 let notificationCenter = NotificationCenter.default
 notificationCenter.post(name: Notification.Name("UserLoggedIn"), object: nil)
 ```
 
-> If no other part of your app has subscribed to receive that notification, nothing will happen. But you can make any other objects subscribe to that notification – it could be one thing, or ten things, it doesn’t matter. This is the essence of loose coupling: you’re transmitting the event to everyone, with no direct knowledge of who your receivers are.
-> 
+> **If no other part of your app has subscribed to receive that notification, nothing will happen.** But you can make any other objects subscribe to that notification – it could be one thing, or ten things, it doesn’t matter. This is the essence of loose coupling: you’re transmitting the event to everyone, with no direct knowledge of who your receivers are.
+
+The notion of "subscribers" in English has been missing from all other definitions or explainations I've had in French.
+
+### Permissions
+
 > The second piece of code I’d like to review is this, taken from project 21:
 
 ```swift
@@ -95,13 +120,15 @@ center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error
 }
 ```
 
-> In that code, everything from { (granted, error) in to the end is a closure: that code won’t get run straight away. Instead, it gets passed as the second parameter to the requestAuthorization() method, which stores the code. This is important – in fact essential – to the working of this code, because iOS needs to ask the user for permission to show notifications.
+> In that code, everything from `{ (granted, error) in` to the end is a **closure**: that code won’t get run straight away. Instead, it gets passed as the second parameter to the `requestAuthorization()` method, which stores the code. This is important – in fact essential – to the working of this code, because iOS needs to **ask the user for permission to show notifications**.
 > 
 > iPhones can do literally billions of things every second, so in the time it takes for the “Do you want to allow notifications” message to appear, then for the user to read it, consider it, then make a choice, the iPhone CPU has done countless other things.
 > 
-> It would be a pretty poor experience if your app had to pause completely while the user was thinking, which is why closures are used: you tell iOS what to do when the user has made a decision, but that code only gets called when that decision is finally made. As soon as you call requestAuthorization(), execution continues immediately on the very next line after it – iOS doesn’t stop while the user thinks. Instead, you sent the closure – the code to run – to the notification center, and that’s what will get called when the user makes a choice.
-> 
-> Finally, let’s take another look at for case let syntax. Its job is to perform some sort of filtering on our data based on the result of a check, which means inside the Swift loop the compiler has more information about the data it’s working with.
+> _It would be a pretty poor experience if your app had to pause completely while the user was thinking, which is why closures are used: **you tell iOS what to do when the user has made a decision, but that code only gets called when that decision is finally made**._ As soon as you call `requestAuthorization()`, execution continues immediately on the very next line after it – iOS doesn’t stop while the user thinks. Instead, you sent the **closure** – _the code to run_ – to the notification center, and that’s what will get called when the user makes a choice.
+
+This is a nice example of step by step usefulness of passing closures from one function to another.
+
+> Finally, let’s take another look at for `case let` syntax. Its job is to perform some _sort of filtering on our data based on the result of a check_, which means inside the Swift loop the compiler has more information about the data it’s working with.
 > 
 > For example, if we wanted to loop over all the subviews of a UIView, we’d write this:
 
@@ -120,15 +147,22 @@ for subview in view.subviews {
     guard let label = subview as? UILabel else { continue }
     print("Found a label with the text: \(label.text)")
 }
-That certainly works, but this is a case where for case let can do the same job in less code:
+```
 
+>That certainly works, but this is a case where for case let can do the same job in less code:
+
+```swift
 for case let label as UILabel in view.subviews {
     print("Found a label with text \(label.text)")
 }
 ```
 
-> for case let can also do the job of checking optionals for a value. If it finds a value inside it will unwrap it and provide that inside the loop; if there is no value that element will be skipped.
-> 
+I'm not sure I've ever run into this in our case. This feels like a difficult thing to just think of "in the wild" programming without having run into it in different coding projects.
+
+> **`for case let` can also do the job of checking optionals for a value.** If it finds a value inside it will unwrap it and provide that inside the loop; if there is no value that element will be skipped.
+
+:bulb: Oh damn this is something I try to use actually.
+
 > The syntax for this is a little curious, but I think you’ll appreciate its simplicity:
 
 ```swift
@@ -139,7 +173,7 @@ for case let name? in names {
 }
 ```
 
-> In that code the names array will be inferred as `[String?]` because elements are either strings or nil. Using for case let there will skip the two nil values, and unwrap and print the two strings.
+> In that code the names array will be inferred as `[String?]` because elements are either strings or `nil`. Using for case let there will skip the two nil values, and unwrap and print the two strings.
 
 ## :three: [Challenge](https://www.hackingwithswift.com/guide/8/3/challenge) 
 
