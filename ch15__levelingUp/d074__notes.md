@@ -191,7 +191,7 @@ Ouf, from which period? Cause It's gotten pretty complicated now.
 >
 >  - [x]  Tapping on a note should slide in a detail view controller that contains a full-screen text view. (Project 19)
 >
->  - [ ]  Notes should be loaded and saved using `Codable`. You can use `UserDefaults` if you want, or _write to a file_. (Project 12)
+>  - [x]  Notes should be loaded and saved using `Codable`. You can use `UserDefaults` if you want, or _write to a file_. (Project 12)
 >
 >  - [ ]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
 >
@@ -205,7 +205,7 @@ Will need to do :
   - [x]  create detail view interface
   - [x]  push to detail view interface view table cell select
   - [x]  create data model for user defaults object
-  - [ ]  create UserDefaults writing and reading functions
+  - [x]  create UserDefaults writing and reading functions
   - [ ]  add share action to detail view navigation
   - [ ]  add toolbar items to detail view, delete
     - [ ]  add icon

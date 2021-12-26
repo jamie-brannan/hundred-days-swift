@@ -15,6 +15,7 @@
 		1153268D27763D7400DC5B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1153268B27763D7400DC5B89 /* LaunchScreen.storyboard */; };
 		115326952778748F00DC5B89 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115326942778748F00DC5B89 /* NoteDetailViewController.swift */; };
 		1153269927787D1100DC5B89 /* NotepadNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153269827787D1100DC5B89 /* NotepadNote.swift */; };
+		1153269B277899D200DC5B89 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153269A277899D200DC5B89 /* LocalStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1153268E27763D7400DC5B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115326942778748F00DC5B89 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		1153269827787D1100DC5B89 /* NotepadNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotepadNote.swift; sourceTree = "<group>"; };
+		1153269A277899D200DC5B89 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				1153268B27763D7400DC5B89 /* LaunchScreen.storyboard */,
 				1153268E27763D7400DC5B89 /* Info.plist */,
 				1153269827787D1100DC5B89 /* NotepadNote.swift */,
+				1153269A277899D200DC5B89 /* LocalStorage.swift */,
 			);
 			path = ConsolidationViii;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				1153268527763D7300DC5B89 /* MainTableViewController.swift in Sources */,
 				115326952778748F00DC5B89 /* NoteDetailViewController.swift in Sources */,
 				1153268127763D7300DC5B89 /* AppDelegate.swift in Sources */,
+				1153269B277899D200DC5B89 /* LocalStorage.swift in Sources */,
 				1153269927787D1100DC5B89 /* NotepadNote.swift in Sources */,
 				1153268327763D7300DC5B89 /* SceneDelegate.swift in Sources */,
 			);
