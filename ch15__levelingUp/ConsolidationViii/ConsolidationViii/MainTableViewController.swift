@@ -21,6 +21,25 @@ class MainTableViewController: UITableViewController {
     super.viewDidLoad()
     title = "Notepad"
     navigationController?.navigationBar.prefersLargeTitles = true
+    navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNewNote))
+  }
+
+  // MARK: - Toolbar
+
+  @objc func createNewNote() {
+    print("✍🏻 trying to make a new note")
+    let alertView = UIAlertController(title: "New", message: "Name your new notepage", preferredStyle: .alert)
+    alertView.addTextField()
+    let submitAction = UIAlertAction(title: "Draft", style: .default) { [unowned alertView] _ in
+      let answer = alertView.textFields![0]
+    }
+    alertView.addAction(submitAction)
+    alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    present(alertView, animated: true)
+  }
+
+  @objc func draftNewNoteInDetail() {
+    print("✍🏻 opening new note detail")
   }
 
   // MARK: - Table View
