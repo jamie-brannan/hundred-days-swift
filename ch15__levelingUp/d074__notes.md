@@ -195,7 +195,7 @@ Ouf, from which period? Cause It's gotten pretty complicated now.
 >
 >  - [x]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
 >
->  - [ ]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
+>  - [x]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
 
 This actually overall feels really attainable.
 
@@ -206,7 +206,7 @@ Will need to do :
   - [x]  push to detail view interface view table cell select
   - [x]  create data model for user defaults object
   - [x]  create UserDefaults writing and reading functions
-  - [ ]  add share action to detail view navigation
+  - [x]  add share action to detail view navigation
   - [x]  add toolbar items to detail view, delete
     - [x]  add icon
     - [x]  add action

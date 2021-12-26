@@ -38,8 +38,10 @@ final class NoteDetailViewController: UIViewController, UITextViewDelegate {
 
   // MARK: - Button Actions
 
-  @objc func didTouchShareButton() {
-    print("📤 Share clicked")
+  @objc private func didTouchShareButton() {
+    let fullText = "\(note.title) \n \(textView.text ?? "")"
+    let activitySheet = UIActivityViewController(activityItems: [fullText], applicationActivities: nil)
+    present(activitySheet, animated: true)
   }
 
   // MARK: Toolbar
