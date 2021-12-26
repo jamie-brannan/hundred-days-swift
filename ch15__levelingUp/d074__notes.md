@@ -198,3 +198,18 @@ Ouf, from which period? Cause It's gotten pretty complicated now.
 >  - [ ]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
 
 This actually overall feels really attainable.
+
+Will need to do :
+  - [x]  set new table view and entrypoint
+  - [x]  create first mock data main view with table cell item
+  - [x]  create detail view interface
+  - [x]  push to detail view interface view table cell select
+  - [ ]  create data model for user defaults object
+  - [ ]  create UserDefaults writing and reading functions
+  - [ ]  add share action to detail view navigation
+  - [ ]  add toolbar items to detail view, delete
+    - [ ]  add icon
+    - [ ]  add action
+  - [ ]  add toolbar item to main view, compose
+    - [ ]  add icon
+    - [ ]  add action
