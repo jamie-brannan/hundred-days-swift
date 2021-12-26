@@ -186,15 +186,15 @@ Ouf, from which period? Cause It's gotten pretty complicated now.
 > I suggest you follow the iPhone version, because it’s fairly simple: a navigation controller, a table view controller, and a detail view controller with a full-screen text view.
 > 
 > How much of the app you imitate is down to you, but I suggest you work through this list:
-
-  - [x]  Create a table view controller that lists notes. Place it inside a navigation controller. (Project 1)
-
-  - [ ]  Tapping on a note should slide in a detail view controller that contains a full-screen text view. (Project 19)
-
-  - [ ]  Notes should be loaded and saved using `Codable`. You can use `UserDefaults` if you want, or _write to a file_. (Project 12)
-
-  - [ ]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
-
-  - [ ]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
+>
+>  - [x]  Create a table view controller that lists notes. Place it inside a navigation controller. (Project 1)
+>
+>  - [x]  Tapping on a note should slide in a detail view controller that contains a full-screen text view. (Project 19)
+>
+>  - [ ]  Notes should be loaded and saved using `Codable`. You can use `UserDefaults` if you want, or _write to a file_. (Project 12)
+>
+>  - [ ]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
+>
+>  - [ ]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
 
 This actually overall feels really attainable.

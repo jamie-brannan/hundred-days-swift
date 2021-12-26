@@ -13,6 +13,7 @@
 		1153268827763D7300DC5B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1153268627763D7300DC5B89 /* Main.storyboard */; };
 		1153268A27763D7400DC5B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1153268927763D7400DC5B89 /* Assets.xcassets */; };
 		1153268D27763D7400DC5B89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1153268B27763D7400DC5B89 /* LaunchScreen.storyboard */; };
+		115326952778748F00DC5B89 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115326942778748F00DC5B89 /* NoteDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1153268927763D7400DC5B89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1153268C27763D7400DC5B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1153268E27763D7400DC5B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115326942778748F00DC5B89 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1153268027763D7300DC5B89 /* AppDelegate.swift */,
 				1153268227763D7300DC5B89 /* SceneDelegate.swift */,
 				1153268427763D7300DC5B89 /* MainTableViewController.swift */,
+				115326942778748F00DC5B89 /* NoteDetailViewController.swift */,
 				1153268627763D7300DC5B89 /* Main.storyboard */,
 				1153268927763D7400DC5B89 /* Assets.xcassets */,
 				1153268B27763D7400DC5B89 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1153268527763D7300DC5B89 /* MainTableViewController.swift in Sources */,
+				115326952778748F00DC5B89 /* NoteDetailViewController.swift in Sources */,
 				1153268127763D7300DC5B89 /* AppDelegate.swift in Sources */,
 				1153268327763D7300DC5B89 /* SceneDelegate.swift in Sources */,
 			);

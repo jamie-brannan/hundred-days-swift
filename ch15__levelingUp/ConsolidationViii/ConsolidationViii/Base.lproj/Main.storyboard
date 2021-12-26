@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,8 +71,49 @@
             </objects>
             <point key="canvasLocation" x="-242.0289855072464" y="51.5625"/>
         </scene>
+        <!--Note Detail View Controller-->
+        <scene sceneID="Bxd-bu-qvS">
+            <objects>
+                <viewController storyboardIdentifier="NoteDetailViewController" id="yXp-b0-iWB" customClass="NoteDetailViewController" customModule="ConsolidationViii" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6cY-7O-26a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Ig-n3-CL7">
+                                <rect key="frame" x="32" y="44" width="350" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yXp-b0-iWB" id="LTy-zj-3KO"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YxX-ry-wdT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Ig-n3-CL7" firstAttribute="top" secondItem="YxX-ry-wdT" secondAttribute="top" id="0XC-f3-NA0"/>
+                            <constraint firstItem="0Ig-n3-CL7" firstAttribute="trailing" secondItem="YxX-ry-wdT" secondAttribute="trailing" constant="-32" id="4We-5X-eoz"/>
+                            <constraint firstItem="0Ig-n3-CL7" firstAttribute="centerX" secondItem="6cY-7O-26a" secondAttribute="centerX" id="QNh-Lk-sw6"/>
+                            <constraint firstItem="YxX-ry-wdT" firstAttribute="bottom" secondItem="0Ig-n3-CL7" secondAttribute="bottom" id="RrG-9W-Vre"/>
+                            <constraint firstItem="0Ig-n3-CL7" firstAttribute="leading" secondItem="YxX-ry-wdT" secondAttribute="leading" constant="32" id="vO0-wO-FpN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="0Ig-n3-CL7" id="kWh-wr-w9m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GY1-zL-zVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="52"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

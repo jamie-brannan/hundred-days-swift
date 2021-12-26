@@ -25,5 +25,10 @@ class MainTableViewController: UITableViewController {
     cell.detailTextLabel?.text = "suuuuuuuuuubtitle"
     return cell
   }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let detailView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteDetailViewController")
+    self.navigationController?.pushViewController(detailView, animated: true)
+  }
 }
 
