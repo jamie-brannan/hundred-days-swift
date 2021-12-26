@@ -192,7 +192,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 74 | December 24 | ~ | **Milestone: Projects 19-21** • |
+| Day 74 | December 24, 26 | :star: | **Milestone: Projects 19-21** • This was super satisfying to complete rather painlessly and feel how easily I can make design choices given how much better I understand `UIKit` and Swift today, relaxing on vacation. Definitely a project to return to later and make it shine – already have a running list of features and ideas. |
 
 ### :one: :seven: **Beacons and bombs**
 >These next three projects will start to show you just how much you’re now able to build with iOS – your skills are really starting to flourish!

@@ -12,8 +12,8 @@ final class NoteDetailViewController: UIViewController, UITextViewDelegate {
   // MARK: - Properties
   @IBOutlet var textView: UITextView!
   var isNewNote = true
-  var currentNotepad = LocalStorage.loadNotepadPages()
-  var notepadReferenceIndex: Int? {
+  private var currentNotepad = LocalStorage.loadNotepadPages()
+  private var notepadReferenceIndex: Int? {
     return currentNotepad.firstIndex(where: { $0.title == note.title })
   }
   var note: NotepadNote = NotepadNote(title: "", body: "")
@@ -46,7 +46,7 @@ final class NoteDetailViewController: UIViewController, UITextViewDelegate {
 
   // MARK: Toolbar
 
-  @objc func didTouchTrashIcon() {
+  @objc private func didTouchTrashIcon() {
     guard !isNewNote, let notepadReferenceIndex = currentNotepad.firstIndex(where: { $0.title == note.title }) else {
       self.navigationController?.popToRootViewController(animated: true)
       return
@@ -56,7 +56,7 @@ final class NoteDetailViewController: UIViewController, UITextViewDelegate {
     self.navigationController?.popToRootViewController(animated: true)
   }
 
-  @objc func didTouchSaveButton() {
+  @objc private func didTouchSaveButton() {
     note.body = textView.text
     guard !isNewNote, let originalNoteIndex = notepadReferenceIndex else {
       currentNotepad.append(note)

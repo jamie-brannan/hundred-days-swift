@@ -11,7 +11,7 @@ class MainTableViewController: UITableViewController {
 
   // MARK: - Properties
 
-  var notepad = LocalStorage.loadNotepadPages()
+  private var notepad = LocalStorage.loadNotepadPages()
 
   // MARK: - Lifecycle
 
