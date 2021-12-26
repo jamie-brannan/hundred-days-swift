@@ -204,12 +204,14 @@ Will need to do :
   - [x]  create first mock data main view with table cell item
   - [x]  create detail view interface
   - [x]  push to detail view interface view table cell select
-  - [ ]  create data model for user defaults object
+  - [x]  create data model for user defaults object
   - [ ]  create UserDefaults writing and reading functions
   - [ ]  add share action to detail view navigation
   - [ ]  add toolbar items to detail view, delete
     - [ ]  add icon
     - [ ]  add action
-  - [ ]  add toolbar item to main view, compose
-    - [ ]  add icon
-    - [ ]  add action
+  - [x]  add toolbar item to main view, compose
+    - [x]  add icon
+    - [x]  add actions
+      - [x]  cancel
+      - [x]  draft – push to a new detail with the title set and an empty body by default

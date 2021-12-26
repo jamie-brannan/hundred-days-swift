@@ -10,6 +10,7 @@ import UIKit
 class MainTableViewController: UITableViewController {
 
   // MARK: - Properties
+
   var fakeData = [
     NotepadNote(title: "first", body: "fakenote"),
     NotepadNote(title: "second", body: "fakenote"),
@@ -17,6 +18,7 @@ class MainTableViewController: UITableViewController {
   ]
 
   // MARK: - Lifecycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Notepad"
@@ -28,26 +30,28 @@ class MainTableViewController: UITableViewController {
 
   @objc func createNewNote() {
     print("✍🏻 trying to make a new note")
-    let alertView = UIAlertController(title: "New", message: "Name your new notepage", preferredStyle: .alert)
+    let alertView = UIAlertController(title: "New page", message: "Give your new page a title", preferredStyle: .alert)
     alertView.addTextField()
+    alertView.textFields?.first?.placeholder = "Enter note title here"
     let submitAction = UIAlertAction(title: "Draft", style: .default) { [unowned alertView] _ in
-      let answer = alertView.textFields![0]
+      guard let answer = alertView.textFields?[0].text, answer != "" else { return }
+      let detailView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteDetailViewController") as! NoteDetailViewController
+      detailView.note = NotepadNote(title: answer, body: "")
+      self.navigationController?.pushViewController(detailView, animated: true)
     }
     alertView.addAction(submitAction)
     alertView.addAction(UIAlertAction(title: "Cancel", style: .cancel))
     present(alertView, animated: true)
   }
 
-  @objc func draftNewNoteInDetail() {
-    print("✍🏻 opening new note detail")
-  }
-
   // MARK: - Table View
+
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return fakeData.count
   }
 
   // MARK: Table Cell Management
+
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let data = fakeData[indexPath.row]
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "note")
@@ -64,7 +68,8 @@ class MainTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let detailView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteDetailViewController")
+    guard let detailView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NoteDetailViewController") as? NoteDetailViewController else { return }
+    detailView.note = fakeData[indexPath.row]
     self.navigationController?.pushViewController(detailView, animated: true)
   }
 }
