@@ -193,7 +193,7 @@ Ouf, from which period? Cause It's gotten pretty complicated now.
 >
 >  - [x]  Notes should be loaded and saved using `Codable`. You can use `UserDefaults` if you want, or _write to a file_. (Project 12)
 >
->  - [ ]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
+>  - [x]  Add some _toolbar items_ to the detail view controller – **“delete”** and **“compose”** seem like good choices. (Project 4)
 >
 >  - [ ]  Add an **action button** to the navigation bar in the _detail view controller_ that shares the text using `UIActivityViewController`. (Project 3)
 
@@ -207,11 +207,17 @@ Will need to do :
   - [x]  create data model for user defaults object
   - [x]  create UserDefaults writing and reading functions
   - [ ]  add share action to detail view navigation
-  - [ ]  add toolbar items to detail view, delete
-    - [ ]  add icon
-    - [ ]  add action
+  - [x]  add toolbar items to detail view, delete
+    - [x]  add icon
+    - [x]  add action
   - [x]  add toolbar item to main view, compose
     - [x]  add icon
     - [x]  add actions
       - [x]  cancel
       - [x]  draft – push to a new detail with the title set and an empty body by default
+  - [ ]  add autosave on return to main menu without hitting save button
+  - [ ]  add swipe to delete on tableview cells
+  - [ ]  clean code, create smaller functions where possible
+    - [ ]  within lifecycle functions
+    - [ ]  identify steps action functions that can be externalised
+  - [ ]  add alert controlers with user-friendly error messages
