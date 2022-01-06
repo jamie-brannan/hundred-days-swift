@@ -199,7 +199,7 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 75 | January 6 | ~ | **Projects 22, part i** • |
+| Day 75 | January 6 | :white_check_mark: | **Projects 22, part i** • Neat, I understood this existed but I didn't know this was a specific protocol |
 | Day 76 | January ~ | ~ | **Projects 22, part ii** • |
 | Day 77 | January ~ | ~ | **Projects 23, part i** • |
 | Day 78 | January ~ | ~ | **Projects 23, part ii** • |
