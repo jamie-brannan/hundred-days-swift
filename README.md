@@ -199,13 +199,13 @@ Days organized by folders containing
 
 | Challenge day | Calendar day | Within goaltime?| What was new? |
 |---|---|---|---|
-| Day 75 | December ~ | ~ | **Projects 22, part i** • |
-| Day 76 | December ~ | ~ | **Projects 22, part ii** • |
-| Day 77 | December ~ | ~ | **Projects 23, part i** • |
-| Day 78 | December ~ | ~ | **Projects 23, part ii** • |
-| Day 79 | December ~ | ~ | **Projects 23, part iii** • |
-| Day 80 | December ~ | ~ | **Projects 24, part i** • |
-| Day 81 | December ~ | ~ | **Projects 24, part ii** • |
+| Day 75 | January 6 | :white_check_mark: | **Projects 22, part i** • Neat, I understood this existed but I didn't know this was a specific protocol |
+| Day 76 | January ~ | ~ | **Projects 22, part ii** • |
+| Day 77 | January ~ | ~ | **Projects 23, part i** • |
+| Day 78 | January ~ | ~ | **Projects 23, part ii** • |
+| Day 79 | January ~ | ~ | **Projects 23, part iii** • |
+| Day 80 | January ~ | ~ | **Projects 24, part i** • |
+| Day 81 | January ~ | ~ | **Projects 24, part ii** • |
 
 ### :one: :eight: **Consolidation IX**
 >Your head is probably spinning with Bezier paths and iBeacons, so before we continue on with more learning it’s important to take a day to pause and reflect on what has been covered.
