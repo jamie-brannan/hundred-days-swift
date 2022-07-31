@@ -9,22 +9,25 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-  
+
   //  MARK: Properties
+
   var gameScore: SKLabelNode!
   var score = 0 {
     didSet {
       gameScore.text = "Score: \(score)"
     }
   }
-  
+
   var livesImages = [SKSpriteNode]()
   var lives = 3
-  
+
   var activeSliceBG: SKShapeNode!
   var activeSliceFG: SKShapeNode!
   var activeSlicePoints = [CGPoint]()
-  
+
+  var isSwooshSoundActive = false
+
   //  MARK: HUD
   
   func createScore() {
@@ -93,7 +96,20 @@ class GameScene: SKScene {
     activeSliceBG.path = path.cgPath
     activeSliceFG.path = path.cgPath
   }
-  
+
+  func playSwooshSound() {
+      isSwooshSoundActive = true
+
+      let randomNumber = Int.random(in: 1...3)
+      let soundName = "swoosh\(randomNumber).caf"
+
+      let swooshSound = SKAction.playSoundFileNamed(soundName, waitForCompletion: true)
+
+      run(swooshSound) { [weak self] in
+          self?.isSwooshSoundActive = false
+      }
+  }
+
   override func didMove(to view: SKView) {
     let background = SKSpriteNode(imageNamed: "sliceBackground")
     background.position = CGPoint(x: 512, y: 384)
@@ -114,6 +130,9 @@ class GameScene: SKScene {
     let location = touch.location(in: self)
     activeSlicePoints.append(location)
     redrawActiveSlice()
+    if !isSwooshSoundActive {
+        playSwooshSound()
+    }
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
