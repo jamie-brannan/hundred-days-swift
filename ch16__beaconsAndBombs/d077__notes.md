@@ -36,6 +36,8 @@ No kidding!
 > 
 > Reminder: Don’t forget to use a real device for this project, or, if you must, the lowest-spec iPad in the simulator.
 
+:white_check_mark:  all done!
+
 ## :two: [Basics quick start: `SKShapeNode`](https://www.hackingwithswift.com/read/23/2/basics-quick-start-skshapenode) 
 
 > The only way we can get through this project with our sanity intact is by whizzing through the things you know already so I can spend more time focusing on the new bits. So, be prepared for abrupt changes of pace: fast, slow, fast, slow, as appropriate.
@@ -58,7 +60,9 @@ createSlices()
 ```
 
 > The last three are all methods we'll create in a moment, but first there are two new lines in there. The default gravity of our physics world is -0.98, which is roughly equivalent to Earth's gravity. I'm using a slightly lower value so that items stay up in the air a bit longer.
-> 
+
+Interesting, `-0.98` is a unit of what?
+
 > I'm also telling the physics world to adjust its speed downwards, which causes all movement to happen at a slightly slower rate.
 > 
 > The first two new methods are easy and require little explanation, but you will need to add some properties to the `GameScene` class to support them:
@@ -114,7 +118,7 @@ var activeSliceBG: SKShapeNode!
 var activeSliceFG: SKShapeNode!
 ```
 
-> And here's the code for the createSlices() method:
+> And here's the code for the `createSlices()` method:
 
 ```swift
 func createSlices() {
@@ -137,9 +141,11 @@ func createSlices() {
 
 > Note that the background slice has a thicker line width than the foreground, and has a higher Z position than the background slice. I'm using Z positions 2 and 3 for the slice shapes, because I'll be using Z position 1 for bombs and Z position 0 for everything else – this ensures the slice shapes are on top, then bombs, then everything else.
 
+Builds an empty x at the center.
+
 ## :three: [Shaping up for action `CGPath` and `UIBezierPath`](https://www.hackingwithswift.com/read/23/3/shaping-up-for-action-cgpath-and-uibezierpath) 
 
-> Like I already explained, we're going to keep an array of the user's swipe points so that we can draw a shape resembling their slicing. To make this work, we're going to need four new methods, two of which you've met already. They are: touchesBegan(), touchesMoved(), touchesEnded() and redrawActiveSlice(). You already know how touchesBegan() and touchesMoved() works, and the other "touches" methods all work the same way.
+> Like I already explained, we're going to keep an array of the user's swipe points so that we can draw a shape resembling their slicing. To make this work, we're going to need four new methods, two of which you've met already. They are: `touchesBegan()`, `touchesMoved()`, `touchesEnded()` and `redrawActiveSlice()`. You already know how `touchesBegan()` and `touchesMoved()` works, and the other "touches" methods all work the same way.
 > 
 > First things first: add this new property to your class so that we can store swipe points:
 
@@ -208,9 +214,9 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 }
 ```
 
-> So, there's some challenge there but not a whole lot. Where it gets interesting is the redrawActiveSlice() method, because this is going to use a UIBezierPath that will be used to connect our swipe points together into a single line.
+> So, there's some challenge there but not a whole lot. Where it gets interesting is the `redrawActiveSlice()` method, because this is going to use a `UIBezierPath` that will be used to connect our swipe points together into a single line.
 > 
-> As with the previous method, let's take a look at what redrawActiveSlice() needs to do:
+> As with the previous method, let's take a look at what `redrawActiveSlice()` needs to do:
 >
 > * If we have fewer than two points in our array, we don't have enough data to draw a line so it needs to clear the shapes and exit the method.
 >
@@ -220,9 +226,9 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 >
 > * Finally, it needs to update the slice shape paths so they get drawn using their designs – i.e., line width and color.
 > 
-> To make this work, you're going to need to know that an SKShapeNode object has a property called path which describes the shape we want to draw. When it's nil, there's nothing to draw; when it's set to a valid path, that gets drawn with the SKShapeNode's settings. SKShapeNode expects you to use a data type called CGPath, but we can easily create that from a UIBezierPath.
+> To make this work, you're going to need to know that an SKShapeNode object has a property called path which describes the shape we want to draw. When it's nil, there's nothing to draw; when it's set to a valid path, that gets drawn with the SKShapeNode's settings. SKShapeNode expects you to use a data type called CGPath, but we can easily create that from a `UIBezierPath`.
 > 
-> Drawing a complex path using UIBezierPath is a cinch: we'll use its move(to:) method to position the start of our lines, then loop through our activeSlicePoints array and call the path's addLine(to:) method for each point.
+> Drawing a complex path using `UIBezierPath` is a cinch: we'll use its move(to:) method to position the start of our lines, then loop through our activeSlicePoints array and call the path's addLine(to:) method for each point.
 > 
 > To stop the array storing more than 12 slice points, we’re going new method called removeFirst(), which lets us remove a certain number of items from the start of an array. In this case we know we want at most 12, so we can subtract 12 from our current count to see how many excess we have, and pass that to removeFirst().
 > 
@@ -256,7 +262,9 @@ func redrawActiveSlice() {
 ```
 
 > At this point, we have something you can run: press Cmd+R to run the game, then tap and swipe around on the screen to see the slice effect – I think you'll agree that SKShapeNode is pretty powerful!
-> 
+
+:tada: woo hoo! Cool! This is fun.
+
 > Before we're done with the slice effect, we're going to add one more thing: a "swoosh" sound that plays as you swipe around. You've already seen the playSoundFileNamed() method of SKAction, but we're going to use it a little differently here.
 > 
 > You see, if we just played a swoosh every time the player moved, there would be 100 sounds playing at any given time – one for every small movement they made. Instead, we want only one swoosh to play at once, so we're going to set to true a property called isSwooshSoundActive, make the waitForCompletion of our SKAction true, then use a completion closure for runAction() so that isSwooshSoundActive is set to false.
