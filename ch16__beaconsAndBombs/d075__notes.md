@@ -68,7 +68,7 @@ I didn't realise this, I wonder if it's still the case and if this is EU specifi
 import CoreLocation
 ```
 
-Now add this property to your class:
+> Now add this property to your class:
 
 ```swift
 var locationManager: CLLocationManager?
@@ -128,7 +128,7 @@ func locationManager(_ manager: CLLocationManager, didChangeAuthorization status
 > 
 > But that prompt is not the only way iOS helps users guard their privacy. If you went for "when in use", you'll still get location information while your app is in the background if you enable the background capability, and iOS will notify users that this is happening by making the device status bar blue and saying "YourAppName is using your location." If you went for "always", iOS will wait a few days then ask the user if they still want to grant permission, just to be fully sure.
 > 
-> Assuming everything went well, let's take a look at how we actually range beacons. First, we use a new class called CLBeaconRegion, which is used to identify a beacon uniquely. Second, we give that to our CLLocationManager object by calling its startMonitoring(for:) and startRangingBeacons(in:) methods. Once that's done, we sit and wait. As soon as iOS has anything tell us, it will do so.
+> Assuming everything went well, let's take a look at how we actually range beacons. First, we use a new class called `CLBeaconRegion`, which is used to identify a beacon uniquely. Second, we give that to our `CLLocationManager` object by calling its `startMonitoring(for:)` and `startRangingBeacons(in:)` methods. Once that's done, we sit and wait. As soon as iOS has anything tell us, it will do so.
 > 
 > iBeacons are identified using three pieces of information: a universally unique identifier (UUID), plus a major number and a minor number. The first number is a long hexadecimal string that you can create by running the uuidgen in your Mac's terminal. It should identify you or your store chain uniquely.
 > 
