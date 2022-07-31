@@ -15,6 +15,16 @@
 		115F7BE828970DF6005E91E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BE628970DF6005E91E8 /* Main.storyboard */; };
 		115F7BEA28970DF9005E91E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BE928970DF9005E91E8 /* Assets.xcassets */; };
 		115F7BED28970DF9005E91E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BEB28970DF9005E91E8 /* LaunchScreen.storyboard */; };
+		115F7BFD28971C72005E91E8 /* sliceFuse.sks in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF328971C71005E91E8 /* sliceFuse.sks */; };
+		115F7BFE28971C72005E91E8 /* sliceBombFuse.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF428971C72005E91E8 /* sliceBombFuse.caf */; };
+		115F7BFF28971C72005E91E8 /* sliceHitEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF528971C72005E91E8 /* sliceHitEnemy.sks */; };
+		115F7C0028971C72005E91E8 /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF628971C72005E91E8 /* swoosh1.caf */; };
+		115F7C0128971C72005E91E8 /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF728971C72005E91E8 /* swoosh2.caf */; };
+		115F7C0228971C72005E91E8 /* swoosh3.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF828971C72005E91E8 /* swoosh3.caf */; };
+		115F7C0328971C72005E91E8 /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BF928971C72005E91E8 /* wrong.caf */; };
+		115F7C0428971C72005E91E8 /* launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BFA28971C72005E91E8 /* launch.caf */; };
+		115F7C0528971C72005E91E8 /* sliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BFB28971C72005E91E8 /* sliceHitBomb.sks */; };
+		115F7C0628971C72005E91E8 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 115F7BFC28971C72005E91E8 /* whack.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +37,17 @@
 		115F7BE728970DF6005E91E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		115F7BE928970DF9005E91E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		115F7BEC28970DF9005E91E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		115F7BF328971C71005E91E8 /* sliceFuse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceFuse.sks; sourceTree = "<group>"; };
+		115F7BF428971C72005E91E8 /* sliceBombFuse.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sliceBombFuse.caf; sourceTree = "<group>"; };
+		115F7BF528971C72005E91E8 /* sliceHitEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitEnemy.sks; sourceTree = "<group>"; };
+		115F7BF628971C72005E91E8 /* swoosh1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh1.caf; sourceTree = "<group>"; };
+		115F7BF728971C72005E91E8 /* swoosh2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh2.caf; sourceTree = "<group>"; };
+		115F7BF828971C72005E91E8 /* swoosh3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = swoosh3.caf; sourceTree = "<group>"; };
+		115F7BF928971C72005E91E8 /* wrong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wrong.caf; sourceTree = "<group>"; };
+		115F7BFA28971C72005E91E8 /* launch.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = launch.caf; sourceTree = "<group>"; };
+		115F7BFB28971C72005E91E8 /* sliceHitBomb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = sliceHitBomb.sks; sourceTree = "<group>"; };
+		115F7BFC28971C72005E91E8 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		115F7C0728971C7A005E91E8 /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +88,17 @@
 				115F7BE628970DF6005E91E8 /* Main.storyboard */,
 				115F7BE928970DF9005E91E8 /* Assets.xcassets */,
 				115F7BEB28970DF9005E91E8 /* LaunchScreen.storyboard */,
+				115F7BFA28971C72005E91E8 /* launch.caf */,
+				115F7BF428971C72005E91E8 /* sliceBombFuse.caf */,
+				115F7BF328971C71005E91E8 /* sliceFuse.sks */,
+				115F7BFB28971C72005E91E8 /* sliceHitBomb.sks */,
+				115F7BF528971C72005E91E8 /* sliceHitEnemy.sks */,
+				115F7BF628971C72005E91E8 /* swoosh1.caf */,
+				115F7BF728971C72005E91E8 /* swoosh2.caf */,
+				115F7BF828971C72005E91E8 /* swoosh3.caf */,
+				115F7BFC28971C72005E91E8 /* whack.caf */,
+				115F7BF928971C72005E91E8 /* wrong.caf */,
+				115F7C0728971C7A005E91E8 /* explosion.caf */,
 			);
 			path = Project23;
 			sourceTree = "<group>";
@@ -129,11 +161,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115F7C0228971C72005E91E8 /* swoosh3.caf in Resources */,
+				115F7C0428971C72005E91E8 /* launch.caf in Resources */,
+				115F7C0128971C72005E91E8 /* swoosh2.caf in Resources */,
 				115F7BE828970DF6005E91E8 /* Main.storyboard in Resources */,
+				115F7C0528971C72005E91E8 /* sliceHitBomb.sks in Resources */,
 				115F7BDF28970DF6005E91E8 /* GameScene.sks in Resources */,
 				115F7BEA28970DF9005E91E8 /* Assets.xcassets in Resources */,
+				115F7BFF28971C72005E91E8 /* sliceHitEnemy.sks in Resources */,
 				115F7BED28970DF9005E91E8 /* LaunchScreen.storyboard in Resources */,
 				115F7BE128970DF6005E91E8 /* Actions.sks in Resources */,
+				115F7BFE28971C72005E91E8 /* sliceBombFuse.caf in Resources */,
+				115F7C0628971C72005E91E8 /* whack.caf in Resources */,
+				115F7BFD28971C72005E91E8 /* sliceFuse.sks in Resources */,
+				115F7C0328971C72005E91E8 /* wrong.caf in Resources */,
+				115F7C0028971C72005E91E8 /* swoosh1.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
